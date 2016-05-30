@@ -1,0 +1,13 @@
+C:\Users\Administrador\Downloads\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Administrador\Downloads\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Administrador\Downloads\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Administrador\Downloads\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.csprojResolveAssemblyReference.cache
+C:\Users\Administrador\Downloads\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.FormularioLogin.resources
+C:\Users\Administrador\Downloads\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.FormularioInicio.resources
+C:\Users\Administrador\Downloads\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Properties.Resources.resources
+C:\Users\Administrador\Downloads\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.csproj.GenerateResource.Cache
+C:\Users\Administrador\Downloads\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Administrador\Downloads\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Administrador\Downloads\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Rol.ABMrol.resources
+C:\Users\Administrador\Downloads\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Rol.CrearModificarRol.resources
+C:\Users\Administrador\Downloads\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.ElegirRol.resources
