@@ -17,19 +17,30 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             InitializeComponent();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void ElegirRol_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonElegirRol_Click(object sender, EventArgs e)
+        {
+            switch (comboBoxElegirRol.SelectedIndex ) {
+                case 0:
+                     FormularioCliente accionesCliente = new FormularioCliente();
+            accionesCliente.ShowDialog();
+                    break;
+                case 1:
+                    FormularioAdministrador accionesAdministrador = new FormularioAdministrador();
+                    accionesAdministrador.ShowDialog();
+                    break;
+
+        }
+           
         }
     }
 }

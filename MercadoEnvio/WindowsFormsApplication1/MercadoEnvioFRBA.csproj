@@ -64,11 +64,29 @@
     <Compile Include="ABM Rubro\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM Usuario\BuscadorUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\BuscadorUsuario.Designer.cs">
+      <DependentUpon>BuscadorUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Usuario\ElegirRol.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ABM Usuario\ElegirRol.Designer.cs">
       <DependentUpon>ElegirRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\FormularioAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\FormularioAdministrador.Designer.cs">
+      <DependentUpon>FormularioAdministrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\FormularioCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\FormularioCliente.Designer.cs">
+      <DependentUpon>FormularioCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Usuario\FormularioLogin.cs">
       <SubType>Form</SubType>
@@ -133,8 +151,17 @@
     <EmbeddedResource Include="ABM Rol\CrearModificarRol.resx">
       <DependentUpon>CrearModificarRol.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\BuscadorUsuario.resx">
+      <DependentUpon>BuscadorUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABM Usuario\ElegirRol.resx">
       <DependentUpon>ElegirRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\FormularioAdministrador.resx">
+      <DependentUpon>FormularioAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\FormularioCliente.resx">
+      <DependentUpon>FormularioCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Usuario\FormularioLogin.resx">
       <DependentUpon>FormularioLogin.cs</DependentUpon>
@@ -168,6 +195,9 @@
   <ItemGroup>
     <Folder Include="ConexionBaseDeDatos\DAO\" />
     <Folder Include="ConexionBaseDeDatos\Dominio\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

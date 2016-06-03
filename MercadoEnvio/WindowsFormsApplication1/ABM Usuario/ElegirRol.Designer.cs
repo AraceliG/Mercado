@@ -28,57 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.labelElegirRol = new System.Windows.Forms.Label();
+            this.comboBoxElegirRol = new System.Windows.Forms.ComboBox();
+            this.buttonElegirRol = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // labelElegirRol
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(36, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(207, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Debe elegir un rol:";
+            this.labelElegirRol.AutoSize = true;
+            this.labelElegirRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelElegirRol.Location = new System.Drawing.Point(31, 38);
+            this.labelElegirRol.Name = "labelElegirRol";
+            this.labelElegirRol.Size = new System.Drawing.Size(139, 31);
+            this.labelElegirRol.TabIndex = 0;
+            this.labelElegirRol.Text = "Elegir Rol:";
             // 
-            // comboBox1
+            // comboBoxElegirRol
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Administrador",
-            "Cliente"});
-            this.comboBox1.Location = new System.Drawing.Point(41, 79);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(162, 21);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxElegirRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxElegirRol.FormattingEnabled = true;
+            this.comboBoxElegirRol.Items.AddRange(new object[] {
+            "Cliente",
+            "Administrador"});
+            this.comboBoxElegirRol.Location = new System.Drawing.Point(196, 48);
+            this.comboBoxElegirRol.Name = "comboBoxElegirRol";
+            this.comboBoxElegirRol.Size = new System.Drawing.Size(186, 21);
+            this.comboBoxElegirRol.TabIndex = 1;
+            this.comboBoxElegirRol.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // button1
+            // buttonElegirRol
             // 
-            this.button1.BackColor = System.Drawing.Color.Gainsboro;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(77, 150);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 31);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Ok";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonElegirRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonElegirRol.Location = new System.Drawing.Point(125, 110);
+            this.buttonElegirRol.Name = "buttonElegirRol";
+            this.buttonElegirRol.Size = new System.Drawing.Size(168, 65);
+            this.buttonElegirRol.TabIndex = 2;
+            this.buttonElegirRol.Text = "Elegir";
+            this.buttonElegirRol.UseVisualStyleBackColor = true;
+            this.buttonElegirRol.Click += new System.EventHandler(this.buttonElegirRol_Click);
             // 
             // ElegirRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(430, 228);
+            this.Controls.Add(this.buttonElegirRol);
+            this.Controls.Add(this.comboBoxElegirRol);
+            this.Controls.Add(this.labelElegirRol);
             this.Name = "ElegirRol";
-            this.Text = "ElegirRol";
+            this.Text = "Elegir Rol";
             this.Load += new System.EventHandler(this.ElegirRol_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -87,8 +85,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelElegirRol;
+        private System.Windows.Forms.ComboBox comboBoxElegirRol;
+        private System.Windows.Forms.Button buttonElegirRol;
     }
 }
