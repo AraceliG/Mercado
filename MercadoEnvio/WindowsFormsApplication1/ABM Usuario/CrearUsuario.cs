@@ -16,5 +16,30 @@ namespace MercadoEnvioFRBA.ABM_Usuario
         {
             InitializeComponent();
         }
+
+        private void CrearUsuario_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_usuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_nro_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
