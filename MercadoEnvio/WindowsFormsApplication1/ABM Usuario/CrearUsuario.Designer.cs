@@ -75,6 +75,7 @@
             this.errorProvider_psw = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider_localidad = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider_tipo_documento = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_tel = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_fecha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_ape)).BeginInit();
@@ -86,6 +87,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_localidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_tipo_documento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_tel)).BeginInit();
             this.SuspendLayout();
             // 
             // label12
@@ -105,6 +107,7 @@
             this.textBox_nroDoc.Name = "textBox_nroDoc";
             this.textBox_nroDoc.Size = new System.Drawing.Size(165, 24);
             this.textBox_nroDoc.TabIndex = 53;
+            this.textBox_nroDoc.TextChanged += new System.EventHandler(this.textBox_nroDoc_TextChanged);
             // 
             // label1
             // 
@@ -125,6 +128,7 @@
             this.comboBox_tipoDoc.Name = "comboBox_tipoDoc";
             this.comboBox_tipoDoc.Size = new System.Drawing.Size(165, 26);
             this.comboBox_tipoDoc.TabIndex = 55;
+            this.comboBox_tipoDoc.SelectedIndexChanged += new System.EventHandler(this.comboBox_tipoDoc_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -143,6 +147,7 @@
             this.textBox_nombre.Name = "textBox_nombre";
             this.textBox_nombre.Size = new System.Drawing.Size(165, 24);
             this.textBox_nombre.TabIndex = 57;
+            this.textBox_nombre.TextChanged += new System.EventHandler(this.textBox_nombre_TextChanged);
             // 
             // label4
             // 
@@ -161,6 +166,7 @@
             this.textBox_apellido.Name = "textBox_apellido";
             this.textBox_apellido.Size = new System.Drawing.Size(165, 24);
             this.textBox_apellido.TabIndex = 59;
+            this.textBox_apellido.TextChanged += new System.EventHandler(this.textBox_apellido_TextChanged);
             // 
             // label7
             // 
@@ -181,6 +187,7 @@
             this.textBox_fecha.ReadOnly = true;
             this.textBox_fecha.Size = new System.Drawing.Size(165, 24);
             this.textBox_fecha.TabIndex = 61;
+            this.textBox_fecha.TextChanged += new System.EventHandler(this.textBox_fecha_TextChanged);
             // 
             // button_fecha
             // 
@@ -208,6 +215,7 @@
             this.textBox_mail.Name = "textBox_mail";
             this.textBox_mail.Size = new System.Drawing.Size(165, 24);
             this.textBox_mail.TabIndex = 64;
+            this.textBox_mail.TextChanged += new System.EventHandler(this.textBox_mail_TextChanged);
             // 
             // label2
             // 
@@ -226,6 +234,7 @@
             this.text_telefono.Name = "text_telefono";
             this.text_telefono.Size = new System.Drawing.Size(165, 20);
             this.text_telefono.TabIndex = 66;
+            this.text_telefono.TextChanged += new System.EventHandler(this.text_telefono_TextChanged);
             // 
             // label8
             // 
@@ -244,6 +253,7 @@
             this.textBox_calle.Name = "textBox_calle";
             this.textBox_calle.Size = new System.Drawing.Size(165, 24);
             this.textBox_calle.TabIndex = 68;
+            this.textBox_calle.TextChanged += new System.EventHandler(this.textBox_calle_TextChanged);
             // 
             // label9
             // 
@@ -346,6 +356,7 @@
             this.textBox_psw.Size = new System.Drawing.Size(165, 24);
             this.textBox_psw.TabIndex = 79;
             this.textBox_psw.UseSystemPasswordChar = true;
+            this.textBox_psw.TextChanged += new System.EventHandler(this.textBox_psw_TextChanged);
             // 
             // label16
             // 
@@ -364,6 +375,7 @@
             this.textBox_localidad.Name = "textBox_localidad";
             this.textBox_localidad.Size = new System.Drawing.Size(165, 24);
             this.textBox_localidad.TabIndex = 81;
+            this.textBox_localidad.TextChanged += new System.EventHandler(this.textBox_localidad_TextChanged);
             // 
             // label14
             // 
@@ -382,6 +394,7 @@
             this.textBox_cod_postal.Name = "textBox_cod_postal";
             this.textBox_cod_postal.Size = new System.Drawing.Size(165, 24);
             this.textBox_cod_postal.TabIndex = 83;
+            this.textBox_cod_postal.TextChanged += new System.EventHandler(this.textBox_cod_postal_TextChanged);
             // 
             // label15
             // 
@@ -457,6 +470,10 @@
             // 
             this.errorProvider_tipo_documento.ContainerControl = this;
             // 
+            // errorProvider_tel
+            // 
+            this.errorProvider_tel.ContainerControl = this;
+            // 
             // CrearUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -511,6 +528,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_localidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_tipo_documento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_tel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -564,5 +582,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider_psw;
         private System.Windows.Forms.ErrorProvider errorProvider_localidad;
         private System.Windows.Forms.ErrorProvider errorProvider_tipo_documento;
+        private System.Windows.Forms.ErrorProvider errorProvider_tel;
     }
 }
