@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox_nroDoc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -63,6 +64,28 @@
             this.label15 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.errorProvider_fecha = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_nombre = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_ape = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_mail = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_calle = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_nro = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_usuario = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_nroDoc = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_psw = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_localidad = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_tipo_documento = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_fecha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nombre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_ape)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_mail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_calle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_usuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nroDoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_localidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_tipo_documento)).BeginInit();
             this.SuspendLayout();
             // 
             // label12
@@ -390,6 +413,50 @@
             this.button1.Text = "Seleccionar";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // errorProvider_fecha
+            // 
+            this.errorProvider_fecha.ContainerControl = this;
+            // 
+            // errorProvider_nombre
+            // 
+            this.errorProvider_nombre.ContainerControl = this;
+            // 
+            // errorProvider_ape
+            // 
+            this.errorProvider_ape.ContainerControl = this;
+            // 
+            // errorProvider_mail
+            // 
+            this.errorProvider_mail.ContainerControl = this;
+            // 
+            // errorProvider_calle
+            // 
+            this.errorProvider_calle.ContainerControl = this;
+            // 
+            // errorProvider_nro
+            // 
+            this.errorProvider_nro.ContainerControl = this;
+            // 
+            // errorProvider_usuario
+            // 
+            this.errorProvider_usuario.ContainerControl = this;
+            // 
+            // errorProvider_nroDoc
+            // 
+            this.errorProvider_nroDoc.ContainerControl = this;
+            // 
+            // errorProvider_psw
+            // 
+            this.errorProvider_psw.ContainerControl = this;
+            // 
+            // errorProvider_localidad
+            // 
+            this.errorProvider_localidad.ContainerControl = this;
+            // 
+            // errorProvider_tipo_documento
+            // 
+            this.errorProvider_tipo_documento.ContainerControl = this;
+            // 
             // CrearUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -433,6 +500,17 @@
             this.Name = "CrearUsuario";
             this.Text = "CrearUsuario";
             this.Load += new System.EventHandler(this.CrearUsuario_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_fecha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nombre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_ape)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_mail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_calle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_usuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nroDoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_localidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_tipo_documento)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -475,5 +553,16 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ErrorProvider errorProvider_fecha;
+        private System.Windows.Forms.ErrorProvider errorProvider_nombre;
+        private System.Windows.Forms.ErrorProvider errorProvider_ape;
+        private System.Windows.Forms.ErrorProvider errorProvider_mail;
+        private System.Windows.Forms.ErrorProvider errorProvider_calle;
+        private System.Windows.Forms.ErrorProvider errorProvider_nro;
+        private System.Windows.Forms.ErrorProvider errorProvider_usuario;
+        private System.Windows.Forms.ErrorProvider errorProvider_nroDoc;
+        private System.Windows.Forms.ErrorProvider errorProvider_psw;
+        private System.Windows.Forms.ErrorProvider errorProvider_localidad;
+        private System.Windows.Forms.ErrorProvider errorProvider_tipo_documento;
     }
 }
