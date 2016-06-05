@@ -36,6 +36,8 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,11 +66,17 @@
     <Compile Include="ABM Rubro\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Usuario\BuscadorUsuario.cs">
+    <Compile Include="ABM Usuario\Calendario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Usuario\BuscadorUsuario.Designer.cs">
-      <DependentUpon>BuscadorUsuario.cs</DependentUpon>
+    <Compile Include="ABM Usuario\Calendario.Designer.cs">
+      <DependentUpon>Calendario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\CrearUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\CrearUsuario.Designer.cs">
+      <DependentUpon>CrearUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Usuario\ElegirRol.cs">
       <SubType>Form</SubType>
@@ -151,8 +159,11 @@
     <EmbeddedResource Include="ABM Rol\CrearModificarRol.resx">
       <DependentUpon>CrearModificarRol.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM Usuario\BuscadorUsuario.resx">
-      <DependentUpon>BuscadorUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="ABM Usuario\Calendario.resx">
+      <DependentUpon>Calendario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\CrearUsuario.resx">
+      <DependentUpon>CrearUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Usuario\ElegirRol.resx">
       <DependentUpon>ElegirRol.cs</DependentUpon>
