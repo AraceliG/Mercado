@@ -74,7 +74,6 @@
             this.errorProvider_nroDoc = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider_psw = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider_localidad = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider_tipo_documento = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider_tel = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_fecha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nombre)).BeginInit();
@@ -86,7 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nroDoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_localidad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_tipo_documento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_tel)).BeginInit();
             this.SuspendLayout();
             // 
@@ -318,6 +316,7 @@
             this.button_guardar.TabIndex = 75;
             this.button_guardar.Text = "Guardar";
             this.button_guardar.UseVisualStyleBackColor = true;
+            this.button_guardar.Click += new System.EventHandler(this.button_guardar_Click);
             // 
             // label6
             // 
@@ -466,10 +465,6 @@
             // 
             this.errorProvider_localidad.ContainerControl = this;
             // 
-            // errorProvider_tipo_documento
-            // 
-            this.errorProvider_tipo_documento.ContainerControl = this;
-            // 
             // errorProvider_tel
             // 
             this.errorProvider_tel.ContainerControl = this;
@@ -527,7 +522,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nroDoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_localidad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_tipo_documento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_tel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -581,7 +575,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider_nroDoc;
         private System.Windows.Forms.ErrorProvider errorProvider_psw;
         private System.Windows.Forms.ErrorProvider errorProvider_localidad;
-        private System.Windows.Forms.ErrorProvider errorProvider_tipo_documento;
         private System.Windows.Forms.ErrorProvider errorProvider_tel;
     }
 }

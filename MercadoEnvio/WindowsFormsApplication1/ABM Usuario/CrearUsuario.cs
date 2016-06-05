@@ -49,7 +49,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
         private void comboBox_tipoDoc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            errorProvider_tipo_documento.Clear();
+          
         }
 
         private void textBox_nombre_TextChanged(object sender, EventArgs e)
@@ -95,6 +95,79 @@ namespace MercadoEnvioFRBA.ABM_Usuario
         private void textBox_localidad_TextChanged(object sender, EventArgs e)
         {
             errorProvider_localidad.Clear();
+        }
+
+        private void button_guardar_Click(object sender, EventArgs e)
+        {
+            bool vacio = false;
+
+            if (textBox_usuario.Text == "")
+            {
+                errorProvider_usuario.SetError(textBox_usuario, "Por favor ingrese el nombre de usuario.");
+                vacio = true;
+            }
+
+            if (textBox_psw.Text == "")
+            {
+                errorProvider_psw.SetError(textBox_psw, "Por favor ingrese la contraseña.");
+                vacio = true;
+            }
+
+            if (textBox_nroDoc.Text == "")
+            {
+                errorProvider_nroDoc.SetError(textBox_nroDoc, "Por favor ingrese el numero de documento.");
+                vacio = true;
+            }
+
+            if (textBox_nombre.Text == "")
+            {
+                errorProvider_nombre.SetError(textBox_nombre, "Por favor ingrese el nombre.");
+                vacio = true;
+            }
+
+            if (textBox_apellido.Text == "")
+            {
+                errorProvider_ape.SetError(textBox_apellido, "Por favor ingrese el apellido.");
+                vacio = true;
+            }
+
+            if (textBox_mail.Text == "")
+            {
+                errorProvider_mail.SetError(textBox_mail, "Por favor ingrese el mail.");
+                vacio = true;
+            }
+
+            if (textBox_localidad.Text == "")
+            {
+                errorProvider_localidad.SetError(textBox_localidad, "Por favor ingrese la localidad.");
+                vacio = true;
+            }
+
+            if (textBox_calle.Text == "")
+            {
+                errorProvider_calle.SetError(textBox_calle, "Por favor ingrese la calle.");
+                vacio = true;
+            }
+
+            if (textBox_nro.Text == "")
+            {
+                errorProvider_nro.SetError(textBox_nro, "Por favor ingrese la numeracion de la calle.");
+                vacio = true;
+            }
+
+            if (textBox_fecha.Text == "")
+            {
+                errorProvider_fecha.SetError(textBox_fecha, "Por favor ingrese la fecha de nacimiento.");
+                vacio = true;
+            }
+
+            if (text_telefono.Text == "")
+            {
+                errorProvider_tel.SetError(text_telefono, "Por favor ingrese un teléfono.");
+                vacio = true;
+            }
+
+            if (vacio)return;
         }
     }
 }
