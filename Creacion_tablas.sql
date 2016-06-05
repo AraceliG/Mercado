@@ -290,7 +290,7 @@ BEGIN
 
 		EXEC NOTHING_IS_IMPOSSIBLE.sp_altaCliente 
 			@username,
-			'', -- @pass
+			@username, -- @pass
 			@email,
 			'', -- @telefono
 			@calle,
@@ -366,7 +366,7 @@ BEGIN
 
 		EXEC NOTHING_IS_IMPOSSIBLE.sp_altaEmpresa 
 			@username,
-			'', -- @pass
+			@username, -- @pass
 			@email,
 			'', -- @telefono
 			@calle,
@@ -413,20 +413,18 @@ CREATE TABLE NOTHING_IS_IMPOSSIBLE.Visibilidad
 	cod_visibilidad numeric(18, 0) PRIMARY KEY NOT NULL,
 	descripcion nvarchar(255) UNIQUE,
 	comision_publicar numeric(18,2),
-	porcentaje numeric(18, 2),
 	comision_vender numeric(18, 2),
 	permite_envios bit,
 	cod_tipo_comision_envio char(1) FOREIGN KEY REFERENCES NOTHING_IS_IMPOSSIBLE.TipoComisionEnvio (cod_tipo_comision),
 	valor_comision_envio numeric(18, 2)
 )
 
-INSERT INTO NOTHING_IS_IMPOSSIBLE.Visibilidad (cod_visibilidad, descripcion, comision_publicar, porcentaje, comision_vender, permite_envios, cod_tipo_comision_envio, valor_comision_envio) 
+INSERT INTO NOTHING_IS_IMPOSSIBLE.Visibilidad (cod_visibilidad, descripcion, comision_publicar, comision_vender, permite_envios, cod_tipo_comision_envio, valor_comision_envio) 
 select distinct 
 	Publicacion_Visibilidad_Cod,
 	Publicacion_Visibilidad_Desc,
 	Publicacion_Visibilidad_Precio,
 	Publicacion_Visibilidad_Porcentaje,
-	null,
 	0, -- los migrados por default no hacen envios
 	'P',
 	0
@@ -610,6 +608,85 @@ inner join NOTHING_IS_IMPOSSIBLE.Cliente c
 	and Publicacion_Tipo ='Subasta'
 	and Oferta_Monto is not null
 GO
+
+-- --> Concepto <-- --
+CREATE TABLE NOTHING_IS_IMPOSSIBLE.Concepto
+(
+	cod_concepto numeric(18, 0) PRIMARY KEY,
+	descripcion nvarchar(255)
+)
+
+INSERT INTO NOTHING_IS_IMPOSSIBLE.Concepto (cod_concepto,descripcion) 
+VALUES      (1,'Comision publicar'), 
+            (2,'Comision vender'), 
+            (3,'Gastos Envio'), 
+            (4,'Otros'),
+			(5,'Visibilidad "Gratis"')
+GO
+
+-- --> factura <-- --
+CREATE TABLE NOTHING_IS_IMPOSSIBLE.Factura 
+(
+	nro_factura numeric(18, 0) PRIMARY KEY,
+	cod_publicacion numeric(18, 0) FOREIGN KEY REFERENCES NOTHING_IS_IMPOSSIBLE.Publicacion(cod_publicacion),
+	userId numeric(18, 0) FOREIGN KEY REFERENCES NOTHING_IS_IMPOSSIBLE.Usuario(userId),
+	fecha datetime,
+	total numeric(18, 2),
+	forma_pago_desc nvarchar(255)
+)
+
+-- --> ItemFactura <-- --
+CREATE TABLE NOTHING_IS_IMPOSSIBLE.ItemFactura
+(
+	nro_factura numeric(18, 0) FOREIGN KEY REFERENCES NOTHING_IS_IMPOSSIBLE.Factura(nro_factura),
+	nro_item numeric(18, 0),
+	cod_concepto numeric(18, 0) FOREIGN KEY REFERENCES NOTHING_IS_IMPOSSIBLE.Concepto(cod_concepto),
+	monto numeric(18, 2),
+	cantidad numeric(18, 0),
+	PRIMARY KEY (nro_factura,nro_item)
+)
+
+INSERT INTO NOTHING_IS_IMPOSSIBLE.Factura (nro_factura,cod_publicacion,userId,fecha,total,forma_pago_desc) 
+select 
+	m.Factura_Nro,
+	m.Publicacion_Cod,
+	c.userId,
+	m.Factura_Fecha,
+	m.Factura_Total,
+	m.Forma_Pago_Desc
+from [gd_esquema].[Maestra] as m
+	inner join NOTHING_IS_IMPOSSIBLE.Cliente as c
+	on m.Publ_Cli_Dni = c.dni
+	and m.Factura_Nro is not null
+union -- union quita los repetidos
+select 
+m.Factura_Nro,
+m.Publicacion_Cod,
+e.userId,
+m.Factura_Fecha,
+m.Factura_Total,
+m.Forma_Pago_Desc
+from [gd_esquema].[Maestra] as m
+inner join NOTHING_IS_IMPOSSIBLE.Empresa as e
+	on m.Publ_Empresa_Cuit = e.cuit
+	and m.Factura_Nro is not null
+
+
+INSERT INTO NOTHING_IS_IMPOSSIBLE.ItemFactura (nro_factura,nro_item,cod_concepto,monto,cantidad) 
+select Factura_Nro,
+	ROW_NUMBER() OVER(PARTITION BY Factura_Nro ORDER BY Item_Factura_Monto ) AS Row,
+ 	CASE
+		WHEN Publicacion_Visibilidad_Desc = 'Gratis' and Item_Factura_Monto = 0 THEN 5 -- Visibilidad "Gratis"
+		WHEN Item_Factura_Monto = Publicacion_Visibilidad_Precio THEN 1 -- comision por publicar		
+		ELSE 2 -- comision por vender
+	END,
+	Item_Factura_Monto,
+	Item_Factura_Cantidad
+from [gd_esquema].[Maestra] 
+where Item_Factura_Monto is not null
+order by 1
+GO
+
 -- EXEC NOTHING_IS_IMPOSSIBLE.sp_actualizar reputacion usuario;
 
  

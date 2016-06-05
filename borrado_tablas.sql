@@ -3,6 +3,18 @@ USE GD1C2016;
 -- Borramos todas las tablas
 /******************************************************************************/
 
+-- --> ItemFactura <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.ItemFactura') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.ItemFactura;
+
+-- --> factura <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.Factura') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.Factura;
+
+-- --> Concepto <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.Concepto') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.Concepto;
+
 -- --> Oferta <-- --
 IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.Oferta') IS NOT NULL
 	DROP TABLE NOTHING_IS_IMPOSSIBLE.Oferta;
