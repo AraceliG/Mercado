@@ -1,0 +1,99 @@
+USE GD1C2016;
+/******************************************************************************/
+-- Borramos todas las tablas
+/******************************************************************************/
+
+-- --> ItemFactura <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.ItemFactura') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.ItemFactura;
+
+-- --> factura <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.Factura') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.Factura;
+
+-- --> Concepto <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.Concepto') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.Concepto;
+
+-- --> Oferta <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.Oferta') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.Oferta;
+
+-- --> Compra <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.Compra') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.Compra;
+
+-- --> Estrellas <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.Estrellas') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.Estrellas;
+
+-- --> RubroPublicacion <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.RubroPublicacion') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.RubroPublicacion;
+
+-- --> Publicacion <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.Publicacion') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.Publicacion;
+
+-- --> TipoPublicacion <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.TipoPublicacion') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.TipoPublicacion;
+
+-- --> EstadoPubli <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.EstadoPubli') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.EstadoPubli;
+
+-- --> Visibilidad <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.Visibilidad') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.Visibilidad;
+
+-- --> TipoComisionEnvio <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.TipoComisionEnvio') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.TipoComisionEnvio;
+
+-- --> Usuario, Cliente, Empresa <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.sp_migrarEmpresas') IS NOT NULL
+	DROP PROCEDURE NOTHING_IS_IMPOSSIBLE.sp_migrarEmpresas;
+
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.sp_migrarClientes') IS NOT NULL
+	DROP PROCEDURE NOTHING_IS_IMPOSSIBLE.sp_migrarClientes;
+
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.sp_altaEmpresa') IS NOT NULL
+	DROP PROCEDURE NOTHING_IS_IMPOSSIBLE.sp_altaEmpresa;
+
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.sp_altaCliente') IS NOT NULL
+	DROP PROCEDURE NOTHING_IS_IMPOSSIBLE.sp_altaCliente;
+
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.Empresa') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.Empresa;
+
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.Cliente') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.Cliente;
+
+-- --> RolUsuario <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.RolUsuario') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.RolUsuario;
+
+-- --> Usuario <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.Usuario') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.Usuario;
+
+-- --> TipoDocumento <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.TipoDocumento') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.TipoDocumento;
+
+-- --> Rubro <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.Rubro') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.Rubro;
+
+-- --> RolFuncionalidad <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.RolFuncionalidad') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.RolFuncionalidad;
+
+-- --> Rol <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.Rol') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.Rol;
+
+-- --> Funcionalidad <-- --
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.Funcionalidad') IS NOT NULL
+	DROP TABLE NOTHING_IS_IMPOSSIBLE.Funcionalidad;
