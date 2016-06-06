@@ -107,8 +107,8 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             SqlCommand cmd = new SqlCommand();
 
             cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.CLIENTE WHERE ";
-            cmd.CommandText += "DNI= " + textBox_nroDoc.Text + " AND ";
-            cmd.CommandText += "CLI_TIPO_DOCUMENTO = '" + comboBox_tipoDoc.GetItemText(comboBox_tipoDoc.SelectedItem) + "'";
+            cmd.CommandText += "DNI= '" + textBox_nroDoc.Text +"'" /*" AND "*/;
+           // cmd.CommandText += "CLI_TIPO_DOCUMENTO = '" + comboBox_tipoDoc.GetItemText(comboBox_tipoDoc.SelectedItem) + "'";
             cmd.Connection = AccesoBaseDeDatos.GetConnection();
 
             //ejecuto
@@ -160,7 +160,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             //consulta
             SqlCommand cmd = new SqlCommand();
 
-            cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.CLIENTE WHERE ";
+            cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.USUARIO WHERE ";
             cmd.CommandText += "UPPER(EMAIL) LIKE UPPER('%" + textBox_mail.Text + "%')";
 
             cmd.Connection = AccesoBaseDeDatos.GetConnection();
