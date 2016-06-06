@@ -333,21 +333,42 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
             //pendiente insertar rol cliente
 
-            //ejecuto
+            
+        }
+
+        private void insertarCliente()
+        {
+            //inserto usuario
+            SqlCommand cmd = new SqlCommand();
+
+            //inserto cliente
+            cmd.CommandText = "INSERT INTO NOTHING_IS_IMPOSSIBLE.CLIENTE (DNI,COD_TIPO_DOC,APELLIDO,NOMBRE,FECHA_NACIMIENTO,FECHACREACION) ";
+            cmd.CommandText += "VALUES (" + textBox_nroDoc.Text + ",";
+            cmd.CommandText += "'" + comboBox_tipoDoc.GetItemText(comboBox_tipoDoc.SelectedItem) + "',";
+            cmd.CommandText += "'" + textBox_apellido.Text + "',";
+            cmd.CommandText += "'" + textBox_nombre.Text + "',";
+            cmd.CommandText += "CONVERT(DATETIME,'" + textBox_fecha.Text + "',121),";
+            cmd.CommandText += "CONVERT(DATETIME,'" + textBox1.Text + "',121),";
+            cmd.Connection = AccesoBaseDeDatos.GetConnection();
+
             if (cmd.ExecuteNonQuery() < 1)
             {
                 //fallo
-                MessageBox.Show("Error al insertar en la tabla ROLXUSUARIO.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al insertar en la tabla CLIENTE.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //libero
                 cmd.Dispose();
                 return;
             }
 
+
+            //exito
+            MessageBox.Show("Se ha creado el cliente de forma satisfactoria.", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             //libero
             cmd.Dispose();
         }
 
-
+       
         private void button1_Click(object sender, EventArgs e)
         {
             //nueva instancia
