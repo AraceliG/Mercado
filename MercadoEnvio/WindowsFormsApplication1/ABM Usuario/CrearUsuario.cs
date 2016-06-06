@@ -318,16 +318,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             cmd.CommandText += "" + textBox_nro.Text + ",";
             //PISO
             //DEPTO
-            cmd.CommandText += "CONVERT(DATETIME,'" + fecha.ToString("yyyy-MM-dd HH:MM:ss") + "',121)" + ")";
-            cmd.CommandText += "'" + comboBox_tipoDoc.GetItemText(comboBox_tipoDoc.SelectedItem) + "',";
-            cmd.CommandText += "'" + textBox_usuario.Text + "',";
-            cmd.CommandText += "'" + textBox_nombre.Text + "',";
-            cmd.CommandText += "'" + textBox_apellido.Text + "',";
-            
-            cmd.CommandText += "CONVERT(DATETIME,'" + textBox_fecha.Text + "',121),";
-            
-            
-            cmd.CommandText += "'" + textBox_localidad.Text + "',0)";
+            //CODIGO POSTAL
 
             cmd.Connection = AccesoBaseDeDatos.GetConnection();
 
@@ -340,8 +331,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                 return;
             }
 
-            //inserto rol cliente
-            cmd.CommandText = "INSERT INTO NETSTLE.ROLXUSUARIO (ROLUSR_NOMBRE,ROLUSR_NOMBRE_USUARIO) VALUES('CLIENTE','" + textBox_usuario.Text + "')";
+            //pendiente insertar rol cliente
 
             //ejecuto
             if (cmd.ExecuteNonQuery() < 1)
