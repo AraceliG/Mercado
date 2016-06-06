@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MercadoEnvioFRBA.ConexionBaseDatos;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Security.Cryptography;
 
 namespace MercadoEnvioFRBA.ABM_Usuario
 {
@@ -284,6 +285,78 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             //libero
             frmCal.Dispose();  
         }
+
+        private String encriptarSHA256(String str)
+        {
+            SHA256Managed hashManaged = new SHA256Managed();
+
+            byte[] hash = hashManaged.ComputeHash(Encoding.Unicode.GetBytes(str));
+
+            return BitConverter.ToString(hash);
+        }
+
+        private void insertarUsuario()
+        {
+            //inserto usuario
+            SqlCommand cmd = new SqlCommand();
+
+            //fecha del archivo de configuracion
+            DateTime fecha = Convert.ToDateTime(ConfigurationManager.AppSettings["fecha"]);
+
+            //AGREGAR FECHA DE CREACION EN LA TABLA DE LA BASE DE DATOS EN LA TABLA USUARIO: 
+            //VA PARA CLIENTE Y PARA EMPRESA
+
+            cmd.CommandText = "INSERT INTO NOTHING_IS_IMPOSIBLE.USUARIO (USERNAME,PASS,HABILITADO,INTENTOS_FALLIDOS,USER_NRO_INTENTOS,EMAIL,TELEFONO,CALLE,NUM_CALLE,PISO,DEPTO,COD_POSTAL) ";
+            cmd.CommandText += "VALUES('" + textBox_usuario.Text + "',";
+            cmd.CommandText += "'" + encriptarSHA256(textBox_psw.Text) + "',";
+            //HABILITADO
+            //INTENTOS FALLIDOS
+            //USER NUMERO DE INTENTOS FALLIDOS
+            cmd.CommandText += "'" + textBox_mail.Text + "',";
+            //TELEFONO
+            cmd.CommandText += "'" + textBox_calle.Text + "',";
+            cmd.CommandText += "" + textBox_nro.Text + ",";
+            //PISO
+            //DEPTO
+            cmd.CommandText += "CONVERT(DATETIME,'" + fecha.ToString("yyyy-MM-dd HH:MM:ss") + "',121)" + ")";
+            cmd.CommandText += "'" + comboBox_tipoDoc.GetItemText(comboBox_tipoDoc.SelectedItem) + "',";
+            cmd.CommandText += "'" + textBox_usuario.Text + "',";
+            cmd.CommandText += "'" + textBox_nombre.Text + "',";
+            cmd.CommandText += "'" + textBox_apellido.Text + "',";
+            
+            cmd.CommandText += "CONVERT(DATETIME,'" + textBox_fecha.Text + "',121),";
+            
+            
+            cmd.CommandText += "'" + textBox_localidad.Text + "',0)";
+
+            cmd.Connection = AccesoBaseDeDatos.GetConnection();
+
+            if (cmd.ExecuteNonQuery() < 1)
+            {
+                //fallo
+                MessageBox.Show("Error al insertar en la tabla USUARIO.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //libero
+                cmd.Dispose();
+                return;
+            }
+
+            //inserto rol cliente
+            cmd.CommandText = "INSERT INTO NETSTLE.ROLXUSUARIO (ROLUSR_NOMBRE,ROLUSR_NOMBRE_USUARIO) VALUES('CLIENTE','" + textBox_usuario.Text + "')";
+
+            //ejecuto
+            if (cmd.ExecuteNonQuery() < 1)
+            {
+                //fallo
+                MessageBox.Show("Error al insertar en la tabla ROLXUSUARIO.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //libero
+                cmd.Dispose();
+                return;
+            }
+
+            //libero
+            cmd.Dispose();
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
