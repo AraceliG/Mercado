@@ -256,6 +256,33 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
             if (vacio) return;
 
+            if (!existeClienteConEseNumeroDeDocumento())
+            {
+                if (!existeEseNombreDeLoginDeUsuario())
+                {
+                    if (!existeMailIngresado())
+                    {
+                        insertarCliente();
+                        insertarUsuario();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ese mail ya se encuentra registrado.", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El nombre ya es utilizado por otro usuario ", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+
+            }
+            else {
+                MessageBox.Show("El usuario ya existe", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+
+
 
         }
 
