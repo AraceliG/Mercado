@@ -154,6 +154,34 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             }
         }
 
+        private bool existeMailIngresado()
+        {
+            //consulta
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.CLIENTE WHERE ";
+            cmd.CommandText += "UPPER(EMAIL) LIKE UPPER('%" + textBox_mail.Text + "%')";
+
+            cmd.Connection = AccesoBaseDeDatos.GetConnection();
+
+            //ejecuto
+            if ((Int32)cmd.ExecuteScalar() > 0)
+            {
+                MessageBox.Show("Ya existe un cliente registrado con ese e-mail.", "E-Mail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //libero
+                cmd.Dispose();
+                //existe
+                return true;
+            }
+            else
+            {
+                //libero
+                cmd.Dispose();
+                //no existe
+                return false;
+            }
+        }
+
 
         private void button_guardar_Click(object sender, EventArgs e)
         {
