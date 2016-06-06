@@ -107,8 +107,8 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             SqlCommand cmd = new SqlCommand();
 
             cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.CLIENTE WHERE ";
-            cmd.CommandText += "DNI= '" + textBox_nroDoc.Text +"'" /*" AND "*/;
-           // cmd.CommandText += "CLI_TIPO_DOCUMENTO = '" + comboBox_tipoDoc.GetItemText(comboBox_tipoDoc.SelectedItem) + "'";
+            cmd.CommandText += "DNI= '" + textBox_nroDoc.Text +"'";
+           // resolver tema de tipo docuemneto
             cmd.Connection = AccesoBaseDeDatos.GetConnection();
 
             //ejecuto
@@ -315,6 +315,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
         private String encriptarSHA256(String str)
         {
+            //encriptación de otro tp
             SHA256Managed hashManaged = new SHA256Managed();
 
             byte[] hash = hashManaged.ComputeHash(Encoding.Unicode.GetBytes(str));
