@@ -100,7 +100,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             errorProvider_localidad.Clear();
         }
 
-        private bool existeCliente()
+        private bool existeClienteConEseNumeroDeDocumento()
         {
             //consulta
             SqlCommand cmd = new SqlCommand();
@@ -114,6 +114,32 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             if ((Int32)cmd.ExecuteScalar() > 0)
             {
                 MessageBox.Show("Ya existe un cliente con el mismo número de documento.", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //libero
+                cmd.Dispose();
+                //existe
+                return true;
+            }
+            else
+            {
+                //libero
+                cmd.Dispose();
+                //no existe
+                return false;
+            }
+        }
+
+        private bool existeEseNombreDeLoginDeUsuario()
+        {
+            //consulta
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.USUARIO WHERE ";
+            cmd.CommandText += "USERNAME = '" + textBox_usuario.Text + "'";
+            cmd.Connection = AccesoBaseDeDatos.GetConnection();
+
+            //ejecuto
+            if ((Int32)cmd.ExecuteScalar() > 0)
+            {
                 //libero
                 cmd.Dispose();
                 //existe
