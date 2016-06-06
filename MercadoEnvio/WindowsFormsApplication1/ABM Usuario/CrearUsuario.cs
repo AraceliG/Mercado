@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MercadoEnvioFRBA.ConexionBaseDatos;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace MercadoEnvioFRBA.ABM_Usuario
 {
@@ -49,7 +52,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
         private void comboBox_tipoDoc_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+
         }
 
         private void textBox_nombre_TextChanged(object sender, EventArgs e)
@@ -96,6 +99,8 @@ namespace MercadoEnvioFRBA.ABM_Usuario
         {
             errorProvider_localidad.Clear();
         }
+
+
 
         private void button_guardar_Click(object sender, EventArgs e)
         {
@@ -167,7 +172,71 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                 vacio = true;
             }
 
-            if (vacio)return;
+            if (vacio) return;
+
+
         }
+
+        private void button_fecha_Click(object sender, EventArgs e)
+        {
+            //nueva instancia
+            Calendario frmCal = new Calendario();
+
+            //muestro
+            if (frmCal.ShowDialog() == DialogResult.Yes)
+            {
+                DateTime time = Convert.ToDateTime(ConfigurationManager.AppSettings["fecha"]);
+
+                if (frmCal.getFechaDateTime() < time)
+                {
+                    //recupero fecha
+                    textBox_fecha.Text = frmCal.getFecha();
+                    errorProvider_fecha.Clear();
+                }
+                else
+                {
+                    // no pudistes haber nacido mañana
+                    MessageBox.Show("No es una fecha valida.", "Fecha De Nacimiento", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+
+            //libero
+            frmCal.Dispose();  
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //nueva instancia
+            Calendario frmCal = new Calendario();
+
+            //muestro
+            if (frmCal.ShowDialog() == DialogResult.Yes)
+            {
+                DateTime time = Convert.ToDateTime(ConfigurationManager.AppSettings["fecha"]);
+
+                if (frmCal.getFechaDateTime() == time)
+                {
+                    //recupero fecha
+                    textBox1.Text = frmCal.getFecha();
+                    errorProvider_fecha.Clear();
+                }
+                else
+                {
+                    // no pudistes haber nacido mañana
+                    MessageBox.Show("No es una fecha valida.", "Fecha De Nacimiento", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+
+            //libero
+            frmCal.Dispose();  
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
+

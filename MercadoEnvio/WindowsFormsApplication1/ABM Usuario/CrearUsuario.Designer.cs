@@ -195,6 +195,7 @@
             this.button_fecha.TabIndex = 62;
             this.button_fecha.Text = "Seleccionar";
             this.button_fecha.UseVisualStyleBackColor = true;
+            this.button_fecha.Click += new System.EventHandler(this.button_fecha_Click);
             // 
             // label5
             // 
@@ -415,6 +416,7 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(165, 24);
             this.textBox1.TabIndex = 85;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
@@ -424,6 +426,7 @@
             this.button1.TabIndex = 86;
             this.button1.Text = "Seleccionar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // errorProvider_fecha
             // 
