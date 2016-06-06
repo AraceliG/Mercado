@@ -100,6 +100,33 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             errorProvider_localidad.Clear();
         }
 
+        private bool existeCliente()
+        {
+            //consulta
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.CLIENTE WHERE ";
+            cmd.CommandText += "DNI= " + textBox_nroDoc.Text + " AND ";
+            cmd.CommandText += "CLI_TIPO_DOCUMENTO = '" + comboBox_tipoDoc.GetItemText(comboBox_tipoDoc.SelectedItem) + "'";
+            cmd.Connection = AccesoBaseDeDatos.GetConnection();
+
+            //ejecuto
+            if ((Int32)cmd.ExecuteScalar() > 0)
+            {
+                MessageBox.Show("Ya existe un cliente con el mismo número de documento.", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //libero
+                cmd.Dispose();
+                //existe
+                return true;
+            }
+            else
+            {
+                //libero
+                cmd.Dispose();
+                //no existe
+                return false;
+            }
+        }
 
 
         private void button_guardar_Click(object sender, EventArgs e)
@@ -222,8 +249,8 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                 }
                 else
                 {
-                    // no pudistes haber nacido mañana
-                    MessageBox.Show("No es una fecha valida.", "Fecha De Nacimiento", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    // la creación es ese día, no antes no después
+                    MessageBox.Show("No es una fecha válida.", "Fecha De Creación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
 
