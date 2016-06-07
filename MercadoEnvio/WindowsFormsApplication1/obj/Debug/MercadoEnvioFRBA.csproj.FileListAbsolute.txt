@@ -28,3 +28,4 @@ C:\Users\Antonio\Documents\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\Mer
 C:\Users\Antonio\Documents\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.csproj.GenerateResource.Cache
 C:\Users\Antonio\Documents\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.FormularioAdministrador.resources
 C:\Users\Antonio\Documents\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.CrearUsuario.resources
+C:\Users\Antonio\Documents\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.Calendario.resources
