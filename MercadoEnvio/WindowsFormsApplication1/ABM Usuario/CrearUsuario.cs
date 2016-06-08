@@ -116,7 +116,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             //ejecuto
             if ((Int32)cmd.ExecuteScalar() > 0)
             {
-                MessageBox.Show("Ya existe un cliente con el mismo número de documento.", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ya existe un cliente con el mismo número de documento y tipo de documento.", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 //libero
                 cmd.Dispose();
                 //existe
@@ -155,6 +155,35 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                 //no existe
                 return false;
             }
+        }
+
+        private bool existeClienteConEseTipoDeDocumento() {
+                        //consulta
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.CommandText = "SELECT DESCRIPCION FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO";
+            cmd.Connection = AccesoBaseDeDatos.GetConnection();
+
+            cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO WHERE ";
+            cmd.CommandText += "DESCRIPCION = '" + comboBox_tipoDoc.Text + "'";
+            cmd.Connection = AccesoBaseDeDatos.GetConnection();
+
+            //ejecuto
+            if ((Int32)cmd.ExecuteScalar() > 0)
+            {
+                //libero
+                cmd.Dispose();
+                //existe
+                return true;
+            }
+            else
+            {
+                //libero
+                cmd.Dispose();
+                //no existe
+                return false;
+            }
+
         }
 
         private bool existeMailIngresado()
@@ -269,9 +298,8 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                 if (!existeEseNombreDeLoginDeUsuario())
                 {
                     if (!existeMailIngresado())
-                    {
-                       // insertarDocuemento();
-                        insertarCliente();
+                    {   
+                        //insertarCliente();
                         insertarUsuario();
                     }
                     else
@@ -343,7 +371,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             //AGREGAR FECHA DE CREACION EN LA TABLA DE LA BASE DE DATOS EN LA TABLA USUARIO: 
             //VA PARA CLIENTE Y PARA EMPRESA
 
-            cmd.CommandText = "INSERT INTO NOTHING_IS_IMPOSIBLE.USUARIO (USERNAME,PASS,EMAIL,CALLE,NUM_CALLE) ";
+            cmd.CommandText = "INSERT INTO NOTHING_IS_IMPOSSIBLE.USUARIO (USERNAME,PASS,EMAIL,CALLE,NUM_CALLE) ";
             cmd.CommandText += "VALUES('" + textBox_usuario.Text + "',";
             cmd.CommandText += "'" + encriptarSHA256(textBox_psw.Text) + "',";
             //HABILITADO
@@ -352,7 +380,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             cmd.CommandText += "'" + textBox_mail.Text + "',";
             //TELEFONO
             cmd.CommandText += "'" + textBox_calle.Text + "',";
-            cmd.CommandText += "" + textBox_nro.Text + ",";
+            cmd.CommandText += "" + textBox_nro.Text + ")";
             //PISO
             //DEPTO
             //CODIGO POSTAL
@@ -375,18 +403,21 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
         private void insertarCliente()
         {
-            //inserto usuario
             SqlCommand cmd = new SqlCommand();
 
             //inserto cliente
             cmd.CommandText = "INSERT INTO NOTHING_IS_IMPOSSIBLE.CLIENTE (DNI,APELLIDO,NOMBRE) ";
             cmd.CommandText += "VALUES (" + textBox_nroDoc.Text + ",";
-           // cmd.CommandText += "'" + comboBox_tipoDoc.GetItemText(comboBox_tipoDoc.SelectedItem) + "',";
+           //cmd.CommandText += "'" + comboBox_tipoDoc.GetItemText(comboBox_tipoDoc.SelectedItem) + "',";
             cmd.CommandText += "'" + textBox_apellido.Text + "',";
             cmd.CommandText += "'" + textBox_nombre.Text + "'" + ")";
            // cmd.CommandText += "CONVERT(DATETIME,'" + textBox_fecha.Text + "',121),";
             //cmd.CommandText += "CONVERT(DATETIME,'" + textBox1.Text + "',121),";
             cmd.Connection = AccesoBaseDeDatos.GetConnection();
+
+
+          
+
 
             if (cmd.ExecuteNonQuery() < 1)
             {
@@ -440,8 +471,8 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
         private void cargarTipoDocumentos()
         {
-            //consulta
-            SqlCommand cmd = new SqlCommand();
+           //consulta
+             SqlCommand cmd = new SqlCommand();
 
             cmd.CommandText = "SELECT DESCRIPCION FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO";
             cmd.Connection = AccesoBaseDeDatos.GetConnection();
