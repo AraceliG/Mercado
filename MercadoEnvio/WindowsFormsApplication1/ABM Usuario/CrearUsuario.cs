@@ -53,7 +53,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
         private void comboBox_tipoDoc_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            errorProvider_tipo_doc.Clear();
         }
 
         private void textBox_nombre_TextChanged(object sender, EventArgs e)
@@ -100,6 +100,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
         {
             errorProvider_localidad.Clear();
         }
+
 
 
         private bool existeClienteConEseNumeroDeDocumento()
@@ -192,6 +193,12 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             if (textBox_usuario.Text == "")
             {
                 errorProvider_usuario.SetError(textBox_usuario, "Por favor ingrese el nombre de usuario.");
+                vacio = true;
+            }
+
+            if (comboBox_tipoDoc.Items.Count <= 0)
+            {
+                errorProvider_tipo_doc.SetError(comboBox_tipoDoc, "Por favor ingrese Tipo De Documento.");
                 vacio = true;
             }
 
@@ -431,7 +438,52 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
         }
 
+        private void cargarTipoDocumentos()
+        {
+            //consulta
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.CommandText = "SELECT DESCRIPCION FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO";
+            cmd.Connection = AccesoBaseDeDatos.GetConnection();
+
+            //ejecuto
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    //agrego
+                    comboBox_tipoDoc.Items.Add(reader.GetString(0));
+                }
+
+                comboBox_tipoDoc.SelectedIndex = 0;
+            }
+            
+            //libero
+            reader.Close();
+            cmd.Dispose();
+        }
+
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            if (comboBox_tipoDoc.Items.Count <= 0)
+            {
+                cargarTipoDocumentos();
+            }
+        }
+
+
+       
+            }
+
 
     }
-}
 

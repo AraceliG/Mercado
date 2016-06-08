@@ -75,6 +75,8 @@
             this.errorProvider_psw = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider_localidad = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider_tel = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button2 = new System.Windows.Forms.Button();
+            this.errorProvider_tipo_doc = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_fecha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_ape)).BeginInit();
@@ -86,6 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_localidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_tel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_tipo_doc)).BeginInit();
             this.SuspendLayout();
             // 
             // label12
@@ -119,7 +122,6 @@
             // 
             // comboBox_tipoDoc
             // 
-            this.comboBox_tipoDoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_tipoDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_tipoDoc.FormattingEnabled = true;
             this.comboBox_tipoDoc.Location = new System.Drawing.Point(170, 49);
@@ -472,11 +474,26 @@
             // 
             this.errorProvider_tel.ContainerControl = this;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(358, 45);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(202, 34);
+            this.button2.TabIndex = 87;
+            this.button2.Text = "Cargar Tipos Documentos Disponibles";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // errorProvider_tipo_doc
+            // 
+            this.errorProvider_tipo_doc.ContainerControl = this;
+            // 
             // CrearUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 667);
+            this.ClientSize = new System.Drawing.Size(591, 667);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label15);
@@ -526,6 +543,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_localidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_tel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_tipo_doc)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -579,5 +597,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider_psw;
         private System.Windows.Forms.ErrorProvider errorProvider_localidad;
         private System.Windows.Forms.ErrorProvider errorProvider_tel;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ErrorProvider errorProvider_tipo_doc;
     }
 }

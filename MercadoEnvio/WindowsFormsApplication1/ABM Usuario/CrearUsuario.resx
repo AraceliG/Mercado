@@ -153,4 +153,7 @@
   <metadata name="errorProvider_tel.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>20, 98</value>
   </metadata>
+  <metadata name="errorProvider_tipo_doc.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>167, 93</value>
+  </metadata>
 </root>
