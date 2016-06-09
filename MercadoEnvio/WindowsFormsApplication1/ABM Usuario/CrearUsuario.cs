@@ -125,10 +125,10 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             else
             {
                 //libero
-                cmd.Dispose();
+               cmd.Dispose();
                 //no existe
                 return false;
-            }
+           }
         }
 
         private bool existeEseNombreDeLoginDeUsuario()
@@ -179,7 +179,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             else
             {
                 //libero
-                cmd.Dispose();
+               cmd.Dispose();
                 //no existe
                 return false;
             }
@@ -208,9 +208,9 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             else
             {
                 //libero
-                cmd.Dispose();
+               cmd.Dispose();
                 //no existe
-                return false;
+               return false;
             }
         }
 
@@ -301,6 +301,8 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                     {   
                         //insertarCliente();
                         insertarUsuario();
+                        MessageBox.Show("SE HA CREADO EL USUARIO EXITOSAMENTE!!", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     }
                     else
                     {
