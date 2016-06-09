@@ -105,7 +105,8 @@ namespace MercadoEnvioFRBA.ABM_Usuario
            SqlCommand cm= new SqlCommand();
             cm.Connection= AccesoBaseDeDatos.GetConnection();
             cm.CommandType = CommandType.Text;
-            cm.CommandText = "SELECT * FROM NOTHING_IS_IMPOSSIBLE.CLIENTE WHERE NOMBRE LIKE ('%" + textBox_nombre.Text + "%') AND APELLIDO LIKE ('%" + textBox_apellido.Text + "%')";
+            cm.CommandText = "SELECT C.DNI,C.NOMBRE,C.APELLIDO,C.FECHA_NACIMIENTO,C.FECHACREACION,U.EMAIL,U.TELEFONO,U.CALLE,U.NUM_CALLE, U.PISO,U.DEPTO,U.COD_POSTAL FROM NOTHING_IS_IMPOSSIBLE.CLIENTE C,NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE NOMBRE LIKE ('%" + textBox_nombre.Text + "%') AND APELLIDO LIKE ('%" + textBox_apellido.Text + "%')";
+            cm.CommandText += "AND C.USERID=U.USERID";
             cm.ExecuteNonQuery();
 
             DataTable dt = new DataTable();

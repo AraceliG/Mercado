@@ -160,14 +160,14 @@
             this.dataGridView.Location = new System.Drawing.Point(25, 217);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
-            this.dataGridView.Size = new System.Drawing.Size(710, 229);
+            this.dataGridView.Size = new System.Drawing.Size(1151, 229);
             this.dataGridView.TabIndex = 4;
             // 
             // BuscadorCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(778, 485);
+            this.ClientSize = new System.Drawing.Size(1214, 485);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.button_limpiar);
             this.Controls.Add(this.button_buscar);
