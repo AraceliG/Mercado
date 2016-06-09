@@ -7,9 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MercadoEnvioFRBA.ConexionBaseDeDatos;
-using MercadoEnvioFRBA.ConexionBaseDeDatos.DAO;
-using MercadoEnvioFRBA.ConexionBaseDeDatos.BO;
+using System.Data.SqlClient;
+using MercadoEnvioFRBA.ConexionBaseDatos;
 
 namespace MercadoEnvioFRBA.ABM_Usuario
 {
@@ -19,35 +18,42 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
         private void Buscador_Load(object sender, EventArgs e)
         {
-            //buscar();
+            
+
         }
         
         public BuscadorCliente()
         {
             InitializeComponent();
-            listaClientes = new List<Cliente>();
-            dao = new DAOCliente();
+            //listaClientes = new List<Cliente>();
+            //dao = new DAOCliente();
         }
 
-        private DAOCliente dao;
-        private List<Cliente> listaClientes { get; set; }
+        //private DAOCliente dao;
+        //private List<Cliente> listaClientes { get; set; }
           
 
         private void button_buscar_Click(object sender, EventArgs e)
         {
-            actualizarGrilla();
+           // actualizarGrilla();
         }
 
         public void actualizarGrilla()
 
-        {  if (textBox_nombre.Text != "" && textBox_nroDoc.Text != "" && textBox_email.Text != "" && textBox_apellido.Text != "")
-             listaClientes = dao.search(textBox_nombre.Text,textBox_nroDoc.Text, textBox_email.Text,textBox_apellido.Text);
-            else
-                listaClientes = dao.retrieveAll();
-            Cliente client = new Cliente();
-            client = listaClientes[0];
-            dataGridView.DataSource = listaClientes;
-                
+        {
+            SqlConnection cn = AccesoBaseDeDatos.GetConnection();
+
+            SqlCommand cmd = new SqlCommand("Select * from Cliente", cn);
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            DataTable dt = new DataTable();
+
+            da.Fill(dt);
+
+            dataGridView.DataSource = dt;
+
+            cn.Close();
         }
     }
 }

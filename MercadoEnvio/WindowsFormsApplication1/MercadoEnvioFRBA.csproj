@@ -127,11 +127,6 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="ConexionBaseDeDatos\AccesoBaseDeDatos.cs" />
-    <Compile Include="ConexionBaseDeDatos\BO\Cliente.cs" />
-    <Compile Include="ConexionBaseDeDatos\DAO\DAOCliente.cs" />
-    <Compile Include="ConexionBaseDeDatos\DB.cs" />
-    <Compile Include="ConexionBaseDeDatos\IBO.cs" />
-    <Compile Include="ConexionBaseDeDatos\MyException.cs" />
     <Compile Include="Facturas\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
