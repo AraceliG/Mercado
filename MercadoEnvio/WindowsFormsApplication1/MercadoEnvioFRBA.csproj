@@ -127,6 +127,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="ConexionBaseDeDatos\AccesoBaseDeDatos.cs" />
+    <Compile Include="ConexionBaseDeDatos\relación tablas codigo\Cliente.cs" />
     <Compile Include="Facturas\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

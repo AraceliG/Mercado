@@ -37,8 +37,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox_nombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button_limpiar = new System.Windows.Forms.Button();
             this.button_buscar = new System.Windows.Forms.Button();
+            this.button_limpiar = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -54,13 +54,12 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBox_nombre);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(101, 37);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(511, 123);
+            this.groupBox1.Size = new System.Drawing.Size(511, 127);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de Busqueda";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // textBox_nroDoc
             // 
@@ -92,7 +91,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(258, 32);
+            this.label3.Location = new System.Drawing.Point(258, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 18);
             this.label3.TabIndex = 4;
@@ -120,7 +119,7 @@
             // textBox_nombre
             // 
             this.textBox_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_nombre.Location = new System.Drawing.Point(94, 32);
+            this.textBox_nombre.Location = new System.Drawing.Point(94, 29);
             this.textBox_nombre.Name = "textBox_nombre";
             this.textBox_nombre.Size = new System.Drawing.Size(142, 24);
             this.textBox_nombre.TabIndex = 1;
@@ -135,44 +134,43 @@
             this.label1.Text = "Nombre:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button_limpiar
-            // 
-            this.button_limpiar.Location = new System.Drawing.Point(106, 159);
-            this.button_limpiar.Name = "button_limpiar";
-            this.button_limpiar.Size = new System.Drawing.Size(75, 23);
-            this.button_limpiar.TabIndex = 2;
-            this.button_limpiar.Text = "Limpiar";
-            this.button_limpiar.UseVisualStyleBackColor = true;
-            this.button_limpiar.Click += new System.EventHandler(this.button_limpiar_Click);
-            // 
             // button_buscar
             // 
-            this.button_buscar.Location = new System.Drawing.Point(366, 159);
+            this.button_buscar.Location = new System.Drawing.Point(537, 188);
             this.button_buscar.Name = "button_buscar";
             this.button_buscar.Size = new System.Drawing.Size(75, 23);
-            this.button_buscar.TabIndex = 3;
+            this.button_buscar.TabIndex = 2;
             this.button_buscar.Text = "Buscar";
             this.button_buscar.UseVisualStyleBackColor = true;
             this.button_buscar.Click += new System.EventHandler(this.button_buscar_Click);
+            // 
+            // button_limpiar
+            // 
+            this.button_limpiar.Location = new System.Drawing.Point(195, 188);
+            this.button_limpiar.Name = "button_limpiar";
+            this.button_limpiar.Size = new System.Drawing.Size(75, 23);
+            this.button_limpiar.TabIndex = 3;
+            this.button_limpiar.Text = "Limpiar";
+            this.button_limpiar.UseVisualStyleBackColor = true;
             // 
             // dataGridView
             // 
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView.Location = new System.Drawing.Point(37, 213);
+            this.dataGridView.Location = new System.Drawing.Point(25, 217);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
-            this.dataGridView.Size = new System.Drawing.Size(511, 229);
+            this.dataGridView.Size = new System.Drawing.Size(710, 229);
             this.dataGridView.TabIndex = 4;
             // 
             // BuscadorCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 481);
+            this.ClientSize = new System.Drawing.Size(778, 485);
             this.Controls.Add(this.dataGridView);
-            this.Controls.Add(this.button_buscar);
             this.Controls.Add(this.button_limpiar);
+            this.Controls.Add(this.button_buscar);
             this.Controls.Add(this.groupBox1);
             this.Name = "BuscadorCliente";
             this.Text = "BuscadorCliente";
@@ -194,8 +192,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox_nombre;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button_limpiar;
         private System.Windows.Forms.Button button_buscar;
+        private System.Windows.Forms.Button button_limpiar;
         private System.Windows.Forms.DataGridView dataGridView;
     }
 }
