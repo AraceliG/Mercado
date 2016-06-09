@@ -40,8 +40,13 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
         public void actualizarGrilla()
 
-        {  if (textBox_nombre.Text != "" && textBox_nroDoc.Text != "" && textBox_email.Text != "" && textBox_apellido.Text != "") {
-            
+        {  if (textBox_nombre.Text != "" && textBox_nroDoc.Text != "" && textBox_email.Text != "" && textBox_apellido.Text != "")
+             listaClientes = dao.search(textBox_nombre.Text,textBox_nroDoc.Text, textBox_email.Text,textBox_apellido.Text);
+            else
+                listaClientes = dao.retrieveAll();
+            Cliente client = new Cliente();
+            client = listaClientes[0];
+            dataGridView.DataSource = listaClientes;
                 
         }
     }
