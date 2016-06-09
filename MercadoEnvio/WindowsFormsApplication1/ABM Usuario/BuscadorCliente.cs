@@ -99,11 +99,13 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
         {
 
-            // WHERE UPPER(EMAIL) LIKE UPPER('%" + textBox_email.Text + "%') AND
+            // WHERE UPPER(EMAIL) LIKE UPPER('%" + textBox_email.Text + "%') AND AND DNI= '" + textBox_nroDoc.Text + "'"
+            //solo busca en tabla cliente por nombre y apellido, no por dni ni por email
+            //no busca nada de tabla usuarios y deberia devolver esos campos también
            SqlCommand cm= new SqlCommand();
             cm.Connection= AccesoBaseDeDatos.GetConnection();
             cm.CommandType = CommandType.Text;
-            cm.CommandText = "SELECT * FROM NOTHING_IS_IMPOSSIBLE.CLIENTE WHERE NOMBRE LIKE ('%" + textBox_nombre.Text + "%') AND APELLIDO LIKE ('%" + textBox_apellido.Text + "%') AND DNI= '" + textBox_nroDoc.Text + "'";
+            cm.CommandText = "SELECT * FROM NOTHING_IS_IMPOSSIBLE.CLIENTE WHERE NOMBRE LIKE ('%" + textBox_nombre.Text + "%') AND APELLIDO LIKE ('%" + textBox_apellido.Text + "%')";
             cm.ExecuteNonQuery();
 
             DataTable dt = new DataTable();
