@@ -66,6 +66,12 @@
     <Compile Include="ABM Rubro\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM Usuario\BuscadorCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\BuscadorCliente.Designer.cs">
+      <DependentUpon>BuscadorCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Usuario\Calendario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\CrearModificarRol.resx">
       <DependentUpon>CrearModificarRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\BuscadorCliente.resx">
+      <DependentUpon>BuscadorCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Usuario\Calendario.resx">
       <DependentUpon>Calendario.cs</DependentUpon>
