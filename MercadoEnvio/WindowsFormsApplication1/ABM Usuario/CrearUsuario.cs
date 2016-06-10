@@ -161,7 +161,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                         //consulta
             SqlCommand cmd = new SqlCommand();
 
-            cmd.CommandText = "SELECT DESCRIPCION FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO";
+            cmd.CommandText = "SELECT*FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO";
             cmd.Connection = AccesoBaseDeDatos.GetConnection();
 
             cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO WHERE ";
