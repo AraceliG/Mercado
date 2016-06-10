@@ -295,7 +295,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
             if (vacio) return;
 
-            if (!existeClienteConEseNumeroDeDocumento())
+            if (!existeClienteConEseNumeroDeDocumento() && !existeClienteConEseTipoDeDocumento())
             {
                 if (!existeEseNombreDeLoginDeUsuario())
                 {
