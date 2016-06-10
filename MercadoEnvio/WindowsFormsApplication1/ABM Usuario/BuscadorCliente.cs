@@ -105,8 +105,9 @@ namespace MercadoEnvioFRBA.ABM_Usuario
            SqlCommand cm= new SqlCommand();
             cm.Connection= AccesoBaseDeDatos.GetConnection();
             cm.CommandType = CommandType.Text;
-            cm.CommandText = "SELECT C.DNI,C.NOMBRE,C.APELLIDO,C.FECHA_NACIMIENTO,C.FECHACREACION,U.EMAIL,U.TELEFONO,U.CALLE,U.NUM_CALLE, U.PISO,U.DEPTO,U.COD_POSTAL FROM NOTHING_IS_IMPOSSIBLE.CLIENTE C,NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE NOMBRE LIKE ('%" + textBox_nombre.Text + "%') AND APELLIDO LIKE ('%" + textBox_apellido.Text + "%')";
-            cm.CommandText += "AND C.USERID=U.USERID";
+            cm.CommandText = "SELECT C.DNI,T.DESCRIPCION,C.NOMBRE,C.APELLIDO,C.FECHA_NACIMIENTO,C.FECHACREACION,U.EMAIL,U.TELEFONO,U.CALLE,U.NUM_CALLE, U.PISO,U.DEPTO,U.COD_POSTAL FROM NOTHING_IS_IMPOSSIBLE.CLIENTE C,NOTHING_IS_IMPOSSIBLE.USUARIO U,NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO T WHERE NOMBRE LIKE ('%" + textBox_nombre.Text + "%') AND APELLIDO LIKE ('%" + textBox_apellido.Text + "%') AND EMAIL LIKE('%" + textBox_email.Text + "%')";
+            cm.CommandText += "AND C.USERID=U.USERID AND C.COD_TIPO_DOC=T.COD_TIPO_DOC";
+            //cm.CommandText += "AND C.DNI'" + (textBox_nroDoc.Text) + "'";
             cm.ExecuteNonQuery();
 
             DataTable dt = new DataTable();

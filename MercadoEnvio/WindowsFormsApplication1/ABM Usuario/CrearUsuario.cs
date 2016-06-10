@@ -164,8 +164,10 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             cmd.CommandText = "SELECT*FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO";
             cmd.Connection = AccesoBaseDeDatos.GetConnection();
 
-            cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO WHERE ";
-            cmd.CommandText += "DESCRIPCION = '" + comboBox_tipoDoc.Text + "'";
+            //FUNCIONARÁ???
+
+            cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO T,NOTHING_IS_IMPOSIBLE.USUARIO U WHERE T.COD_TIPO_DOC=U.COD_TIPO_DOC";
+            cmd.CommandText += " AND T.DESCRIPCION= '" + comboBox_tipoDoc.Text + "'";
             cmd.Connection = AccesoBaseDeDatos.GetConnection();
 
             //ejecuto
