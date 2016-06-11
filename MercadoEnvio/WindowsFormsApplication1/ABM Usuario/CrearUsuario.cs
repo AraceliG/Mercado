@@ -108,8 +108,12 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             //consulta
             SqlCommand cmd = new SqlCommand();
 
-            cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.CLIENTE ";
-           cmd.CommandText += "WHERE DNI= '" + textBox_nroDoc.Text +"'";
+           //// cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.CLIENTE ";
+         //  cmd.CommandText += "WHERE DNI= '" + textBox_nroDoc.Text +"'";
+
+            cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO T,NOTHING_IS_IMPOSSIBLE.CLIENTE C,NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE U.USERID=C.USERID AND T.COD_TIPO_DOC=C.COD_TIPO_DOC";
+            cmd.CommandText += " AND T.DESCRIPCION= '" + comboBox_tipoDoc.Text + "'";
+            cmd.CommandText += "AND C.DNI= '" + textBox_nroDoc.Text + "'";
            
             cmd.Connection = AccesoBaseDeDatos.GetConnection();
 
@@ -167,8 +171,9 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             //FUNCIONARÁ???
             //finalmente probado y no funciona
 
-            cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO T,NOTHING_IS_IMPOSSIBLE.CLIENTE C WHERE T.COD_TIPO_DOC=C.COD_TIPO_DOC";
+            cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO T,NOTHING_IS_IMPOSSIBLE.CLIENTE C,NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE U.USERID=C.USERID AND T.COD_TIPO_DOC=C.COD_TIPO_DOC";
             cmd.CommandText += " AND T.DESCRIPCION= '" + comboBox_tipoDoc.Text + "'";
+            cmd.CommandText += "WHERE DNI= '" + textBox_nroDoc.Text + "'";
             cmd.Connection = AccesoBaseDeDatos.GetConnection();
 
             //ejecuto
