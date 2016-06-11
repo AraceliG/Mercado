@@ -241,8 +241,11 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                 cmd.Dispose();
                 return;
             }
-        }
 
+            //pendiente insertar rol cliente
+
+
+        }
 
 
         private void button_guardar_Click(object sender, EventArgs e)

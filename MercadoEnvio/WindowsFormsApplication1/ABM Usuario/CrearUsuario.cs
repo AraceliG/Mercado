@@ -161,12 +161,13 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                         //consulta
             SqlCommand cmd = new SqlCommand();
 
-            cmd.CommandText = "SELECT*FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO";
-            cmd.Connection = AccesoBaseDeDatos.GetConnection();
+            //cmd.CommandText = "SELECT*FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO";
+           // cmd.Connection = AccesoBaseDeDatos.GetConnection();
 
             //FUNCIONARÁ???
+            //finalmente probado y no funciona
 
-            cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO T,NOTHING_IS_IMPOSIBLE.USUARIO U WHERE T.COD_TIPO_DOC=U.COD_TIPO_DOC";
+            cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO T,NOTHING_IS_IMPOSSIBLE.CLIENTE C WHERE T.COD_TIPO_DOC=C.COD_TIPO_DOC";
             cmd.CommandText += " AND T.DESCRIPCION= '" + comboBox_tipoDoc.Text + "'";
             cmd.Connection = AccesoBaseDeDatos.GetConnection();
 
@@ -295,7 +296,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
             if (vacio) return;
 
-            if (!existeClienteConEseNumeroDeDocumento() && !existeClienteConEseTipoDeDocumento())
+            if (!existeClienteConEseNumeroDeDocumento())
             {
                 if (!existeEseNombreDeLoginDeUsuario())
                 {

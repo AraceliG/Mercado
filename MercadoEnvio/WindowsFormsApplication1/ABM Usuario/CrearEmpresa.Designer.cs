@@ -340,7 +340,7 @@
             // textBox_mail
             // 
             this.textBox_mail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_mail.Location = new System.Drawing.Point(179, 57);
+            this.textBox_mail.Location = new System.Drawing.Point(179, 63);
             this.textBox_mail.Name = "textBox_mail";
             this.textBox_mail.Size = new System.Drawing.Size(165, 24);
             this.textBox_mail.TabIndex = 102;
