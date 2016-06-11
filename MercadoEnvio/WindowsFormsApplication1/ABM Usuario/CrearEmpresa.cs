@@ -289,7 +289,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                 {
                     if (!existeMailIngresado())
                     {
-                        insertarEmpresa();
+                       // insertarEmpresa();
                         insertarUsuario();
                         MessageBox.Show("SE HA CREADO EL USUARIO EXITOSAMENTE!!", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -315,7 +315,32 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
         private void insertarEmpresa()
         {
-            //
+
+            //inicializar command para enviarle instruccion sql
+            SqlCommand cmd = new SqlCommand();
+
+            // jjeje, arreglar eso en base de datos :acepta el nombre_contaco y no nombre_contaCTO.
+
+            //AGREGAR FECHA DE CREACION EN LA TABLA DE LA BASE DE DATOS EN LA TABLA USUARIO: 
+            //VA PARA CLIENTE Y PARA EMPRESA
+
+            cmd.CommandText = "INSERT INTO NOTHING_IS_IMPOSSIBLE.EMPRESA (CUIT,RAZON_SOCIAL,NOMBRE_CONTACO,CIUDAD) ";
+            cmd.CommandText += "VALUES('" + textBox_cuit.Text + "',";
+            cmd.CommandText += "'" + textBox_razon_social.Text + "',";
+            cmd.CommandText += "'" + textBox_nombre_de_contacto.Text + "',";
+            cmd.CommandText += "'" + textBox_ciudad.Text + "')";
+
+            cmd.Connection = AccesoBaseDeDatos.GetConnection();
+
+            if (cmd.ExecuteNonQuery() < 1)
+            {
+                //fallo
+                MessageBox.Show("Error al insertar en la tabla USUARIO.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //libero
+                cmd.Dispose();
+                return;
+            }
+            
         }
     }
 }
