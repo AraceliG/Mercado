@@ -103,14 +103,12 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
 
 
-        private bool existeClienteConEseNumeroDeDocumento()
-        {
-            //consulta
+        private bool existeClienteConEseNumeroDeDocumentoYTipoDeDocumento()
+        {     
+            //creación command que es quien recibe una instrucción sql en su propiedad command text
+            //en forma de string y la ejecuta
+
             SqlCommand cmd = new SqlCommand();
-
-           //// cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.CLIENTE ";
-         //  cmd.CommandText += "WHERE DNI= '" + textBox_nroDoc.Text +"'";
-
             cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO T,NOTHING_IS_IMPOSSIBLE.CLIENTE C,NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE U.USERID=C.USERID AND T.COD_TIPO_DOC=C.COD_TIPO_DOC";
             cmd.CommandText += " AND T.DESCRIPCION= '" + comboBox_tipoDoc.Text + "'";
             cmd.CommandText += "AND C.DNI= '" + textBox_nroDoc.Text + "'";
@@ -161,38 +159,6 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             }
         }
 
-        private bool existeClienteConEseTipoDeDocumento() {
-                        //consulta
-            SqlCommand cmd = new SqlCommand();
-
-            //cmd.CommandText = "SELECT*FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO";
-           // cmd.Connection = AccesoBaseDeDatos.GetConnection();
-
-            //FUNCIONARÁ???
-            //finalmente probado y no funciona
-
-            cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO T,NOTHING_IS_IMPOSSIBLE.CLIENTE C,NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE U.USERID=C.USERID AND T.COD_TIPO_DOC=C.COD_TIPO_DOC";
-            cmd.CommandText += " AND T.DESCRIPCION= '" + comboBox_tipoDoc.Text + "'";
-            cmd.CommandText += "WHERE DNI= '" + textBox_nroDoc.Text + "'";
-            cmd.Connection = AccesoBaseDeDatos.GetConnection();
-
-            //ejecuto
-            if ((Int32)cmd.ExecuteScalar() > 0)
-            {
-                //libero
-                cmd.Dispose();
-                //existe
-                return true;
-            }
-            else
-            {
-                //libero
-               cmd.Dispose();
-                //no existe
-                return false;
-            }
-
-        }
 
         private bool existeMailIngresado()
         {
@@ -301,7 +267,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
             if (vacio) return;
 
-            if (!existeClienteConEseNumeroDeDocumento())
+            if (!existeClienteConEseNumeroDeDocumentoYTipoDeDocumento())
             {
                 if (!existeEseNombreDeLoginDeUsuario())
                 {
