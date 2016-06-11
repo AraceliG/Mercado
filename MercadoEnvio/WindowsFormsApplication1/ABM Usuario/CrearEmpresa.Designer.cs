@@ -64,13 +64,13 @@
             this.textBox_cuit = new System.Windows.Forms.TextBox();
             this.textBox_nombre_de_contacto = new System.Windows.Forms.TextBox();
             this.button_guardar = new System.Windows.Forms.Button();
-            this.errorProvider_cuil = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_cuit = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider_razon_social = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider_mail = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider_psw = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider_usuario = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_fecha)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_cuil)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_cuit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_razon_social)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_mail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).BeginInit();
@@ -227,6 +227,7 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(165, 24);
             this.textBox1.TabIndex = 89;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
@@ -270,6 +271,7 @@
             this.textBox_psw.Size = new System.Drawing.Size(165, 24);
             this.textBox_psw.TabIndex = 93;
             this.textBox_psw.UseSystemPasswordChar = true;
+            this.textBox_psw.TextChanged += new System.EventHandler(this.textBox_psw_TextChanged);
             // 
             // textBox_usuario
             // 
@@ -278,6 +280,7 @@
             this.textBox_usuario.Name = "textBox_usuario";
             this.textBox_usuario.Size = new System.Drawing.Size(165, 24);
             this.textBox_usuario.TabIndex = 94;
+            this.textBox_usuario.TextChanged += new System.EventHandler(this.textBox_usuario_TextChanged);
             // 
             // textBox_cod_postal
             // 
@@ -341,6 +344,7 @@
             this.textBox_mail.Name = "textBox_mail";
             this.textBox_mail.Size = new System.Drawing.Size(165, 24);
             this.textBox_mail.TabIndex = 102;
+            this.textBox_mail.TextChanged += new System.EventHandler(this.textBox_mail_TextChanged);
             // 
             // textBox_razon_social
             // 
@@ -349,6 +353,7 @@
             this.textBox_razon_social.Name = "textBox_razon_social";
             this.textBox_razon_social.Size = new System.Drawing.Size(165, 24);
             this.textBox_razon_social.TabIndex = 103;
+            this.textBox_razon_social.TextChanged += new System.EventHandler(this.textBox_razon_social_TextChanged);
             // 
             // textBox2
             // 
@@ -373,6 +378,7 @@
             this.textBox_cuit.Name = "textBox_cuit";
             this.textBox_cuit.Size = new System.Drawing.Size(165, 24);
             this.textBox_cuit.TabIndex = 106;
+            this.textBox_cuit.TextChanged += new System.EventHandler(this.textBox_cuit_TextChanged);
             // 
             // textBox_nombre_de_contacto
             // 
@@ -390,10 +396,11 @@
             this.button_guardar.TabIndex = 108;
             this.button_guardar.Text = "Guardar";
             this.button_guardar.UseVisualStyleBackColor = true;
+            this.button_guardar.Click += new System.EventHandler(this.button_guardar_Click);
             // 
-            // errorProvider_cuil
+            // errorProvider_cuit
             // 
-            this.errorProvider_cuil.ContainerControl = this;
+            this.errorProvider_cuit.ContainerControl = this;
             // 
             // errorProvider_razon_social
             // 
@@ -453,7 +460,7 @@
             this.Name = "CrearEmpresa";
             this.Text = "CrearEmpresa";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_fecha)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_cuil)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_cuit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_razon_social)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_mail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).EndInit();
@@ -500,7 +507,7 @@
         private System.Windows.Forms.TextBox textBox_cuit;
         private System.Windows.Forms.TextBox textBox_ciudad;
         private System.Windows.Forms.Button button_guardar;
-        private System.Windows.Forms.ErrorProvider errorProvider_cuil;
+        private System.Windows.Forms.ErrorProvider errorProvider_cuit;
         private System.Windows.Forms.ErrorProvider errorProvider_razon_social;
         private System.Windows.Forms.ErrorProvider errorProvider_mail;
         private System.Windows.Forms.ErrorProvider errorProvider_psw;
