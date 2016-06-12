@@ -327,20 +327,20 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             paramList.Add(new SqlParameter("@EMAIL", textBox_mail.Text));
             paramList.Add(new SqlParameter("@TELEFONO", text_telefono.Text));
             paramList.Add(new SqlParameter("@CALLE", textBox_calle.Text));
-            paramList.Add(new SqlParameter("@NUM_CALLE", textBox_nro.Text));
-            paramList.Add(new SqlParameter("@PISO", textBox_piso.Text));
+            paramList.Add(new SqlParameter("@NUM_CALLE", Convert.ToDecimal(""+textBox_nro.Text)));
+            paramList.Add(new SqlParameter("@PISO", Convert.ToDecimal(""+textBox_piso.Text)));
             paramList.Add(new SqlParameter("@DEPTO", textBox_depto.Text));
             paramList.Add(new SqlParameter("@COD_POSTAL", textBox_cod_postal.Text));
             paramList.Add(new SqlParameter("@HABILITADO", 1));
             paramList.Add(new SqlParameter("@BAJA", 0));
             paramList.Add(new SqlParameter("@REPUTACION", 0));
             paramList.Add(new SqlParameter("@USER_NRO_INTENTOS", 0));
-            paramList.Add(new SqlParameter("@CUIT", textBox_cuit.Text));
+            paramList.Add(new SqlParameter("@CUIT",textBox_cuit.Text));
             paramList.Add(new SqlParameter("@RAZON_SOCIAL", textBox_usuario.Text));
             paramList.Add(new SqlParameter("@NOMBRECONTACO", textBox_nombre_de_contacto.Text));
             paramList.Add(new SqlParameter("@COD_RUBRO_PRINCIPAL", null));
             paramList.Add(new SqlParameter("@CIUDAD", textBox_ciudad.Text));
-            /*paramList.Add(new SqlParameter("@pass", Name));
+/*
  @username nvarchar(255), 
     @pass nvarchar(255),	
 	@email nvarchar(255),
@@ -363,7 +363,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
 
            /*
-            * //inserto cliente
+            * //insertar empresa
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "INSERT INTO NOTHING_IS_IMPOSSIBLE.EMPRESA (CUIT,RAZON_SOCIAL,NOMBRE_CONTACO,CIUDAD) ";
