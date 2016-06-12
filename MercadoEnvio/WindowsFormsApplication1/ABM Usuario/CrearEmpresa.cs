@@ -293,7 +293,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                 {
                     if (!existeMailIngresado())
                     {
-                       // insertarEmpresa();
+                       insertarEmpresa();
                         insertarUsuario();
                         MessageBox.Show("SE HA CREADO EL USUARIO EXITOSAMENTE!!", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
