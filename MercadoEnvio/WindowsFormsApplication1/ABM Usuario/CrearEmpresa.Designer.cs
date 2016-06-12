@@ -185,7 +185,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(152, 18);
             this.label8.TabIndex = 85;
-            this.label8.Text = "Código postal:";
+            this.label8.Text = "Rubro Principal:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9

@@ -378,7 +378,17 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
         private void insertarCliente()
         {
-            SqlCommand cmd = new SqlCommand();
+            
+
+
+            //  paramList.Add(new SqlParameter("@ret", 1)); //agrego este parametro para el store procedure
+
+           // AccesoBaseDeDatos.ExecStoredProcedure("NOTHING_IS_IMPOSSIBLE.SP_ALTAEMPRESA", paramList);
+
+           
+
+
+            /*SqlCommand cmd = new SqlCommand();
             SqlCommand cmd1 = new SqlCommand();
 
             //inserto cliente
@@ -405,6 +415,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
             //libero
             cmd.Dispose();
+             * */
         }
 
        

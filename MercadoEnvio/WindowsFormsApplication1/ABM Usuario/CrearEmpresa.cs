@@ -294,7 +294,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                     if (!existeMailIngresado())
                     {
                        insertarEmpresa();
-                        insertarUsuario();
+                        //insertarUsuario();
                         MessageBox.Show("SE HA CREADO EL USUARIO EXITOSAMENTE!!", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
@@ -321,36 +321,60 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
         private void insertarEmpresa()
         {
+            List<SqlParameter> paramList = new List<SqlParameter>();
+            paramList.Add(new SqlParameter("@USERNAME", textBox_usuario.Text));
+            paramList.Add(new SqlParameter("@PASS", textBox_psw.Text));
+            paramList.Add(new SqlParameter("@EMAIL", textBox_mail.Text));
+            paramList.Add(new SqlParameter("@TELEFONO", text_telefono.Text));
+            paramList.Add(new SqlParameter("@CALLE", textBox_calle.Text));
+            paramList.Add(new SqlParameter("@NUM_CALLE", textBox_nro.Text));
+            paramList.Add(new SqlParameter("@PISO", textBox_piso.Text));
+            paramList.Add(new SqlParameter("@DEPTO", textBox_depto.Text));
+            paramList.Add(new SqlParameter("@COD_POSTAL", textBox_cod_postal.Text));
+            paramList.Add(new SqlParameter("@HABILITADO", 1));
+            paramList.Add(new SqlParameter("@BAJA", 0));
+            paramList.Add(new SqlParameter("@REPUTACION", 0));
+            paramList.Add(new SqlParameter("@USER_NRO_INTENTOS", 0));
+            paramList.Add(new SqlParameter("@CUIT", textBox_cuit.Text));
+            paramList.Add(new SqlParameter("@RAZON_SOCIAL", textBox_usuario.Text));
+            paramList.Add(new SqlParameter("@NOMBRECONTACO", textBox_nombre_de_contacto.Text));
+            paramList.Add(new SqlParameter("@COD_RUBRO_PRINCIPAL", null));
+            paramList.Add(new SqlParameter("@CIUDAD", textBox_ciudad.Text));
+            /*paramList.Add(new SqlParameter("@pass", Name));
+ @username nvarchar(255), 
+    @pass nvarchar(255),	
+	@email nvarchar(255),
+	@telefono nvarchar(255),
+	@calle nvarchar(255),
+	@num_calle numeric(18,0),
+	@piso numeric(18, 0),
+	@depto nvarchar(50),
+	@cod_postal nvarchar(50),
+	@habilitado bit,
+	@baja bit,
+	@reputacion numeric(18,4),	   
+    @user_nro_intentos numeric(18, 0),
+	@cuit nvarchar(50),
+	@razon_social nvarchar(50),
+	@nombre_contaco nvarchar(225),
+	@cod_rubro_principal numeric(18,0),
+	@ciudad nvarchar(255)
 
-            //inicializar command para enviarle instruccion sql
-            SqlCommand cmd = new SqlCommand("NOTHING_IS_IMPOSSIBLE.sp_altaEmpresa",AccesoBaseDeDatos.GetConnection(),LaTransaccion);
+
+
+           /*
+            * //inserto cliente
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "INSERT INTO NOTHING_IS_IMPOSSIBLE.EMPRESA (CUIT,RAZON_SOCIAL,NOMBRE_CONTACO,CIUDAD) ";
+            cmd.CommandText += "VALUES (" + textBox_cuit.Text + ",";
+            cmd.CommandText += "'" + textBox_razon_social.Text + "',";
+            cmd.CommandText += "'" + textBox_nombre_de_contacto.Text + "',";
+            cmd.CommandText += "'" + textBox_ciudad.Text + "')";
+           // cmd.CommandText += "CONVERT(DATETIME,'" + textBox_ciudad.Text + "',121),";
+           // cmd.CommandText += "CONVERT(DATETIME,'" + textBox1.Text + "',121),";
+           // cmd.CommandText += "(SELECT COD_TIPO_DOC FROM NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO T WHERE  T.DESCRIPCION= '" + comboBox_tipoDoc.GetItemText(comboBox_tipoDoc.SelectedItem) + "')" + ")";
             cmd.Connection = AccesoBaseDeDatos.GetConnection();
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Clear();
-             //se inicia la transacción
-                LaTransaccion = cmd.Connection.BeginTransaction(System.Data.IsolationLevel.Serializable);
-
-            // jjeje, arreglar eso en base de datos :acepta el nombre_contaco y no nombre_contaCTO.
-
-            //AGREGAR FECHA DE CREACION EN LA TABLA DE LA BASE DE DATOS EN LA TABLA USUARIO: 
-            //VA PARA CLIENTE Y PARA EMPRESA
-
-                cmd.Parameters.AddWithValue("@username", textBox_usuario.Text);
-                cmd.Parameters.AddWithValue("@pass", textBox_psw.Text);
-                cmd.Parameters.AddWithValue("@email", textBox_mail.Text);
-                cmd.Parameters.AddWithValue("@telefono", text_telefono.Text);
-                cmd.Parameters.AddWithValue("@calle", textBox_calle.Text);
-                cmd.Parameters.AddWithValue("@numCalle", textBox_nro.Text);
-            cmd.Parameters.AddWithValue("@piso",textBox_piso.Text);
-            cmd.Parameters.AddWithValue("@depto",textBox_depto.Text);
-            cmd.Parameters.AddWithValue("@cod_postal", textBox_cod_postal.Text);
-            cmd.Parameters.AddWithValue("@habilitado",1);
-            cmd.Parameters.AddWithValue("@baja",0);
-            cmd.Parameters.AddWithValue("@reputacion",0);
-            cmd.Parameters.AddWithValue("@user_nro_intentos", 0);
-
-           // cmd.CommandText = ;
-            //cmd.CommandText += 
            
 
             cmd.Connection = AccesoBaseDeDatos.GetConnection();
@@ -363,6 +387,11 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                 cmd.Dispose();
                 return;
             }
+            * 
+            */
+
+            AccesoBaseDeDatos.ExecStoredProcedure("NOTHING_IS_IMPOSSIBLE.SP_ALTAEMPRESA", paramList);
+
             
         }
     }
