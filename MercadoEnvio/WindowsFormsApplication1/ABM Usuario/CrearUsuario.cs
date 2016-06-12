@@ -380,15 +380,18 @@ namespace MercadoEnvioFRBA.ABM_Usuario
         private void insertarCliente()
         {
             SqlCommand cmd = new SqlCommand();
+            SqlCommand cmd1 = new SqlCommand();
 
             //inserto cliente
-            cmd.CommandText = "INSERT INTO NOTHING_IS_IMPOSSIBLE.CLIENTE (DNI,APELLIDO,NOMBRE) ";
+            cmd.CommandText = "INSERT INTO NOTHING_IS_IMPOSSIBLE.CLIENTE (DNI,APELLIDO,NOMBRE,FECHA_NACIMIENTO,FECHACREACION) ";
             cmd.CommandText += "VALUES (" + textBox_nroDoc.Text + ",";
            //cmd.CommandText += "'" + comboBox_tipoDoc.GetItemText(comboBox_tipoDoc.SelectedItem) + "',";
             cmd.CommandText += "'" + textBox_apellido.Text + "',";
-            cmd.CommandText += "'" + textBox_nombre.Text + "'" + ")";
-           // cmd.CommandText += "CONVERT(DATETIME,'" + textBox_fecha.Text + "',121),";
-            //cmd.CommandText += "CONVERT(DATETIME,'" + textBox1.Text + "',121),";
+            cmd.CommandText += "'" + textBox_nombre.Text + "',";
+           cmd.CommandText += "CONVERT(DATETIME,'" + textBox_fecha.Text + "',121),";
+           cmd.CommandText += "CONVERT(DATETIME,'" + textBox1.Text + "',121)" + ")";
+           //,COD_TIPO_DOC
+            //cmd.CommandText += "(SELECT COD_TIPO_DOC FROM NOTHING_IS_IMPOSIBLE.TIPODOCUMENTO T WHERE T.DESCRIPCION='" + comboBox_tipoDoc.GetItemText(comboBox_tipoDoc.SelectedItem) + "')" + ")";
             cmd.Connection = AccesoBaseDeDatos.GetConnection();
 
 

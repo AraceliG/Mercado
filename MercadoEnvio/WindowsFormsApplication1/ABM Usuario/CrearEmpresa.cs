@@ -89,7 +89,8 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             SqlCommand cmd = new SqlCommand();
 
             cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.EMPRESA ";
-            cmd.CommandText += "WHERE CUIT= '" + textBox_cuit.Text + "'";
+            // el replace me elimina los guiones
+            cmd.CommandText += "WHERE REPLACE(CUIT,'-','')= '" + textBox_cuit.Text + "'";
 
             cmd.Connection = AccesoBaseDeDatos.GetConnection();
 
