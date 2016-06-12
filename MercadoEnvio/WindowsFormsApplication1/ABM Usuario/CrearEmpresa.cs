@@ -317,29 +317,48 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
         }
 
+        SqlTransaction LaTransaccion = null;
+
         private void insertarEmpresa()
         {
 
             //inicializar command para enviarle instruccion sql
-            SqlCommand cmd = new SqlCommand();
+            SqlCommand cmd = new SqlCommand("NOTHING_IS_IMPOSSIBLE.sp_altaEmpresa",AccesoBaseDeDatos.GetConnection(),LaTransaccion);
+            cmd.Connection = AccesoBaseDeDatos.GetConnection();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Clear();
+             //se inicia la transacción
+                LaTransaccion = cmd.Connection.BeginTransaction(System.Data.IsolationLevel.Serializable);
 
             // jjeje, arreglar eso en base de datos :acepta el nombre_contaco y no nombre_contaCTO.
 
             //AGREGAR FECHA DE CREACION EN LA TABLA DE LA BASE DE DATOS EN LA TABLA USUARIO: 
             //VA PARA CLIENTE Y PARA EMPRESA
 
-            cmd.CommandText = "INSERT INTO NOTHING_IS_IMPOSSIBLE.EMPRESA (CUIT,RAZON_SOCIAL,NOMBRE_CONTACO,CIUDAD) ";
-            cmd.CommandText += "VALUES('" + textBox_cuit.Text + "',";
-            cmd.CommandText += "'" + textBox_razon_social.Text + "',";
-            cmd.CommandText += "'" + textBox_nombre_de_contacto.Text + "',";
-            cmd.CommandText += "'" + textBox_ciudad.Text + "')";
+                cmd.Parameters.AddWithValue("@username", textBox_usuario.Text);
+                cmd.Parameters.AddWithValue("@pass", textBox_psw.Text);
+                cmd.Parameters.AddWithValue("@email", textBox_mail.Text);
+                cmd.Parameters.AddWithValue("@telefono", text_telefono.Text);
+                cmd.Parameters.AddWithValue("@calle", textBox_calle.Text);
+                cmd.Parameters.AddWithValue("@numCalle", textBox_nro.Text);
+            cmd.Parameters.AddWithValue("@piso",textBox_piso.Text);
+            cmd.Parameters.AddWithValue("@depto",textBox_depto.Text);
+            cmd.Parameters.AddWithValue("@cod_postal", textBox_cod_postal.Text);
+            cmd.Parameters.AddWithValue("@habilitado",1);
+            cmd.Parameters.AddWithValue("@baja",0);
+            cmd.Parameters.AddWithValue("@reputacion",0);
+            cmd.Parameters.AddWithValue("@user_nro_intentos", 0);
+
+           // cmd.CommandText = ;
+            //cmd.CommandText += 
+           
 
             cmd.Connection = AccesoBaseDeDatos.GetConnection();
 
             if (cmd.ExecuteNonQuery() < 1)
             {
                 //fallo
-                MessageBox.Show("Error al insertar en la tabla USUARIO.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al insertar en la tabla empresa.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //libero
                 cmd.Dispose();
                 return;
