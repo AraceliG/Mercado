@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MercadoEnvioFRBA.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,13 +42,29 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             }
             else
             {
-                if (textBoxPassword.Text == "1212" && textBoxUusario.Text == "admin") {
-
-                    ElegirRol elegirRol = new ElegirRol();
-                    elegirRol.ShowDialog();
+                if (this.userNameValido(textBoxUusario.Text) && this.comprobarLogin(textBoxPassword.Text, textBoxUusario.Text))
+                {
+                    MessageBox.Show("Ok el usernameestabien", "Error!", MessageBoxButtons.OK);
+                    //ElegirRol elegirRol = new ElegirRol();
+                    //elegirRol.ShowDialog();
+                } 
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incorrecta", "Error!", MessageBoxButtons.OK);
+                    return;
                 }
 
             }
+        }
+
+        private bool userNameValido(string unUserName)
+        {
+            return Usuario.userNameValido(unUserName);
+        }
+
+        private bool comprobarLogin(string password, string username)
+        {
+            return Usuario.comprobarLogin(username, password);
         }
 
         private void textBoxUusario_TextChanged(object sender, EventArgs e)
@@ -59,5 +76,5 @@ namespace MercadoEnvioFRBA.ABM_Usuario
         {
         
         }
-        }
     }
+}

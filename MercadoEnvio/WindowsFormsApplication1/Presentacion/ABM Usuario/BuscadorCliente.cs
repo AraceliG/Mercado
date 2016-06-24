@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using MercadoEnvioFRBA.ConexionBaseDatos;
+using MercadoEnvioFRBA.Datos;
 
 namespace MercadoEnvioFRBA.ABM_Usuario
 {

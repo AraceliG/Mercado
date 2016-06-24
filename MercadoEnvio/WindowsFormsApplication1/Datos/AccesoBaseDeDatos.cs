@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 
 
-namespace MercadoEnvioFRBA.ConexionBaseDatos
+namespace MercadoEnvioFRBA.Datos
 {
     class AccesoBaseDeDatos
     {
@@ -36,16 +36,44 @@ namespace MercadoEnvioFRBA.ConexionBaseDatos
         }
 
 
-        public static decimal ExecStoredProcedure(string commandText, List<SqlParameter> parameters)
+        public static object ExecStoredProcedure(string commandText, List<SqlParameter> parameters)
         {
             try
             {
                 SqlCommand sqlCommand = BuildSQLCommand(commandText, parameters);
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.ExecuteNonQuery();
-                return (decimal)sqlCommand.Parameters["@ret"].Value;
+                return sqlCommand.Parameters["@ret"].Value;
             }
             catch { return 0; }
+        }
+
+        public static SqlDataReader GetDataReader(string commandtext, string commandtype, List<SqlParameter> parameters)
+        {
+            SqlCommand sqlCommand = BuildSQLCommand(commandtext, parameters);
+            SetCommandType(commandtype, sqlCommand);
+            return sqlCommand.ExecuteReader();
+        }
+
+        public static SqlDataReader GetDataReader(string commandtext, string commandtype)
+        {
+            return GetDataReader(commandtext, commandtype, null);
+        }
+
+        private static void SetCommandType(string commandtype, SqlCommand sqlCommand)
+        {
+            switch (commandtype)
+            {
+                case "T":
+                    sqlCommand.CommandType = CommandType.Text;
+                    break;
+                case "TD":
+                    sqlCommand.CommandType = CommandType.TableDirect;
+                    break;
+                case "SP":
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    break;
+            }
         }
 
 

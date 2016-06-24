@@ -31,12 +31,12 @@ namespace MercadoEnvioFRBA.ABM_Usuario
         {
             switch (comboBoxElegirRol.SelectedIndex ) {
                 case 0:
-                     FormularioCliente accionesCliente = new FormularioCliente();
-            accionesCliente.ShowDialog();
+                   // FormularioCliente accionesCliente = new FormularioCliente();
+                    //accionesCliente.ShowDialog();
                     break;
                 case 1:
-                    FormularioAdministrador accionesAdministrador = new FormularioAdministrador();
-                    accionesAdministrador.ShowDialog();
+                    //FormularioAdministrador accionesAdministrador = new FormularioAdministrador();
+                    //accionesAdministrador.ShowDialog();
                     break;
 
         }

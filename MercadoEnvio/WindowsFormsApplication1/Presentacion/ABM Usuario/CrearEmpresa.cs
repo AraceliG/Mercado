@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
-using MercadoEnvioFRBA.ConexionBaseDatos;
+using MercadoEnvioFRBA.Datos;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 

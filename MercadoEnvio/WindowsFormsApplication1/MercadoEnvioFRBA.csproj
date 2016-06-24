@@ -48,154 +48,156 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ABM Rol\ABMrol.cs">
+    <Compile Include="Datos\DAO\DAOUsuario.cs" />
+    <Compile Include="Modelo\Usuario.cs" />
+    <Compile Include="Presentacion\ABM Rol\ABMrol.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Rol\ABMrol.Designer.cs">
+    <Compile Include="Presentacion\ABM Rol\ABMrol.Designer.cs">
       <DependentUpon>ABMrol.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Rol\CrearModificarRol.cs">
+    <Compile Include="Presentacion\ABM Rol\CrearModificarRol.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Rol\CrearModificarRol.Designer.cs">
+    <Compile Include="Presentacion\ABM Rol\CrearModificarRol.Designer.cs">
       <DependentUpon>CrearModificarRol.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Rubro\Form1.cs">
+    <Compile Include="Presentacion\ABM Rubro\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Rubro\Form1.Designer.cs">
+    <Compile Include="Presentacion\ABM Rubro\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Usuario\BuscadorCliente.cs">
+    <Compile Include="Presentacion\ABM Usuario\BuscadorCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Usuario\BuscadorCliente.Designer.cs">
+    <Compile Include="Presentacion\ABM Usuario\BuscadorCliente.Designer.cs">
       <DependentUpon>BuscadorCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Usuario\Calendario.cs">
+    <Compile Include="Presentacion\ABM Usuario\Calendario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Usuario\Calendario.Designer.cs">
+    <Compile Include="Presentacion\ABM Usuario\Calendario.Designer.cs">
       <DependentUpon>Calendario.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Usuario\CrearEmpresa.cs">
+    <Compile Include="Presentacion\ABM Usuario\FormularioEmpresa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Usuario\CrearEmpresa.Designer.cs">
+    <Compile Include="Presentacion\ABM Usuario\FormularioEmpresa.Designer.cs">
+      <DependentUpon>FormularioEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\ABM Usuario\CrearEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\ABM Usuario\CrearEmpresa.Designer.cs">
       <DependentUpon>CrearEmpresa.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Usuario\CrearUsuario.cs">
+    <Compile Include="Presentacion\ABM Usuario\CrearUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Usuario\CrearUsuario.Designer.cs">
+    <Compile Include="Presentacion\ABM Usuario\CrearUsuario.Designer.cs">
       <DependentUpon>CrearUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Usuario\ElegirRol.cs">
+    <Compile Include="Presentacion\Inicio\ElegirRol.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Usuario\ElegirRol.Designer.cs">
+    <Compile Include="Presentacion\Inicio\ElegirRol.Designer.cs">
       <DependentUpon>ElegirRol.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Usuario\FormularioAdministrador.cs">
+    <Compile Include="Presentacion\ABM Usuario\FormularioCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Usuario\FormularioAdministrador.Designer.cs">
-      <DependentUpon>FormularioAdministrador.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ABM Usuario\FormularioCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ABM Usuario\FormularioCliente.Designer.cs">
+    <Compile Include="Presentacion\ABM Usuario\FormularioCliente.Designer.cs">
       <DependentUpon>FormularioCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Usuario\FormularioLogin.cs">
+    <Compile Include="Presentacion\Inicio\FormularioLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Usuario\FormularioLogin.Designer.cs">
+    <Compile Include="Presentacion\Inicio\FormularioLogin.Designer.cs">
       <DependentUpon>FormularioLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Visibilidad\Form1.cs">
+    <Compile Include="Presentacion\ABM Visibilidad\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Visibilidad\Form1.Designer.cs">
+    <Compile Include="Presentacion\ABM Visibilidad\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Calificar\Form1.cs">
+    <Compile Include="Presentacion\Calificar\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Calificar\Form1.Designer.cs">
+    <Compile Include="Presentacion\Calificar\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ComprarOfertar\Form1.cs">
+    <Compile Include="Presentacion\ComprarOfertar\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ComprarOfertar\Form1.Designer.cs">
+    <Compile Include="Presentacion\ComprarOfertar\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConexionBaseDeDatos\AccesoBaseDeDatos.cs" />
-    <Compile Include="Facturas\Form1.cs">
+    <Compile Include="Datos\AccesoBaseDeDatos.cs" />
+    <Compile Include="Presentacion\Facturas\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Facturas\Form1.Designer.cs">
+    <Compile Include="Presentacion\Facturas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="InicioMercadoEnvio.cs">
+    <Compile Include="Presentacion\Inicio\InicioMercadoEnvio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InicioMercadoEnvio.Designer.cs">
+    <Compile Include="Presentacion\Inicio\InicioMercadoEnvio.Designer.cs">
       <DependentUpon>InicioMercadoEnvio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Generar Publicación\Form1.cs">
+    <Compile Include="Presentacion\Generar Publicación\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Generar Publicación\Form1.Designer.cs">
+    <Compile Include="Presentacion\Generar Publicación\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Historial Cliente\Form1.cs">
+    <Compile Include="Presentacion\Historial Cliente\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Historial Cliente\Form1.Designer.cs">
+    <Compile Include="Presentacion\Historial Cliente\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Listado Estadistico\Form1.cs">
+    <Compile Include="Presentacion\Listado Estadistico\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Listado Estadistico\Form1.Designer.cs">
+    <Compile Include="Presentacion\Listado Estadistico\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ABM Rol\ABMrol.resx">
+    <EmbeddedResource Include="Presentacion\ABM Rol\ABMrol.resx">
       <DependentUpon>ABMrol.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM Rol\CrearModificarRol.resx">
+    <EmbeddedResource Include="Presentacion\ABM Rol\CrearModificarRol.resx">
       <DependentUpon>CrearModificarRol.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM Usuario\BuscadorCliente.resx">
+    <EmbeddedResource Include="Presentacion\ABM Usuario\BuscadorCliente.resx">
       <DependentUpon>BuscadorCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM Usuario\Calendario.resx">
+    <EmbeddedResource Include="Presentacion\ABM Usuario\Calendario.resx">
       <DependentUpon>Calendario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM Usuario\CrearEmpresa.resx">
+    <EmbeddedResource Include="Presentacion\ABM Usuario\FormularioEmpresa.resx">
+      <DependentUpon>FormularioEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\ABM Usuario\CrearEmpresa.resx">
       <DependentUpon>CrearEmpresa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM Usuario\CrearUsuario.resx">
+    <EmbeddedResource Include="Presentacion\ABM Usuario\CrearUsuario.resx">
       <DependentUpon>CrearUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM Usuario\ElegirRol.resx">
+    <EmbeddedResource Include="Presentacion\Inicio\ElegirRol.resx">
       <DependentUpon>ElegirRol.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM Usuario\FormularioAdministrador.resx">
-      <DependentUpon>FormularioAdministrador.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ABM Usuario\FormularioCliente.resx">
+    <EmbeddedResource Include="Presentacion\ABM Usuario\FormularioCliente.resx">
       <DependentUpon>FormularioCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM Usuario\FormularioLogin.resx">
+    <EmbeddedResource Include="Presentacion\Inicio\FormularioLogin.resx">
       <DependentUpon>FormularioLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InicioMercadoEnvio.resx">
+    <EmbeddedResource Include="Presentacion\Inicio\InicioMercadoEnvio.resx">
       <DependentUpon>InicioMercadoEnvio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

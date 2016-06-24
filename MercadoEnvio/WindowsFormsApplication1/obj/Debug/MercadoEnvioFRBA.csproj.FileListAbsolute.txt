@@ -29,3 +29,22 @@ C:\Users\Antonio\Documents\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\Mer
 C:\Users\Antonio\Documents\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.FormularioAdministrador.resources
 C:\Users\Antonio\Documents\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.CrearUsuario.resources
 C:\Users\Antonio\Documents\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.Calendario.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Rol.ABMrol.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Rol.CrearModificarRol.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.BuscadorCliente.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.Calendario.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.FormularioEmpresa.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.CrearEmpresa.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.CrearUsuario.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.ElegirRol.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.FormularioCliente.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.FormularioLogin.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.FormularioInicio.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Properties.Resources.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.csproj.GenerateResource.Cache
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.csprojResolveAssemblyReference.cache
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
