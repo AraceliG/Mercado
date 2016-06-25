@@ -1,4 +1,4 @@
-﻿namespace MercadoEnvioFRBA.ABM_Usuario
+﻿namespace MercadoEnvioFRBA.Presentacion.Inicio
 {
     partial class ElegirRol
     {

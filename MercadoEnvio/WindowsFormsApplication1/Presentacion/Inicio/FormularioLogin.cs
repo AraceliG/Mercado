@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MercadoEnvioFRBA.ABM_Usuario
+namespace MercadoEnvioFRBA.Presentacion.Inicio
 {
     public partial class FormularioLogin : Form
     {
@@ -44,9 +44,11 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             {
                 if (this.userNameValido(textBoxUusario.Text) && this.comprobarLogin(textBoxPassword.Text, textBoxUusario.Text))
                 {
-                    MessageBox.Show("Ok el usernameestabien", "Error!", MessageBoxButtons.OK);
-                    //ElegirRol elegirRol = new ElegirRol();
-                    //elegirRol.ShowDialog();
+                    Usuario user = new Usuario(textBoxUusario.Text);
+                    this.Hide();
+                    ElegirRol elegirRol = new ElegirRol(user);
+                    elegirRol.ShowDialog();
+                    this.Show();
                 } 
                 else
                 {
@@ -75,6 +77,11 @@ namespace MercadoEnvioFRBA.ABM_Usuario
         private void textBoxPassword_TextChanged(object sender, EventArgs e)
         {
         
+        }
+
+        private void FormularioLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

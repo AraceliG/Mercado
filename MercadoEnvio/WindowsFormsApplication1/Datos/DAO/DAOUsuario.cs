@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MercadoEnvioFRBA.Modelo;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -16,7 +17,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
             List<SqlParameter> paramList = new List<SqlParameter>();
             paramList.Add(new SqlParameter("@userName", userName));
 
-            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.Usuario WHERE username=@userName", "TD", paramList);
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.Usuario WHERE username=@userName", "T", paramList);
             if (lector.HasRows)
             {
                 return true;
@@ -27,9 +28,6 @@ namespace MercadoEnvioFRBA.Datos.DAO
         // Method
         public static bool comprobarLogin(string userName, string pass)
         {
-
-
-
             decimal resultado_sp;
             List<SqlParameter> paramList = new List<SqlParameter>();
             paramList.Add(new SqlParameter("@username", userName));
@@ -49,6 +47,21 @@ namespace MercadoEnvioFRBA.Datos.DAO
                 return true;
             }
             return false;
+        }
+
+        internal static void getUsuario(string userName, Modelo.Usuario usuario)
+        {
+            List<SqlParameter> paramList = new List<SqlParameter>();
+            paramList.Add(new SqlParameter("@userName", userName));
+
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.Usuario WHERE username=@userName", "T", paramList);            
+            if (lector.HasRows)
+            {
+                lector.Read();
+                usuario.username = userName;
+                usuario.userId = (decimal)lector["userId"];
+                usuario.roles = Rol.rolesDe(usuario.userId);
+            }
         }
     }
 }

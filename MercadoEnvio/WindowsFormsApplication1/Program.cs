@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MercadoEnvioFRBA.Presentacion.Inicio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace MercadoEnvioFRBA
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormularioInicio());
+            Application.Run(new FormularioLogin());
         }
     }
 }
