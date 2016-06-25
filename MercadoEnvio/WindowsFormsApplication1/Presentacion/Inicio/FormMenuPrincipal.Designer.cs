@@ -110,6 +110,7 @@
             this.func5.Text = "ABM de visibilidad de publicacion";
             this.func5.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.func5.UseVisualStyleBackColor = true;
+            this.func5.Click += new System.EventHandler(this.func5_Click);
             // 
             // func6
             // 

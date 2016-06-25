@@ -49,6 +49,15 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
             FormEnConstruccion unForm = new FormEnConstruccion();
             unForm.Text = "ABM Rubros";
             unForm.ShowDialog();
+            this.Show();
+        }
+
+        private void func5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormABMVisibilidad unForm = new FormABMVisibilidad();
+            unForm.ShowDialog();
+            this.Show();
         }
     }
 }

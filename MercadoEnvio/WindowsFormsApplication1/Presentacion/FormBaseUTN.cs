@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MercadoEnvioFRBA.ABM_Visibilidad
+namespace MercadoEnvioFRBA.Presentacion
 {
-    public partial class Form1 : Form
+    public partial class FormBaseUTN : Form
     {
-        public Form1()
+        public FormBaseUTN()
         {
             InitializeComponent();
         }
