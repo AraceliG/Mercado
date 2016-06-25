@@ -66,11 +66,11 @@
     <Compile Include="Presentacion\ABM Rol\CrearModificarRol.Designer.cs">
       <DependentUpon>CrearModificarRol.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\ABM Rubro\Form1.cs">
+    <Compile Include="Presentacion\ABM Rubro\FormEnConstruccion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\ABM Rubro\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Presentacion\ABM Rubro\FormEnConstruccion.Designer.cs">
+      <DependentUpon>FormEnConstruccion.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\ABM Usuario\BuscadorCliente.cs">
       <SubType>Form</SubType>
@@ -176,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Rol\CrearModificarRol.resx">
       <DependentUpon>CrearModificarRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\ABM Rubro\FormEnConstruccion.resx">
+      <DependentUpon>FormEnConstruccion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Usuario\BuscadorCliente.resx">
       <DependentUpon>BuscadorCliente.cs</DependentUpon>

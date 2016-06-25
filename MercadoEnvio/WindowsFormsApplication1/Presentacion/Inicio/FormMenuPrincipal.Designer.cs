@@ -93,6 +93,7 @@
             this.func4.Text = "ABM de Rubro";
             this.func4.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.func4.UseVisualStyleBackColor = true;
+            this.func4.Click += new System.EventHandler(this.func4_Click);
             // 
             // func5
             // 

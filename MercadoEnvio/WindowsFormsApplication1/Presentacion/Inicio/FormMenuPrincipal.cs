@@ -1,4 +1,5 @@
 ﻿using MercadoEnvioFRBA.Modelo;
+using MercadoEnvioFRBA.Presentacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,6 +41,14 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
         private void FormMenuPrincipal_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void func4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormEnConstruccion unForm = new FormEnConstruccion();
+            unForm.Text = "ABM Rubros";
+            unForm.ShowDialog();
         }
     }
 }
