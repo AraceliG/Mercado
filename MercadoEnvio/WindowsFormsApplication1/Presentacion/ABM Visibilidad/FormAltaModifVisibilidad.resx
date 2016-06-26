@@ -118,34 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button_limpiar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAecAAAAjCAYAAACuA8JCAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAALVJREFUeF7t1UENACAQA0E8oAT/f2wdCSr2MZO0FnYNAJAizgAQI84AECPOABAj
-        zgAQI84AECPOABAjzgAQI84AECPOABAjzgAQI84AECPOABAjzgAQI84AECPOABAjzgAQI84AECPOABAj
-        zgAQI84AECPOABAjzgAQI84AECPOABAjzgAQI84AECPOABAjzgAQs+4+Y2ZmZo2Js5mZWWzibGZmFtuP
-        838AIEOcASBGnAEgZeYB1uo+mXCsXJgAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="button_listar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAecAAAAjCAYAAACuA8JCAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAALVJREFUeF7t1UENACAQA0E8oAT/f2wdCSr2MZO0FnYNAJAizgAQI84AECPOABAj
-        zgAQI84AECPOABAjzgAQI84AECPOABAjzgAQI84AECPOABAjzgAQI84AECPOABAjzgAQI84AECPOABAj
-        zgAQI84AECPOABAjzgAQI84AECPOABAjzgAQI84AECPOABAjzgAQs+4+Y2ZmZo2Js5mZWWzibGZmFtuP
-        838AIEOcASBGnAEgZeYB1uo+mXCsXJgAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="buttonBorrar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAecAAAAjCAYAAACuA8JCAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAALVJREFUeF7t1UENACAQA0E8oAT/f2wdCSr2MZO0FnYNAJAizgAQI84AECPOABAj
-        zgAQI84AECPOABAjzgAQI84AECPOABAjzgAQI84AECPOABAjzgAQI84AECPOABAjzgAQI84AECPOABAj
-        zgAQI84AECPOABAjzgAQI84AECPOABAjzgAQI84AECPOABAjzgAQs+4+Y2ZmZo2Js5mZWWzibGZmFtuP
-        838AIEOcASBGnAEgZeYB1uo+mXCsXJgAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="buttonModificar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button_guardar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAecAAAAjCAYAAACuA8JCAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wgAADsIBFShKgAAAALVJREFUeF7t1UENACAQA0E8oAT/f2wdCSr2MZO0FnYNAJAizgAQI84AECPOABAj

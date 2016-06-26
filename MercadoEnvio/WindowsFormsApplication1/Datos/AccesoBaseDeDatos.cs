@@ -76,6 +76,14 @@ namespace MercadoEnvioFRBA.Datos
             }
         }
 
+        public static void WriteInBase(string commandtext, string commandtype, List<SqlParameter> parameters)
+        {
+            SqlCommand sqlCommand = BuildSQLCommand(commandtext, parameters);
+            SetCommandType(commandtype, sqlCommand);
+            sqlCommand.ExecuteNonQuery();
+
+        }
+
 
     }
 }

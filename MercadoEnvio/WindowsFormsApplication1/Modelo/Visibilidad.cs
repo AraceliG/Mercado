@@ -18,12 +18,24 @@ namespace MercadoEnvioFRBA.Modelo
         public bool permite_envios { get; set; }
         public string cod_tipo_comision_envio { get; set; }
         public decimal valor_comision_envio { get; set; }
+        public bool baja { get; set; }
 
 
         internal static List<Visibilidad> buscarVisibilidades(string filtro)
-        {
-            return DAOVisibilidad.getVisibilidadesQueCumplenCon(filtro);
+        {   
+            List<Visibilidad> visibilidades = DAOVisibilidad.getVisibilidadesQueCumplenCon(filtro);
+            return visibilidades.FindAll(v => !v.baja);
         }
 
+
+        internal void darDeBaja()
+        {
+            DAOVisibilidad.darDeBaja(this);
+        }
+
+        internal void guardar()
+        {
+            DAOVisibilidad.guardar(this);
+        }
     }
 }

@@ -49,6 +49,8 @@
             this.cod_visibilidad = new System.Windows.Forms.TextBox();
             this.label_cod_visibilidad = new System.Windows.Forms.Label();
             this.dataGridViewVisibiliadesFiltradas = new System.Windows.Forms.DataGridView();
+            this.buttonBorrar = new System.Windows.Forms.Button();
+            this.buttonModificar = new System.Windows.Forms.Button();
             this.grpBoxFiltrosBusqueda.SuspendLayout();
             this.groupBox_permite_envios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVisibiliadesFiltradas)).BeginInit();
@@ -107,7 +109,7 @@
             this.groupBox_permite_envios.Controls.Add(this.permiteEnviosSi);
             this.groupBox_permite_envios.Location = new System.Drawing.Point(506, 20);
             this.groupBox_permite_envios.Name = "groupBox_permite_envios";
-            this.groupBox_permite_envios.Size = new System.Drawing.Size(168, 43);
+            this.groupBox_permite_envios.Size = new System.Drawing.Size(163, 43);
             this.groupBox_permite_envios.TabIndex = 15;
             this.groupBox_permite_envios.TabStop = false;
             this.groupBox_permite_envios.Text = "Permite envios:";
@@ -115,7 +117,7 @@
             // permiteEnviosNo
             // 
             this.permiteEnviosNo.AutoSize = true;
-            this.permiteEnviosNo.Location = new System.Drawing.Point(122, 20);
+            this.permiteEnviosNo.Location = new System.Drawing.Point(115, 17);
             this.permiteEnviosNo.Name = "permiteEnviosNo";
             this.permiteEnviosNo.Size = new System.Drawing.Size(39, 17);
             this.permiteEnviosNo.TabIndex = 15;
@@ -126,7 +128,7 @@
             // 
             this.permiteEnviosAmbos.AutoSize = true;
             this.permiteEnviosAmbos.Checked = true;
-            this.permiteEnviosAmbos.Location = new System.Drawing.Point(19, 20);
+            this.permiteEnviosAmbos.Location = new System.Drawing.Point(12, 17);
             this.permiteEnviosAmbos.Name = "permiteEnviosAmbos";
             this.permiteEnviosAmbos.Size = new System.Drawing.Size(57, 17);
             this.permiteEnviosAmbos.TabIndex = 0;
@@ -137,7 +139,7 @@
             // permiteEnviosSi
             // 
             this.permiteEnviosSi.AutoSize = true;
-            this.permiteEnviosSi.Location = new System.Drawing.Point(82, 20);
+            this.permiteEnviosSi.Location = new System.Drawing.Point(75, 17);
             this.permiteEnviosSi.Name = "permiteEnviosSi";
             this.permiteEnviosSi.Size = new System.Drawing.Size(34, 17);
             this.permiteEnviosSi.TabIndex = 14;
@@ -248,22 +250,51 @@
             // dataGridViewVisibiliadesFiltradas
             // 
             this.dataGridViewVisibiliadesFiltradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewVisibiliadesFiltradas.Location = new System.Drawing.Point(25, 223);
+            this.dataGridViewVisibiliadesFiltradas.Location = new System.Drawing.Point(25, 201);
             this.dataGridViewVisibiliadesFiltradas.Name = "dataGridViewVisibiliadesFiltradas";
-            this.dataGridViewVisibiliadesFiltradas.Size = new System.Drawing.Size(711, 194);
+            this.dataGridViewVisibiliadesFiltradas.Size = new System.Drawing.Size(711, 168);
             this.dataGridViewVisibiliadesFiltradas.TabIndex = 3;
+            // 
+            // buttonBorrar
+            // 
+            this.buttonBorrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonBorrar.BackgroundImage")));
+            this.buttonBorrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonBorrar.Location = new System.Drawing.Point(661, 375);
+            this.buttonBorrar.Name = "buttonBorrar";
+            this.buttonBorrar.Size = new System.Drawing.Size(75, 28);
+            this.buttonBorrar.TabIndex = 4;
+            this.buttonBorrar.Text = "Borrar";
+            this.buttonBorrar.UseVisualStyleBackColor = true;
+            this.buttonBorrar.Click += new System.EventHandler(this.buttonBorrar_Click);
+            // 
+            // buttonModificar
+            // 
+            this.buttonModificar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonModificar.BackgroundImage")));
+            this.buttonModificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonModificar.Location = new System.Drawing.Point(580, 375);
+            this.buttonModificar.Name = "buttonModificar";
+            this.buttonModificar.Size = new System.Drawing.Size(75, 28);
+            this.buttonModificar.TabIndex = 5;
+            this.buttonModificar.Text = "Modificar";
+            this.buttonModificar.UseVisualStyleBackColor = true;
+            this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
             // 
             // FormABMVisibilidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(764, 489);
+            this.ClientSize = new System.Drawing.Size(764, 434);
+            this.Controls.Add(this.buttonModificar);
+            this.Controls.Add(this.buttonBorrar);
             this.Controls.Add(this.dataGridViewVisibiliadesFiltradas);
             this.Controls.Add(this.grpBoxFiltrosBusqueda);
             this.Name = "FormABMVisibilidad";
             this.Text = "ABM Visibilidad";
+            this.Load += new System.EventHandler(this.FormABMVisibilidad_Load);
             this.Controls.SetChildIndex(this.grpBoxFiltrosBusqueda, 0);
             this.Controls.SetChildIndex(this.dataGridViewVisibiliadesFiltradas, 0);
+            this.Controls.SetChildIndex(this.buttonBorrar, 0);
+            this.Controls.SetChildIndex(this.buttonModificar, 0);
             this.grpBoxFiltrosBusqueda.ResumeLayout(false);
             this.grpBoxFiltrosBusqueda.PerformLayout();
             this.groupBox_permite_envios.ResumeLayout(false);
@@ -295,5 +326,7 @@
         private System.Windows.Forms.RadioButton permiteEnviosSi;
         private System.Windows.Forms.Button button_limpiar;
         private System.Windows.Forms.ComboBox tipo_comision_envio;
+        private System.Windows.Forms.Button buttonBorrar;
+        private System.Windows.Forms.Button buttonModificar;
     }
 }

@@ -28,10 +28,26 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     unVisibilidad.permite_envios = (bool)lector["permite_envios"];
                     unVisibilidad.cod_tipo_comision_envio = (string)lector["cod_tipo_comision_envio"];
                     unVisibilidad.valor_comision_envio = (decimal)lector["valor_comision_envio"];
+                    unVisibilidad.baja = (bool)lector["baja"];
                     visibilidades.Add(unVisibilidad);
                 }
             }
             return visibilidades;
+        }
+
+        internal static void darDeBaja(Visibilidad visibilidad)
+        {
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(new SqlParameter("@cod_visibilidad", visibilidad.cod_visibilidad));
+            listaParametros.Add(new SqlParameter("@baja", true));
+
+            AccesoBaseDeDatos.WriteInBase("update NOTHING_IS_IMPOSSIBLE.Visibilidad set baja=@baja where cod_visibilidad=@cod_visibilidad", "T", listaParametros);
+
+        }
+
+        internal static void guardar(Visibilidad visibilidad)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -71,11 +71,49 @@ namespace MercadoEnvioFRBA.Presentacion
 
             this.permiteEnviosAmbos.Checked = true;
             this.tipo_comision_envio.SelectedIndex = 0;
-            /*this.tipo_comision_envio.SelectedItem
-            TipoComisionEnvio tipoComEnv = (TipoComisionEnvio)this.tipo_comision_envio.SelectedItem;
-            if (!(tipoComEnv.cod_tipo_comision == null))
-                filtro = filtro + " and cod_tipo_comision_envio = '" + tipoComEnv.cod_tipo_comision + "'";
-            */
+        }
+
+        private void buttonBorrar_Click(object sender, EventArgs e)
+        {
+            if (this.ItemSelccionado())
+            {
+                DialogResult dialogResult = MessageBox.Show("¿Seguro que quiere eliminar la visibilidad seleccionada?", "Atencion!", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dialogResult.Equals(DialogResult.OK))
+                {
+                    Visibilidad unVisibilidad = (Visibilidad)this.dataGridViewVisibiliadesFiltradas.CurrentRow.DataBoundItem;
+                    unVisibilidad.darDeBaja();
+                    this.button_listar.PerformClick();
+                }
+            }
+            else {
+                MessageBox.Show("Seleccione algun elemento", "Error!", MessageBoxButtons.OK);
+            }
+        }
+
+        private bool ItemSelccionado()
+        {
+            return this.dataGridViewVisibiliadesFiltradas.SelectedRows.Count != 0; 
+        }
+
+        private void FormABMVisibilidad_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonModificar_Click(object sender, EventArgs e)
+        {
+            if (this.ItemSelccionado())
+            {
+                Visibilidad unVisibilidad = (Visibilidad)this.dataGridViewVisibiliadesFiltradas.CurrentRow.DataBoundItem;
+                FormAltaModifVisibilidad altaModifVisi = new FormAltaModifVisibilidad(unVisibilidad);
+                altaModifVisi.ShowDialog();
+                this.button_listar.PerformClick();
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccione algun elemento", "Error!", MessageBoxButtons.OK);
+            }
         }
 
     }
