@@ -53,6 +53,8 @@
     <Compile Include="Datos\DAO\DAOTipoComisionEnvio.cs" />
     <Compile Include="Datos\DAO\DAOUsuario.cs" />
     <Compile Include="Datos\DAO\DAOVisibilidad.cs" />
+    <Compile Include="Datos\RolBD.cs" />
+    <Compile Include="Datos\UsuarioBD.cs" />
     <Compile Include="Modelo\Funcionalidad.cs" />
     <Compile Include="Modelo\Rol.cs" />
     <Compile Include="Modelo\Usuario.cs" />
@@ -129,6 +131,12 @@
     </Compile>
     <Compile Include="Presentacion\ABM Usuario\FormularioCliente.Designer.cs">
       <DependentUpon>FormularioCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Inicio\FormElegirRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Inicio\FormElegirRol.Designer.cs">
+      <DependentUpon>FormElegirRol.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Inicio\FormMenuPrincipal.cs">
       <SubType>Form</SubType>
@@ -216,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Usuario\FormularioCliente.resx">
       <DependentUpon>FormularioCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Inicio\FormElegirRol.resx">
+      <DependentUpon>FormElegirRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Inicio\FormMenuPrincipal.resx">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>

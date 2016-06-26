@@ -28,16 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormularioLogin));
             this.bienvenidaLogin = new System.Windows.Forms.Label();
             this.labelUsername = new System.Windows.Forms.Label();
             this.labelUsuario = new System.Windows.Forms.Label();
             this.labelContraseña = new System.Windows.Forms.Label();
-            this.textBoxUusario = new System.Windows.Forms.TextBox();
+            this.textBoxUsuario = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.errorUser = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorPass = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorPass)).BeginInit();
             this.SuspendLayout();
             // 
             // bienvenidaLogin
@@ -81,14 +86,14 @@
             this.labelContraseña.Text = "Contraseña:";
             this.labelContraseña.Click += new System.EventHandler(this.labelContraseña_Click);
             // 
-            // textBoxUusario
+            // textBoxUsuario
             // 
-            this.textBoxUusario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUusario.Location = new System.Drawing.Point(145, 123);
-            this.textBoxUusario.Name = "textBoxUusario";
-            this.textBoxUusario.Size = new System.Drawing.Size(232, 26);
-            this.textBoxUusario.TabIndex = 4;
-            this.textBoxUusario.TextChanged += new System.EventHandler(this.textBoxUusario_TextChanged);
+            this.textBoxUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUsuario.Location = new System.Drawing.Point(145, 123);
+            this.textBoxUsuario.Name = "textBoxUsuario";
+            this.textBoxUsuario.Size = new System.Drawing.Size(232, 26);
+            this.textBoxUsuario.TabIndex = 4;
+            this.textBoxUsuario.TextChanged += new System.EventHandler(this.textBoxUusario_TextChanged);
             // 
             // textBoxPassword
             // 
@@ -125,6 +130,14 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // errorUser
+            // 
+            this.errorUser.ContainerControl = this;
+            // 
+            // errorPass
+            // 
+            this.errorPass.ContainerControl = this;
+            // 
             // FormularioLogin
             // 
             this.AcceptButton = this.buttonLogin;
@@ -135,7 +148,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.textBoxPassword);
-            this.Controls.Add(this.textBoxUusario);
+            this.Controls.Add(this.textBoxUsuario);
             this.Controls.Add(this.labelContraseña);
             this.Controls.Add(this.labelUsuario);
             this.Controls.Add(this.labelUsername);
@@ -145,6 +158,8 @@
             this.Load += new System.EventHandler(this.FormularioLogin_Load);
             this.Enter += new System.EventHandler(this.buttonLogin_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorPass)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,9 +171,11 @@
         private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.Label labelUsuario;
         private System.Windows.Forms.Label labelContraseña;
-        private System.Windows.Forms.TextBox textBoxUusario;
+        private System.Windows.Forms.TextBox textBoxUsuario;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ErrorProvider errorUser;
+        private System.Windows.Forms.ErrorProvider errorPass;
     }
 }
