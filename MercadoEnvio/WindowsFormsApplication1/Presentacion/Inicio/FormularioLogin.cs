@@ -184,9 +184,17 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
                 {
                     if (contraseñaCorrecta())
                     {
+                        borrarIntentosFallidos();
+
+                        Usuario user = new Usuario(textBoxUsuario.Text);
+                        this.Hide();
+                        elegirRol(user);
+                        this.Show();
+                        
+                        /* antes ...
                         elegirRol(textBoxUsuario.Text);
                         borrarIntentosFallidos();
-                        this.Close();
+                        this.Close();*/
                     }
                     else { incrementarIntentosFallidos(); }
                 }
@@ -218,7 +226,7 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
             }*/
         }
 
-        private void elegirRol(string user)
+        private void elegirRol(Usuario user)
         {
             FormElegirRol elegRol = new FormElegirRol(user);
             elegRol.ShowDialog();

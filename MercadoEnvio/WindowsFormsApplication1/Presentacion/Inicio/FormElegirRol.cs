@@ -8,29 +8,55 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MercadoEnvioFRBA.Datos;
+using MercadoEnvioFRBA.Modelo;
 
 namespace MercadoEnvioFRBA.Presentacion.Inicio
 {
-    public partial class FormElegirRol : Form
+    public partial class FormElegirRol : FormBaseUTN
     {
-        string username;
+        private Usuario user;
 
-        public FormElegirRol(string usuario)
+        public FormElegirRol()
         {
             InitializeComponent();
-            username = usuario;
+        }
+
+        public FormElegirRol(Usuario user) : this ()
+        {            
+            this.user = user;
+            List<Rol> list = user.roles;
+            this.roles.DataSource = list;
+            this.roles.ValueMember = "cod_rol";
+            this.roles.DisplayMember = "nombre";
         }
 
         private void FormElegirRol_Load(object sender, EventArgs e)
         {
-            roles.DataSource = UsuarioBD.ObtenerRoles(username);
-            roles.DisplayMember = "nombre";
-            roles.ValueMember = "cod_rol";
+
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            user.rolActual = (Rol)roles.SelectedItem;
+            user.rolActual.cargarFuncionalidades();
 
+            FormMenuPrincipal elegirRol = new FormMenuPrincipal(this.user);
+            elegirRol.ShowDialog();
+
+            switch (roles.SelectedIndex ) {
+
+                case 0:
+                   // FormularioCliente accionesCliente = new FormularioCliente();
+                    //accionesCliente.ShowDialog();
+                    break;
+                case 1:
+                    //FormularioAdministrador accionesAdministrador = new FormularioAdministrador();
+                    //accionesAdministrador.ShowDialog();
+                    break;
+
+            }           
         }
     }
 }

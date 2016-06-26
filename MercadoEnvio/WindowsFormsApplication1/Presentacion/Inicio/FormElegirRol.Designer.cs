@@ -37,7 +37,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(30, 19);
+            this.label1.Location = new System.Drawing.Point(30, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(330, 18);
             this.label1.TabIndex = 5;
@@ -48,7 +48,7 @@
             this.roles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.roles.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roles.FormattingEnabled = true;
-            this.roles.Location = new System.Drawing.Point(84, 57);
+            this.roles.Location = new System.Drawing.Point(84, 76);
             this.roles.Name = "roles";
             this.roles.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.roles.Size = new System.Drawing.Size(233, 26);
@@ -56,7 +56,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(157, 103);
+            this.button1.Location = new System.Drawing.Point(157, 119);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
@@ -75,6 +75,9 @@
             this.Name = "FormElegirRol";
             this.Text = "Elegir Rol";
             this.Load += new System.EventHandler(this.FormElegirRol_Load);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.roles, 0);
+            this.Controls.SetChildIndex(this.button1, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
