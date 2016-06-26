@@ -38,18 +38,28 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
 
         private bool existeUsuario()
         {
+            /*  antes ....
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.USUARIO WHERE ";
             cmd.CommandText += "USERNAME = '" + textBoxUsuario.Text + "' ";
             cmd.Connection = AccesoBaseDeDatos.GetConnection();
 
-            if ((Int32)cmd.ExecuteScalar() < 1)
+            if ((Int32)cmd.ExecuteScalar() < 1)            
             {
                 MessageBox.Show("El usuario " + textBoxUsuario.Text + " no existe.", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             cmd.Dispose();
+            return true;
+             * /
+
+            /* despues ...*/
+            if ( ! Usuario.userNameValido(textBoxUsuario.Text))
+            {
+                MessageBox.Show("El usuario " + textBoxUsuario.Text + " no existe.", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
             return true;
         }
 
