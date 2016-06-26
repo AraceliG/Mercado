@@ -32,7 +32,6 @@ namespace MercadoEnvioFRBA.Datos
 
                 lista.Add(rol);
             }
-
             return lista;
         }
     }
