@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.roles = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonAceptar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -54,22 +54,23 @@
             this.roles.Size = new System.Drawing.Size(233, 26);
             this.roles.TabIndex = 6;
             // 
-            // button1
+            // buttonAceptar
             // 
-            this.button1.Location = new System.Drawing.Point(157, 119);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Aceptar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonAceptar.Location = new System.Drawing.Point(157, 119);
+            this.buttonAceptar.Name = "buttonAceptar";
+            this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
+            this.buttonAceptar.TabIndex = 7;
+            this.buttonAceptar.Text = "Aceptar";
+            this.buttonAceptar.UseVisualStyleBackColor = true;
+            this.buttonAceptar.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormElegirRol
             // 
+            this.AcceptButton = this.buttonAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 162);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.roles);
             this.Controls.Add(this.label1);
             this.Name = "FormElegirRol";
@@ -77,7 +78,7 @@
             this.Load += new System.EventHandler(this.FormElegirRol_Load);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.roles, 0);
-            this.Controls.SetChildIndex(this.button1, 0);
+            this.Controls.SetChildIndex(this.buttonAceptar, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -87,6 +88,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox roles;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonAceptar;
     }
 }

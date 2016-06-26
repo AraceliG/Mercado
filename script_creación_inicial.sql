@@ -555,7 +555,7 @@ GO
 -- --> Visibilidad <-- --
 CREATE TABLE NOTHING_IS_IMPOSSIBLE.Visibilidad 
 (
-	cod_visibilidad numeric(18, 0) PRIMARY KEY NOT NULL,
+	cod_visibilidad numeric(18, 0) PRIMARY KEY NOT NULL IDENTITY(1007,1),
 	descripcion nvarchar(255) UNIQUE,
 	comision_publicar numeric(18,2),
 	comision_vender numeric(18, 2),
@@ -565,6 +565,7 @@ CREATE TABLE NOTHING_IS_IMPOSSIBLE.Visibilidad
 	baja bit,
 )
 
+SET IDENTITY_INSERT NOTHING_IS_IMPOSSIBLE.Visibilidad ON;
 INSERT INTO NOTHING_IS_IMPOSSIBLE.Visibilidad (cod_visibilidad, descripcion, comision_publicar, comision_vender, permite_envios, cod_tipo_comision_envio, valor_comision_envio,baja) 
 select distinct 
 	Publicacion_Visibilidad_Cod,
@@ -576,6 +577,9 @@ select distinct
 	0,
 	0
 	from [gd_esquema].[Maestra];	
+GO
+
+SET IDENTITY_INSERT NOTHING_IS_IMPOSSIBLE.Visibilidad OFF;
 GO
 
 -- --> EstadoPubli <-- --

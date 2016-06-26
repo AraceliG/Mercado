@@ -70,25 +70,32 @@ namespace MercadoEnvioFRBA.Presentacion
             Visibilidad unaVisibilidad = new Visibilidad();
             decimal unDecimal;
 
-            Decimal.TryParse(this.cod_visibilidad.Text, out unDecimal);
-            unaVisibilidad.cod_visibilidad = unDecimal;
+            if(Decimal.TryParse(this.cod_visibilidad.Text, out unDecimal))
+                unaVisibilidad.cod_visibilidad = unDecimal;
             
+            if (Decimal.TryParse(this.comision_publicar.Text, out unDecimal))
+                unaVisibilidad.comision_publicar = unDecimal;
+
+            if (Decimal.TryParse(this.comision_vender.Text, out unDecimal))
+                unaVisibilidad.comision_vender = unDecimal;
+
+            if(Decimal.TryParse(this.valor_comision_envio.Text, out unDecimal))
+                unaVisibilidad.valor_comision_envio = unDecimal;
+
             unaVisibilidad.descripcion = this.descripcion.Text;
-
-            Decimal.TryParse(this.comision_publicar.Text, out unDecimal);
-            unaVisibilidad.comision_publicar = unDecimal;
-
-            Decimal.TryParse(this.comision_vender.Text, out unDecimal);
-            unaVisibilidad.comision_vender = unDecimal;
-
-            Decimal.TryParse(this.valor_comision_envio.Text, out unDecimal);
-            unaVisibilidad.valor_comision_envio = unDecimal;
-
+            
             unaVisibilidad.permite_envios = this.permiteEnviosSi.Checked;
 
             unaVisibilidad.cod_tipo_comision_envio = this.tipo_comision_envio.SelectedValue.ToString();
 
-            unaVisibilidad.guardar();            
+            if (unaVisibilidad.guardar() > 0)
+            {
+                MessageBox.Show("Se han guardado los cambios.", ":o)", MessageBoxButtons.OK);
+            }
+            else
+            {
+                MessageBox.Show("No se han guardado los cambios!", ":o(", MessageBoxButtons.OK);
+            }
 
         }
 

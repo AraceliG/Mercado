@@ -51,6 +51,7 @@
             this.dataGridViewVisibiliadesFiltradas = new System.Windows.Forms.DataGridView();
             this.buttonBorrar = new System.Windows.Forms.Button();
             this.buttonModificar = new System.Windows.Forms.Button();
+            this.buttonNuevo = new System.Windows.Forms.Button();
             this.grpBoxFiltrosBusqueda.SuspendLayout();
             this.groupBox_permite_envios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVisibiliadesFiltradas)).BeginInit();
@@ -279,11 +280,24 @@
             this.buttonModificar.UseVisualStyleBackColor = true;
             this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
             // 
+            // buttonNuevo
+            // 
+            this.buttonNuevo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonNuevo.BackgroundImage")));
+            this.buttonNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonNuevo.Location = new System.Drawing.Point(499, 375);
+            this.buttonNuevo.Name = "buttonNuevo";
+            this.buttonNuevo.Size = new System.Drawing.Size(75, 28);
+            this.buttonNuevo.TabIndex = 6;
+            this.buttonNuevo.Text = "Nuevo";
+            this.buttonNuevo.UseVisualStyleBackColor = true;
+            this.buttonNuevo.Click += new System.EventHandler(this.buttonNuevo_Click);
+            // 
             // FormABMVisibilidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(764, 434);
+            this.Controls.Add(this.buttonNuevo);
             this.Controls.Add(this.buttonModificar);
             this.Controls.Add(this.buttonBorrar);
             this.Controls.Add(this.dataGridViewVisibiliadesFiltradas);
@@ -295,6 +309,7 @@
             this.Controls.SetChildIndex(this.dataGridViewVisibiliadesFiltradas, 0);
             this.Controls.SetChildIndex(this.buttonBorrar, 0);
             this.Controls.SetChildIndex(this.buttonModificar, 0);
+            this.Controls.SetChildIndex(this.buttonNuevo, 0);
             this.grpBoxFiltrosBusqueda.ResumeLayout(false);
             this.grpBoxFiltrosBusqueda.PerformLayout();
             this.groupBox_permite_envios.ResumeLayout(false);
@@ -328,5 +343,6 @@
         private System.Windows.Forms.ComboBox tipo_comision_envio;
         private System.Windows.Forms.Button buttonBorrar;
         private System.Windows.Forms.Button buttonModificar;
+        private System.Windows.Forms.Button buttonNuevo;
     }
 }

@@ -116,5 +116,12 @@ namespace MercadoEnvioFRBA.Presentacion
             }
         }
 
+        private void buttonNuevo_Click(object sender, EventArgs e)
+        {
+            FormAltaModifVisibilidad altaModifVisi = new FormAltaModifVisibilidad();
+            altaModifVisi.ShowDialog();
+            this.button_listar.PerformClick();
+        }
+
     }
 }

@@ -33,9 +33,9 @@ namespace MercadoEnvioFRBA.Modelo
             DAOVisibilidad.darDeBaja(this);
         }
 
-        internal void guardar()
+        internal int guardar()
         {
-            DAOVisibilidad.guardar(this);
+            return DAOVisibilidad.guardar(this);
         }
     }
 }

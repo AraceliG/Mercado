@@ -45,9 +45,54 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
         }
 
-        internal static void guardar(Visibilidad visibilidad)
+        internal static int guardar(Visibilidad visibilidad)
         {
-            throw new NotImplementedException();
+            string noQuery = "";
+            List<SqlParameter> ListaParametros = new List<SqlParameter>();
+            ListaParametros.Add(new SqlParameter("@descripcion", visibilidad.descripcion));
+            ListaParametros.Add(new SqlParameter("@comision_publicar", visibilidad.comision_publicar));
+            ListaParametros.Add(new SqlParameter("@comision_vender", visibilidad.comision_vender));
+            ListaParametros.Add(new SqlParameter("@permite_envios", visibilidad.permite_envios));
+            ListaParametros.Add(new SqlParameter("@cod_tipo_comision_envio", visibilidad.cod_tipo_comision_envio));
+            ListaParametros.Add(new SqlParameter("@valor_comision_envio", visibilidad.valor_comision_envio));
+            ListaParametros.Add(new SqlParameter("@baja", "0"));
+
+            if (visibilidad.cod_visibilidad == 0) {
+                noQuery = "INSERT INTO NOTHING_IS_IMPOSSIBLE.Visibilidad " +
+                               "(descripcion " +
+                               ",comision_publicar " +
+                               ",comision_vender " +
+                               ",permite_envios " +
+                               ",cod_tipo_comision_envio " +
+                               ",valor_comision_envio " +
+                               ",baja) " +
+                         "VALUES " +
+                               "(@descripcion " + 
+                               ",@comision_publicar " +
+                               ",@comision_vender " +
+                               ",@permite_envios " +
+                               ",@cod_tipo_comision_envio " +
+                               ",@valor_comision_envio " +
+                               ",@baja)";
+            }
+            else
+            {
+                ListaParametros.Add(new SqlParameter("@cod_visibilidad", visibilidad.cod_visibilidad));
+                noQuery = "UPDATE NOTHING_IS_IMPOSSIBLE.Visibilidad "+
+                       "SET descripcion = @descripcion "+
+                          ",comision_publicar = @comision_publicar "+
+                          ",comision_vender = @comision_vender "+
+                          ",permite_envios = @permite_envios "+
+                          ",cod_tipo_comision_envio = @cod_tipo_comision_envio "+
+                          ",valor_comision_envio = @valor_comision_envio "+
+                          ",baja = @baja "+
+                     "WHERE cod_visibilidad = @cod_visibilidad ";
+            }
+
+
+            return AccesoBaseDeDatos.WriteInBase(noQuery, "T", ListaParametros);
+          
         }
     }
 }
+

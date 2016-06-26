@@ -71,10 +71,12 @@
             // permiteEnviosNo
             // 
             this.permiteEnviosNo.AutoSize = true;
+            this.permiteEnviosNo.Checked = true;
             this.permiteEnviosNo.Location = new System.Drawing.Point(49, 17);
             this.permiteEnviosNo.Name = "permiteEnviosNo";
             this.permiteEnviosNo.Size = new System.Drawing.Size(39, 17);
             this.permiteEnviosNo.TabIndex = 15;
+            this.permiteEnviosNo.TabStop = true;
             this.permiteEnviosNo.Text = "No";
             this.permiteEnviosNo.UseVisualStyleBackColor = true;
             // 
