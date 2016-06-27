@@ -345,7 +345,7 @@ BEGIN
 	INSERT INTO NOTHING_IS_IMPOSSIBLE.Usuario 
 		(username, pass, habilitado, baja,user_nro_intentos) 
 	VALUES
-		('admin', '1234', 1, 0, 0);
+		('admin', 'w23e', 1, 0, 0);
 
 	
 	--SCOPE_IDENTITY: Esta funcion te retorna el último valor de identidad en el ámbito de ejecución actual. Es decir, el último autonumerico que realizó.
