@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MercadoEnvioFRBA.Presentacion.ABM_Usuario;
 
 namespace MercadoEnvioFRBA.Presentacion.Inicio
 {
@@ -57,6 +58,14 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
             this.Hide();
             FormABMVisibilidad unForm = new FormABMVisibilidad();
             unForm.ShowDialog();
+            this.Show();
+        }
+
+        private void func3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormABMUsuario formUser = new FormABMUsuario();
+            formUser.ShowDialog();
             this.Show();
         }
     }

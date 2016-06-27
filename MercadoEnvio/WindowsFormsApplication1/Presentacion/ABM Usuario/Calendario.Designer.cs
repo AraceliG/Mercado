@@ -35,7 +35,7 @@
             // monthCalendar
             // 
             this.monthCalendar.FirstDayOfWeek = System.Windows.Forms.Day.Sunday;
-            this.monthCalendar.Location = new System.Drawing.Point(42, 31);
+            this.monthCalendar.Location = new System.Drawing.Point(64, 64);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.monthCalendar.TabIndex = 1;
@@ -43,7 +43,7 @@
             // 
             // button_sel
             // 
-            this.button_sel.Location = new System.Drawing.Point(117, 205);
+            this.button_sel.Location = new System.Drawing.Point(121, 238);
             this.button_sel.Name = "button_sel";
             this.button_sel.Size = new System.Drawing.Size(75, 23);
             this.button_sel.TabIndex = 2;
@@ -55,12 +55,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(328, 255);
+            this.ClientSize = new System.Drawing.Size(328, 284);
             this.Controls.Add(this.button_sel);
             this.Controls.Add(this.monthCalendar);
             this.Name = "Calendario";
             this.Text = "Calendario";
             this.Load += new System.EventHandler(this.Calendario_Load);
+            this.Controls.SetChildIndex(this.monthCalendar, 0);
+            this.Controls.SetChildIndex(this.button_sel, 0);
             this.ResumeLayout(false);
 
         }

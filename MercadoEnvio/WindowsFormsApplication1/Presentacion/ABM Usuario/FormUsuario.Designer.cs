@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label6 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -49,6 +50,12 @@
             this.textBox_piso = new System.Windows.Forms.TextBox();
             this.textBox_depto = new System.Windows.Forms.TextBox();
             this.textBox_cod_postal = new System.Windows.Forms.TextBox();
+            this.errorProvider_usuario = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_psw = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_mail = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_usuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_mail)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -243,6 +250,18 @@
             this.textBox_cod_postal.Size = new System.Drawing.Size(165, 24);
             this.textBox_cod_postal.TabIndex = 112;
             // 
+            // errorProvider_usuario
+            // 
+            this.errorProvider_usuario.ContainerControl = this;
+            // 
+            // errorProvider_psw
+            // 
+            this.errorProvider_psw.ContainerControl = this;
+            // 
+            // errorProvider_mail
+            // 
+            this.errorProvider_mail.ContainerControl = this;
+            // 
             // FormUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -293,6 +312,9 @@
             this.Controls.SetChildIndex(this.textBox_piso, 0);
             this.Controls.SetChildIndex(this.textBox_depto, 0);
             this.Controls.SetChildIndex(this.textBox_cod_postal, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_usuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_mail)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,5 +343,8 @@
         private System.Windows.Forms.TextBox textBox_piso;
         private System.Windows.Forms.TextBox textBox_depto;
         private System.Windows.Forms.TextBox textBox_cod_postal;
+        private System.Windows.Forms.ErrorProvider errorProvider_usuario;
+        private System.Windows.Forms.ErrorProvider errorProvider_psw;
+        private System.Windows.Forms.ErrorProvider errorProvider_mail;
     }
 }

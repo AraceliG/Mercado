@@ -87,6 +87,12 @@
     <Compile Include="Presentacion\ABM Usuario\Calendario.Designer.cs">
       <DependentUpon>Calendario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\ABM Usuario\FormABMUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\ABM Usuario\FormABMUsuario.Designer.cs">
+      <DependentUpon>FormABMUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\ABM Usuario\FormularioEmpresa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Usuario\Calendario.resx">
       <DependentUpon>Calendario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\ABM Usuario\FormABMUsuario.resx">
+      <DependentUpon>FormABMUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Usuario\FormularioEmpresa.resx">
       <DependentUpon>FormularioEmpresa.cs</DependentUpon>

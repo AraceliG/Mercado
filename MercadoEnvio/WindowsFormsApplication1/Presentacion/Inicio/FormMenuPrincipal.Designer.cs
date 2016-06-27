@@ -77,6 +77,7 @@
             this.func3.Text = "ABM de Usuarios";
             this.func3.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.func3.UseVisualStyleBackColor = true;
+            this.func3.Click += new System.EventHandler(this.func3_Click);
             // 
             // func4
             // 
