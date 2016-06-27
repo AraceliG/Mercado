@@ -60,7 +60,6 @@ namespace MercadoEnvioFRBA.Datos.DAO
                 lector.Read();
                 usuario.username = userName;
                 usuario.userId = (decimal)lector["userId"];
-                usuario.roles = Rol.rolesDe(usuario.userId);
             }
         }
     }

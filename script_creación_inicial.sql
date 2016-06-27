@@ -620,12 +620,12 @@ CREATE TABLE NOTHING_IS_IMPOSSIBLE.Publicacion
   costo numeric(18, 2),
   cod_visibilidad numeric(18,0) FOREIGN KEY REFERENCES NOTHING_IS_IMPOSSIBLE.Visibilidad(cod_visibilidad),
   cod_estadoPubli char(1) FOREIGN KEY REFERENCES NOTHING_IS_IMPOSSIBLE.EstadoPubli(cod_estadoPubli),
-  descripción nvarchar(255),
+  descripcion nvarchar(255),
   acepta_preguntas bit,
   ofrece_envios bit
 )
 
-INSERT INTO NOTHING_IS_IMPOSSIBLE.Publicacion (cod_publicacion, cod_tipo_publicacion, userId, facha_inicio, fecha_vencimiernto, stock, precio, costo, cod_visibilidad, cod_estadoPubli, descripción, acepta_preguntas, ofrece_envios)
+INSERT INTO NOTHING_IS_IMPOSSIBLE.Publicacion (cod_publicacion, cod_tipo_publicacion, userId, facha_inicio, fecha_vencimiernto, stock, precio, costo, cod_visibilidad, cod_estadoPubli, descripcion, acepta_preguntas, ofrece_envios)
 (
 Select 
 	m.Publicacion_Cod,

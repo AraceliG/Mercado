@@ -108,6 +108,7 @@
             this.valor_comision_envio.Name = "valor_comision_envio";
             this.valor_comision_envio.Size = new System.Drawing.Size(100, 20);
             this.valor_comision_envio.TabIndex = 29;
+            this.valor_comision_envio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.solo_numeros_KeyPress);
             this.valor_comision_envio.LostFocus += new System.EventHandler(this.validarSoloNumeros);
             // 
             // label_valor_comision_envio
@@ -134,6 +135,7 @@
             this.comision_vender.Name = "comision_vender";
             this.comision_vender.Size = new System.Drawing.Size(100, 20);
             this.comision_vender.TabIndex = 26;
+            this.comision_vender.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.solo_numeros_KeyPress);
             this.comision_vender.LostFocus += new System.EventHandler(this.validarSoloNumeros);
             // 
             // label_comision_vender
@@ -147,10 +149,12 @@
             // 
             // comision_publicar
             // 
+            this.comision_publicar.BackColor = System.Drawing.SystemColors.Window;
             this.comision_publicar.Location = new System.Drawing.Point(415, 66);
             this.comision_publicar.Name = "comision_publicar";
             this.comision_publicar.Size = new System.Drawing.Size(100, 20);
             this.comision_publicar.TabIndex = 24;
+            this.comision_publicar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.solo_numeros_KeyPress);
             this.comision_publicar.LostFocus += new System.EventHandler(this.validarSoloNumeros);
             // 
             // label_comision_publicar

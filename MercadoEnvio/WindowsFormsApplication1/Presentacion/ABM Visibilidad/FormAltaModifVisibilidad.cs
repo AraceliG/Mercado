@@ -58,11 +58,13 @@ namespace MercadoEnvioFRBA.Presentacion
         {
             TextBox tb = (TextBox) sender;
             decimal unDecimal;
-            if (! Decimal.TryParse( tb.Text, out unDecimal))
+            if (!Decimal.TryParse(tb.Text, out unDecimal) && !tb.Text.Equals("") )
             {
                 MessageBox.Show("Numero no valido", "Error!", MessageBoxButtons.OK);
+                tb.Text = null;
                 tb.Focus();
             }
+
         }
 
         private void button_guardar_Click(object sender, EventArgs e)
@@ -99,5 +101,15 @@ namespace MercadoEnvioFRBA.Presentacion
 
         }
 
+        private void solo_numeros_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            decimal unDecimal;
+            if (!Decimal.TryParse(tb.Text + e.KeyChar, out unDecimal) && !tb.Text.Equals("") && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show( "El dato: '" + tb.Text + e.KeyChar + " 'no es un numero valido" , "Error!", MessageBoxButtons.OK);
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -43,6 +43,7 @@ namespace MercadoEnvioFRBA.Modelo
         public Usuario(string userName)
         {
             DAOUsuario.getUsuario(userName, this);
+            this.roles = Rol.rolesDe(this.userId);
 
         }
 
@@ -59,6 +60,11 @@ namespace MercadoEnvioFRBA.Modelo
         internal bool FuncionalidadValida(string nombreFuncionalidad)
         {
             return this.rolActual.funcionalidadValida(nombreFuncionalidad);
+        }
+
+        public List<Publicacion> misPuplicaciones()
+        {
+            return Publicacion.publicacionesDe(this.userId);
         }
     }
 }

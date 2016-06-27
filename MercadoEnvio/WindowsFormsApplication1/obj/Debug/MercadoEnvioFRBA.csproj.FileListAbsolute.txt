@@ -41,7 +41,6 @@ C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\Mercad
 C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.FormABMVisibilidad.resources
 C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.FormAltaModifVisibilidad.resources
 C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.FormBaseUTN.resources
-C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Inicio.ElegirRol.resources
 C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.FormularioCliente.resources
 C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Inicio.FormElegirRol.resources
 C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Inicio.FormMenuPrincipal.resources
@@ -53,3 +52,4 @@ C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\Mercad
 C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
 C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.FormGenerarPublicacion.resources

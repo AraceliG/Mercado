@@ -49,11 +49,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\DAO\DAOFuncionalidad.cs" />
+    <Compile Include="Datos\DAO\DAOPublicacion.cs" />
     <Compile Include="Datos\DAO\DAORol.cs" />
     <Compile Include="Datos\DAO\DAOTipoComisionEnvio.cs" />
     <Compile Include="Datos\DAO\DAOUsuario.cs" />
     <Compile Include="Datos\DAO\DAOVisibilidad.cs" />
+    <Compile Include="Modelo\Estado.cs" />
     <Compile Include="Modelo\Funcionalidad.cs" />
+    <Compile Include="Modelo\Publicacion.cs" />
     <Compile Include="Modelo\Rol.cs" />
     <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Modelo\Visibilidad.cs" />
@@ -124,11 +127,11 @@
     <Compile Include="Presentacion\FormBaseUTN.Designer.cs">
       <DependentUpon>FormBaseUTN.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\Inicio\ElegirRol.cs">
+    <Compile Include="Presentacion\Generar Publicación\FormGenerarPublicacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\Inicio\ElegirRol.Designer.cs">
-      <DependentUpon>ElegirRol.cs</DependentUpon>
+    <Compile Include="Presentacion\Generar Publicación\FormGenerarPublicacion.Designer.cs">
+      <DependentUpon>FormGenerarPublicacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\ABM Usuario\FormularioCliente.cs">
       <SubType>Form</SubType>
@@ -171,12 +174,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\Facturas\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Presentacion\Generar Publicación\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Presentacion\Generar Publicación\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Historial Cliente\Form1.cs">
@@ -226,11 +223,11 @@
     <EmbeddedResource Include="Presentacion\FormBaseUTN.resx">
       <DependentUpon>FormBaseUTN.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\Inicio\ElegirRol.resx">
-      <DependentUpon>ElegirRol.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Usuario\FormularioCliente.resx">
       <DependentUpon>FormularioCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Generar Publicación\FormGenerarPublicacion.resx">
+      <DependentUpon>FormGenerarPublicacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Inicio\FormElegirRol.resx">
       <DependentUpon>FormElegirRol.cs</DependentUpon>

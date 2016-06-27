@@ -253,6 +253,7 @@
             this.dataGridViewVisibiliadesFiltradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewVisibiliadesFiltradas.Location = new System.Drawing.Point(25, 201);
             this.dataGridViewVisibiliadesFiltradas.Name = "dataGridViewVisibiliadesFiltradas";
+            this.dataGridViewVisibiliadesFiltradas.ReadOnly = true;
             this.dataGridViewVisibiliadesFiltradas.Size = new System.Drawing.Size(711, 168);
             this.dataGridViewVisibiliadesFiltradas.TabIndex = 3;
             // 

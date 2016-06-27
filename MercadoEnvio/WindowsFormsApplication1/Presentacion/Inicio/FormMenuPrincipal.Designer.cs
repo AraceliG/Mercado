@@ -127,6 +127,7 @@
             this.func6.Text = "Generar Publicacion";
             this.func6.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.func6.UseVisualStyleBackColor = true;
+            this.func6.Click += new System.EventHandler(this.func6_Click);
             // 
             // func7
             // 
