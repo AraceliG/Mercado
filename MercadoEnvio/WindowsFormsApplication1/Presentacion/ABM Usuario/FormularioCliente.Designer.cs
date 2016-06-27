@@ -98,6 +98,7 @@
             this.button2.TabIndex = 117;
             this.button2.Text = "Cargar Tipos Documentos Disponibles";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label4
             // 
@@ -165,6 +166,7 @@
             this.button_fecha.TabIndex = 124;
             this.button_fecha.Text = "Seleccionar";
             this.button_fecha.UseVisualStyleBackColor = true;
+            this.button_fecha.Click += new System.EventHandler(this.button_fecha_Click);
             // 
             // buttonLogin
             // 

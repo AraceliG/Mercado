@@ -81,6 +81,12 @@
     <Compile Include="Presentacion\ABM Usuario\BuscadorCliente.Designer.cs">
       <DependentUpon>BuscadorCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\ABM Usuario\BuscadorEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\ABM Usuario\BuscadorEmpresa.Designer.cs">
+      <DependentUpon>BuscadorEmpresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\ABM Usuario\Calendario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +223,9 @@
     <EmbeddedResource Include="Presentacion\ABM Usuario\BuscadorCliente.resx">
       <DependentUpon>BuscadorCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\ABM Usuario\BuscadorEmpresa.resx">
+      <DependentUpon>BuscadorEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Usuario\Calendario.resx">
       <DependentUpon>Calendario.cs</DependentUpon>
     </EmbeddedResource>
@@ -282,7 +291,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\fondoBoton.png" />
+  </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
