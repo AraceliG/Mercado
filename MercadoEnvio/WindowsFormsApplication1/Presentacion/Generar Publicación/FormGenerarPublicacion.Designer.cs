@@ -102,6 +102,7 @@
             this.buttonNuevo.TabIndex = 11;
             this.buttonNuevo.Text = "Nuevo";
             this.buttonNuevo.UseVisualStyleBackColor = true;
+            this.buttonNuevo.Click += new System.EventHandler(this.buttonNuevo_Click);
             // 
             // buttonModificar
             // 
@@ -113,6 +114,7 @@
             this.buttonModificar.TabIndex = 10;
             this.buttonModificar.Text = "Modificar";
             this.buttonModificar.UseVisualStyleBackColor = true;
+            this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
             // 
             // buttonBorrar
             // 
@@ -598,7 +600,7 @@
             this.Controls.Add(this.dataGridViewPublicacionesFiltradas);
             this.Controls.Add(this.grpBoxFiltrosBusqueda);
             this.Name = "FormGenerarPublicacion";
-            this.Text = "FormGenerarPublicidad";
+            this.Text = "Generar Publicidad";
             this.Load += new System.EventHandler(this.FormGenerarPublicacion_Load);
             this.Shown += new System.EventHandler(this.button_limpiar_Click);
             this.Validated += new System.EventHandler(this.button_limpiar_Click);

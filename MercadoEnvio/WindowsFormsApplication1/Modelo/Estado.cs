@@ -35,6 +35,25 @@ namespace MercadoEnvioFRBA.Modelo
             this.cambiosEstadosPermitidos = new List<string>();
         }
 
+
+        internal static List<Estado> getEstados()
+        {
+            List<Estado> lista = new List<Estado>();
+            lista.Add(new Borrador());
+            lista.Add(new Activa());
+            lista.Add(new Pausada());
+            lista.Add(new Finalizada());
+
+            return lista;
+        }
+
+        internal List<Estado> nuevosEstadosPermitidos()
+        {
+            List<Estado> lista = new List<Estado>();
+            lista.Add(CambioEstado.getEstado(this.cod_estadoPubli));
+            this.cambiosEstadosPermitidos.ForEach( e => lista.Add(CambioEstado.getEstado(e)));
+            return lista;
+        }
     }
 
     public class Borrador : Estado

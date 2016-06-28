@@ -25,11 +25,11 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     Publicacion unPubli = new Publicacion();
                     unPubli.cod_publicacion = (decimal)lector["cod_publicacion"];
                     unPubli.cod_tipo_publicacion = (string)lector["cod_tipo_publicacion"];
-                    unPubli.facha_inicio = Convert.ToDateTime(lector["facha_inicio"]);
+                    unPubli.fecha_inicio = Convert.ToDateTime(lector["fecha_inicio"]);
                     unPubli.fecha_vencimiernto = Convert.ToDateTime(lector["fecha_vencimiernto"]);
                     unPubli.stock = (decimal)lector["stock"];
                     unPubli.precio = (decimal)lector["precio"];
-                    unPubli.descripción = (string)lector["descripción"];
+                    unPubli.descripcion = (string)lector["descripcion"];
                     unPubli.acepta_preguntas = (bool) lector["acepta_preguntas"];
                     unPubli.ofrece_envios = (bool) lector["acepta_preguntas"];
                     unPubli.miEstado = CambioEstado.getEstado((string)lector["cod_estadoPubli"]);
@@ -42,6 +42,36 @@ namespace MercadoEnvioFRBA.Datos.DAO
                 }
             }
             return publicaciones;
+        }
+
+        internal static Publicacion getPublicacion(decimal cod_publicacion)
+        {
+            Publicacion unPubli = new Publicacion();
+            List<SqlParameter> paramList = new List<SqlParameter>();
+            paramList.Add(new SqlParameter("@cod_publicacion", cod_publicacion));
+
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.Publicacion WHERE cod_publicacion = @cod_publicacion", "T", paramList);
+            if (lector.HasRows)
+            {
+                lector.Read();
+
+                    unPubli.cod_publicacion = (decimal)lector["cod_publicacion"];
+                    unPubli.cod_tipo_publicacion = (string)lector["cod_tipo_publicacion"];
+                    unPubli.fecha_inicio = (DateTime)lector["fecha_inicio"];
+                    unPubli.fecha_vencimiernto = Convert.ToDateTime(lector["fecha_vencimiernto"]);
+                    unPubli.stock = (decimal)lector["stock"];
+                    unPubli.precio = (decimal)lector["precio"];
+                    unPubli.descripcion = (string)lector["descripcion"];
+                    unPubli.acepta_preguntas = (bool)lector["acepta_preguntas"];
+                    unPubli.ofrece_envios = (bool)lector["acepta_preguntas"];
+                    unPubli.miEstado = CambioEstado.getEstado((string)lector["cod_estadoPubli"]);
+                    unPubli.cod_visibilidad = (decimal)lector["cod_visibilidad"];
+
+                    if (DBNull.Value != lector["costo"])
+                        unPubli.costo = (decimal)lector["costo"];
+
+            }
+            return unPubli;
         }
 
         internal static DataTable getPublicacionesConfiltro(string filtro)

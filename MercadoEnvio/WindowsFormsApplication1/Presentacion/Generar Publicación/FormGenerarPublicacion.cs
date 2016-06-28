@@ -158,5 +158,33 @@ namespace MercadoEnvioFRBA.Presentacion
                 }
             }
         }
+
+        private void buttonNuevo_Click(object sender, EventArgs e)
+        {
+            FormAltaModifPublicacion unForm = new FormAltaModifPublicacion();
+            unForm.ShowDialog();
+            this.button_listar.PerformClick();
+        }
+
+        private void buttonModificar_Click(object sender, EventArgs e)
+        {
+            if (this.ItemSelccionado())
+            {
+                Publicacion unaPublicacion = Publicacion.getPublicacion( (decimal) this.dataGridViewPublicacionesFiltradas.CurrentRow.Cells["cod_publicacion"].Value) ;
+                FormAltaModifPublicacion unForm = new FormAltaModifPublicacion(unaPublicacion);
+                unForm.ShowDialog();
+                this.button_listar.PerformClick();
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccione algun elemento", "Error!", MessageBoxButtons.OK);
+            }
+        }
+
+        private bool ItemSelccionado()
+        {
+            return this.dataGridViewPublicacionesFiltradas.SelectedRows.Count != 0;
+        }
     }
 }

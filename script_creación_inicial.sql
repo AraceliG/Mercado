@@ -613,7 +613,7 @@ CREATE TABLE NOTHING_IS_IMPOSSIBLE.Publicacion
   cod_publicacion numeric(18,0) PRIMARY KEY NOT NULL,
   cod_tipo_publicacion char(1) FOREIGN KEY REFERENCES NOTHING_IS_IMPOSSIBLE.TipoPublicacion(cod_tipo_publicacion),
   userId numeric(18, 0) FOREIGN KEY REFERENCES NOTHING_IS_IMPOSSIBLE.Usuario(userId),
-  facha_inicio datetime,
+  fecha_inicio datetime,
   fecha_vencimiernto datetime,
   stock numeric(18,0),
   precio numeric(18,2),
@@ -625,7 +625,7 @@ CREATE TABLE NOTHING_IS_IMPOSSIBLE.Publicacion
   ofrece_envios bit
 )
 
-INSERT INTO NOTHING_IS_IMPOSSIBLE.Publicacion (cod_publicacion, cod_tipo_publicacion, userId, facha_inicio, fecha_vencimiernto, stock, precio, costo, cod_visibilidad, cod_estadoPubli, descripcion, acepta_preguntas, ofrece_envios)
+INSERT INTO NOTHING_IS_IMPOSSIBLE.Publicacion (cod_publicacion, cod_tipo_publicacion, userId, fecha_inicio, fecha_vencimiernto, stock, precio, costo, cod_visibilidad, cod_estadoPubli, descripcion, acepta_preguntas, ofrece_envios)
 (
 Select 
 	m.Publicacion_Cod,

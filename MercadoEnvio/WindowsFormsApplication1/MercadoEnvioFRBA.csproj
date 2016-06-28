@@ -157,6 +157,12 @@
     <Compile Include="Presentacion\ABM Usuario\FormularioCliente.Designer.cs">
       <DependentUpon>FormularioCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Generar Publicación\FormAltaModifPublicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Generar Publicación\FormAltaModifPublicacion.Designer.cs">
+      <DependentUpon>FormAltaModifPublicacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Inicio\FormElegirRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Usuario\FormularioCliente.resx">
       <DependentUpon>FormularioCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Generar Publicación\FormAltaModifPublicacion.resx">
+      <DependentUpon>FormAltaModifPublicacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Generar Publicación\FormGenerarPublicacion.resx">
       <DependentUpon>FormGenerarPublicacion.cs</DependentUpon>
