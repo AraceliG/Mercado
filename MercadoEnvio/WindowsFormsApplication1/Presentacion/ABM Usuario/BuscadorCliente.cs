@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using MercadoEnvioFRBA.Datos;
+using MercadoEnvioFRBA.Presentacion;
 
 namespace MercadoEnvioFRBA.ABM_Usuario
 {
-    public partial class BuscadorCliente : Form
+    public partial class BuscadorCliente : FormBaseUTN
     {
          
 
@@ -116,6 +117,11 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             da.Fill(dt);
             dataGridView.DataSource = dt;
 
+
+        }
+
+        private void BuscadorCliente_Load(object sender, EventArgs e)
+        {
 
         }
     }

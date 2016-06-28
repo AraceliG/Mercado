@@ -84,11 +84,23 @@
     <Compile Include="Presentacion\ABM Usuario\BuscadorCliente.Designer.cs">
       <DependentUpon>BuscadorCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\ABM Usuario\BuscadorEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\ABM Usuario\BuscadorEmpresa.Designer.cs">
+      <DependentUpon>BuscadorEmpresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\ABM Usuario\Calendario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\ABM Usuario\Calendario.Designer.cs">
       <DependentUpon>Calendario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\ABM Usuario\FormABMUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\ABM Usuario\FormABMUsuario.Designer.cs">
+      <DependentUpon>FormABMUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\ABM Usuario\FormularioEmpresa.cs">
       <SubType>Form</SubType>
@@ -107,6 +119,12 @@
     </Compile>
     <Compile Include="Presentacion\ABM Usuario\CrearUsuario.Designer.cs">
       <DependentUpon>CrearUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\ABM Usuario\FormUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\ABM Usuario\FormUsuario.Designer.cs">
+      <DependentUpon>FormUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\ABM Visibilidad\FormABMVisibilidad.cs">
       <SubType>Form</SubType>
@@ -202,8 +220,14 @@
     <EmbeddedResource Include="Presentacion\ABM Usuario\BuscadorCliente.resx">
       <DependentUpon>BuscadorCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\ABM Usuario\BuscadorEmpresa.resx">
+      <DependentUpon>BuscadorEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Usuario\Calendario.resx">
       <DependentUpon>Calendario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\ABM Usuario\FormABMUsuario.resx">
+      <DependentUpon>FormABMUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Usuario\FormularioEmpresa.resx">
       <DependentUpon>FormularioEmpresa.cs</DependentUpon>
@@ -213,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Usuario\CrearUsuario.resx">
       <DependentUpon>CrearUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\ABM Usuario\FormUsuario.resx">
+      <DependentUpon>FormUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Visibilidad\FormABMVisibilidad.resx">
       <DependentUpon>FormABMVisibilidad.cs</DependentUpon>
@@ -261,7 +288,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\fondoBoton.png" />
+  </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>

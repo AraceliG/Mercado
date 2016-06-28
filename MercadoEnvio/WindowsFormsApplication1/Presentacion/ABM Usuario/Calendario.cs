@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.Configuration;
+using MercadoEnvioFRBA.Presentacion;
 
 
 namespace MercadoEnvioFRBA.ABM_Usuario
 {
-    public partial class Calendario : Form
+    public partial class Calendario : FormBaseUTN
     {
         private DateTime fecha;
 
