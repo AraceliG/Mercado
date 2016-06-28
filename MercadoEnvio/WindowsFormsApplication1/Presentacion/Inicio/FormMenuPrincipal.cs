@@ -61,19 +61,19 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
             this.Show();
         }
 
-<<<<<<< HEAD
+
         private void func6_Click(object sender, EventArgs e)
         {
             this.Hide();
             FormGenerarPublicacion unForm = new FormGenerarPublicacion(usuario);
             unForm.ShowDialog();
-=======
+		}
+
         private void func3_Click(object sender, EventArgs e)
         {
             this.Hide();
             FormABMUsuario formUser = new FormABMUsuario();
             formUser.ShowDialog();
->>>>>>> 3267dcfc4b7deb055239d072608926d235e7612b
             this.Show();
         }
     }
