@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormularioCliente));
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox_nroDoc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox_tipoDoc = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -63,14 +62,6 @@
             this.label12.Text = "Nro de Documento:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox_nroDoc
-            // 
-            this.textBox_nroDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_nroDoc.Location = new System.Drawing.Point(199, 418);
-            this.textBox_nroDoc.Name = "textBox_nroDoc";
-            this.textBox_nroDoc.Size = new System.Drawing.Size(165, 24);
-            this.textBox_nroDoc.TabIndex = 114;
-            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -83,6 +74,7 @@
             // 
             // comboBox_tipoDoc
             // 
+            this.comboBox_tipoDoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_tipoDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_tipoDoc.FormattingEnabled = true;
             this.comboBox_tipoDoc.Location = new System.Drawing.Point(199, 447);
@@ -214,13 +206,11 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBox_tipoDoc);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox_nroDoc);
             this.Controls.Add(this.label12);
             this.Name = "FormularioCliente";
             this.Text = "  ";
             this.Load += new System.EventHandler(this.FormularioCliente_Load);
             this.Controls.SetChildIndex(this.label12, 0);
-            this.Controls.SetChildIndex(this.textBox_nroDoc, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.comboBox_tipoDoc, 0);
             this.Controls.SetChildIndex(this.button2, 0);
@@ -244,7 +234,6 @@
         #endregion
 
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox_nroDoc;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox_tipoDoc;
         private System.Windows.Forms.Button button2;

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MercadoEnvioFRBA.ABM_Usuario;
+using System.Configuration;
 
 namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
 {
@@ -31,5 +33,28 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Calendario frmCal = new Calendario();
+
+            if (frmCal.ShowDialog() == DialogResult.Yes)
+            {
+                DateTime time = Convert.ToDateTime(ConfigurationManager.AppSettings["fecha"]);
+
+                if (frmCal.getFechaDateTime() == time)
+                {
+                    textBox1.Text = frmCal.getFecha();
+                }
+                else
+                {
+                    MessageBox.Show("No es una fecha válida.", "Fecha De Creación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            frmCal.Dispose();  
+        }
+
+
+
     }
 }

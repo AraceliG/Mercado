@@ -59,6 +59,7 @@
             this.btn_crearCliente.TabIndex = 2;
             this.btn_crearCliente.Text = "Crear Cliente";
             this.btn_crearCliente.UseVisualStyleBackColor = true;
+            this.btn_crearCliente.Click += new System.EventHandler(this.btn_crearCliente_Click);
             // 
             // btn_busquedaEmp
             // 
@@ -84,6 +85,7 @@
             this.btn_BusquedaCliente.TabIndex = 4;
             this.btn_BusquedaCliente.Text = "Buscar Cliente";
             this.btn_BusquedaCliente.UseVisualStyleBackColor = true;
+            this.btn_BusquedaCliente.Click += new System.EventHandler(this.btn_BusquedaCliente_Click);
             // 
             // FormABMUsuario
             // 

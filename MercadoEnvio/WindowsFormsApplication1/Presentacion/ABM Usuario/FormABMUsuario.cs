@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MercadoEnvioFRBA.ABM_Usuario;
 
 namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
 {
@@ -24,7 +25,26 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            FormularioEmpresa formUser = new FormularioEmpresa();
+            formUser.ShowDialog();
+            this.Show();
+        }
 
+        private void btn_crearCliente_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormularioCliente formUser = new FormularioCliente();
+            formUser.ShowDialog();
+            this.Show();
+        }
+
+        private void btn_BusquedaCliente_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            BuscadorCliente buscarCliente = new BuscadorCliente();
+            buscarCliente.ShowDialog();
+            this.Show();
         }
     }
 }

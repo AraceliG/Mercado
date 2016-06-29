@@ -40,11 +40,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button_buscar = new System.Windows.Forms.Button();
             this.button_limpiar = new System.Windows.Forms.Button();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridCliente = new System.Windows.Forms.DataGridView();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -71,6 +71,8 @@
             this.textBox_nroDoc.Name = "textBox_nroDoc";
             this.textBox_nroDoc.Size = new System.Drawing.Size(142, 24);
             this.textBox_nroDoc.TabIndex = 8;
+            this.textBox_nroDoc.TextChanged += new System.EventHandler(this.textBox_nroDoc_TextChanged);
+            this.textBox_nroDoc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_nroDoc_KeyPress);
             // 
             // label5
             // 
@@ -158,15 +160,15 @@
             this.button_limpiar.Text = "Limpiar";
             this.button_limpiar.UseVisualStyleBackColor = true;
             // 
-            // dataGridView
+            // dataGridCliente
             // 
-            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView.Location = new System.Drawing.Point(25, 217);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ReadOnly = true;
-            this.dataGridView.Size = new System.Drawing.Size(1151, 229);
-            this.dataGridView.TabIndex = 4;
+            this.dataGridCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridCliente.Location = new System.Drawing.Point(25, 217);
+            this.dataGridCliente.Name = "dataGridCliente";
+            this.dataGridCliente.ReadOnly = true;
+            this.dataGridCliente.Size = new System.Drawing.Size(1151, 229);
+            this.dataGridCliente.TabIndex = 4;
             // 
             // btn_modificar
             // 
@@ -201,7 +203,7 @@
             this.ClientSize = new System.Drawing.Size(1214, 485);
             this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.btn_modificar);
-            this.Controls.Add(this.dataGridView);
+            this.Controls.Add(this.dataGridCliente);
             this.Controls.Add(this.button_limpiar);
             this.Controls.Add(this.button_buscar);
             this.Controls.Add(this.groupBox1);
@@ -211,12 +213,12 @@
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.button_buscar, 0);
             this.Controls.SetChildIndex(this.button_limpiar, 0);
-            this.Controls.SetChildIndex(this.dataGridView, 0);
+            this.Controls.SetChildIndex(this.dataGridCliente, 0);
             this.Controls.SetChildIndex(this.btn_modificar, 0);
             this.Controls.SetChildIndex(this.btn_eliminar, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridCliente)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -234,7 +236,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_buscar;
         private System.Windows.Forms.Button button_limpiar;
-        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.DataGridView dataGridCliente;
         private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.Button btn_eliminar;
     }

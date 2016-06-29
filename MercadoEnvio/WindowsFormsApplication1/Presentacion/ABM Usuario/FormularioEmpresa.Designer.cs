@@ -35,7 +35,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.buttonLogin = new System.Windows.Forms.Button();
-            this.textBox_cuit = new System.Windows.Forms.TextBox();
             this.textBox_razon_social = new System.Windows.Forms.TextBox();
             this.textBox_nombre_de_contacto = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -106,14 +105,6 @@
             this.buttonLogin.Text = "Guardar";
             this.buttonLogin.UseVisualStyleBackColor = false;
             // 
-            // textBox_cuit
-            // 
-            this.textBox_cuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_cuit.Location = new System.Drawing.Point(199, 417);
-            this.textBox_cuit.Name = "textBox_cuit";
-            this.textBox_cuit.Size = new System.Drawing.Size(165, 24);
-            this.textBox_cuit.TabIndex = 119;
-            // 
             // textBox_razon_social
             // 
             this.textBox_razon_social.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -150,12 +141,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 664);
+            this.ClientSize = new System.Drawing.Size(508, 664);
             this.Controls.Add(this.textBox_ciudad);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox_nombre_de_contacto);
             this.Controls.Add(this.textBox_razon_social);
-            this.Controls.Add(this.textBox_cuit);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label4);
@@ -171,7 +161,6 @@
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.label12, 0);
             this.Controls.SetChildIndex(this.buttonLogin, 0);
-            this.Controls.SetChildIndex(this.textBox_cuit, 0);
             this.Controls.SetChildIndex(this.textBox_razon_social, 0);
             this.Controls.SetChildIndex(this.textBox_nombre_de_contacto, 0);
             this.Controls.SetChildIndex(this.textBox2, 0);
@@ -189,7 +178,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button buttonLogin;
-        private System.Windows.Forms.TextBox textBox_cuit;
         private System.Windows.Forms.TextBox textBox_razon_social;
         private System.Windows.Forms.TextBox textBox_nombre_de_contacto;
         private System.Windows.Forms.TextBox textBox2;
