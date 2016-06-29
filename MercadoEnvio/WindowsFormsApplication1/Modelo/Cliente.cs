@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MercadoEnvioFRBA.Modelo
+{
+    class Cliente
+    {
+        //public Cliente() { }
+        public Int32 userId { get; set; }
+        public String nombre { get; set; }
+        public String apellido { get; set; }
+        public String mail { get; set; }
+        public DateTime fechaNacimiento { get; set; }
+        public String telefono { get; set; }
+        public Int32 dni { get; set; }
+        public String tipo_doc { get; set; }
+        public DateTime fechaCreacion { get; set; }
+        public String username { get; set; }
+        public String password { get; set; }
+        public Int32 cantFallidos { get; set; }
+        public String rol { get; set; }
+        public String calle { get; set; }
+        public Int32 num_calle { get; set; }
+        public Int32 piso { get; set; }
+        public String depto { get; set; }
+        public String cod_postal { get; set; }
+        public Int32 habilitado { get; set; }
+        public Int32 baja { set; get; }
+        public Int32 reputacion { set; get; }
+        public Int32 user_nro_intentos { set; get; }
+
+
+
+
+    }
+}
+
