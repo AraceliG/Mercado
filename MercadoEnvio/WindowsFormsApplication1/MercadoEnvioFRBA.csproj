@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\DAO\DAOCliente.cs" />
+    <Compile Include="Datos\DAO\DAOEmpresa.cs" />
     <Compile Include="Datos\DAO\DAOFuncionalidad.cs" />
     <Compile Include="Datos\DAO\DAOPublicacion.cs" />
     <Compile Include="Datos\DAO\DAORol.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Datos\DAO\DAOVisibilidad.cs" />
     <Compile Include="Modelo\Cliente.cs" />
     <Compile Include="Modelo\ClienteBuscador.cs" />
+    <Compile Include="Modelo\Empresa.cs" />
     <Compile Include="Modelo\Estado.cs" />
     <Compile Include="Modelo\Funcionalidad.cs" />
     <Compile Include="Modelo\Publicacion.cs" />

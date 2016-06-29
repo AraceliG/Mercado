@@ -32,26 +32,26 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox_email = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox_apellido = new System.Windows.Forms.TextBox();
+            this.textBox_razon = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox_nombre = new System.Windows.Forms.TextBox();
+            this.textBox_cuit = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridEmpresa = new System.Windows.Forms.DataGridView();
             this.btn_busquedaEmp = new System.Windows.Forms.Button();
             this.btn_limpiar = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridEmpresa)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.textBox_email);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox_apellido);
+            this.groupBox1.Controls.Add(this.textBox_razon);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox_nombre);
+            this.groupBox1.Controls.Add(this.textBox_cuit);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(226, 35);
             this.groupBox1.Name = "groupBox1";
@@ -78,13 +78,13 @@
             this.label3.Text = "Email:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox_apellido
+            // textBox_razon
             // 
-            this.textBox_apellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_apellido.Location = new System.Drawing.Point(161, 79);
-            this.textBox_apellido.Name = "textBox_apellido";
-            this.textBox_apellido.Size = new System.Drawing.Size(163, 24);
-            this.textBox_apellido.TabIndex = 3;
+            this.textBox_razon.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_razon.Location = new System.Drawing.Point(161, 79);
+            this.textBox_razon.Name = "textBox_razon";
+            this.textBox_razon.Size = new System.Drawing.Size(163, 24);
+            this.textBox_razon.TabIndex = 3;
             // 
             // label2
             // 
@@ -96,13 +96,13 @@
             this.label2.Text = "Razón Social:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox_nombre
+            // textBox_cuit
             // 
-            this.textBox_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_nombre.Location = new System.Drawing.Point(94, 29);
-            this.textBox_nombre.Name = "textBox_nombre";
-            this.textBox_nombre.Size = new System.Drawing.Size(142, 24);
-            this.textBox_nombre.TabIndex = 1;
+            this.textBox_cuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_cuit.Location = new System.Drawing.Point(94, 29);
+            this.textBox_cuit.Name = "textBox_cuit";
+            this.textBox_cuit.Size = new System.Drawing.Size(142, 24);
+            this.textBox_cuit.TabIndex = 1;
             // 
             // label1
             // 
@@ -114,15 +114,15 @@
             this.label1.Text = "CUIT:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dataGridView
+            // dataGridEmpresa
             // 
-            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView.Location = new System.Drawing.Point(29, 223);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ReadOnly = true;
-            this.dataGridView.Size = new System.Drawing.Size(1151, 229);
-            this.dataGridView.TabIndex = 5;
+            this.dataGridEmpresa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridEmpresa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridEmpresa.Location = new System.Drawing.Point(29, 223);
+            this.dataGridEmpresa.Name = "dataGridEmpresa";
+            this.dataGridEmpresa.ReadOnly = true;
+            this.dataGridEmpresa.Size = new System.Drawing.Size(1151, 229);
+            this.dataGridEmpresa.TabIndex = 5;
             // 
             // btn_busquedaEmp
             // 
@@ -136,6 +136,7 @@
             this.btn_busquedaEmp.Text = "buscar";
             this.btn_busquedaEmp.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_busquedaEmp.UseVisualStyleBackColor = true;
+            this.btn_busquedaEmp.Click += new System.EventHandler(this.btn_busquedaEmp_Click);
             // 
             // btn_limpiar
             // 
@@ -185,20 +186,20 @@
             this.Controls.Add(this.btn_modificar);
             this.Controls.Add(this.btn_limpiar);
             this.Controls.Add(this.btn_busquedaEmp);
-            this.Controls.Add(this.dataGridView);
+            this.Controls.Add(this.dataGridEmpresa);
             this.Controls.Add(this.groupBox1);
             this.Name = "BuscadorEmpresa";
             this.Text = "BuscadorEmpresa";
             this.Load += new System.EventHandler(this.BuscadorEmpresa_Load);
             this.Controls.SetChildIndex(this.groupBox1, 0);
-            this.Controls.SetChildIndex(this.dataGridView, 0);
+            this.Controls.SetChildIndex(this.dataGridEmpresa, 0);
             this.Controls.SetChildIndex(this.btn_busquedaEmp, 0);
             this.Controls.SetChildIndex(this.btn_limpiar, 0);
             this.Controls.SetChildIndex(this.btn_modificar, 0);
             this.Controls.SetChildIndex(this.btn_eliminar, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridEmpresa)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -208,11 +209,11 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox_email;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox_apellido;
+        private System.Windows.Forms.TextBox textBox_razon;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox_nombre;
+        private System.Windows.Forms.TextBox textBox_cuit;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.DataGridView dataGridEmpresa;
         private System.Windows.Forms.Button btn_busquedaEmp;
         private System.Windows.Forms.Button btn_limpiar;
         private System.Windows.Forms.Button btn_modificar;
