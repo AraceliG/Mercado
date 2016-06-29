@@ -21,14 +21,13 @@ namespace MercadoEnvioFRBA.Modelo
         public String username { get; set; }
         public String password { get; set; }
         public Int32 cantFallidos { get; set; }
-        public String rol { get; set; }
         public String calle { get; set; }
         public Int32 num_calle { get; set; }
         public Int32 piso { get; set; }
         public String depto { get; set; }
         public String cod_postal { get; set; }
-        public Int32 habilitado { get; set; }
-        public Int32 baja { set; get; }
+        public Boolean habilitado { get; set; }
+        public Boolean baja { set; get; }
         public Int32 reputacion { set; get; }
         public Int32 user_nro_intentos { set; get; }
 

@@ -95,6 +95,7 @@
             this.textBox_psw.Size = new System.Drawing.Size(165, 24);
             this.textBox_psw.TabIndex = 81;
             this.textBox_psw.UseSystemPasswordChar = true;
+            this.textBox_psw.TextChanged += new System.EventHandler(this.textBox_psw_TextChanged);
             // 
             // label15
             // 
@@ -115,6 +116,7 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(165, 24);
             this.textBox1.TabIndex = 86;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
@@ -143,6 +145,7 @@
             this.textBox_mail.Name = "textBox_mail";
             this.textBox_mail.Size = new System.Drawing.Size(165, 24);
             this.textBox_mail.TabIndex = 89;
+            this.textBox_mail.TextChanged += new System.EventHandler(this.textBox_mail_TextChanged);
             // 
             // label2
             // 
@@ -160,6 +163,7 @@
             this.text_telefono.Name = "text_telefono";
             this.text_telefono.Size = new System.Drawing.Size(165, 20);
             this.text_telefono.TabIndex = 91;
+            this.text_telefono.TextChanged += new System.EventHandler(this.text_telefono_TextChanged);
             // 
             // label8
             // 
@@ -178,6 +182,7 @@
             this.textBox_calle.Name = "textBox_calle";
             this.textBox_calle.Size = new System.Drawing.Size(165, 24);
             this.textBox_calle.TabIndex = 93;
+            this.textBox_calle.TextChanged += new System.EventHandler(this.textBox_calle_TextChanged);
             // 
             // label9
             // 
@@ -196,6 +201,7 @@
             this.textBox_nro.Name = "textBox_nro";
             this.textBox_nro.Size = new System.Drawing.Size(165, 24);
             this.textBox_nro.TabIndex = 95;
+            this.textBox_nro.TextChanged += new System.EventHandler(this.textBox_nro_TextChanged);
             // 
             // label10
             // 
@@ -214,6 +220,7 @@
             this.textBox_piso.Name = "textBox_piso";
             this.textBox_piso.Size = new System.Drawing.Size(165, 24);
             this.textBox_piso.TabIndex = 97;
+            this.textBox_piso.TextChanged += new System.EventHandler(this.textBox_piso_TextChanged);
             // 
             // label11
             // 
@@ -232,6 +239,7 @@
             this.textBox_depto.Name = "textBox_depto";
             this.textBox_depto.Size = new System.Drawing.Size(165, 24);
             this.textBox_depto.TabIndex = 99;
+            this.textBox_depto.TextChanged += new System.EventHandler(this.textBox_depto_TextChanged);
             // 
             // label14
             // 
@@ -250,6 +258,7 @@
             this.textBox_cod_postal.Name = "textBox_cod_postal";
             this.textBox_cod_postal.Size = new System.Drawing.Size(165, 24);
             this.textBox_cod_postal.TabIndex = 101;
+            this.textBox_cod_postal.TextChanged += new System.EventHandler(this.textBox_cod_postal_TextChanged);
             // 
             // errorProvider_usuario
             // 
@@ -324,29 +333,29 @@
         #endregion
 
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox_usuario;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox_psw;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox_mail;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox text_telefono;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox_calle;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox_nro;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox_piso;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox_depto;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox_cod_postal;
         private System.Windows.Forms.ErrorProvider errorProvider_usuario;
         private System.Windows.Forms.ErrorProvider errorProvider_psw;
         private System.Windows.Forms.ErrorProvider errorProvider_mail;
+        public System.Windows.Forms.TextBox textBox_usuario;
+        public System.Windows.Forms.TextBox textBox_psw;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox textBox_mail;
+        public System.Windows.Forms.TextBox text_telefono;
+        public System.Windows.Forms.TextBox textBox_calle;
+        public System.Windows.Forms.TextBox textBox_nro;
+        public System.Windows.Forms.TextBox textBox_piso;
+        public System.Windows.Forms.TextBox textBox_depto;
+        public System.Windows.Forms.TextBox textBox_cod_postal;
 
     }
 }

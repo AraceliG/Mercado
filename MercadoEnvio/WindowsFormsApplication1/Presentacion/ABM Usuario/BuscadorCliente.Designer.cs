@@ -128,6 +128,7 @@
             this.textBox_nombre.Name = "textBox_nombre";
             this.textBox_nombre.Size = new System.Drawing.Size(142, 24);
             this.textBox_nombre.TabIndex = 1;
+            this.textBox_nombre.TextChanged += new System.EventHandler(this.textBox_nombre_TextChanged);
             // 
             // label1
             // 
@@ -159,6 +160,7 @@
             this.button_limpiar.TabIndex = 3;
             this.button_limpiar.Text = "Limpiar";
             this.button_limpiar.UseVisualStyleBackColor = true;
+            this.button_limpiar.Click += new System.EventHandler(this.button_limpiar_Click);
             // 
             // dataGridCliente
             // 

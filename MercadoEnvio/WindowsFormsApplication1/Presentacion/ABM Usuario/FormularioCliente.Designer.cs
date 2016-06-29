@@ -46,6 +46,7 @@
             this.errorProvider_ape = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider_nro_doc = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider_tipo_doc = new System.Windows.Forms.ErrorProvider(this.components);
+            this.textBox_nroDoc = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_ape)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nro_doc)).BeginInit();
@@ -55,7 +56,7 @@
             // label12
             // 
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(41, 421);
+            this.label12.Location = new System.Drawing.Point(41, 601);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(152, 18);
             this.label12.TabIndex = 113;
@@ -167,12 +168,13 @@
             this.buttonLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLogin.Location = new System.Drawing.Point(199, 600);
+            this.buttonLogin.Location = new System.Drawing.Point(199, 642);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(131, 49);
             this.buttonLogin.TabIndex = 125;
             this.buttonLogin.Text = "Guardar";
             this.buttonLogin.UseVisualStyleBackColor = false;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // errorProvider_nombre
             // 
@@ -190,11 +192,20 @@
             // 
             this.errorProvider_tipo_doc.ContainerControl = this;
             // 
+            // textBox_nroDoc
+            // 
+            this.textBox_nroDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_nroDoc.Location = new System.Drawing.Point(196, 598);
+            this.textBox_nroDoc.Name = "textBox_nroDoc";
+            this.textBox_nroDoc.Size = new System.Drawing.Size(165, 24);
+            this.textBox_nroDoc.TabIndex = 126;
+            // 
             // FormularioCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 661);
+            this.ClientSize = new System.Drawing.Size(655, 703);
+            this.Controls.Add(this.textBox_nroDoc);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.button_fecha);
             this.Controls.Add(this.textBox_fecha);
@@ -222,6 +233,7 @@
             this.Controls.SetChildIndex(this.textBox_fecha, 0);
             this.Controls.SetChildIndex(this.button_fecha, 0);
             this.Controls.SetChildIndex(this.buttonLogin, 0);
+            this.Controls.SetChildIndex(this.textBox_nroDoc, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_ape)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nro_doc)).EndInit();
@@ -249,5 +261,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider_ape;
         private System.Windows.Forms.ErrorProvider errorProvider_nro_doc;
         private System.Windows.Forms.ErrorProvider errorProvider_tipo_doc;
+        private System.Windows.Forms.TextBox textBox_nroDoc;
     }
 }

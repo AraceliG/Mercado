@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MercadoEnvioFRBA.ABM_Usuario;
+using MercadoEnvioFRBA.Modelo;
 
 namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
 {
     public partial class FormABMUsuario : FormBaseUTN
     {
+
         public FormABMUsuario()
         {
             InitializeComponent();
@@ -36,7 +38,9 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
             this.Hide();
             FormularioCliente formUser = new FormularioCliente();
             formUser.ShowDialog();
-            this.Show();
+            formUser.Close();
+            //this.Show();
+            this.Close();
         }
 
         private void btn_BusquedaCliente_Click(object sender, EventArgs e)

@@ -44,7 +44,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                 List<Cliente> tablaClientes = new List<Cliente>();
                 foreach (Cliente cliente in clienteList)
                 {
-                    if (cliente.dni.ToString().StartsWith(textBox_nroDoc.Text) && cliente.nombre.ToString().StartsWith(textBox_nombre.Text) && cliente.apellido.ToString().StartsWith(textBox_apellido.Text) && cliente.apellido.ToString().StartsWith(textBox_apellido.Text))
+                    if (cliente.dni.ToString().StartsWith(textBox_nroDoc.Text) && cliente.nombre.ToString().ToUpper().StartsWith(textBox_nombre.Text.ToUpper()) && cliente.apellido.ToString().ToUpper().StartsWith(textBox_apellido.Text.ToUpper()) && cliente.mail.ToString().ToUpper().StartsWith(textBox_email.Text.ToUpper()))
                     {
                         tablaClientes.Add(cliente);
                     }               
@@ -182,7 +182,19 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                 return;
             }
         }
+
+        private void button_limpiar_Click(object sender, EventArgs e)
+        {
+            textBox_apellido.Clear();
+            textBox_email.Clear();
+            textBox_nroDoc.Clear();
+            textBox_nombre.Clear();
+        }
+
+        private void textBox_nombre_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
-
 

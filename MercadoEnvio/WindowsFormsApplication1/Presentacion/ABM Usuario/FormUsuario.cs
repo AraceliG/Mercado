@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MercadoEnvioFRBA.ABM_Usuario;
 using System.Configuration;
+using MercadoEnvioFRBA.Modelo;
+using MercadoEnvioFRBA.Datos.DAO;
 
 namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
 {
@@ -29,7 +31,7 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
 
         }
 
-        private void textBox_usuario_TextChanged(object sender, EventArgs e)
+        public void textBox_usuario_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -51,10 +53,64 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
                     MessageBox.Show("No es una fecha válida.", "Fecha De Creación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-            frmCal.Dispose();  
+            frmCal.Dispose();
+        }
+
+        public bool existeUsername()
+        {
+            Cliente clientBusq = new Cliente();
+            clientBusq.username = textBox_usuario.Text;
+            return DAOCliente.existeUsuario(clientBusq);
+        }
+
+
+        public void textBox_psw_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void textBox_mail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void text_telefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void textBox_calle_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void textBox_nro_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void textBox_piso_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void textBox_depto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void textBox_cod_postal_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
 
 
+      
     }
 }
