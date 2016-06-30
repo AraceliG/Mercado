@@ -103,6 +103,7 @@
             this.textBox_cuit.Name = "textBox_cuit";
             this.textBox_cuit.Size = new System.Drawing.Size(142, 24);
             this.textBox_cuit.TabIndex = 1;
+            this.textBox_cuit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_cuit_KeyPress);
             // 
             // label1
             // 
@@ -150,6 +151,7 @@
             this.btn_limpiar.Text = "Limpiar";
             this.btn_limpiar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_limpiar.UseVisualStyleBackColor = true;
+            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
             // 
             // btn_modificar
             // 
@@ -189,7 +191,7 @@
             this.Controls.Add(this.dataGridEmpresa);
             this.Controls.Add(this.groupBox1);
             this.Name = "BuscadorEmpresa";
-            this.Text = "BuscadorEmpresa";
+            this.Text = ",,,,,,,,,,,,,,..";
             this.Load += new System.EventHandler(this.BuscadorEmpresa_Load);
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.dataGridEmpresa, 0);

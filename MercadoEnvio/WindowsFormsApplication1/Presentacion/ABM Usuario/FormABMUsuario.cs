@@ -50,5 +50,13 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
             buscarCliente.ShowDialog();
             this.Show();
         }
+
+        private void btn_busquedaEmp_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            BuscadorEmpresa buscarCliente = new BuscadorEmpresa();
+            buscarCliente.ShowDialog();
+            this.Show();
+        }
     }
 }

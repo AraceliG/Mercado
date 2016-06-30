@@ -73,6 +73,7 @@
             this.btn_busquedaEmp.Text = "Buscar Empresa";
             this.btn_busquedaEmp.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_busquedaEmp.UseVisualStyleBackColor = true;
+            this.btn_busquedaEmp.Click += new System.EventHandler(this.btn_busquedaEmp_Click);
             // 
             // btn_BusquedaCliente
             // 

@@ -110,7 +110,7 @@ public static
                    cliente.cantFallidos = (int)(decimal)lector["user_nro_intentos"];
                     cliente.calle = (string)lector["calle"];
                     cliente.num_calle = (int)(decimal)lector["num_calle"];
-                    cliente.depto = (string)lector["calle"];
+                    cliente.depto = (string)lector["depto"];
                     cliente.cod_postal = (string)lector["cod_postal"];
                     cliente.baja = (Boolean)lector["baja"];
                     cliente.piso = (int)(decimal)lector["piso"];

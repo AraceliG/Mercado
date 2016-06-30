@@ -12,8 +12,8 @@ namespace MercadoEnvioFRBA.Modelo
         public String razon_social { set; get; }
         public String mail { get; set; }
         public String telefono { get; set; }
-        public Int32 cuit{ get; set; }
-        public DateTime fechaCreacion { get; set; }
+        public String cuit{ get; set; }
+       // public DateTime fechaCreacion { get; set; }
         public String username { get; set; }
         public String password { get; set; }
         public Int32 cantFallidos { get; set; }
