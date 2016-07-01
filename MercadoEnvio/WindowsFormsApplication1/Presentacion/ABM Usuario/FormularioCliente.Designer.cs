@@ -47,10 +47,15 @@
             this.errorProvider_nro_doc = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider_tipo_doc = new System.Windows.Forms.ErrorProvider(this.components);
             this.textBox_nroDoc = new System.Windows.Forms.TextBox();
+            this.errorProvider_fechaNac = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_usuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_mail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_ape)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nro_doc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_tipo_doc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_fechaNac)).BeginInit();
             this.SuspendLayout();
             // 
             // label12
@@ -200,6 +205,10 @@
             this.textBox_nroDoc.Size = new System.Drawing.Size(165, 24);
             this.textBox_nroDoc.TabIndex = 126;
             // 
+            // errorProvider_fechaNac
+            // 
+            this.errorProvider_fechaNac.ContainerControl = this;
+            // 
             // FormularioCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,6 +230,16 @@
             this.Name = "FormularioCliente";
             this.Text = "  ";
             this.Load += new System.EventHandler(this.FormularioCliente_Load);
+            this.Controls.SetChildIndex(this.textBox_usuario, 0);
+            this.Controls.SetChildIndex(this.textBox_psw, 0);
+            this.Controls.SetChildIndex(this.textBox1, 0);
+            this.Controls.SetChildIndex(this.textBox_mail, 0);
+            this.Controls.SetChildIndex(this.text_telefono, 0);
+            this.Controls.SetChildIndex(this.textBox_calle, 0);
+            this.Controls.SetChildIndex(this.textBox_nro, 0);
+            this.Controls.SetChildIndex(this.textBox_piso, 0);
+            this.Controls.SetChildIndex(this.textBox_depto, 0);
+            this.Controls.SetChildIndex(this.textBox_cod_postal, 0);
             this.Controls.SetChildIndex(this.label12, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.comboBox_tipoDoc, 0);
@@ -234,10 +253,14 @@
             this.Controls.SetChildIndex(this.button_fecha, 0);
             this.Controls.SetChildIndex(this.buttonLogin, 0);
             this.Controls.SetChildIndex(this.textBox_nroDoc, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_usuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_mail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_ape)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nro_doc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_tipo_doc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_fechaNac)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,5 +285,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider_nro_doc;
         private System.Windows.Forms.ErrorProvider errorProvider_tipo_doc;
         private System.Windows.Forms.TextBox textBox_nroDoc;
+        private System.Windows.Forms.ErrorProvider errorProvider_fechaNac;
     }
 }

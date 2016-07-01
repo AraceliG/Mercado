@@ -53,9 +53,15 @@
             this.errorProvider_usuario = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider_psw = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider_mail = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_fechaCreacion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_calle = new System.Windows.Forms.ErrorProvider(this.components);
+            this.nume_calle = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_usuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_mail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_fechaCreacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_calle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nume_calle)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -272,6 +278,18 @@
             // 
             this.errorProvider_mail.ContainerControl = this;
             // 
+            // errorProvider_fechaCreacion
+            // 
+            this.errorProvider_fechaCreacion.ContainerControl = this;
+            // 
+            // errorProvider_calle
+            // 
+            this.errorProvider_calle.ContainerControl = this;
+            // 
+            // nume_calle
+            // 
+            this.nume_calle.ContainerControl = this;
+            // 
             // FormUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,6 +343,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_usuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_mail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_fechaCreacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_calle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nume_calle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,9 +364,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ErrorProvider errorProvider_usuario;
-        private System.Windows.Forms.ErrorProvider errorProvider_psw;
-        private System.Windows.Forms.ErrorProvider errorProvider_mail;
         public System.Windows.Forms.TextBox textBox_usuario;
         public System.Windows.Forms.TextBox textBox_psw;
         public System.Windows.Forms.TextBox textBox1;
@@ -356,6 +374,12 @@
         public System.Windows.Forms.TextBox textBox_piso;
         public System.Windows.Forms.TextBox textBox_depto;
         public System.Windows.Forms.TextBox textBox_cod_postal;
+        public System.Windows.Forms.ErrorProvider errorProvider_usuario;
+        public System.Windows.Forms.ErrorProvider errorProvider_psw;
+        public System.Windows.Forms.ErrorProvider errorProvider_mail;
+        public System.Windows.Forms.ErrorProvider errorProvider_fechaCreacion;
+        public System.Windows.Forms.ErrorProvider errorProvider_calle;
+        public System.Windows.Forms.ErrorProvider nume_calle;
 
     }
 }

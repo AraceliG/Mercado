@@ -28,25 +28,7 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
         private void btn_busquedaEmp_Click(object sender, EventArgs e)
         {
              List<Empresa> listaDeEmpresas= new List<Empresa>();
-             //if (textBox_cuit.Text != "" || textBox_razon.Text != "" || textBox_email.Text != "" )
                 listaDeEmpresas = DAOEmpresa.buscarPorFiltros(textBox_cuit.Text, textBox_razon.Text, textBox_email.Text);
-            //else
-                //listaDeEmpresas = DAOEmpresa.devolverUsuariosEmpresas();
-            /*dataGridEmpresa.DataSource = DAOEmpresa.devolverUsuariosEmpresas(textBox_razon.Text, textBox_email.Text, textBox_cuit.Text);
-            
-          
-            if (textBox_cuit.Text != null && textBox_email.Text != null  && textBox_razon.Text != null)
-            {
-                List<Empresa> empresaList = DAOEmpresa.devolverUsuariosEmpresas();
-                List<Empresa> tablaEmpresa = new List<Empresa>();
-                foreach (Empresa empresa in empresaList)
-                {
-                    if (empresa.cuit.ToString().ToUpper().StartsWith(textBox_cuit.Text.ToUpper()) &&  empresa.mail.ToString().ToUpper().StartsWith(textBox_email.Text.ToUpper()) && empresa.razon_social.ToString().ToUpper().StartsWith(textBox_razon.Text.ToUpper()))
-                    {
-                        tablaEmpresa.Add(empresa);
-                    }
-                }
-*/
                 dataGridEmpresa.DataSource = listaDeEmpresas;
             }
 

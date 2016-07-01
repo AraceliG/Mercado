@@ -95,8 +95,35 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
+            
             bool vacio = false;
-
+            if (textBox_calle.Text.Length == 0)
+            {
+                errorProvider_calle.SetError(textBox_calle, "Por favor ingrese su dirección");
+                vacio = true;
+            }
+            else {
+                errorProvider_calle.Clear();
+            }
+            if (textBox_nro.Text.Length == 0)
+            {
+                nume_calle.SetError(textBox_nro, "Por favor ingrese número de domicilio");
+                vacio = true;
+            }
+            else { nume_calle.Clear(); }
+            if (textBox_fecha.Text.Length == 0)
+            {
+                errorProvider_fechaNac.SetError(textBox_fecha, "Por favor ingrese fecha de nacimiento");
+                vacio = true;
+            }
+            else { errorProvider_fechaNac.Clear(); }
+            //es el de fecha creacion textbox1
+            if (textBox1.Text.Length == 0)
+            {
+                errorProvider_fechaCreacion.SetError(textBox1, "Por favor ingrese fecha de nacimiento");
+                vacio = true;
+            }
+            else { errorProvider_fechaCreacion.Clear(); }
             if (textBox_nombre.Text.Length == 0)
             {
                 errorProvider_nombre.SetError(textBox_nombre, "Por favor ingrese nombre");
@@ -124,15 +151,34 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                 vacio = true;
             }
             else { errorProvider_nro_doc.Clear(); }
+            if (textBox_usuario.Text.Length == 0)
+            {
+                errorProvider_usuario.SetError(textBox_usuario, "Por favor ingrese nombre de usuario de su cuenta");
+                vacio = true;
+            }
+            else { errorProvider_usuario.Clear(); }
+            if (textBox_psw.Text.Length == 0)
+            {
+                errorProvider_psw.SetError(textBox_psw, "Por favor ingrese contraseña");
+                vacio = true;
+            }
+            else { errorProvider_psw.Clear(); }
+            if (textBox_mail.Text.Length == 0)
+            {
+                errorProvider_mail.SetError(textBox_mail, "Por favor ingrese mail");
+                vacio = true;
+            }
+            else { errorProvider_mail.Clear(); }
+
 
             if (vacio) return;
 
-           if( this.fueCreadoCliente(Convert.ToInt32(textBox_nroDoc.Text),comboBox_tipoDoc.Text)){
-               MessageBox.Show("El cliente ya fue creado.", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+           if( DAOCliente.existeDni(Convert.ToInt32(textBox_nroDoc.Text))){
+               MessageBox.Show("Ya existe un usuario con ese tipo y número de dni.", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
            }else{
-           if (this.existeUsername()){
-               MessageBox.Show("Existe un usuario con ese username, por favor ingrese uno diferente.", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+           if (DAOCliente.existeUsername(textBox_usuario.Text)){
+               MessageBox.Show("Existe una cuenta con ese nombre de usuario, por favor ingrese uno diferente.", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
            }
            else{
 
@@ -151,31 +197,30 @@ namespace MercadoEnvioFRBA.ABM_Usuario
              cliente.apellido = textBox_apellido.Text;
             cliente.nombre = textBox_nombre.Text;
             cliente.dni = Int32.Parse(textBox_nroDoc.Text);
-        //  cliente.fechaNacimiento = Convert.ToDateTime(textBox_fecha.Text);
+          cliente.fechaNacimiento = Convert.ToDateTime(textBox_fecha.Text);
             cliente.mail = textBox_mail.Text;
             cliente.calle = textBox_calle.Text;
             cliente.telefono = text_telefono.Text;
-           //liente.fechaCreacion = Convert.ToDateTime(textBox1.Text);
+           cliente.fechaCreacion = Convert.ToDateTime(textBox1.Text);
             cliente.password = textBox_psw.Text;
             cliente.username = textBox_usuario.Text;
             cliente.calle = textBox_calle.Text;
-          //cliente.num_calle = Convert.ToInt32(textBox_nro.Text);
+          cliente.num_calle = Convert.ToInt32(textBox_nro.Text);
             cliente.depto = textBox_depto.Text;
             cliente.cod_postal = textBox_cod_postal.Text;
-          //cliente.piso = Convert.ToInt32(textBox_piso.Text);
-            
+            if(textBox_piso.Text.Length == 0){
+                cliente.piso=0;}
+                else{
+                    cliente.piso = Convert.ToInt32(textBox_piso.Text);
+                }
+            //cliente.baja = 0;
+            cliente.reputacion = 0;
+            cliente.user_nro_intentos = 0;
+            //cliente.habilitado = 1;
             DAOCliente.crearCliente(cliente);
-
+            
         }
 
-private bool fueCreadoCliente(int dni,string tipoDoc)
-{
-    Cliente cliente = new Cliente();
-    cliente.dni = dni;
-    cliente.tipo_doc = tipoDoc;
-   return DAOCliente.existeCliente(cliente);
-
-}
 
 
                 

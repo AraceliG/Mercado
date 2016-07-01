@@ -12,34 +12,80 @@ namespace MercadoEnvioFRBA.Datos.DAO
     class DAOCliente
 
     {
-public static
-        void crearCliente(Cliente c) {
+
+        public static Boolean existeDni(int dni){
+            List<Cliente> clienteList = new List<Cliente>();
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(new SqlParameter("@cli_dni", dni));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.CLIENTE C,NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO T,NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE C.USERID=U.USERID AND C.DNI=@cli_dni" , "T", listaParametros);
+            return createClienteListFromQuery(lector).Count >= 1;
+        }
+
+
+        private static List<Cliente> createClienteListFromQuery(SqlDataReader lector)
+        {
+            List<Cliente> clienteList = new List<Cliente>();
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+
+                    Cliente cliente = new Cliente();
+                    cliente.nombre = (String)lector["nombre"];
+                    cliente.apellido = (String)lector["apellido"];
+                    cliente.mail = (String)lector["email"];
+                    cliente.dni = (int)(decimal)lector["dni"];
+                    cliente.calle = (String)lector["calle"];
+                    cliente.telefono = (String)lector["telefono"];
+                    cliente.fechaNacimiento = (DateTime)lector["fecha_nacimiento"];
+                    cliente.tipo_doc = (String)lector["descripcion"];
+                    cliente.fechaCreacion = (DateTime)lector["fechaCreacion"];
+                    cliente.password = (String)lector["pass"];
+                    cliente.username = (String)lector["username"];
+                    cliente.habilitado = (Boolean)lector["habilitado"];
+                    cliente.cantFallidos = (int)(decimal)lector["user_nro_intentos"];
+                    cliente.calle = (String)lector["calle"];
+                    cliente.num_calle = (int)(decimal)lector["num_calle"];
+                    cliente.depto = (String)lector["depto"];
+                    cliente.cod_postal = (String)lector["cod_postal"];
+                    cliente.baja = (Boolean)lector["baja"];
+                    cliente.piso = (int)(decimal)lector["piso"];
+                    cliente.reputacion = (int)(decimal)lector["reputacion"];
+                    cliente.userId = (int)(decimal)lector["userId"];
+
+                    clienteList.Add(cliente);
+                }
+            }
+            return clienteList;
+        }
+
+public static void crearCliente(Cliente c) {
 
             List<SqlParameter> paramList = new List<SqlParameter>();
 
-            paramList.Add(new SqlParameter("@nombre", c.nombre));
-            paramList.Add(new SqlParameter("@username", c.username));
-            paramList.Add(new SqlParameter("@pass", c.password));
-            paramList.Add(new SqlParameter("@email", c.mail));
-            paramList.Add(new SqlParameter("@telefono", c.telefono));
-            paramList.Add(new SqlParameter("@calle", c.calle));
-            paramList.Add(new SqlParameter("@num_calle", c.num_calle));
-            paramList.Add(new SqlParameter("@piso", c.piso));
-            paramList.Add(new SqlParameter("@depto", c.depto));
-            paramList.Add(new SqlParameter("@cod_postal", c.cod_postal));
-            paramList.Add(new SqlParameter("@habilitado", 1));
-            paramList.Add(new SqlParameter("@baja", 0));
-            paramList.Add(new SqlParameter("@reputacion", 0));
-            paramList.Add(new SqlParameter("@user_nro_intentos", 0));
+            paramList.Add(new SqlParameter("@nombre",c.nombre));
+            paramList.Add(new SqlParameter("@username",c.username));
+            paramList.Add(new SqlParameter("@pass",c.password));
+            paramList.Add(new SqlParameter("@email",c.mail));
+            paramList.Add(new SqlParameter("@telefono",c.telefono));
+            paramList.Add(new SqlParameter("@calle",c.calle));
+            paramList.Add(new SqlParameter("@num_calle",c.num_calle));
+            paramList.Add(new SqlParameter("@piso",c.piso));
+            paramList.Add(new SqlParameter("@depto",c.depto));
+            paramList.Add(new SqlParameter("@cod_postal",c.cod_postal));
+            paramList.Add(new SqlParameter("@habilitado",1));
+            paramList.Add(new SqlParameter("@baja",false));
+            paramList.Add(new SqlParameter("@reputacion",c.reputacion));
+            paramList.Add(new SqlParameter("@user_nro_intentos",c.user_nro_intentos));
             paramList.Add(new SqlParameter("@dni", c.dni));
-            paramList.Add(new SqlParameter("@cod_tipo_doc", c.tipo_doc));
+            paramList.Add(new SqlParameter("@cod_tipo_doc",1));
             paramList.Add(new SqlParameter("@apellido ", c.apellido));
             paramList.Add(new SqlParameter("@fecha_nacimiento", c.fechaNacimiento));
             paramList.Add(new SqlParameter("@fechaCreacion", c.fechaCreacion));
 
-            
-            AccesoBaseDeDatos
-            .ExecStoredProcedure("NOTHING_IS_IMPOSSIBLE.sp_altaCliente s", paramList);
+            AccesoBaseDeDatos.GetDataReader("NOTHING_IS_IMPOSSIBLE.sp_altaCliente", "S", paramList);
+    //el execStoredProcedure no me crea nada
+            //AccesoBaseDeDatos.ExecStoredProcedure("NOTHING_IS_IMPOSSIBLE.sp_altaCliente", paramList);
            
         }
         public static bool existeUsuario(Cliente client) {
@@ -64,7 +110,7 @@ public static
         
         public static bool existeCliente(Cliente client) {
 
-            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT C.DNIT.DESCRIPCION FROM NOTHING_IS_IMPOSSIBLE.CLIENTE C,NOTHING_IS_IMPOSSIBLE.USUARIO U,NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO T WHERE C.USERID=U.USERID AND C.COD_TIPO_DOC=T.COD_TIPO_DOC",
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT C.DNI.DESCRIPCION FROM NOTHING_IS_IMPOSSIBLE.CLIENTE C,NOTHING_IS_IMPOSSIBLE.USUARIO U,NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO T WHERE C.USERID=U.USERID AND C.COD_TIPO_DOC=T.COD_TIPO_DOC",
             "T", new List<SqlParameter>());
 
             List<Cliente> clienteList = new List<Cliente>();
@@ -87,73 +133,10 @@ public static
         {
 
             SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT U.USERNAME,U.PASS,U.USERID,U.HABILITADO,U.BAJA,U.REPUTACION,U.USER_NRO_INTENTOS,C.DNI,T.DESCRIPCION,C.NOMBRE,C.APELLIDO,C.FECHA_NACIMIENTO, C.FECHACREACION,U.EMAIL, U.TELEFONO,U.CALLE,U.NUM_CALLE, U.PISO,U.DEPTO,U.COD_POSTAL FROM NOTHING_IS_IMPOSSIBLE.CLIENTE C,NOTHING_IS_IMPOSSIBLE.USUARIO U,NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO T WHERE C.USERID=U.USERID AND C.COD_TIPO_DOC=T.COD_TIPO_DOC", "T", new List<SqlParameter>());
-
-            List<Cliente> clienteList = new List<Cliente>();
-            if (lector.HasRows)
-            {
-                while (lector.Read())
-                {
-
-                    Cliente cliente = new Cliente();
-                    cliente.nombre = (string)lector["nombre"];
-                    cliente.apellido = (string)lector["apellido"];
-                    cliente.mail = (string)lector["email"];
-                    cliente.dni = (int)(decimal)lector["dni"];
-                    cliente.calle = (string)lector["calle"];
-                    cliente.telefono = (string)lector["telefono"];
-                    cliente.fechaNacimiento = (DateTime)lector["fecha_nacimiento"];
-                    cliente.tipo_doc = (string)lector["descripcion"];
-                    cliente.fechaCreacion = (DateTime)lector["fechaCreacion"];
-                    cliente.password = (string)lector["pass"];
-                    cliente.username = (String)lector["username"];
-                    cliente.habilitado = (Boolean)lector["habilitado"];
-                   cliente.cantFallidos = (int)(decimal)lector["user_nro_intentos"];
-                    cliente.calle = (string)lector["calle"];
-                    cliente.num_calle = (int)(decimal)lector["num_calle"];
-                    cliente.depto = (string)lector["depto"];
-                    cliente.cod_postal = (string)lector["cod_postal"];
-                    cliente.baja = (Boolean)lector["baja"];
-                    cliente.piso = (int)(decimal)lector["piso"];
-                    cliente.reputacion= (int)(decimal)lector["reputacion"];
-                    cliente.userId = (int)(decimal)lector["userId"];
-
-                    clienteList.Add(cliente);
-                }
-            }
-            return clienteList;
+            return createClienteListFromQuery(lector);
         }
 
 
-        public static List<Cliente> AplicarFiltro(ClienteBuscador filtro)
-        {
-            //con datos presisos funciona solamente
-            //no me toma los like
-            //LIKE '*' + @DESCRIPCION + '*' según busque en internet
-
-            string sql = @"SELECT C.DNI,T.DESCRIPCION,C.NOMBRE,C.APELLIDO,C.FECHA_NACIMIENTO, C.FECHACREACION,U.EMAIL, U.TELEFONO,U.CALLE,U.NUM_CALLE, U.PISO,U.DEPTO,U.COD_POSTAL FROM NOTHING_IS_IMPOSSIBLE.CLIENTE C,NOTHING_IS_IMPOSSIBLE.USUARIO U,NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO T WHERE C.USERID=U.USERID AND C.COD_TIPO_DOC=T.COD_TIPO_DOC AND (C.NOMBRE LIKE '%' + @nombre + '%') AND (C.APELLIDO LIKE '%' + @apellido + '%') AND (U.EMAIL LIKE '%' + @email + '%')";
-
-            List<Cliente> list = new List<Cliente>();
-
-            SqlCommand cmd = new SqlCommand(sql, AccesoBaseDeDatos.GetConnection());
-
-            if (string.IsNullOrEmpty(filtro.nombre))
-                cmd.Parameters.AddWithValue("@nombre", DBNull.Value);
-            else
-                cmd.Parameters.AddWithValue("@nombre", filtro.nombre);
-
-            cmd.Parameters.AddWithValue("@apellido", string.IsNullOrEmpty(filtro.apellido) ? (object)DBNull.Value : filtro.apellido);
-            cmd.Parameters.AddWithValue("@email", string.IsNullOrEmpty(filtro.apellido) ? (object)DBNull.Value : filtro.email);
-
-            cmd.Parameters.AddWithValue("@dni", filtro.dni);
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
-            {
-                list.Add(obtenerCliente(reader));
-            }
-
-            return list;
-        }
 
         private static Modelo.Cliente obtenerCliente(SqlDataReader reader)
         {
@@ -167,6 +150,18 @@ public static
             return client;
         }
 
+
+
+
+        public static bool existeUsername(string username)
+        {
+            List<Cliente> clienteList = new List<Cliente>();
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(new SqlParameter("@cli_username", username));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.CLIENTE C,NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO T,NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE C.USERID=U.USERID AND U.USERNAME=@cli_username", "T", listaParametros);
+            return createClienteListFromQuery(lector).Count >= 1;
+            
+        }
     }
 
 

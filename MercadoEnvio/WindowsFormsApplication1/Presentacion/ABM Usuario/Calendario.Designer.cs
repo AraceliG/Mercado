@@ -36,6 +36,8 @@
             // 
             this.monthCalendar.FirstDayOfWeek = System.Windows.Forms.Day.Sunday;
             this.monthCalendar.Location = new System.Drawing.Point(64, 64);
+            this.monthCalendar.MaxDate = new System.DateTime(2017, 1, 2, 0, 0, 0, 0);
+            this.monthCalendar.MinDate = new System.DateTime(1900, 1, 2, 0, 0, 0, 0);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.monthCalendar.TabIndex = 1;
