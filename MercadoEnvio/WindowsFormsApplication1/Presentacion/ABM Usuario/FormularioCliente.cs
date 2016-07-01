@@ -216,6 +216,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             //cliente.baja = 0;
             cliente.reputacion = 0;
             cliente.user_nro_intentos = 0;
+            cliente.tipo_doc = comboBox_tipoDoc.SelectedItem.ToString();
             //cliente.habilitado = 1;
             DAOCliente.crearCliente(cliente);
             

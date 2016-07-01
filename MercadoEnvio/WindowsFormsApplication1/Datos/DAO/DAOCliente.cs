@@ -59,11 +59,11 @@ namespace MercadoEnvioFRBA.Datos.DAO
             return clienteList;
         }
 
+
 public static void crearCliente(Cliente c) {
 
-            List<SqlParameter> paramList = new List<SqlParameter>();
 
-            paramList.Add(new SqlParameter("@nombre",c.nombre));
+            List<SqlParameter> paramList = new List<SqlParameter>();
             paramList.Add(new SqlParameter("@username",c.username));
             paramList.Add(new SqlParameter("@pass",c.password));
             paramList.Add(new SqlParameter("@email",c.mail));
@@ -77,15 +77,14 @@ public static void crearCliente(Cliente c) {
             paramList.Add(new SqlParameter("@baja",false));
             paramList.Add(new SqlParameter("@reputacion",c.reputacion));
             paramList.Add(new SqlParameter("@user_nro_intentos",c.user_nro_intentos));
-            paramList.Add(new SqlParameter("@dni", c.dni));
+            paramList.Add(new SqlParameter("@dni", c.dni));  
             paramList.Add(new SqlParameter("@cod_tipo_doc",1));
             paramList.Add(new SqlParameter("@apellido ", c.apellido));
+            paramList.Add(new SqlParameter("@nombre",c.nombre)); 
             paramList.Add(new SqlParameter("@fecha_nacimiento", c.fechaNacimiento));
             paramList.Add(new SqlParameter("@fechaCreacion", c.fechaCreacion));
 
-            AccesoBaseDeDatos.GetDataReader("NOTHING_IS_IMPOSSIBLE.sp_altaCliente", "S", paramList);
-    //el execStoredProcedure no me crea nada
-            //AccesoBaseDeDatos.ExecStoredProcedure("NOTHING_IS_IMPOSSIBLE.sp_altaCliente", paramList);
+            AccesoBaseDeDatos.ExecStoredProcedure("NOTHING_IS_IMPOSSIBLE.sp_altaCliente", paramList);
            
         }
         public static bool existeUsuario(Cliente client) {

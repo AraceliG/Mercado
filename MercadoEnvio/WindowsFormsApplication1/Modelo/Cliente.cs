@@ -8,7 +8,6 @@ namespace MercadoEnvioFRBA.Modelo
 {
     class Cliente
     {
-        //public Cliente() { }
         public Int32 userId { get; set; }
         public String nombre { get; set; }
         public String apellido { get; set; }
@@ -30,9 +29,6 @@ namespace MercadoEnvioFRBA.Modelo
         public Boolean baja { set; get; }
         public Int32 reputacion { set; get; }
         public Int32 user_nro_intentos { set; get; }
-
-
-
 
     }
 }
