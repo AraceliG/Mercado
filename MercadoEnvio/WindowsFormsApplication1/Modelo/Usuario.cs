@@ -14,6 +14,8 @@ namespace MercadoEnvioFRBA.Modelo
         private decimal _userId;
         private List<Rol> _roles;
         private Rol _rolActual;
+        public string pass { get; set; }
+        public Int32 user_nro_intentos { set; get; }
 
         // gets and sets
         public string username
@@ -44,7 +46,19 @@ namespace MercadoEnvioFRBA.Modelo
         {
             DAOUsuario.getUsuario(userName, this);
             this.roles = Rol.rolesDe(this.userId);
+           
 
+        }
+
+        public Usuario(string user, string pass) {
+
+            DAOUsuario.getUsuario(user, pass, this);
+            this.roles = Rol.rolesDe(this.userId);
+        }
+
+        public Usuario()
+        {
+            
         }
 
         public static bool userNameValido(string userName)
@@ -65,6 +79,36 @@ namespace MercadoEnvioFRBA.Modelo
         public List<Publicacion> misPuplicaciones()
         {
             return Publicacion.publicacionesDe(this.userId);
+        }
+
+        public bool ContraseñaCorrecta()
+        {
+            return DAOUsuario.contraseñaCorrecta(this);
+        }
+
+        public bool contraseñaCorrecta()
+        {
+            return DAOUsuario.contraseñaCorrecta(this.username, this.pass);
+        }
+
+        public bool estaHabilitado() {
+            return DAOUsuario.estaHabilitado(this);
+        }
+
+        public  void reiniciarFallidos()
+        {
+            DAOUsuario.reiniciarFallidos(this);
+         
+        }
+
+        public void actualizarFallidos() {
+            DAOUsuario.actualizarFallidos(this);
+        }
+
+        public  bool intentosFallidosCompletos()
+        {
+           // return DAOUsuario.intentosFallidosCompletos(this);
+           return  DAOUsuario.cantidadDefallidos(this) >= 3;
         }
     }
 }

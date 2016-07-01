@@ -213,13 +213,16 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                 else{
                     cliente.piso = Convert.ToInt32(textBox_piso.Text);
                 }
-            //cliente.baja = 0;
             cliente.reputacion = 0;
             cliente.user_nro_intentos = 0;
             cliente.tipo_doc = comboBox_tipoDoc.SelectedItem.ToString();
-            //cliente.habilitado = 1;
             DAOCliente.crearCliente(cliente);
             
+        }
+
+        private void textBox_psw_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
 
 

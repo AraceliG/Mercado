@@ -112,18 +112,6 @@
     <Compile Include="Presentacion\ABM Usuario\FormularioEmpresa.Designer.cs">
       <DependentUpon>FormularioEmpresa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\ABM Usuario\CrearEmpresa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Presentacion\ABM Usuario\CrearEmpresa.Designer.cs">
-      <DependentUpon>CrearEmpresa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Presentacion\ABM Usuario\CrearUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Presentacion\ABM Usuario\CrearUsuario.Designer.cs">
-      <DependentUpon>CrearUsuario.cs</DependentUpon>
-    </Compile>
     <Compile Include="Presentacion\ABM Usuario\FormUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,12 +229,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Usuario\FormularioEmpresa.resx">
       <DependentUpon>FormularioEmpresa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\ABM Usuario\CrearEmpresa.resx">
-      <DependentUpon>CrearEmpresa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\ABM Usuario\CrearUsuario.resx">
-      <DependentUpon>CrearUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Usuario\FormUsuario.resx">
       <DependentUpon>FormUsuario.cs</DependentUpon>

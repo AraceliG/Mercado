@@ -39,6 +39,12 @@
             this.textBox_nombre_de_contacto = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox_ciudad = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_usuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_mail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_fechaCreacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_calle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nume_calle)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -104,6 +110,7 @@
             this.buttonLogin.TabIndex = 118;
             this.buttonLogin.Text = "Guardar";
             this.buttonLogin.UseVisualStyleBackColor = false;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // textBox_razon_social
             // 
@@ -155,6 +162,16 @@
             this.Name = "FormularioEmpresa";
             this.Text = "  ";
             this.Load += new System.EventHandler(this.FormularioEmpresa_Load);
+            this.Controls.SetChildIndex(this.textBox_usuario, 0);
+            this.Controls.SetChildIndex(this.textBox_psw, 0);
+            this.Controls.SetChildIndex(this.textBox1, 0);
+            this.Controls.SetChildIndex(this.textBox_mail, 0);
+            this.Controls.SetChildIndex(this.text_telefono, 0);
+            this.Controls.SetChildIndex(this.textBox_calle, 0);
+            this.Controls.SetChildIndex(this.textBox_nro, 0);
+            this.Controls.SetChildIndex(this.textBox_piso, 0);
+            this.Controls.SetChildIndex(this.textBox_depto, 0);
+            this.Controls.SetChildIndex(this.textBox_cod_postal, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.label7, 0);
@@ -165,6 +182,12 @@
             this.Controls.SetChildIndex(this.textBox_nombre_de_contacto, 0);
             this.Controls.SetChildIndex(this.textBox2, 0);
             this.Controls.SetChildIndex(this.textBox_ciudad, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_usuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_mail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_fechaCreacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_calle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nume_calle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

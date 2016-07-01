@@ -35,11 +35,11 @@
             this.labelUsuario = new System.Windows.Forms.Label();
             this.labelContraseña = new System.Windows.Forms.Label();
             this.textBoxUsuario = new System.Windows.Forms.TextBox();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.errorUser = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorPass = new System.Windows.Forms.ErrorProvider(this.components);
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorPass)).BeginInit();
@@ -95,15 +95,6 @@
             this.textBoxUsuario.TabIndex = 4;
             this.textBoxUsuario.TextChanged += new System.EventHandler(this.textBoxUusario_TextChanged);
             // 
-            // textBoxPassword
-            // 
-            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.Location = new System.Drawing.Point(145, 156);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(232, 26);
-            this.textBoxPassword.TabIndex = 5;
-            this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
-            // 
             // buttonLogin
             // 
             this.buttonLogin.BackColor = System.Drawing.Color.White;
@@ -138,6 +129,16 @@
             // 
             this.errorPass.ContainerControl = this;
             // 
+            // textBoxPassword
+            // 
+            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPassword.Location = new System.Drawing.Point(145, 157);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(232, 24);
+            this.textBoxPassword.TabIndex = 82;
+            this.textBoxPassword.UseSystemPasswordChar = true;
+            this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged_1);
+            // 
             // FormularioLogin
             // 
             this.AcceptButton = this.buttonLogin;
@@ -145,9 +146,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(418, 384);
+            this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonLogin);
-            this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxUsuario);
             this.Controls.Add(this.labelContraseña);
             this.Controls.Add(this.labelUsuario);
@@ -172,10 +173,10 @@
         private System.Windows.Forms.Label labelUsuario;
         private System.Windows.Forms.Label labelContraseña;
         private System.Windows.Forms.TextBox textBoxUsuario;
-        private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ErrorProvider errorUser;
         private System.Windows.Forms.ErrorProvider errorPass;
+        public System.Windows.Forms.TextBox textBoxPassword;
     }
 }

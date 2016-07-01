@@ -29,6 +29,7 @@ namespace MercadoEnvioFRBA.Modelo
         public Boolean baja { set; get; }
         public Int32 reputacion { set; get; }
         public Int32 user_nro_intentos { set; get; }
+        public Int32 cod_tipo_doc { set; get; }
 
     }
 }

@@ -22,5 +22,10 @@ namespace MercadoEnvioFRBA.ABM_Usuario
         {
 
         }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -51,12 +51,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_usuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_mail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_fechaCreacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_calle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nume_calle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_ape)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nro_doc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_tipo_doc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_fechaNac)).BeginInit();
             this.SuspendLayout();
+            // 
+            // textBox_psw
+            // 
+            this.textBox_psw.TextChanged += new System.EventHandler(this.textBox_psw_TextChanged_1);
             // 
             // label12
             // 
@@ -256,6 +263,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_usuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_mail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_fechaCreacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_calle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nume_calle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_ape)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nro_doc)).EndInit();

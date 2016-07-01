@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
 using MercadoEnvioFRBA.Datos;
+using System.Security.Cryptography;
+using MercadoEnvioFRBA.Datos.DAO;
 
 namespace MercadoEnvioFRBA.Presentacion.Inicio
 {
@@ -63,25 +65,49 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
             return true;
         }
 
+       /*ENCRIPTACIÓN NO FUNCIONA
+        
+        private String encriptarSHA256(String str)
+        {
+            SHA256Managed hashManaged = new SHA256Managed();
+
+            byte[] hash = hashManaged.ComputeHash(Encoding.Unicode.GetBytes(str));
+
+            return BitConverter.ToString(hash);
+        }
+        */
+
         private bool contraseñaCorrecta()
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.USUARIO WHERE ";
-            cmd.CommandText += "USERNAME = '" + textBoxUsuario.Text + "'AND ";
-            cmd.CommandText += "PASS = '" + textBoxPassword.Text + "' ";
-            cmd.Connection = AccesoBaseDeDatos.GetConnection();
-
-            if ((Int32)cmd.ExecuteScalar() < 1)
-            {
+            Usuario us = new Usuario();
+            us.username = textBoxUsuario.Text;
+            us.pass = textBoxPassword.Text;
+            if (us.contraseñaCorrecta()) {
+                return true;
+            }
+           else{
                 MessageBox.Show("Contraseña invalida para el usuario " + textBoxUsuario.Text, "Contraseña", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            return true;
+            
         }
 
         private bool usuarioHabilitado()
         {
-            SqlCommand cmd = new SqlCommand();
+            Usuario us = new Usuario();
+            us.username = textBoxUsuario.Text;
+            us.pass = textBoxPassword.Text;
+            if (us.intentosFallidosCompletos())
+            {
+
+                MessageBox.Show("El usuario se ha inhabilitado, contactese con el administrador.", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else { return true; }
+        }
+
+           
+           /* SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "SELECT COUNT(*) FROM NOTHING_IS_IMPOSSIBLE.USUARIO WHERE ";
             cmd.CommandText += "USERNAME= '" + textBoxUsuario.Text + "' ";
             cmd.CommandText += "AND  USER_NRO_INTENTOS < 3";
@@ -95,11 +121,15 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
 
             cmd.Dispose();
             return true;
-        }
+        }*/
 
         void borrarIntentosFallidos()
         {
-            SqlCommand cmd = new SqlCommand();
+            Usuario us = new Usuario();
+            us.username = textBoxUsuario.Text;
+            us.reiniciarFallidos();
+            /*
+             * SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO ";
             cmd.CommandText += "SET USER_NRO_INTENTOS = 0 ";
             cmd.CommandText += "WHERE USERNAME = '" + textBoxUsuario.Text + "'";
@@ -110,12 +140,24 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
                 MessageBox.Show("Error al actualizar el campo USER_NRO_INTENTOS de tabla USUARIO.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             cmd.Dispose();
+             * */
         }
 
 
-        private int intentosFallidos()
+       /* private int intentosFallidos()
         {
-            SqlCommand cmd = new SqlCommand();
+            Usuario us = new Usuario();
+            us.username = textBoxUsuario.Text;
+            if (us.estaHabilitado())
+            {
+                us.actualizarFallidos();
+
+            }
+            else {
+                MessageBox.Show("Error al leer el campo USER_NRO_INTENTOS en la tabla USUARIO", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        */ 
+           /* SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "SELECT USER_NRO_INTENTOS FROM NOTHING_IS_IMPOSSIBLE.USUARIO ";
             cmd.CommandText += "WHERE USERNAME = '" + textBoxUsuario.Text + "'";
             cmd.Connection = AccesoBaseDeDatos.GetConnection();
@@ -133,11 +175,23 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
                 cmd.Dispose();
                 MessageBox.Show("Error al leer el campo USER_NRO_INTENTOS en la tabla USUARIO", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return -1;
-            }
-        }
+            }*/
 
         void incrementarIntentosFallidos()
         {
+            Usuario us = new Usuario();
+            us.username = textBoxUsuario.Text;
+            if (us.intentosFallidosCompletos())
+            {
+                MessageBox.Show("Error al leer el campo USER_NRO_INTENTOS en la tabla USUARIO", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+            {
+                us.actualizarFallidos();
+            }
+
+         /*   
             Int32 cantIntentosFallidos = 0;
             if ((cantIntentosFallidos = intentosFallidos()) != -1)
             {
@@ -154,6 +208,7 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
                     }
                 }
             }
+          */ 
 
         }
 
@@ -180,7 +235,7 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
 
             if (existeUsuario())
             {
-                if (usuarioHabilitado())
+               if ( usuarioHabilitado())
                 {
                     if (contraseñaCorrecta())
                     {
@@ -196,11 +251,12 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
                         borrarIntentosFallidos();
                         this.Close();*/
                     }
-                    else { incrementarIntentosFallidos(); }
+                    else { incrementarIntentosFallidos(); 
+                    }
                 }
-                else
-                { }
-            }
+               // else
+              //  { }
+            }//
 
             /*
             if (textBoxPassword.Text == "" && textBoxUusario.Text == "")
@@ -221,11 +277,11 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
                 {
                     MessageBox.Show("Usuario o contraseña incorrecta", "Error!", MessageBoxButtons.OK);
                     return;
-                }
+               
 
             }*/
-        }
-
+        //
+ }
         private void elegirRol(Usuario user)
         {
             FormElegirRol elegRol = new FormElegirRol(user);
@@ -253,6 +309,11 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
         }
 
         private void FormularioLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxPassword_TextChanged_1(object sender, EventArgs e)
         {
 
         }
