@@ -13,6 +13,7 @@ using System.Data.SqlClient;
 using MercadoEnvioFRBA.Datos;
 using MercadoEnvioFRBA.Modelo;
 using MercadoEnvioFRBA.Datos.DAO;
+using MercadoEnvioFRBA.Modelo;
 
 namespace MercadoEnvioFRBA.ABM_Usuario
 {

@@ -52,6 +52,11 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
             textBox_razon.Clear();
         }
 
+        private void textBox_cuit_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
 
     }

@@ -47,22 +47,6 @@ namespace MercadoEnvioFRBA.Datos.DAO
         }
         public static List<Empresa> devolverUsuariosEmpresas(){
 
-          /*  
-           * SqlCommand cm = new SqlCommand();
-            cm.Connection = AccesoBaseDeDatos.GetConnection();
-            cm.CommandType = CommandType.Text;
-            cm.CommandText = consulta(razonSocial,email,cuit);
-            cm.ExecuteNonQuery();
-
-            DataTable dt = new DataTable();
-           SqlDataAdapter da = new SqlDataAdapter(cm);
-           da.Fill(dt);
-           return dt;
-  
-            */
-
-
-            //AND REPLACE(E.CUIT,'-','')= '" +cuit + " para eliminar guiones
            
             SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT U.USERNAME,U.PASS,U.USERID,U.HABILITADO,U.BAJA,U.REPUTACION,U.USER_NRO_INTENTOS,E.CUIT,E.RAZON_SOCIAL,E.NOMBRE_CONTACO,E.CIUDAD,U.EMAIL, U.TELEFONO,U.CALLE,U.NUM_CALLE, U.PISO,U.DEPTO,U.COD_POSTAL FROM NOTHING_IS_IMPOSSIBLE.EMPRESA E,NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE E.USERID=U.USERID", "T", new List<SqlParameter>());
             return createEmpresaListFromQuery(lector);
@@ -98,7 +82,6 @@ private static string consulta(String razonSocial,String mail, String cuit)
     return consulta;
 }
 
-        //private static String consulta() { 
        
 
         private static List<Empresa> createEmpresaListFromQuery(SqlDataReader lector)
@@ -134,5 +117,57 @@ private static string consulta(String razonSocial,String mail, String cuit)
             return empresaList;
         }
 
+        public static bool existeUsername(string username)
+        {
+            List<Empresa> clienteList = new List<Empresa>();
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(new SqlParameter("@cli_username", username));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.EMPRESA E,NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE E.USERID=U.USERID AND U.USERNAME=@cli_username", "T", listaParametros);
+            return createEmpresaListFromQuery(lector).Count >= 1;
+
+        }
+
+        public static bool existeEmpresa(string cuit) {
+
+            List<Empresa> clienteList = new List<Empresa>();
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.EMPRESA E,NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE E.USERID=U.USERID AND REPLACE(UPPER(E.CUIT),'-','') LIKE UPPER('" + cuit + "')", "T", listaParametros);
+            return createEmpresaListFromQuery(lector).Count >= 1;
+        }
+
+        public static bool existeRazonSocial(string razonSocial) {
+            List<Empresa> clienteList = new List<Empresa>();
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(new SqlParameter("@emp_razonSocial", razonSocial));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.EMPRESA E,NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE E.USERID=U.USERID AND E.RAZON_SOCIAL=@emp_razonSocial", "T", listaParametros);
+            return createEmpresaListFromQuery(lector).Count >= 1;
+
+        
+        }
+
+        internal static void crearEmpresa(Empresa e)
+        {
+            List<SqlParameter> paramList = new List<SqlParameter>();
+            paramList.Add(new SqlParameter("@username", e.username));
+            paramList.Add(new SqlParameter("@pass", e.password));
+            paramList.Add(new SqlParameter("@email", e.mail));
+            paramList.Add(new SqlParameter("@telefono", e.telefono));
+            paramList.Add(new SqlParameter("@calle", e.calle));
+            paramList.Add(new SqlParameter("@num_calle", e.num_calle));
+            paramList.Add(new SqlParameter("@piso", e.piso));
+            paramList.Add(new SqlParameter("@depto", e.depto));
+            paramList.Add(new SqlParameter("@cod_postal", e.cod_postal));
+            paramList.Add(new SqlParameter("@habilitado", 1));
+            paramList.Add(new SqlParameter("@baja", false));
+            paramList.Add(new SqlParameter("@reputacion", e.reputacion));
+            paramList.Add(new SqlParameter("@user_nro_intentos", e.user_nro_intentos));
+            paramList.Add(new SqlParameter("@cuit", e.cuit));
+            paramList.Add(new SqlParameter("@razon_social ", e.razon_social));
+            paramList.Add(new SqlParameter("@nombre_contaco", e.nombre_contacto));
+            paramList.Add(new SqlParameter("@cod_rubro_principal",null));
+            paramList.Add(new SqlParameter("@ciudad", e.ciudad));
+
+            AccesoBaseDeDatos.ExecStoredProcedure("NOTHING_IS_IMPOSSIBLE.sp_altaEmpresa", paramList);
+        }
     }
 }

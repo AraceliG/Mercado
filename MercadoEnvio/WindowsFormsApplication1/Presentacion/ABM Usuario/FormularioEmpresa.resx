@@ -145,4 +145,10 @@
         838AIEOcASBGnAEgZeYB1uo+mXCsXJgAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="error_cuit.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <metadata name="error_razon_social.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>120, 56</value>
+  </metadata>
 </root>

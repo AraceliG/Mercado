@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormularioEmpresa));
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,18 +40,32 @@
             this.textBox_nombre_de_contacto = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox_ciudad = new System.Windows.Forms.TextBox();
+            this.error_cuit = new System.Windows.Forms.ErrorProvider(this.components);
+            this.error_razon_social = new System.Windows.Forms.ErrorProvider(this.components);
+            this.text_cuit = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_usuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_mail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_fechaCreacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_calle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nume_calle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_cuit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_razon_social)).BeginInit();
             this.SuspendLayout();
+            // 
+            // textBox_nro
+            // 
+            this.textBox_nro.TextChanged += new System.EventHandler(this.textBox_nro_TextChanged_1);
+            this.textBox_nro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_nro_KeyPress_1);
+            // 
+            // textBox_cod_postal
+            // 
+            this.textBox_cod_postal.Location = new System.Drawing.Point(196, 412);
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(41, 420);
+            this.label1.Location = new System.Drawing.Point(41, 452);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(152, 18);
             this.label1.TabIndex = 113;
@@ -61,7 +76,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(71, 449);
+            this.label3.Location = new System.Drawing.Point(69, 483);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 20);
             this.label3.TabIndex = 114;
@@ -70,7 +85,7 @@
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(41, 484);
+            this.label7.Location = new System.Drawing.Point(41, 509);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(152, 18);
             this.label7.TabIndex = 115;
@@ -80,7 +95,7 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(41, 520);
+            this.label4.Location = new System.Drawing.Point(41, 548);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(152, 18);
             this.label4.TabIndex = 116;
@@ -90,7 +105,7 @@
             // label12
             // 
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(41, 551);
+            this.label12.Location = new System.Drawing.Point(41, 593);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(152, 18);
             this.label12.TabIndex = 117;
@@ -104,7 +119,7 @@
             this.buttonLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLogin.Location = new System.Drawing.Point(199, 589);
+            this.buttonLogin.Location = new System.Drawing.Point(199, 630);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(131, 49);
             this.buttonLogin.TabIndex = 118;
@@ -115,7 +130,7 @@
             // textBox_razon_social
             // 
             this.textBox_razon_social.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_razon_social.Location = new System.Drawing.Point(199, 447);
+            this.textBox_razon_social.Location = new System.Drawing.Point(199, 479);
             this.textBox_razon_social.Name = "textBox_razon_social";
             this.textBox_razon_social.Size = new System.Drawing.Size(165, 24);
             this.textBox_razon_social.TabIndex = 120;
@@ -123,7 +138,7 @@
             // textBox_nombre_de_contacto
             // 
             this.textBox_nombre_de_contacto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_nombre_de_contacto.Location = new System.Drawing.Point(199, 481);
+            this.textBox_nombre_de_contacto.Location = new System.Drawing.Point(199, 509);
             this.textBox_nombre_de_contacto.Name = "textBox_nombre_de_contacto";
             this.textBox_nombre_de_contacto.Size = new System.Drawing.Size(165, 24);
             this.textBox_nombre_de_contacto.TabIndex = 121;
@@ -131,7 +146,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(199, 514);
+            this.textBox2.Location = new System.Drawing.Point(199, 548);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(165, 24);
             this.textBox2.TabIndex = 122;
@@ -139,16 +154,34 @@
             // textBox_ciudad
             // 
             this.textBox_ciudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_ciudad.Location = new System.Drawing.Point(199, 548);
+            this.textBox_ciudad.Location = new System.Drawing.Point(199, 587);
             this.textBox_ciudad.Name = "textBox_ciudad";
             this.textBox_ciudad.Size = new System.Drawing.Size(165, 24);
             this.textBox_ciudad.TabIndex = 123;
+            // 
+            // error_cuit
+            // 
+            this.error_cuit.ContainerControl = this;
+            // 
+            // error_razon_social
+            // 
+            this.error_razon_social.ContainerControl = this;
+            // 
+            // text_cuit
+            // 
+            this.text_cuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.text_cuit.Location = new System.Drawing.Point(199, 446);
+            this.text_cuit.Name = "text_cuit";
+            this.text_cuit.Size = new System.Drawing.Size(165, 24);
+            this.text_cuit.TabIndex = 124;
+            this.text_cuit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_cuit_KeyPress_1);
             // 
             // FormularioEmpresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 664);
+            this.ClientSize = new System.Drawing.Size(508, 691);
+            this.Controls.Add(this.text_cuit);
             this.Controls.Add(this.textBox_ciudad);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox_nombre_de_contacto);
@@ -182,12 +215,15 @@
             this.Controls.SetChildIndex(this.textBox_nombre_de_contacto, 0);
             this.Controls.SetChildIndex(this.textBox2, 0);
             this.Controls.SetChildIndex(this.textBox_ciudad, 0);
+            this.Controls.SetChildIndex(this.text_cuit, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_usuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_mail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_fechaCreacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_calle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nume_calle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_cuit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_razon_social)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,5 +241,8 @@
         private System.Windows.Forms.TextBox textBox_nombre_de_contacto;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox_ciudad;
+        private System.Windows.Forms.ErrorProvider error_cuit;
+        private System.Windows.Forms.ErrorProvider error_razon_social;
+        private System.Windows.Forms.TextBox text_cuit;
     }
 }

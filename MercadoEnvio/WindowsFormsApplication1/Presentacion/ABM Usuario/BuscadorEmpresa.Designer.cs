@@ -103,6 +103,7 @@
             this.textBox_cuit.Name = "textBox_cuit";
             this.textBox_cuit.Size = new System.Drawing.Size(142, 24);
             this.textBox_cuit.TabIndex = 1;
+            this.textBox_cuit.TextChanged += new System.EventHandler(this.textBox_cuit_TextChanged);
             this.textBox_cuit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_cuit_KeyPress);
             // 
             // label1
