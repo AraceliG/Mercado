@@ -153,7 +153,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                 //es el de fecha creacion textbox1
                 if (textBox1.Text.Length == 0)
                 {
-                    errorProvider_fechaCreacion.SetError(textBox1, "Por favor ingrese fecha de nacimiento");
+                    errorProvider_fechaCreacion.SetError(textBox1, "Por favor ingrese fecha de creacion");
                     vacio = true;
                 }
                 else { errorProvider_fechaCreacion.Clear(); }

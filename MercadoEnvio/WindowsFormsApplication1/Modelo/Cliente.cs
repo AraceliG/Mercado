@@ -32,5 +32,8 @@ namespace MercadoEnvioFRBA.Modelo
         public Int32 cod_tipo_doc { set; get; }
 
     }
+
+   
 }
+
 

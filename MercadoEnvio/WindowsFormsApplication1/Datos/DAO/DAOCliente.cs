@@ -138,7 +138,7 @@ public static void crearCliente(Cliente c) {
 
 
 
-        private static Modelo.Cliente obtenerCliente(SqlDataReader reader)
+        private static Cliente obtenerCliente(SqlDataReader reader)
         {
             Cliente client = new Cliente();
 
@@ -185,8 +185,28 @@ public static void crearCliente(Cliente c) {
             parametroList.Add(new SqlParameter("@fechaCreacion", c.fechaCreacion));
             AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.CLIENTE SET DNI=@dni,COD_TIPO_DOC=@cod_tipo_doc,APELLIDO=@apellido,NOMBRE=@nombre,FECHA_NACIMIENTO=@fecha_nacimiento,FECHACREACION=@fechaCreacion  FROM NOTHING_IS_IMPOSSIBLE.CLIENTE INNER JOIN NOTHING_IS_IMPOSSIBLE.USUARIO ON CLIENTE.USERID=USUARIO.USERID WHERE DNI=@dni ", "T", parametroList);
             AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USERNAME=@username,PASS=@pass,EMAIL=@email,TELEFONO=@telefono,CALLE=@calle,NUM_CALLE=@num_calle,PISO=@piso,DEPTO=@depto,COD_POSTAL=@cod_postal FROM NOTHING_IS_IMPOSSIBLE.USUARIO INNER JOIN NOTHING_IS_IMPOSSIBLE.CLIENTE  ON CLIENTE.USERID=USUARIO.USERID WHERE DNI=@dni  ", "T", paramList);
-           // AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.CLIENTE C SET C.DNI=@dni,C.COD_TIPO_DOC=@cod_tipo_doc,C.APELLIDO=@apellido,C.NOMBRE=@nombre,C.FECHA_NACIMIENTO=@fecha_nacimiento,C.FECHACREACION=@fechaCreacion WHERE C.DNI=@dni", "T", paramList);
-           // AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.CLIENTE,NOTHING_IS_IMPOSSIBLE.USUARIO SET DNI=@dni,COD_TIPO_DOC=@cod_tipo_doc,APELLIDO=@apellido,NOMBRE=@nombre,FECHA_NACIMIENTO=@fecha_nacimiento,FECHACREACION=@fechaCreacion ,USERNAME=@username,PASS=@pass,EMAIL=@email,TELEFONO=@telefono,CALLE=@calle,NUM_CALLE=@num_calle,PISO=@piso,DEPTO=@depto,COD_POSTAL=@cod_postal,HABILITADO=@habilitado,BAJA=@baja,U.REPUTACION=@reputacion,USER_NRO_INTENTOS=@user_nro_intentos WHERE CLIENTE.DNI=@dni AND CLIENTE.USERID=USUARIO.USERID ", "T", paramList);
+           
+        }
+
+        public static void bajaLogica(Cliente c)
+        {
+            List<SqlParameter> paramList = new List<SqlParameter>();
+            paramList.Add(new SqlParameter("@dni", c.dni));
+            AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USUARIO.BAJA=1 FROM NOTHING_IS_IMPOSSIBLE.USUARIO INNER JOIN NOTHING_IS_IMPOSSIBLE.CLIENTE  ON CLIENTE.USERID=USUARIO.USERID WHERE DNI=@dni", "T", paramList);
+        }
+
+        public static void altaLogica(Cliente c)
+        {
+            List<SqlParameter> paramList = new List<SqlParameter>();
+            paramList.Add(new SqlParameter("@dni", c.dni));
+            AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USUARIO.BAJA=0 FROM NOTHING_IS_IMPOSSIBLE.USUARIO INNER JOIN NOTHING_IS_IMPOSSIBLE.CLIENTE  ON CLIENTE.USERID=USUARIO.USERID WHERE DNI=@dni", "T", paramList);
+        }
+
+        public static void habilitar(Cliente c)
+        {
+            List<SqlParameter> paramList = new List<SqlParameter>();
+            paramList.Add(new SqlParameter("@dni", c.dni));
+            AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USUARIO.HABILITADO=1,USUARIO.USER_NRO_INTENTOS=0 FROM NOTHING_IS_IMPOSSIBLE.USUARIO INNER JOIN NOTHING_IS_IMPOSSIBLE.CLIENTE  ON CLIENTE.USERID=USUARIO.USERID WHERE DNI=@dni", "T", paramList);
         }
     }
 

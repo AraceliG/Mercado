@@ -168,10 +168,10 @@
             // 
             this.dataGridCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridCliente.Location = new System.Drawing.Point(25, 217);
+            this.dataGridCliente.Location = new System.Drawing.Point(25, 163);
             this.dataGridCliente.Name = "dataGridCliente";
             this.dataGridCliente.ReadOnly = true;
-            this.dataGridCliente.Size = new System.Drawing.Size(1151, 229);
+            this.dataGridCliente.Size = new System.Drawing.Size(1151, 283);
             this.dataGridCliente.TabIndex = 4;
             // 
             // btn_modificar
@@ -211,6 +211,7 @@
             this.btn_alta.TabIndex = 11;
             this.btn_alta.Text = "Alta";
             this.btn_alta.UseVisualStyleBackColor = true;
+            this.btn_alta.Click += new System.EventHandler(this.btn_alta_Click);
             // 
             // btn_habilitar
             // 
@@ -221,6 +222,7 @@
             this.btn_habilitar.TabIndex = 12;
             this.btn_habilitar.Text = "habilitar";
             this.btn_habilitar.UseVisualStyleBackColor = true;
+            this.btn_habilitar.Click += new System.EventHandler(this.btn_habilitar_Click);
             // 
             // BuscadorCliente
             // 

@@ -33,7 +33,12 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
         private void button_buscar_Click(object sender, EventArgs e)
         {
-            if (textBox_nroDoc.Text != null && textBox_email.Text != null && textBox_nombre.Text != null && textBox_apellido.Text != null)
+            this.actualizarGrilla();
+           
+            }
+
+        public void actualizarGrilla() { 
+         if (textBox_nroDoc.Text != null && textBox_email.Text != null && textBox_nombre.Text != null && textBox_apellido.Text != null)
             {
                 List<Cliente> clienteList = DAOCliente.devolverUsuarios();
                 List<Cliente> tablaClientes = new List<Cliente>();
@@ -47,9 +52,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
                 dataGridCliente.DataSource = tablaClientes;
             }
-           
-            }
-       
+        }
 
         private void BuscadorCliente_Load(object sender, EventArgs e)
         {
@@ -77,6 +80,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             textBox_email.Clear();
             textBox_nroDoc.Clear();
             textBox_nombre.Clear();
+            actualizarGrilla();
         }
 
         private void textBox_nombre_TextChanged(object sender, EventArgs e)
@@ -92,6 +96,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                 FormularioCliente forClient = new FormularioCliente(cliente);
                 forClient.ShowDialog();
                 this.Show();
+                this.actualizarGrilla();
             }
             else {
                 MessageBox.Show("Debe elegir una fila de su tabla resultado de su búsqueda", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -102,7 +107,44 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
+            if (dataGridCliente.RowCount != 0)
+            {
+                Cliente cliente = (Cliente)dataGridCliente.CurrentRow.DataBoundItem;
+                DAOCliente.bajaLogica(cliente);
+                this.actualizarGrilla();
+            }
+            else {
+                MessageBox.Show("Debe elegir una fila de su tabla resultado de su búsqueda", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
 
+        }
+
+        private void btn_alta_Click(object sender, EventArgs e)
+        {
+            if (dataGridCliente.RowCount != 0)
+            {
+                Cliente cliente = (Cliente)dataGridCliente.CurrentRow.DataBoundItem;
+                DAOCliente.altaLogica(cliente);
+                this.actualizarGrilla();
+            }
+            else
+            {
+                MessageBox.Show("Debe elegir una fila de su tabla resultado de su búsqueda", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btn_habilitar_Click(object sender, EventArgs e)
+        {
+            if (dataGridCliente.RowCount != 0)
+            {
+                Cliente cliente = (Cliente)dataGridCliente.CurrentRow.DataBoundItem;
+                DAOCliente.habilitar(cliente);
+                this.actualizarGrilla();
+            }
+            else
+            {
+                MessageBox.Show("Debe elegir una fila de su tabla resultado de su búsqueda", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }
