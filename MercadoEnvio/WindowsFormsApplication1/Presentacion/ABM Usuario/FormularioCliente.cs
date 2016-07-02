@@ -126,8 +126,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            if (create)
-            {
+            
 
                 bool vacio = false;
                 if (textBox_calle.Text.Length == 0)
@@ -207,6 +206,8 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
                 if (vacio) return;
 
+            if (create){
+
                 if (DAOCliente.existeDni(Convert.ToInt32(textBox_nroDoc.Text)))
                 {
                     MessageBox.Show("Ya existe un usuario con ese tipo y número de dni.", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -233,7 +234,6 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                 cliente.apellido = textBox_apellido.Text;
                 cliente.nombre = textBox_nombre.Text;
                 cliente.dni = Int32.Parse(textBox_nroDoc.Text);
-   //no dejar  fecha de nacimiento vacio
                 cliente.fechaNacimiento = Convert.ToDateTime(textBox_fecha.Text);
                 cliente.mail = textBox_mail.Text;
                 cliente.calle = textBox_calle.Text;

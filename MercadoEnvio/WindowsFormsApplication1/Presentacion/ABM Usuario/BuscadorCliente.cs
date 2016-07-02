@@ -86,10 +86,17 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
         private void btn_modificar_Click(object sender, EventArgs e)
         {
-            Cliente cliente = (Cliente)dataGridCliente.CurrentRow.DataBoundItem;
-            FormularioCliente forClient = new FormularioCliente(cliente);
-            forClient.ShowDialog();
-            this.Show();
+            if (dataGridCliente.RowCount != 0)
+            {
+                Cliente cliente = (Cliente)dataGridCliente.CurrentRow.DataBoundItem;
+                FormularioCliente forClient = new FormularioCliente(cliente);
+                forClient.ShowDialog();
+                this.Show();
+            }
+            else {
+                MessageBox.Show("Debe elegir una fila de su tabla resultado de su búsqueda", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
 
         }
     }
