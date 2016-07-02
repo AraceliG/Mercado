@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MercadoEnvioFRBA.Modelo
 {
-    class Cliente
+    public class Cliente
     {
         public Int32 userId { get; set; }
         public String nombre { get; set; }

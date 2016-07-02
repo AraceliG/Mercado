@@ -131,6 +131,7 @@ public static void crearCliente(Cliente c) {
         public static List<Cliente> devolverUsuarios()
         {
 
+
             SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT U.USERNAME,U.PASS,U.USERID,U.HABILITADO,U.BAJA,U.REPUTACION,U.USER_NRO_INTENTOS,C.DNI,T.DESCRIPCION,C.NOMBRE,C.APELLIDO,C.FECHA_NACIMIENTO, C.FECHACREACION,U.EMAIL, U.TELEFONO,U.CALLE,U.NUM_CALLE, U.PISO,U.DEPTO,U.COD_POSTAL FROM NOTHING_IS_IMPOSSIBLE.CLIENTE C,NOTHING_IS_IMPOSSIBLE.USUARIO U,NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO T WHERE C.USERID=U.USERID AND C.COD_TIPO_DOC=T.COD_TIPO_DOC", "T", new List<SqlParameter>());
             return createClienteListFromQuery(lector);
         }
@@ -160,6 +161,32 @@ public static void crearCliente(Cliente c) {
             SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.CLIENTE C,NOTHING_IS_IMPOSSIBLE.TIPODOCUMENTO T,NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE C.USERID=U.USERID AND U.USERNAME=@cli_username", "T", listaParametros);
             return createClienteListFromQuery(lector).Count >= 1;
             
+        }
+
+        public static void actualizarCliente(Cliente c)
+        {
+            List<SqlParameter> parametroList = new List<SqlParameter>();
+            List<SqlParameter> paramList = new List<SqlParameter>();
+            paramList.Add(new SqlParameter("@username", c.username));
+            paramList.Add(new SqlParameter("@pass", c.password));
+            paramList.Add(new SqlParameter("@email", c.mail));
+            paramList.Add(new SqlParameter("@telefono", c.telefono));
+            paramList.Add(new SqlParameter("@calle", c.calle));
+            paramList.Add(new SqlParameter("@num_calle", c.num_calle));
+            paramList.Add(new SqlParameter("@piso", c.piso));
+            paramList.Add(new SqlParameter("@depto", c.depto));
+            paramList.Add(new SqlParameter("@cod_postal", c.cod_postal));
+            paramList.Add(new SqlParameter("@dni", c.dni));
+            parametroList.Add(new SqlParameter("@dni", c.dni));
+            parametroList.Add(new SqlParameter("@cod_tipo_doc", 1));
+            parametroList.Add(new SqlParameter("@apellido ", c.apellido));
+            parametroList.Add(new SqlParameter("@nombre", c.nombre));
+            parametroList.Add(new SqlParameter("@fecha_nacimiento", c.fechaNacimiento));
+            parametroList.Add(new SqlParameter("@fechaCreacion", c.fechaCreacion));
+            AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.CLIENTE SET DNI=@dni,COD_TIPO_DOC=@cod_tipo_doc,APELLIDO=@apellido,NOMBRE=@nombre,FECHA_NACIMIENTO=@fecha_nacimiento,FECHACREACION=@fechaCreacion  FROM NOTHING_IS_IMPOSSIBLE.CLIENTE INNER JOIN NOTHING_IS_IMPOSSIBLE.USUARIO ON CLIENTE.USERID=USUARIO.USERID WHERE DNI=@dni ", "T", parametroList);
+            AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USERNAME=@username,PASS=@pass,EMAIL=@email,TELEFONO=@telefono,CALLE=@calle,NUM_CALLE=@num_calle,PISO=@piso,DEPTO=@depto,COD_POSTAL=@cod_postal FROM NOTHING_IS_IMPOSSIBLE.USUARIO INNER JOIN NOTHING_IS_IMPOSSIBLE.CLIENTE  ON CLIENTE.USERID=USUARIO.USERID WHERE DNI=@dni  ", "T", paramList);
+           // AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.CLIENTE C SET C.DNI=@dni,C.COD_TIPO_DOC=@cod_tipo_doc,C.APELLIDO=@apellido,C.NOMBRE=@nombre,C.FECHA_NACIMIENTO=@fecha_nacimiento,C.FECHACREACION=@fechaCreacion WHERE C.DNI=@dni", "T", paramList);
+           // AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.CLIENTE,NOTHING_IS_IMPOSSIBLE.USUARIO SET DNI=@dni,COD_TIPO_DOC=@cod_tipo_doc,APELLIDO=@apellido,NOMBRE=@nombre,FECHA_NACIMIENTO=@fecha_nacimiento,FECHACREACION=@fechaCreacion ,USERNAME=@username,PASS=@pass,EMAIL=@email,TELEFONO=@telefono,CALLE=@calle,NUM_CALLE=@num_calle,PISO=@piso,DEPTO=@depto,COD_POSTAL=@cod_postal,HABILITADO=@habilitado,BAJA=@baja,U.REPUTACION=@reputacion,USER_NRO_INTENTOS=@user_nro_intentos WHERE CLIENTE.DNI=@dni AND CLIENTE.USERID=USUARIO.USERID ", "T", paramList);
         }
     }
 
