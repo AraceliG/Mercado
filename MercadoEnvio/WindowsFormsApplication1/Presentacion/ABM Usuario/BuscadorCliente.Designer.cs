@@ -184,6 +184,7 @@
             this.btn_modificar.Text = "modificar";
             this.btn_modificar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_modificar.UseVisualStyleBackColor = true;
+            this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
             // 
             // btn_eliminar
             // 

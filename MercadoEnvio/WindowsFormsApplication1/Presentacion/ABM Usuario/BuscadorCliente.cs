@@ -83,6 +83,12 @@ namespace MercadoEnvioFRBA.ABM_Usuario
         {
             
         }
+
+        private void btn_modificar_Click(object sender, EventArgs e)
+        {
+            Cliente aer = (Cliente)dataGridCliente.CurrentRow.DataBoundItem;
+
+        }
     }
 }
 

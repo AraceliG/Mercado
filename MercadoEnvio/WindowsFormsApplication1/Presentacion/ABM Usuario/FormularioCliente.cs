@@ -20,10 +20,26 @@ namespace MercadoEnvioFRBA.ABM_Usuario
     public partial class FormularioCliente : FormUsuario
     {
 
+        public Cliente cliente { get; set; }
+        private bool create;
+
         public FormularioCliente()
         {
+            create = true;
             InitializeComponent();
         }
+
+        public FormularioCliente(Cliente cliente)
+        {
+            create = false;
+            this.cliente = cliente;
+            
+            InitializeComponent();
+
+            //cargar textBox con el objeto
+            //textBoxApellidoPasajero.Text = cliente.apellido;
+        }
+
 
         private void FormularioCliente_Load(object sender, EventArgs e)
         {
