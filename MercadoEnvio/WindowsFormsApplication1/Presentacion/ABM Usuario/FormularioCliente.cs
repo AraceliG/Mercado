@@ -13,32 +13,34 @@ using System.Data.SqlClient;
 using MercadoEnvioFRBA.Datos;
 using MercadoEnvioFRBA.Modelo;
 using MercadoEnvioFRBA.Datos.DAO;
-using MercadoEnvioFRBA.Modelo;
 
 namespace MercadoEnvioFRBA.ABM_Usuario
 {
     public partial class FormularioCliente : FormUsuario
     {
 
-        public Cliente cliente { get; set; }
-        private bool create;
+       // public Cliente cliente { get; set; }
+        //ahora entiendo la existencia de la propiedad create, es por la modificacion
+       // private bool create;
 
         public FormularioCliente()
         {
-            create = true;
+           // create = true;
             InitializeComponent();
         }
 
-        public FormularioCliente(Cliente cliente)
+       /* public FormularioCliente(Cliente cliente)
         {
             create = false;
             this.cliente = cliente;
             
             InitializeComponent();
-
+*/
+        
             //cargar textBox con el objeto
             //textBoxApellidoPasajero.Text = cliente.apellido;
-        }
+        //}
+        
 
 
         private void FormularioCliente_Load(object sender, EventArgs e)
