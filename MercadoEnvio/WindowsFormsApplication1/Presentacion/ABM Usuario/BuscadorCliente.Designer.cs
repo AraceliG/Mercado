@@ -43,6 +43,8 @@
             this.dataGridCliente = new System.Windows.Forms.DataGridView();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
+            this.btn_alta = new System.Windows.Forms.Button();
+            this.btn_habilitar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCliente)).BeginInit();
             this.SuspendLayout();
@@ -57,7 +59,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBox_nombre);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(101, 37);
+            this.groupBox1.Location = new System.Drawing.Point(125, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(511, 127);
             this.groupBox1.TabIndex = 1;
@@ -143,7 +145,7 @@
             // button_buscar
             // 
             this.button_buscar.Image = global::MercadoEnvioFRBA.Properties.Resources.fondoBoton;
-            this.button_buscar.Location = new System.Drawing.Point(503, 170);
+            this.button_buscar.Location = new System.Drawing.Point(790, 31);
             this.button_buscar.Name = "button_buscar";
             this.button_buscar.Size = new System.Drawing.Size(94, 41);
             this.button_buscar.TabIndex = 2;
@@ -154,11 +156,11 @@
             // button_limpiar
             // 
             this.button_limpiar.Image = global::MercadoEnvioFRBA.Properties.Resources.fondoBoton;
-            this.button_limpiar.Location = new System.Drawing.Point(195, 170);
+            this.button_limpiar.Location = new System.Drawing.Point(667, 31);
             this.button_limpiar.Name = "button_limpiar";
-            this.button_limpiar.Size = new System.Drawing.Size(79, 41);
+            this.button_limpiar.Size = new System.Drawing.Size(95, 41);
             this.button_limpiar.TabIndex = 3;
-            this.button_limpiar.Text = "Limpiar";
+            this.button_limpiar.Text = "Limpiar filtros";
             this.button_limpiar.UseVisualStyleBackColor = true;
             this.button_limpiar.Click += new System.EventHandler(this.button_limpiar_Click);
             // 
@@ -177,9 +179,9 @@
             this.btn_modificar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_modificar.BackgroundImage")));
             this.btn_modificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_modificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_modificar.Location = new System.Drawing.Point(294, 170);
+            this.btn_modificar.Location = new System.Drawing.Point(790, 89);
             this.btn_modificar.Name = "btn_modificar";
-            this.btn_modificar.Size = new System.Drawing.Size(84, 41);
+            this.btn_modificar.Size = new System.Drawing.Size(94, 41);
             this.btn_modificar.TabIndex = 9;
             this.btn_modificar.Text = "modificar";
             this.btn_modificar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -191,19 +193,42 @@
             this.btn_eliminar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_eliminar.BackgroundImage")));
             this.btn_eliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_eliminar.Location = new System.Drawing.Point(407, 170);
+            this.btn_eliminar.Location = new System.Drawing.Point(667, 89);
             this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.Size = new System.Drawing.Size(75, 41);
+            this.btn_eliminar.Size = new System.Drawing.Size(95, 41);
             this.btn_eliminar.TabIndex = 10;
             this.btn_eliminar.Text = "eliminar";
             this.btn_eliminar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_eliminar.UseVisualStyleBackColor = true;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
+            // 
+            // btn_alta
+            // 
+            this.btn_alta.Image = global::MercadoEnvioFRBA.Properties.Resources.fondoBoton;
+            this.btn_alta.Location = new System.Drawing.Point(911, 31);
+            this.btn_alta.Name = "btn_alta";
+            this.btn_alta.Size = new System.Drawing.Size(94, 41);
+            this.btn_alta.TabIndex = 11;
+            this.btn_alta.Text = "Alta";
+            this.btn_alta.UseVisualStyleBackColor = true;
+            // 
+            // btn_habilitar
+            // 
+            this.btn_habilitar.Image = global::MercadoEnvioFRBA.Properties.Resources.fondoBoton;
+            this.btn_habilitar.Location = new System.Drawing.Point(911, 89);
+            this.btn_habilitar.Name = "btn_habilitar";
+            this.btn_habilitar.Size = new System.Drawing.Size(94, 41);
+            this.btn_habilitar.TabIndex = 12;
+            this.btn_habilitar.Text = "habilitar";
+            this.btn_habilitar.UseVisualStyleBackColor = true;
             // 
             // BuscadorCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1214, 485);
+            this.Controls.Add(this.btn_habilitar);
+            this.Controls.Add(this.btn_alta);
             this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.btn_modificar);
             this.Controls.Add(this.dataGridCliente);
@@ -219,6 +244,8 @@
             this.Controls.SetChildIndex(this.dataGridCliente, 0);
             this.Controls.SetChildIndex(this.btn_modificar, 0);
             this.Controls.SetChildIndex(this.btn_eliminar, 0);
+            this.Controls.SetChildIndex(this.btn_alta, 0);
+            this.Controls.SetChildIndex(this.btn_habilitar, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCliente)).EndInit();
@@ -242,5 +269,7 @@
         private System.Windows.Forms.DataGridView dataGridCliente;
         private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.Button btn_eliminar;
+        private System.Windows.Forms.Button btn_alta;
+        private System.Windows.Forms.Button btn_habilitar;
     }
 }

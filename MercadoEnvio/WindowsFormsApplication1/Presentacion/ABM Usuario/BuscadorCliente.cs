@@ -99,6 +99,11 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             }
 
         }
+
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
