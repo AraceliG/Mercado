@@ -167,6 +167,12 @@
     <Compile Include="Presentacion\Inicio\FormMenuPrincipal.Designer.cs">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Inicio\FormModificarPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Inicio\FormModificarPass.Designer.cs">
+      <DependentUpon>FormModificarPass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Inicio\FormularioLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Inicio\FormMenuPrincipal.resx">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Inicio\FormModificarPass.resx">
+      <DependentUpon>FormModificarPass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Inicio\FormularioLogin.resx">
       <DependentUpon>FormularioLogin.cs</DependentUpon>

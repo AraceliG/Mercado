@@ -79,6 +79,7 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
 
         private bool contraseñaCorrecta()
         {
+            
             Usuario us = new Usuario();
             us.username = textBoxUsuario.Text;
             us.pass = textBoxPassword.Text;
@@ -317,5 +318,50 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
         {
 
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            bool vacio = false;
+
+            if (textBoxUsuario.Text.Length == 0)
+            {
+                errorUser.SetError(textBoxUsuario, "Por favor ingrese usuario");
+                vacio = true;
+            }
+            else { errorUser.Clear(); }
+            if (vacio) return;
+
+            if (existeUsuario())
+            {
+                if (usuarioHabilitado())
+                {
+                        Usuario user = new Usuario(textBoxUsuario.Text);
+                        this.Show();
+                        this.Hide();
+                        FormModificarPass formUser = new FormModificarPass(user);
+                        formUser.ShowDialog();
+                        formUser.Close();
+                        this.Show();
+                        this.Close();
+
+                       
+                    }
+                    else
+                    {
+                       MessageBox.Show("El usuario se ha inhabilitado, contactese con el administrador.", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); 
+                    }
+                }
+                 else
+                 {
+             MessageBox.Show("El usuario " + textBoxUsuario.Text + " no existe.", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            }
+
+
+        }
     }
-}

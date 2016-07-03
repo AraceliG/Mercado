@@ -109,5 +109,10 @@ namespace MercadoEnvioFRBA.Modelo
         {
            return  DAOUsuario.cantidadDefallidos(this) >= 3;
         }
+
+        public void cambiarContraseña(string passNuevo)
+        {
+            DAOUsuario.cambiarContraseña(passNuevo, this);
+        }
     }
 }

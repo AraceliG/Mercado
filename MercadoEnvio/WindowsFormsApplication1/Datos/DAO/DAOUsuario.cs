@@ -168,5 +168,14 @@ namespace MercadoEnvioFRBA.Datos.DAO
       return usuarios[0].user_nro_intentos;
   
   }
+
+  public static void cambiarContraseña(string passNuevo, Usuario user)
+  {
+      List<SqlParameter> paramList = new List<SqlParameter>();
+      paramList.Add(new SqlParameter("@pass", passNuevo));
+      paramList.Add(new SqlParameter("@nombre", user.username));
+
+      AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USUARIO.PASS=@pass WHERE USUARIO.USERNAME=@nombre", "T", paramList);
+  }
     }
     }
