@@ -19,8 +19,6 @@ namespace MercadoEnvioFRBA.ABM_Usuario
     public partial class FormularioCliente : FormUsuario
     {
         public Cliente cliente { get; set; }
-        //public Cliente cliente 
-        //ahora entiendo la existencia de la propiedad create, es por la modificacion
         private bool create;
 
         public FormularioCliente()
@@ -224,6 +222,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
                         this.crearCliente();
                         MessageBox.Show("se creo exitosamente al cliente!", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        this.Close();
                     }
 
                 }
@@ -253,9 +252,9 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                 {
                     cliente.piso = Convert.ToInt32(textBox_piso.Text);
                 }
-                cliente.reputacion = 0;
-                cliente.user_nro_intentos = 0;
-                cliente.tipo_doc = comboBox_tipoDoc.SelectedItem.ToString();
+                //cliente.reputacion = 0;
+                //cliente.user_nro_intentos = 0;
+                //cliente.tipo_doc = comboBox_tipoDoc.SelectedItem.ToString();
                 this.cliente = cliente;
                 DAOCliente.actualizarCliente(cliente);
                 this.Close();

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MercadoEnvioFRBA.Presentacion;
 using MercadoEnvioFRBA.Datos.DAO;
 using MercadoEnvioFRBA.Modelo;
+using MercadoEnvioFRBA.ABM_Usuario;
 
 namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
 {
@@ -22,17 +23,20 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
 
         private void BuscadorEmpresa_Load(object sender, EventArgs e)
         {
-
+            actualizarGrilla();
         }
 
         private void btn_busquedaEmp_Click(object sender, EventArgs e)
         {
-             List<Empresa> listaDeEmpresas= new List<Empresa>();
-                listaDeEmpresas = DAOEmpresa.buscarPorFiltros(textBox_cuit.Text, textBox_razon.Text, textBox_email.Text);
-                dataGridEmpresa.DataSource = listaDeEmpresas;
+            
             }
 
-            
+        public void actualizarGrilla() { 
+
+         List<Empresa> listaDeEmpresas= new List<Empresa>();
+                listaDeEmpresas = DAOEmpresa.buscarPorFiltros(textBox_cuit.Text, textBox_razon.Text, textBox_email.Text);
+                dataGridEmpresa.DataSource = listaDeEmpresas;
+        }
 
 
         private void textBox_cuit_KeyPress(object sender, KeyPressEventArgs e)
@@ -50,6 +54,7 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
             textBox_cuit.Clear();
             textBox_email.Clear();
             textBox_razon.Clear();
+            actualizarGrilla();
         }
 
         private void textBox_cuit_TextChanged(object sender, EventArgs e)
@@ -59,7 +64,38 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
 
         private void btn_modificar_Click(object sender, EventArgs e)
         {
+            if (dataGridEmpresa.RowCount != 0)
+            {
+                Empresa emp = (Empresa)dataGridEmpresa.CurrentRow.DataBoundItem;
+                FormularioEmpresa forEmp = new FormularioEmpresa(emp);
+                forEmp.ShowDialog();
+                this.Show();
+                this.actualizarGrilla();
+            }
+            else
+            {
+                MessageBox.Show("Debe elegir una fila de su tabla resultado de su búsqueda", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
+            }
+        }
+
+        private void btn_habilitar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            if (dataGridEmpresa.RowCount != 0)
+            {
+                Empresa empresa = (Empresa)dataGridEmpresa.CurrentRow.DataBoundItem;
+                DAOEmpresa.bajaLogica(empresa);
+                this.actualizarGrilla();
+            }
+            else
+            {
+                MessageBox.Show("Debe elegir una fila de su tabla resultado de su búsqueda", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
 

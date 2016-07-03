@@ -15,9 +15,39 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 {
     public partial class FormularioEmpresa : FormUsuario
     {
+
+        public Empresa empresa { get; set; }
+        private bool create;
+
         public FormularioEmpresa()
         {
+            create = true;
             InitializeComponent();
+        }
+
+        public FormularioEmpresa(Empresa emp)
+        {
+            create = false;
+            this.empresa = emp;
+            
+            InitializeComponent();
+
+            textBox_calle.Text = empresa.calle;
+            textBox_usuario.Text = empresa.username;
+            textBox_mail.Text = empresa.mail;
+            textBox_psw.Text = empresa.password;
+            text_telefono.Text = empresa.telefono;
+            textBox_nro.Text = empresa.num_calle.ToString();
+            textBox_piso.Text = empresa.piso.ToString();
+            textBox_depto.Text = empresa.depto;
+            textBox_cod_postal.Text = empresa.cod_postal;
+            text_cuit.Text = empresa.cuit;
+            textBox_razon_social.Text = empresa.razon_social;
+            text_cuit.ReadOnly = true;
+            textBox_razon_social.ReadOnly = true;
+            textBox_contacto.Text = empresa.nombre_contacto;
+            textBox_ciudad.Text = empresa.ciudad;
+
         }
 
         private void FormularioEmpresa_Load(object sender, EventArgs e)
@@ -77,29 +107,61 @@ namespace MercadoEnvioFRBA.ABM_Usuario
 
             if (vacio) return;
 
-            if (DAOEmpresa.existeEmpresa(text_cuit.Text))
+            if (create)
             {
-                MessageBox.Show("Ya existe empresa con ese cuit.", "Empresa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-            }
-            else
-            {
-                if (DAOEmpresa.existeRazonSocial(textBox_razon_social.Text)){
-                    MessageBox.Show("Ya existe empresa con esa razón social.", "Empresa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);}
-                else{
-
-                if (DAOEmpresa.existeUsername(textBox_usuario.Text))
+                if (DAOEmpresa.existeEmpresa(text_cuit.Text))
                 {
-                    MessageBox.Show("Existe una cuenta con ese nombre de usuario, por favor ingrese uno diferente.", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Ya existe empresa con ese cuit.", "Empresa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
                 }
                 else
                 {
+                    if (DAOEmpresa.existeRazonSocial(textBox_razon_social.Text))
+                    {
+                        MessageBox.Show("Ya existe empresa con esa razón social.", "Empresa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
 
-                    this.crearEmpresa();
-                    MessageBox.Show("se creo exitosamente la empresa!", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        if (DAOEmpresa.existeUsername(textBox_usuario.Text))
+                        {
+                            MessageBox.Show("Existe una cuenta con ese nombre de usuario, por favor ingrese uno diferente.", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                        else
+                        {
+
+                            this.crearEmpresa();
+                            MessageBox.Show("se creo exitosamente la empresa!", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            this.Close();
+                        }
+                    }
                 }
             }
-        }
+            else {
+
+                empresa.ciudad = textBox_ciudad.Text;
+                empresa.mail = textBox_mail.Text;
+                empresa.piso = Convert.ToInt32(textBox_piso.Text);
+                empresa.telefono = text_telefono.Text;
+                empresa.password = textBox_psw.Text;
+                empresa.username = textBox_usuario.Text;
+                empresa.calle = textBox_calle.Text;
+                empresa.num_calle = Convert.ToInt32(textBox_nro.Text);
+                empresa.depto = textBox_depto.Text;
+                empresa.cod_postal = textBox_cod_postal.Text;
+                if (textBox_piso.Text.Length == 0)
+                {
+                    empresa.piso = 0;
+                }
+                else
+                {
+                    empresa.piso = Convert.ToInt32(textBox_piso.Text);
+                }
+                this.empresa = empresa;
+                DAOEmpresa.actualizarCliente(empresa);
+                this.Close();
+            }
         }
 
         private void crearEmpresa()
@@ -129,6 +191,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             empresa.cuit = text_cuit.Text;
             empresa.nombre_contacto = textBox_nombre_de_contacto.Text;
             DAOEmpresa.crearEmpresa(empresa);
+            this.Close();
 
         }
 

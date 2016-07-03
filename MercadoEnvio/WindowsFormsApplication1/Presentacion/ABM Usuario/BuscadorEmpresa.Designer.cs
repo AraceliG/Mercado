@@ -41,6 +41,8 @@
             this.btn_limpiar = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
+            this.btn_alta = new System.Windows.Forms.Button();
+            this.btn_habilitar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmpresa)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +55,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBox_cuit);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(226, 35);
+            this.groupBox1.Location = new System.Drawing.Point(146, 30);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(511, 127);
             this.groupBox1.TabIndex = 2;
@@ -131,9 +133,9 @@
             this.btn_busquedaEmp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_busquedaEmp.BackgroundImage")));
             this.btn_busquedaEmp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_busquedaEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_busquedaEmp.Location = new System.Drawing.Point(242, 184);
+            this.btn_busquedaEmp.Location = new System.Drawing.Point(663, 83);
             this.btn_busquedaEmp.Name = "btn_busquedaEmp";
-            this.btn_busquedaEmp.Size = new System.Drawing.Size(75, 33);
+            this.btn_busquedaEmp.Size = new System.Drawing.Size(118, 36);
             this.btn_busquedaEmp.TabIndex = 6;
             this.btn_busquedaEmp.Text = "buscar";
             this.btn_busquedaEmp.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -145,11 +147,11 @@
             this.btn_limpiar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_limpiar.BackgroundImage")));
             this.btn_limpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_limpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_limpiar.Location = new System.Drawing.Point(387, 184);
+            this.btn_limpiar.Location = new System.Drawing.Point(663, 44);
             this.btn_limpiar.Name = "btn_limpiar";
-            this.btn_limpiar.Size = new System.Drawing.Size(75, 33);
+            this.btn_limpiar.Size = new System.Drawing.Size(118, 33);
             this.btn_limpiar.TabIndex = 7;
-            this.btn_limpiar.Text = "Limpiar";
+            this.btn_limpiar.Text = "Limpiar Filtros";
             this.btn_limpiar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_limpiar.UseVisualStyleBackColor = true;
             this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
@@ -159,9 +161,9 @@
             this.btn_modificar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_modificar.BackgroundImage")));
             this.btn_modificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_modificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_modificar.Location = new System.Drawing.Point(522, 184);
+            this.btn_modificar.Location = new System.Drawing.Point(787, 44);
             this.btn_modificar.Name = "btn_modificar";
-            this.btn_modificar.Size = new System.Drawing.Size(81, 33);
+            this.btn_modificar.Size = new System.Drawing.Size(105, 33);
             this.btn_modificar.TabIndex = 8;
             this.btn_modificar.Text = "modificar";
             this.btn_modificar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -173,19 +175,45 @@
             this.btn_eliminar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_eliminar.BackgroundImage")));
             this.btn_eliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_eliminar.Location = new System.Drawing.Point(662, 184);
+            this.btn_eliminar.Location = new System.Drawing.Point(787, 83);
             this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.Size = new System.Drawing.Size(75, 33);
+            this.btn_eliminar.Size = new System.Drawing.Size(105, 33);
             this.btn_eliminar.TabIndex = 9;
             this.btn_eliminar.Text = "eliminar";
             this.btn_eliminar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_eliminar.UseVisualStyleBackColor = true;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
+            // 
+            // btn_alta
+            // 
+            this.btn_alta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_alta.Image = global::MercadoEnvioFRBA.Properties.Resources.fondoBoton;
+            this.btn_alta.Location = new System.Drawing.Point(898, 83);
+            this.btn_alta.Name = "btn_alta";
+            this.btn_alta.Size = new System.Drawing.Size(100, 33);
+            this.btn_alta.TabIndex = 12;
+            this.btn_alta.Text = "Alta";
+            this.btn_alta.UseVisualStyleBackColor = true;
+            // 
+            // btn_habilitar
+            // 
+            this.btn_habilitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_habilitar.Image = global::MercadoEnvioFRBA.Properties.Resources.fondoBoton;
+            this.btn_habilitar.Location = new System.Drawing.Point(898, 44);
+            this.btn_habilitar.Name = "btn_habilitar";
+            this.btn_habilitar.Size = new System.Drawing.Size(100, 33);
+            this.btn_habilitar.TabIndex = 13;
+            this.btn_habilitar.Text = "habilitar";
+            this.btn_habilitar.UseVisualStyleBackColor = true;
+            this.btn_habilitar.Click += new System.EventHandler(this.btn_habilitar_Click);
             // 
             // BuscadorEmpresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1204, 491);
+            this.Controls.Add(this.btn_habilitar);
+            this.Controls.Add(this.btn_alta);
             this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.btn_modificar);
             this.Controls.Add(this.btn_limpiar);
@@ -201,6 +229,8 @@
             this.Controls.SetChildIndex(this.btn_limpiar, 0);
             this.Controls.SetChildIndex(this.btn_modificar, 0);
             this.Controls.SetChildIndex(this.btn_eliminar, 0);
+            this.Controls.SetChildIndex(this.btn_alta, 0);
+            this.Controls.SetChildIndex(this.btn_habilitar, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmpresa)).EndInit();
@@ -222,5 +252,7 @@
         private System.Windows.Forms.Button btn_limpiar;
         private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.Button btn_eliminar;
+        private System.Windows.Forms.Button btn_alta;
+        private System.Windows.Forms.Button btn_habilitar;
     }
 }

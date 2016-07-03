@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MercadoEnvioFRBA.Modelo
 {
-    class Empresa
+   public class Empresa
     {
         public Int32 userId { get; set; }
         public String razon_social { set; get; }
