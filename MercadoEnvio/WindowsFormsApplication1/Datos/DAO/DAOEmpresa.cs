@@ -12,6 +12,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
 {
     class DAOEmpresa
     {
+        
 
         public static List<Empresa> buscarPorFiltros(string cuit, string razon_social, string email)
         {
@@ -34,7 +35,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
             if (!String.IsNullOrEmpty(razon_social))
             {
-                base_query += " AND UPPER (E.RAZON_SOCIAL) LIKE UPPER('%" + razon_social + "%') ";
+                base_query += " AND UPPER(E.RAZON_SOCIAL) LIKE UPPER('%" + razon_social + "%') ";
             }
 
             if (!String.IsNullOrEmpty(cuit))
@@ -199,6 +200,21 @@ private static string consulta(String razonSocial,String mail, String cuit)
             AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.EMPRESA SET CUIT=@cuit,RAZON_SOCIAL=@razon_social,NOMBRE_CONTACO=@nombre_contacto,CIUDAD=@ciudad FROM NOTHING_IS_IMPOSSIBLE.EMPRESA INNER JOIN NOTHING_IS_IMPOSSIBLE.USUARIO ON EMPRESA.USERID=USUARIO.USERID WHERE REPLACE(UPPER(E.CUIT),'-','') LIKE UPPER('%" + e.cuit + "%') ", "T", parametroList);
             AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USERNAME=@username,PASS=@pass,EMAIL=@email,TELEFONO=@telefono,CALLE=@calle,NUM_CALLE=@num_calle,PISO=@piso,DEPTO=@depto,COD_POSTAL=@cod_postal FROM NOTHING_IS_IMPOSSIBLE.USUARIO INNER JOIN NOTHING_IS_IMPOSSIBLE.EMPRESA  ON EMPRESA.USERID=USUARIO.USERID WHERE REPLACE(UPPER(E.CUIT),'-','') LIKE UPPER('%" + e.cuit + "%')  ", "T", paramList);
             
+        }
+
+        public static void altaLogica(Empresa e)
+        {
+            List<SqlParameter> paramList = new List<SqlParameter>();
+            paramList.Add(new SqlParameter("@cuit", e.cuit));
+            AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USUARIO.BAJA=0 FROM NOTHING_IS_IMPOSSIBLE.USUARIO INNER JOIN NOTHING_IS_IMPOSSIBLE.EMPRESA  ON EMPRESA.USERID=USUARIO.USERID WHERE REPLACE(UPPER(EMPRESA.CUIT),'-','') LIKE UPPER('" + e.cuit.Replace("-", "") + "')", "T", paramList);
+
+        }
+
+        public  static void habilitar(Empresa emp)
+        {
+            List<SqlParameter> paramList = new List<SqlParameter>();
+            paramList.Add(new SqlParameter("@cuit", emp.cuit));
+            AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USUARIO.HABILITADO=1,USUARIO.USER_NRO_INTENTOS=0 FROM NOTHING_IS_IMPOSSIBLE.USUARIO INNER JOIN NOTHING_IS_IMPOSSIBLE.EMPRESA ON EMPRESA.USERID=USUARIO.USERID WHERE REPLACE(UPPER(EMPRESA.CUIT),'-','') LIKE UPPER('" + emp.cuit.Replace("-", "") + "')", "T", paramList);
         }
     }
 }

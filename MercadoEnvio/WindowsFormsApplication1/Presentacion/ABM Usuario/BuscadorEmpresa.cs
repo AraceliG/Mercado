@@ -28,7 +28,7 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
 
         private void btn_busquedaEmp_Click(object sender, EventArgs e)
         {
-            
+            actualizarGrilla();
             }
 
         public void actualizarGrilla() { 
@@ -81,6 +81,16 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
 
         private void btn_habilitar_Click(object sender, EventArgs e)
         {
+            if (dataGridEmpresa.RowCount != 0)
+            {
+                Empresa emp = (Empresa)dataGridEmpresa.CurrentRow.DataBoundItem;
+                DAOEmpresa.habilitar(emp);
+                this.actualizarGrilla();
+            }
+            else
+            {
+                MessageBox.Show("Debe elegir una fila de su tabla resultado de su búsqueda", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
 
         }
 
@@ -90,6 +100,20 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
             {
                 Empresa empresa = (Empresa)dataGridEmpresa.CurrentRow.DataBoundItem;
                 DAOEmpresa.bajaLogica(empresa);
+                this.actualizarGrilla();
+            }
+            else
+            {
+                MessageBox.Show("Debe elegir una fila de su tabla resultado de su búsqueda", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btn_alta_Click(object sender, EventArgs e)
+        {
+            if (dataGridEmpresa.RowCount != 0)
+            {
+                Empresa empresa = (Empresa)dataGridEmpresa.CurrentRow.DataBoundItem;
+                DAOEmpresa.altaLogica(empresa);
                 this.actualizarGrilla();
             }
             else

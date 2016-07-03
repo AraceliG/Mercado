@@ -194,6 +194,7 @@
             this.btn_alta.TabIndex = 12;
             this.btn_alta.Text = "Alta";
             this.btn_alta.UseVisualStyleBackColor = true;
+            this.btn_alta.Click += new System.EventHandler(this.btn_alta_Click);
             // 
             // btn_habilitar
             // 

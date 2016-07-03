@@ -174,6 +174,7 @@
             this.text_cuit.Name = "text_cuit";
             this.text_cuit.Size = new System.Drawing.Size(165, 24);
             this.text_cuit.TabIndex = 124;
+            this.text_cuit.TextChanged += new System.EventHandler(this.text_cuit_TextChanged);
             this.text_cuit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_cuit_KeyPress_1);
             // 
             // FormularioEmpresa

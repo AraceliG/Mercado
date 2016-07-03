@@ -240,5 +240,10 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             }
         }
 
+        private void text_cuit_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
