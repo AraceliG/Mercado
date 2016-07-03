@@ -14,7 +14,6 @@ namespace MercadoEnvioFRBA.Modelo
         public String telefono { get; set; }
         public String cuit{ get; set; }
         public String rubroPrincipal { get; set; }
-       // public DateTime fechaCreacion { get; set; }
         public String username { get; set; }
         public String password { get; set; }
         public Int32 cantFallidos { get; set; }

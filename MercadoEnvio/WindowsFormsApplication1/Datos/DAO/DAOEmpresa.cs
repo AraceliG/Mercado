@@ -95,8 +95,6 @@ private static string consulta(String razonSocial,String mail, String cuit)
                     Empresa empresa = new Empresa();
                     empresa.razon_social = (string)lector["razon_social"];
                     empresa.ciudad = lector["ciudad"] != DBNull.Value ? (String)lector["telefono"] : "";
-                    //A LA EMPRESA NO LE PUSIMOS FECHA DE CREACION
-                    //empresa.fechaCreacion = (DateTime)lector["fechaCreacion"];
                     empresa.password = (string)lector["pass"];
                     empresa.username = (String)lector["username"];
                     empresa.habilitado = (Boolean)lector["habilitado"];

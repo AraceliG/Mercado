@@ -252,9 +252,6 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                 {
                     cliente.piso = Convert.ToInt32(textBox_piso.Text);
                 }
-                //cliente.reputacion = 0;
-                //cliente.user_nro_intentos = 0;
-                //cliente.tipo_doc = comboBox_tipoDoc.SelectedItem.ToString();
                 this.cliente = cliente;
                 DAOCliente.actualizarCliente(cliente);
                 this.Close();
