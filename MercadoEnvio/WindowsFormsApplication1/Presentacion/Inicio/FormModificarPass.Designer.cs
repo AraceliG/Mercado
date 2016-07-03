@@ -102,6 +102,7 @@
             this.txt_pass.Name = "txt_pass";
             this.txt_pass.Size = new System.Drawing.Size(232, 26);
             this.txt_pass.TabIndex = 6;
+            this.txt_pass.UseSystemPasswordChar = true;
             // 
             // txt_nuevoPass
             // 
@@ -110,6 +111,7 @@
             this.txt_nuevoPass.Name = "txt_nuevoPass";
             this.txt_nuevoPass.Size = new System.Drawing.Size(232, 26);
             this.txt_nuevoPass.TabIndex = 7;
+            this.txt_nuevoPass.UseSystemPasswordChar = true;
             // 
             // txt_nuevoPass2
             // 
@@ -118,6 +120,7 @@
             this.txt_nuevoPass2.Name = "txt_nuevoPass2";
             this.txt_nuevoPass2.Size = new System.Drawing.Size(232, 26);
             this.txt_nuevoPass2.TabIndex = 8;
+            this.txt_nuevoPass2.UseSystemPasswordChar = true;
             // 
             // btn_aceptar
             // 
