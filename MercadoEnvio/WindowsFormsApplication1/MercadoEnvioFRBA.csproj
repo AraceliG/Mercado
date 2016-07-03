@@ -70,6 +70,12 @@
     <Compile Include="Presentacion\ABM Rol\ABMrol.Designer.cs">
       <DependentUpon>ABMrol.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\ABM Rol\BuscarRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\ABM Rol\BuscarRol.Designer.cs">
+      <DependentUpon>BuscarRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\ABM Rol\CrearModificarRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +220,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presentacion\ABM Rol\ABMrol.resx">
       <DependentUpon>ABMrol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\ABM Rol\BuscarRol.resx">
+      <DependentUpon>BuscarRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Rol\CrearModificarRol.resx">
       <DependentUpon>CrearModificarRol.cs</DependentUpon>

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MercadoEnvioFRBA.Presentacion.ABM_Usuario;
+using MercadoEnvioFRBA.ABM_Rol;
 
 namespace MercadoEnvioFRBA.Presentacion.Inicio
 {
@@ -74,6 +75,14 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
             this.Hide();
             FormABMUsuario formUser = new FormABMUsuario();
             formUser.ShowDialog();
+            this.Show();
+        }
+
+        private void func2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ABMrol buscarRol = new ABMrol();
+            buscarRol.ShowDialog();
             this.Show();
         }
     }

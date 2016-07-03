@@ -16,5 +16,10 @@ namespace MercadoEnvioFRBA.Presentacion
         {
             InitializeComponent();
         }
+
+        private void FormBaseUTN_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

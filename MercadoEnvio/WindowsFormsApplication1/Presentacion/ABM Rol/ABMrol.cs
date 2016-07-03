@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MercadoEnvioFRBA.Presentacion;
+using MercadoEnvioFRBA.Presentacion.ABM_Rol;
 
 namespace MercadoEnvioFRBA.ABM_Rol
 {
-    public partial class ABMrol : Form
+    public partial class ABMrol : FormBaseUTN
     {
         public ABMrol()
         {
@@ -25,6 +27,14 @@ namespace MercadoEnvioFRBA.ABM_Rol
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_modificarRol_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            BuscarRol buscarRol = new BuscarRol();
+            buscarRol.ShowDialog();
+            this.Show();
         }
     }
 }

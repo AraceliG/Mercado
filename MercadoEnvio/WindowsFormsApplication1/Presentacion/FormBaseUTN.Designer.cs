@@ -54,6 +54,7 @@
             this.DoubleBuffered = true;
             this.Name = "FormBaseUTN";
             this.Text = "FormBaseUTN";
+            this.Load += new System.EventHandler(this.FormBaseUTN_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

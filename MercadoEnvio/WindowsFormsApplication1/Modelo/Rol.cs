@@ -12,7 +12,7 @@ namespace MercadoEnvioFRBA.Modelo
         private string _nombre;
         private decimal _cod_rol;
         private List<Funcionalidad> _funcionalidades;
-        bool baja { set; get; }
+       public  bool baja { set; get; }
         bool habilitado { set; get; }
 
         // gets and sets

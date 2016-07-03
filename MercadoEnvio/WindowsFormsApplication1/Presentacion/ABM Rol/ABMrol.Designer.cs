@@ -28,62 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridViewRol = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRol)).BeginInit();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ABMrol));
+            this.btn_CrearRol = new System.Windows.Forms.Button();
+            this.btn_modificarRol = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // btn_CrearRol
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(153, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(313, 42);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Listado de Roles";
+            this.btn_CrearRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CrearRol.Image = ((System.Drawing.Image)(resources.GetObject("btn_CrearRol.Image")));
+            this.btn_CrearRol.Location = new System.Drawing.Point(31, 65);
+            this.btn_CrearRol.Name = "btn_CrearRol";
+            this.btn_CrearRol.Size = new System.Drawing.Size(185, 58);
+            this.btn_CrearRol.TabIndex = 1;
+            this.btn_CrearRol.Text = "Crear Rol";
+            this.btn_CrearRol.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewRol
+            // btn_modificarRol
             // 
-            this.dataGridViewRol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRol.Location = new System.Drawing.Point(53, 66);
-            this.dataGridViewRol.Name = "dataGridViewRol";
-            this.dataGridViewRol.Size = new System.Drawing.Size(573, 192);
-            this.dataGridViewRol.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(211, 286);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(287, 30);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Crear Rol";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_modificarRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_modificarRol.Image = ((System.Drawing.Image)(resources.GetObject("btn_modificarRol.Image")));
+            this.btn_modificarRol.Location = new System.Drawing.Point(260, 65);
+            this.btn_modificarRol.Name = "btn_modificarRol";
+            this.btn_modificarRol.Size = new System.Drawing.Size(188, 58);
+            this.btn_modificarRol.TabIndex = 2;
+            this.btn_modificarRol.Text = "Modificar Rol";
+            this.btn_modificarRol.UseVisualStyleBackColor = true;
+            this.btn_modificarRol.Click += new System.EventHandler(this.btn_modificarRol_Click);
             // 
             // ABMrol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(689, 329);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridViewRol);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(479, 161);
+            this.Controls.Add(this.btn_modificarRol);
+            this.Controls.Add(this.btn_CrearRol);
             this.Name = "ABMrol";
-            this.Text = "Listado de Roles";
+            this.Text = "AbmRol";
             this.Load += new System.EventHandler(this.ABMrol_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRol)).EndInit();
+            this.Controls.SetChildIndex(this.btn_CrearRol, 0);
+            this.Controls.SetChildIndex(this.btn_modificarRol, 0);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridViewRol;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_CrearRol;
+        private System.Windows.Forms.Button btn_modificarRol;
+
     }
 }

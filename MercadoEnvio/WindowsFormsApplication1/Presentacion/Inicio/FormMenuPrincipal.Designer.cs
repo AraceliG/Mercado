@@ -61,6 +61,7 @@
             this.func2.Text = "AMB de Rol";
             this.func2.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.func2.UseVisualStyleBackColor = false;
+            this.func2.Click += new System.EventHandler(this.func2_Click);
             // 
             // func3
             // 
