@@ -29,5 +29,22 @@ namespace MercadoEnvioFRBA.Datos.DAO
             }
             return funcionesDe;
         }
+
+       public static List<Funcionalidad> buscarFuncionalidades()
+        {
+            List<Funcionalidad> funcionalidades = new List<Funcionalidad>();
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.FUNCIONALIDAD", "T", new List<SqlParameter>());
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    Funcionalidad func = new Funcionalidad();
+                    func.cod_funcionalidad = (decimal)lector["cod_funcionalidad"];
+                    func.nombre = (string)lector["nombre"];
+                    funcionalidades.Add(func);
+                }
+            }
+            return funcionalidades;
+        }
     }
 }

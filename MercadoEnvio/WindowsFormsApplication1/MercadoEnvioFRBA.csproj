@@ -82,6 +82,12 @@
     <Compile Include="Presentacion\ABM Rol\CrearModificarRol.Designer.cs">
       <DependentUpon>CrearModificarRol.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\ABM Rol\CrearRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\ABM Rol\CrearRol.Designer.cs">
+      <DependentUpon>CrearRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\ABM Rubro\FormEnConstruccion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Rol\CrearModificarRol.resx">
       <DependentUpon>CrearModificarRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\ABM Rol\CrearRol.resx">
+      <DependentUpon>CrearRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Rubro\FormEnConstruccion.resx">
       <DependentUpon>FormEnConstruccion.cs</DependentUpon>

@@ -43,6 +43,7 @@
             this.btn_CrearRol.TabIndex = 1;
             this.btn_CrearRol.Text = "Crear Rol";
             this.btn_CrearRol.UseVisualStyleBackColor = true;
+            this.btn_CrearRol.Click += new System.EventHandler(this.btn_CrearRol_Click);
             // 
             // btn_modificarRol
             // 
