@@ -107,7 +107,6 @@ namespace MercadoEnvioFRBA.Modelo
 
         public  bool intentosFallidosCompletos()
         {
-           // return DAOUsuario.intentosFallidosCompletos(this);
            return  DAOUsuario.cantidadDefallidos(this) >= 3;
         }
     }
