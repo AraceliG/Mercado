@@ -37,12 +37,12 @@
             this.label12 = new System.Windows.Forms.Label();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.textBox_razon_social = new System.Windows.Forms.TextBox();
-            this.textBox_nombre_de_contacto = new System.Windows.Forms.TextBox();
             this.textBox_contacto = new System.Windows.Forms.TextBox();
             this.textBox_ciudad = new System.Windows.Forms.TextBox();
             this.error_cuit = new System.Windows.Forms.ErrorProvider(this.components);
             this.error_razon_social = new System.Windows.Forms.ErrorProvider(this.components);
             this.text_cuit = new System.Windows.Forms.TextBox();
+            this.textBox_rubro = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_usuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_mail)).BeginInit();
@@ -135,18 +135,10 @@
             this.textBox_razon_social.Size = new System.Drawing.Size(165, 24);
             this.textBox_razon_social.TabIndex = 120;
             // 
-            // textBox_nombre_de_contacto
-            // 
-            this.textBox_nombre_de_contacto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_nombre_de_contacto.Location = new System.Drawing.Point(199, 509);
-            this.textBox_nombre_de_contacto.Name = "textBox_nombre_de_contacto";
-            this.textBox_nombre_de_contacto.Size = new System.Drawing.Size(165, 24);
-            this.textBox_nombre_de_contacto.TabIndex = 121;
-            // 
             // textBox_contacto
             // 
             this.textBox_contacto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_contacto.Location = new System.Drawing.Point(199, 548);
+            this.textBox_contacto.Location = new System.Drawing.Point(196, 509);
             this.textBox_contacto.Name = "textBox_contacto";
             this.textBox_contacto.Size = new System.Drawing.Size(165, 24);
             this.textBox_contacto.TabIndex = 122;
@@ -177,15 +169,22 @@
             this.text_cuit.TextChanged += new System.EventHandler(this.text_cuit_TextChanged);
             this.text_cuit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_cuit_KeyPress_1);
             // 
+            // textBox_rubro
+            // 
+            this.textBox_rubro.Location = new System.Drawing.Point(199, 548);
+            this.textBox_rubro.Name = "textBox_rubro";
+            this.textBox_rubro.Size = new System.Drawing.Size(162, 20);
+            this.textBox_rubro.TabIndex = 125;
+            // 
             // FormularioEmpresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(508, 691);
+            this.Controls.Add(this.textBox_rubro);
             this.Controls.Add(this.text_cuit);
             this.Controls.Add(this.textBox_ciudad);
             this.Controls.Add(this.textBox_contacto);
-            this.Controls.Add(this.textBox_nombre_de_contacto);
             this.Controls.Add(this.textBox_razon_social);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.label12);
@@ -213,10 +212,10 @@
             this.Controls.SetChildIndex(this.label12, 0);
             this.Controls.SetChildIndex(this.buttonLogin, 0);
             this.Controls.SetChildIndex(this.textBox_razon_social, 0);
-            this.Controls.SetChildIndex(this.textBox_nombre_de_contacto, 0);
             this.Controls.SetChildIndex(this.textBox_contacto, 0);
             this.Controls.SetChildIndex(this.textBox_ciudad, 0);
             this.Controls.SetChildIndex(this.text_cuit, 0);
+            this.Controls.SetChildIndex(this.textBox_rubro, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_usuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_psw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_mail)).EndInit();
@@ -239,11 +238,11 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.TextBox textBox_razon_social;
-        private System.Windows.Forms.TextBox textBox_nombre_de_contacto;
         private System.Windows.Forms.TextBox textBox_contacto;
         private System.Windows.Forms.TextBox textBox_ciudad;
         private System.Windows.Forms.ErrorProvider error_cuit;
         private System.Windows.Forms.ErrorProvider error_razon_social;
         private System.Windows.Forms.TextBox text_cuit;
+        private System.Windows.Forms.TextBox textBox_rubro;
     }
 }

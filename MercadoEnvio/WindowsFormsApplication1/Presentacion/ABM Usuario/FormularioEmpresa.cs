@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using MercadoEnvioFRBA.Presentacion.ABM_Usuario;
 using MercadoEnvioFRBA.Datos.DAO;
 using MercadoEnvioFRBA.Modelo;
+using System.Configuration;
+using System.Data.SqlClient;
+using MercadoEnvioFRBA.Datos;
 
 namespace MercadoEnvioFRBA.ABM_Usuario
 {
@@ -43,6 +46,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             textBox_cod_postal.Text = empresa.cod_postal;
             text_cuit.Text = empresa.cuit;
             textBox_razon_social.Text = empresa.razon_social;
+            textBox_rubro.Text = empresa.rubroPrincipal;
             text_cuit.ReadOnly = true;
             textBox_razon_social.ReadOnly = true;
             textBox_contacto.Text = empresa.nombre_contacto;
@@ -189,7 +193,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             empresa.reputacion = 0;
             empresa.user_nro_intentos = 0;
             empresa.cuit = text_cuit.Text;
-            empresa.nombre_contacto = textBox_nombre_de_contacto.Text;
+            empresa.nombre_contacto = textBox_contacto.Text;
             DAOEmpresa.crearEmpresa(empresa);
             this.Close();
 
@@ -244,6 +248,18 @@ namespace MercadoEnvioFRBA.ABM_Usuario
         {
 
         }
+
+        private void comboBox_rubro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
 
     }
 }

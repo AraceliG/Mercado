@@ -94,7 +94,7 @@ private static string consulta(String razonSocial,String mail, String cuit)
                 {
                     Empresa empresa = new Empresa();
                     empresa.razon_social = (string)lector["razon_social"];
-                    empresa.ciudad = lector["ciudad"] != DBNull.Value ? (String)lector["cli_telefono"] : "";
+                    empresa.ciudad = lector["ciudad"] != DBNull.Value ? (String)lector["telefono"] : "";
                     //A LA EMPRESA NO LE PUSIMOS FECHA DE CREACION
                     //empresa.fechaCreacion = (DateTime)lector["fechaCreacion"];
                     empresa.password = (string)lector["pass"];
@@ -165,7 +165,7 @@ private static string consulta(String razonSocial,String mail, String cuit)
             paramList.Add(new SqlParameter("@cuit", e.cuit));
             paramList.Add(new SqlParameter("@razon_social ", e.razon_social));
             paramList.Add(new SqlParameter("@nombre_contaco", e.nombre_contacto));
-            paramList.Add(new SqlParameter("@cod_rubro_principal",null));
+            paramList.Add(new SqlParameter("@cod_rubro_principal",1));
             paramList.Add(new SqlParameter("@ciudad", e.ciudad));
 
             AccesoBaseDeDatos.ExecStoredProcedure("NOTHING_IS_IMPOSSIBLE.sp_altaEmpresa", paramList);
@@ -215,6 +215,11 @@ private static string consulta(String razonSocial,String mail, String cuit)
             List<SqlParameter> paramList = new List<SqlParameter>();
             paramList.Add(new SqlParameter("@cuit", emp.cuit));
             AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USUARIO.HABILITADO=1,USUARIO.USER_NRO_INTENTOS=0 FROM NOTHING_IS_IMPOSSIBLE.USUARIO INNER JOIN NOTHING_IS_IMPOSSIBLE.EMPRESA ON EMPRESA.USERID=USUARIO.USERID WHERE REPLACE(UPPER(EMPRESA.CUIT),'-','') LIKE UPPER('" + emp.cuit.Replace("-", "") + "')", "T", paramList);
+        }
+
+        internal static void cargarRubros()
+        {
+            throw new NotImplementedException();
         }
     }
 }
