@@ -97,13 +97,13 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
             foreach (Funcionalidad f  in r.funcionalidades)
             {
-                List<SqlParameter> parametroList = new List<SqlParameter>();
-                parameterList.Add(new SqlParameter("@funcionalidad_nombre",f.nombre));
-                parameterList.Add(new SqlParameter("@rol_nombre", r.nombre));
+                List<SqlParameter> parametros = new List<SqlParameter>();
+                parametros.Add(new SqlParameter("@cod_funcionalidad", f.cod_funcionalidad));
+                parametros.Add(new SqlParameter("@rol_nombre", r.nombre));
                 //ACA NO FUNCIONA Y NECESITARIA STORED PROCEDURE
 
-               // AccesoBaseDeDatos.WriteInBase("INSERT INTO NOTHING_IS_IMPOSSIBLE.ROLFUNCIONALIDAD (COD_FUNCIONALIDAD,COD_ROL) " +
-                                                // " VALUES ((SELECT COD_FUNCIONALIDAD FROM NOTHING_IS_IMPOSSIBLE.FUNCIONALIDAD WHERE NOMBRE="+f.nombre+"),(SELECT COD_ROL FROM NOTHING_IS_IMPOSSIBLE.ROL WHERE NOMBRE="+r.nombre+"))", "T", parametroList); 
+                AccesoBaseDeDatos.WriteInBase("INSERT INTO NOTHING_IS_IMPOSSIBLE.ROLFUNCIONALIDAD (COD_FUNCIONALIDAD,COD_ROL) " +
+                                                " VALUES (@cod_funcionalidad,(SELECT COD_ROL FROM NOTHING_IS_IMPOSSIBLE.ROL WHERE NOMBRE=@rol_nombre))", "T", parametros); 
             }
         }
     }
