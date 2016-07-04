@@ -18,6 +18,7 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Rol
 
         private List<Funcionalidad> func;
 
+
         public CrearRol()
         {
             InitializeComponent();

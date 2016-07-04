@@ -103,7 +103,8 @@ namespace MercadoEnvioFRBA.Datos.DAO
                 //ACA NO FUNCIONA Y NECESITARIA STORED PROCEDURE
 
                // AccesoBaseDeDatos.WriteInBase("INSERT INTO NOTHING_IS_IMPOSSIBLE.ROLFUNCIONALIDAD (COD_FUNCIONALIDAD,COD_ROL) " +
-                                                // " VALUES ((SELECT COD_FUNCIONALIDAD FROM NOTHING_IS_IMPOSSIBLE.FUNCIONALIDAD WHERE NOMBRE="+f.nombre+"),(SELECT COD_ROL FROM NOTHING_IS_IMPOSSIBLE.ROL WHERE NOMBRE="+r.nombre+"))", "T", parametroList); 
+                                                // " VALUES ((SELECT COD_FUNCIONALIDAD FROM NOTHING_IS_IMPOSSIBLE.FUNCIONALIDAD WHERE NOMBRE="+f.nombre+"),
+                //(SELECT COD_ROL FROM NOTHING_IS_IMPOSSIBLE.ROL WHERE NOMBRE="+r.nombre+"))", "T", parametroList); 
             }
         }
     }
