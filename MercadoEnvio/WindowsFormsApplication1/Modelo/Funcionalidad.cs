@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MercadoEnvioFRBA.Datos.DAO;
 
 namespace MercadoEnvioFRBA.Modelo
 {
@@ -22,6 +23,21 @@ namespace MercadoEnvioFRBA.Modelo
         {
             get { return _cod_funcionalidad; }
             set { _cod_funcionalidad = value; }
+        }
+
+        internal bool existeEnRol(Rol rol)
+        {
+            return DAORolFuncionalidad.existeRolFuncionalidad(rol,this);
+        }
+
+        internal void agregateA(Rol rol)
+        {
+            DAORolFuncionalidad.agregateA(rol, this);
+        }
+
+        internal void eliminateDe(Rol rol)
+        {
+            DAORolFuncionalidad.eliminateDe(rol, this);
         }
     }
 }

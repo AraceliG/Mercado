@@ -50,5 +50,20 @@ namespace MercadoEnvioFRBA.Modelo
         {
             this.funcionalidades = DAOFuncionalidad.getFuncionalidadesDe(this.cod_rol);
         }
+
+        internal bool existeNombre()
+        {
+           return  DAORol.existeNombreRol(this.nombre);
+        }
+
+        internal Rol create()
+        {
+            return DAORol.crearRol(this);
+        }
+
+        internal void cambiarNombre(string nombreViejoRol)
+        {
+            DAORol.cambiarNombre(this,nombreViejoRol);
+        }
     }
 }

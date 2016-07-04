@@ -53,6 +53,7 @@
     <Compile Include="Datos\DAO\DAOFuncionalidad.cs" />
     <Compile Include="Datos\DAO\DAOPublicacion.cs" />
     <Compile Include="Datos\DAO\DAORol.cs" />
+    <Compile Include="Datos\DAO\DAORolFuncionalidad.cs" />
     <Compile Include="Datos\DAO\DAOTipoComisionEnvio.cs" />
     <Compile Include="Datos\DAO\DAOUsuario.cs" />
     <Compile Include="Datos\DAO\DAOVisibilidad.cs" />
@@ -76,17 +77,17 @@
     <Compile Include="Presentacion\ABM Rol\BuscarRol.Designer.cs">
       <DependentUpon>BuscarRol.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\ABM Rol\CrearModificarRol.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Presentacion\ABM Rol\CrearModificarRol.Designer.cs">
-      <DependentUpon>CrearModificarRol.cs</DependentUpon>
-    </Compile>
     <Compile Include="Presentacion\ABM Rol\CrearRol.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\ABM Rol\CrearRol.Designer.cs">
       <DependentUpon>CrearRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\ABM Rol\NuevoOModificarRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\ABM Rol\NuevoOModificarRol.Designer.cs">
+      <DependentUpon>NuevoOModificarRol.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\ABM Rubro\FormEnConstruccion.cs">
       <SubType>Form</SubType>
@@ -230,11 +231,11 @@
     <EmbeddedResource Include="Presentacion\ABM Rol\BuscarRol.resx">
       <DependentUpon>BuscarRol.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\ABM Rol\CrearModificarRol.resx">
-      <DependentUpon>CrearModificarRol.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Rol\CrearRol.resx">
       <DependentUpon>CrearRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\ABM Rol\NuevoOModificarRol.resx">
+      <DependentUpon>NuevoOModificarRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Rubro\FormEnConstruccion.resx">
       <DependentUpon>FormEnConstruccion.cs</DependentUpon>

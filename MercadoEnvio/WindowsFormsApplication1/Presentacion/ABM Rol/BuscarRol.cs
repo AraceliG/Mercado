@@ -64,7 +64,21 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Rol
 
         private void btn_modificarRol_Click(object sender, EventArgs e)
         {
+            Rol rol = (Rol)dataGridRol.CurrentRow.DataBoundItem;
+            this.Hide();
+            NuevoOModificarRol rolNew = new NuevoOModificarRol(rol);
+            rolNew.ShowDialog();
+            this.Show();
+        }
 
+        private void dataGridRol_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            actualizarGrilla();
         }
     }
 }

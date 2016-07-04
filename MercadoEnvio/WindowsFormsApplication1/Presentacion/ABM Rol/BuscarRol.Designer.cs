@@ -34,6 +34,7 @@
             this.btn_modificarRol = new System.Windows.Forms.Button();
             this.btn_alta = new System.Windows.Forms.Button();
             this.btn_baja = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRol)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,6 +56,7 @@
             this.dataGridRol.Name = "dataGridRol";
             this.dataGridRol.Size = new System.Drawing.Size(593, 173);
             this.dataGridRol.TabIndex = 3;
+            this.dataGridRol.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridRol_CellContentClick);
             // 
             // btn_modificarRol
             // 
@@ -72,7 +74,7 @@
             // 
             this.btn_alta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_alta.Image = ((System.Drawing.Image)(resources.GetObject("btn_alta.Image")));
-            this.btn_alta.Location = new System.Drawing.Point(292, 241);
+            this.btn_alta.Location = new System.Drawing.Point(363, 241);
             this.btn_alta.Name = "btn_alta";
             this.btn_alta.Size = new System.Drawing.Size(93, 42);
             this.btn_alta.TabIndex = 5;
@@ -92,11 +94,24 @@
             this.btn_baja.UseVisualStyleBackColor = true;
             this.btn_baja.Click += new System.EventHandler(this.btn_baja_Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(197, 241);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(98, 42);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "ACTUALIZAR";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // BuscarRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(663, 312);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_baja);
             this.Controls.Add(this.btn_alta);
             this.Controls.Add(this.btn_modificarRol);
@@ -110,6 +125,7 @@
             this.Controls.SetChildIndex(this.btn_modificarRol, 0);
             this.Controls.SetChildIndex(this.btn_alta, 0);
             this.Controls.SetChildIndex(this.btn_baja, 0);
+            this.Controls.SetChildIndex(this.button1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRol)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -123,5 +139,6 @@
         private System.Windows.Forms.Button btn_modificarRol;
         private System.Windows.Forms.Button btn_alta;
         private System.Windows.Forms.Button btn_baja;
+        private System.Windows.Forms.Button button1;
     }
 }

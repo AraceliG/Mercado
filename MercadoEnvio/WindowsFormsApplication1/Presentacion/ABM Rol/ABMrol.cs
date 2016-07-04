@@ -41,7 +41,7 @@ namespace MercadoEnvioFRBA.ABM_Rol
         private void btn_CrearRol_Click(object sender, EventArgs e)
         {
             this.Hide();
-            CrearRol rolNew = new CrearRol();
+            NuevoOModificarRol rolNew = new NuevoOModificarRol();
             rolNew.ShowDialog();
             this.Show();
         }
