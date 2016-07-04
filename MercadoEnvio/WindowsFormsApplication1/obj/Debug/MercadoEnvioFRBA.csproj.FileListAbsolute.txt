@@ -54,7 +54,39 @@ C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\Mercad
 C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
 C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.FormAltaModifPublicacion.resources
+<<<<<<< HEAD
 C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.csprojResolveAssemblyReference.cache
 C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.ABM_Rol.BuscarRol.resources
 C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.ABM_Rol.CrearRol.resources
 C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Inicio.FormModificarPass.resources
+=======
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.csprojResolveAssemblyReference.cache
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Rol.ABMrol.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Rol.CrearModificarRol.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.FormEnConstruccion.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.BuscadorCliente.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.ABM_Usuario.BuscadorEmpresa.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.Calendario.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.ABM_Usuario.FormABMUsuario.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.FormularioEmpresa.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.ABM_Usuario.FormUsuario.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.FormABMVisibilidad.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.FormAltaModifVisibilidad.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.FormBaseUTN.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ABM_Usuario.FormularioCliente.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.FormAltaModifPublicacion.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.FormGenerarPublicacion.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Inicio.FormElegirRol.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Inicio.FormMenuPrincipal.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Inicio.FormularioLogin.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Properties.Resources.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.csproj.GenerateResource.Cache
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Inicio.FormModificarPass.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.ABM_Rol.BuscarRol.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.ABM_Rol.CrearRol.resources
+>>>>>>> e1a9cdbfe5eb483381bcfab1ba27da864cc8b726

@@ -102,8 +102,14 @@ namespace MercadoEnvioFRBA.Datos.DAO
                 parametros.Add(new SqlParameter("@rol_nombre", r.nombre));
                 //ACA NO FUNCIONA Y NECESITARIA STORED PROCEDURE
 
+<<<<<<< HEAD
                 AccesoBaseDeDatos.WriteInBase("INSERT INTO NOTHING_IS_IMPOSSIBLE.ROLFUNCIONALIDAD (COD_FUNCIONALIDAD,COD_ROL) " +
                                                 " VALUES (@cod_funcionalidad,(SELECT COD_ROL FROM NOTHING_IS_IMPOSSIBLE.ROL WHERE NOMBRE=@rol_nombre))", "T", parametros); 
+=======
+               // AccesoBaseDeDatos.WriteInBase("INSERT INTO NOTHING_IS_IMPOSSIBLE.ROLFUNCIONALIDAD (COD_FUNCIONALIDAD,COD_ROL) " +
+                                                // " VALUES ((SELECT COD_FUNCIONALIDAD FROM NOTHING_IS_IMPOSSIBLE.FUNCIONALIDAD WHERE NOMBRE="+f.nombre+"),
+                //(SELECT COD_ROL FROM NOTHING_IS_IMPOSSIBLE.ROL WHERE NOMBRE="+r.nombre+"))", "T", parametroList); 
+>>>>>>> e1a9cdbfe5eb483381bcfab1ba27da864cc8b726
             }
         }
     }
