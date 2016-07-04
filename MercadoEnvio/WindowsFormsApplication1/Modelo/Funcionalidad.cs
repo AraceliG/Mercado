@@ -8,11 +8,11 @@ namespace MercadoEnvioFRBA.Modelo
 {
     public class Funcionalidad
     {
-        private string _nombre;
+        private String _nombre;
         private decimal _cod_funcionalidad;
 
         // gets and sets
-        public string nombre
+        public String nombre
         {
             get { return _nombre; }
             set { _nombre = value; }

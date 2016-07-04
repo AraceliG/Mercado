@@ -86,5 +86,25 @@ namespace MercadoEnvioFRBA.Datos.DAO
             AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.ROL SET ROL.BAJA=1  WHERE ROL.COD_ROL=@cod_rol", "T", paramList);
 
         }
+
+        public static void crearRol(Rol r)
+        {
+            List<SqlParameter> parameterList = new List<SqlParameter>();
+            parameterList.Add(new SqlParameter("@rol_nombre",r.nombre));
+
+            AccesoBaseDeDatos.WriteInBase("INSERT INTO NOTHING_IS_IMPOSSIBLE.ROL (ROL.NOMBRE,ROL.BAJA,ROL.HABILITADO) " +
+                                                " VALUES (@rol_nombre,0,1)", "T", parameterList);
+
+            foreach (Funcionalidad f  in r.funcionalidades)
+            {
+                List<SqlParameter> parametroList = new List<SqlParameter>();
+                parameterList.Add(new SqlParameter("@funcionalidad_nombre",f.nombre));
+                parameterList.Add(new SqlParameter("@rol_nombre", r.nombre));
+                //ACA NO FUNCIONA Y NECESITARIA STORED PROCEDURE
+
+               // AccesoBaseDeDatos.WriteInBase("INSERT INTO NOTHING_IS_IMPOSSIBLE.ROLFUNCIONALIDAD (COD_FUNCIONALIDAD,COD_ROL) " +
+                                                // " VALUES ((SELECT COD_FUNCIONALIDAD FROM NOTHING_IS_IMPOSSIBLE.FUNCIONALIDAD WHERE NOMBRE="+f.nombre+"),(SELECT COD_ROL FROM NOTHING_IS_IMPOSSIBLE.ROL WHERE NOMBRE="+r.nombre+"))", "T", parametroList); 
+            }
+        }
     }
 }

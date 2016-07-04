@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CrearRol));
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_nombreRol = new System.Windows.Forms.TextBox();
             this.dataGridFuncionalidad = new System.Windows.Forms.DataGridView();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.btn_quitar = new System.Windows.Forms.Button();
             this.btn_modificarRol = new System.Windows.Forms.Button();
+            this.errorProvider_nombreRol = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFuncionalidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nombreRol)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -48,13 +51,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Nombre Rol:";
             // 
-            // textBox1
+            // textBox_nombreRol
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(165, 66);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 26);
-            this.textBox1.TabIndex = 2;
+            this.textBox_nombreRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_nombreRol.Location = new System.Drawing.Point(165, 66);
+            this.textBox_nombreRol.Name = "textBox_nombreRol";
+            this.textBox_nombreRol.Size = new System.Drawing.Size(188, 26);
+            this.textBox_nombreRol.TabIndex = 2;
             // 
             // dataGridFuncionalidad
             // 
@@ -63,6 +66,7 @@
             this.dataGridFuncionalidad.Name = "dataGridFuncionalidad";
             this.dataGridFuncionalidad.Size = new System.Drawing.Size(580, 218);
             this.dataGridFuncionalidad.TabIndex = 3;
+            this.dataGridFuncionalidad.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridFuncionalidad_CellContentClick);
             // 
             // btn_agregar
             // 
@@ -82,6 +86,7 @@
             this.btn_quitar.TabIndex = 5;
             this.btn_quitar.Text = "quitar";
             this.btn_quitar.UseVisualStyleBackColor = true;
+            this.btn_quitar.Click += new System.EventHandler(this.btn_quitar_Click);
             // 
             // btn_modificarRol
             // 
@@ -93,6 +98,11 @@
             this.btn_modificarRol.TabIndex = 6;
             this.btn_modificarRol.Text = "CREAR";
             this.btn_modificarRol.UseVisualStyleBackColor = true;
+            this.btn_modificarRol.Click += new System.EventHandler(this.btn_modificarRol_Click);
+            // 
+            // errorProvider_nombreRol
+            // 
+            this.errorProvider_nombreRol.ContainerControl = this;
             // 
             // CrearRol
             // 
@@ -103,18 +113,19 @@
             this.Controls.Add(this.btn_quitar);
             this.Controls.Add(this.btn_agregar);
             this.Controls.Add(this.dataGridFuncionalidad);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox_nombreRol);
             this.Controls.Add(this.label1);
             this.Name = "CrearRol";
             this.Text = "CrearRol";
             this.Load += new System.EventHandler(this.CrearRol_Load);
             this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.textBox1, 0);
+            this.Controls.SetChildIndex(this.textBox_nombreRol, 0);
             this.Controls.SetChildIndex(this.dataGridFuncionalidad, 0);
             this.Controls.SetChildIndex(this.btn_agregar, 0);
             this.Controls.SetChildIndex(this.btn_quitar, 0);
             this.Controls.SetChildIndex(this.btn_modificarRol, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFuncionalidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_nombreRol)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,10 +134,11 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_nombreRol;
         private System.Windows.Forms.DataGridView dataGridFuncionalidad;
         private System.Windows.Forms.Button btn_agregar;
         private System.Windows.Forms.Button btn_quitar;
         private System.Windows.Forms.Button btn_modificarRol;
+        private System.Windows.Forms.ErrorProvider errorProvider_nombreRol;
     }
 }
