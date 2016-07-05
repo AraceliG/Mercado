@@ -135,11 +135,60 @@ namespace MercadoEnvioFRBA.Datos.DAO
         
         }
 
+        public static List<Publicacion> getPublicacionesPorVisibilidad() {
+
+            List<Publicacion> publis = new List<Publicacion>();
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT cod_publicacion,userId,fecha_inicio,fecha_vencimiernto,stock,precio FROM Publicacion P inner join Visibilidad V on P.cod_visibilidad=V.cod_visibilidad Order by V.comision_publicar desc ", "T", new List<SqlParameter>());
+            List<Cliente> publicacionesPorEstado = new List<Cliente>();
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    Publicacion unPubli = new Publicacion();
+                    unPubli.cod_publicacion = (Decimal)lector["cod_publicacion"];
+                    unPubli.stock = (decimal)lector["stock"];
+                    unPubli.precio = (decimal)lector["precio"];
+                    unPubli.userId = (Decimal)lector["userId"];
+                    unPubli.fecha_inicio = (DateTime)lector["fecha_inicio"];
+                    unPubli.fecha_vencimiernto = Convert.ToDateTime(lector["fecha_vencimiernto"]);
+
+                    publis.Add(unPubli);
+                }
+            }
+            return publis;
+        
+        }
+
+        public static List<Publicacion> getPublicacionesOrdenadas() {
+
+            // se obtienen las publicaciones que estén habilitadas para el publico:activas y pausadas
+            // y ordenadas por visibilidad
+
+            List<Publicacion> publis = new List<Publicacion>();
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader(" SELECT P.cod_publicacion,userId,fecha_inicio,fecha_vencimiernto,stock,precio FROM NOTHING_IS_IMPOSSIBLE.Publicacion P inner join NOTHING_IS_IMPOSSIBLE.Visibilidad V on P.cod_visibilidad=V.cod_visibilidad WHERE (P.COD_ESTADOPUBLI='A' OR P.COD_ESTADOPUBLI='P')Order by V.comision_publicar desc ", "T", new List<SqlParameter>());
+            List<Cliente> publicacionesPorEstado = new List<Cliente>();
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    Publicacion unPubli = new Publicacion();
+                    unPubli.cod_publicacion = (Decimal)lector["cod_publicacion"];
+                    unPubli.stock = (decimal)lector["stock"];
+                    unPubli.precio = (decimal)lector["precio"];
+                    unPubli.userId = (Decimal)lector["userId"];
+                    unPubli.fecha_inicio = (DateTime)lector["fecha_inicio"];
+                    unPubli.fecha_vencimiernto = Convert.ToDateTime(lector["fecha_vencimiernto"]);
+
+                    publis.Add(unPubli);
+                }
+            }
+            return publis;
+        }
 
         public static List<Publicacion> devolverPublicaciones()
         {
              List<Publicacion> lista = new List<Publicacion>();
-             lista = getPublicacionPorEstado();
+             lista = getPublicacionesOrdenadas();
              return lista;
                 //mañana :el paginado no lo se, no lo voy a tener en cuenta
             // 

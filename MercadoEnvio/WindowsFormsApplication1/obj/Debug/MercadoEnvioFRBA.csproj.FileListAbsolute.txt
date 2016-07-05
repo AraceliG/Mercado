@@ -91,3 +91,4 @@ C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\
 C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.ABM_Rol.CrearRol.resources
 >>>>>>> e1a9cdbfe5eb483381bcfab1ba27da864cc8b726
 C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.ABM_Rol.NuevoOModificarRol.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ComprarOfertar.Form1.resources
