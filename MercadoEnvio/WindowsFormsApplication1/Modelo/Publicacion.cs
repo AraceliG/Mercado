@@ -12,7 +12,7 @@ namespace MercadoEnvioFRBA.Modelo
 
         public Estado miEstado { get; set; }
 
-        public Int64 cod_publicacion { get; set; }
+        public Decimal cod_publicacion { get; set; }
 
         public string cod_tipo_publicacion { get; set; }
 
@@ -34,7 +34,7 @@ namespace MercadoEnvioFRBA.Modelo
 
         public DateTime fecha_inicio { get; set; }
 
-        public String user { get; set; }
+        public Decimal userId { get; set; }
 
         internal static object buscarPublicaciones(string filtro)
         {

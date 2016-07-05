@@ -129,6 +129,7 @@
             this.dataGridPublicacion.Name = "dataGridPublicacion";
             this.dataGridPublicacion.Size = new System.Drawing.Size(875, 191);
             this.dataGridPublicacion.TabIndex = 125;
+            this.dataGridPublicacion.VirtualMode = true;
             // 
             // btn_buscar
             // 

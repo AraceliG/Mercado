@@ -113,17 +113,19 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
 
             List<Publicacion> publis = new List<Publicacion>();
-            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT  P.COD_PUBLICACION,P.STOCK,P.PRECIO,U.USERNAME FROM NOTHING_IS_IMPOSSIBLE.PUBLICACION P,NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE (P.COD_ESTADOPUBLI='A' OR P.COD_ESTADOPUBLI='P')", "T", new List<SqlParameter>());
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT P.COD_PUBLICACION,P.STOCK,P.PRECIO,P.USERID,P.FECHA_INICIO,P.FECHA_VENCIMIERNTO FROM NOTHING_IS_IMPOSSIBLE.PUBLICACION P WHERE (P.COD_ESTADOPUBLI='A' OR P.COD_ESTADOPUBLI='P')", "T", new List<SqlParameter>());
             List<Cliente> publicacionesPorEstado = new List<Cliente>();
             if (lector.HasRows)
             {
                 while (lector.Read())
                 {
                     Publicacion unPubli = new Publicacion();
-                    unPubli.cod_publicacion = (Int32)lector["cod_publicacion"];
+                    unPubli.cod_publicacion = (Decimal)lector["cod_publicacion"];
                       unPubli.stock = (decimal)lector["stock"];
                       unPubli.precio = (decimal)lector["precio"];
-                      unPubli.user = (String)lector["username"];
+                      unPubli.userId = (Decimal)lector["userId"];
+                      unPubli.fecha_inicio = (DateTime)lector["fecha_inicio"];
+                      unPubli.fecha_vencimiernto = Convert.ToDateTime(lector["fecha_vencimiernto"]);
 
                     publis.Add(unPubli);
                 }
