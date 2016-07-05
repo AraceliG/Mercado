@@ -264,6 +264,9 @@
     <EmbeddedResource Include="Presentacion\ABM Visibilidad\FormAltaModifVisibilidad.resx">
       <DependentUpon>FormAltaModifVisibilidad.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\ComprarOfertar\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FormBaseUTN.resx">
       <DependentUpon>FormBaseUTN.cs</DependentUpon>
     </EmbeddedResource>
@@ -316,6 +319,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondoBoton1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

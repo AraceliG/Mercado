@@ -34,6 +34,8 @@ namespace MercadoEnvioFRBA.Modelo
 
         public DateTime fecha_inicio { get; set; }
 
+        public String user { get; set; }
+
         internal static object buscarPublicaciones(string filtro)
         {
             return DAOPublicacion.getPublicacionesConfiltro(filtro);

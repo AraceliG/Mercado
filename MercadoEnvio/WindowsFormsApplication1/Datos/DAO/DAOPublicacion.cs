@@ -108,5 +108,40 @@ namespace MercadoEnvioFRBA.Datos.DAO
             
             return dt;
         }
+
+        public static List<Publicacion> getPublicacionPorEstado() {
+
+
+            List<Publicacion> publis = new List<Publicacion>();
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT  P.COD_PUBLICACION,P.STOCK,P.PRECIO,U.USERNAME FROM NOTHING_IS_IMPOSSIBLE.PUBLICACION P,NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE (P.COD_TIPO_PUBLICACION='A' OR P.COD_TIPO_PUBLICACION='P')", "T", new List<SqlParameter>());
+            List<Cliente> publicacionesPorEstado = new List<Cliente>();
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    Publicacion unPubli = new Publicacion();
+                    unPubli.cod_publicacion = (decimal)lector["cod_publicacion"];
+                    unPubli.stock = (decimal)lector["stock"];
+                    unPubli.precio = (decimal)lector["precio"];
+                    unPubli.user = (String)lector["username"];if (DBNull.Value != lector["costo"])
+
+                    publis.Add(unPubli);
+                }
+            }
+            return publis;
+
+        
+        }
+
+
+        public static List<Publicacion> devolverPublicaciones()
+        {
+             List<Publicacion> lista = new List<Publicacion>();
+             lista = getPublicacionPorEstado();
+             return lista;
+                //mañana :el paginado no lo se, no lo voy a tener en cuenta
+            // 
+           
+        }
     }
 }

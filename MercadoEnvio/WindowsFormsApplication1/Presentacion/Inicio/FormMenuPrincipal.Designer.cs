@@ -146,6 +146,7 @@
             this.func7.Text = "Comprar/Ofertar";
             this.func7.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.func7.UseVisualStyleBackColor = true;
+            this.func7.Click += new System.EventHandler(this.func7_Click);
             // 
             // func8
             // 
