@@ -23,7 +23,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                 while (lector.Read())
                 {
                     Publicacion unPubli = new Publicacion();
-                    unPubli.cod_publicacion = (decimal)lector["cod_publicacion"];
+                    unPubli.cod_publicacion = (Int32)lector["cod_publicacion"];
                     unPubli.cod_tipo_publicacion = (string)lector["cod_tipo_publicacion"];
                     unPubli.fecha_inicio = Convert.ToDateTime(lector["fecha_inicio"]);
                     unPubli.fecha_vencimiernto = Convert.ToDateTime(lector["fecha_vencimiernto"]);
@@ -55,7 +55,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
             {
                 lector.Read();
 
-                    unPubli.cod_publicacion = (decimal)lector["cod_publicacion"];
+                    unPubli.cod_publicacion = (Int32)lector["cod_publicacion"];
                     unPubli.cod_tipo_publicacion = (string)lector["cod_tipo_publicacion"];
                     unPubli.fecha_inicio = (DateTime)lector["fecha_inicio"];
                     unPubli.fecha_vencimiernto = Convert.ToDateTime(lector["fecha_vencimiernto"]);
@@ -113,17 +113,17 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
 
             List<Publicacion> publis = new List<Publicacion>();
-            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT  P.COD_PUBLICACION,P.STOCK,P.PRECIO,U.USERNAME FROM NOTHING_IS_IMPOSSIBLE.PUBLICACION P,NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE (P.COD_TIPO_PUBLICACION='A' OR P.COD_TIPO_PUBLICACION='P')", "T", new List<SqlParameter>());
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT  P.COD_PUBLICACION,P.STOCK,P.PRECIO,U.USERNAME FROM NOTHING_IS_IMPOSSIBLE.PUBLICACION P,NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE (P.COD_ESTADOPUBLI='A' OR P.COD_ESTADOPUBLI='P')", "T", new List<SqlParameter>());
             List<Cliente> publicacionesPorEstado = new List<Cliente>();
             if (lector.HasRows)
             {
                 while (lector.Read())
                 {
                     Publicacion unPubli = new Publicacion();
-                    unPubli.cod_publicacion = (decimal)lector["cod_publicacion"];
-                    unPubli.stock = (decimal)lector["stock"];
-                    unPubli.precio = (decimal)lector["precio"];
-                    unPubli.user = (String)lector["username"];if (DBNull.Value != lector["costo"])
+                    unPubli.cod_publicacion = (Int32)lector["cod_publicacion"];
+                      unPubli.stock = (decimal)lector["stock"];
+                      unPubli.precio = (decimal)lector["precio"];
+                      unPubli.user = (String)lector["username"];
 
                     publis.Add(unPubli);
                 }

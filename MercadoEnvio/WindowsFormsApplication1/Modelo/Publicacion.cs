@@ -12,7 +12,7 @@ namespace MercadoEnvioFRBA.Modelo
 
         public Estado miEstado { get; set; }
 
-        public decimal cod_publicacion { get; set; }
+        public Int64 cod_publicacion { get; set; }
 
         public string cod_tipo_publicacion { get; set; }
 
