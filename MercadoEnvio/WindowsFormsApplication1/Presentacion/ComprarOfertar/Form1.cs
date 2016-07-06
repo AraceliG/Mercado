@@ -109,15 +109,20 @@ namespace MercadoEnvioFRBA.ComprarOfertar
                 MessageBox.Show("Debe elegir un criterio de búsqueda", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else 
-            {    List<Publicacion> publis= new List<Publicacion>();
-                List<Publicacion> publicaciones = DAOPublicacion.getPublicacionesOrdenadas();
-                foreach (Publicacion publi in publicaciones) {
+            {   
+
+               
+                 List<Publicacion> publis= new List<Publicacion>();
+                 List<Publicacion> publicaciones = DAOPublicacion.cumpleConFiltros(txt_desc.Text, comboBox_rubro0.SelectedText, comboBox_rubro1.SelectedText, comboBox_rubro2.SelectedText, comboBox_rubro3.SelectedText);
+                 MessageBox.Show("Su busqueda ha finalizado con éxito!", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Asterisk); //getPublicacionesOrdenadas();
+                 /*foreach (Publicacion publi in publicaciones) {
                     if (publi.cumpleConFiltros(txt_desc.Text, comboBox_rubro0.SelectedText, comboBox_rubro1.SelectedText, comboBox_rubro2.SelectedText, comboBox_rubro3.SelectedText)) 
                     {
                         publis.Add(publi);
                     }
                 }
-                dataGridPublicacion.DataSource = publis;
+                 */
+                dataGridPublicacion.DataSource = publicaciones;
             }
         }
 
@@ -133,6 +138,11 @@ namespace MercadoEnvioFRBA.ComprarOfertar
         }
 
         private void comboBox_rubro0_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

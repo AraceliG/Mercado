@@ -39,6 +39,8 @@
             this.txt_desc = new System.Windows.Forms.TextBox();
             this.dataGridPublicacion = new System.Windows.Forms.DataGridView();
             this.btn_buscar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPublicacion)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,7 +131,7 @@
             this.dataGridPublicacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPublicacion.Location = new System.Drawing.Point(43, 259);
             this.dataGridPublicacion.Name = "dataGridPublicacion";
-            this.dataGridPublicacion.Size = new System.Drawing.Size(875, 191);
+            this.dataGridPublicacion.Size = new System.Drawing.Size(875, 230);
             this.dataGridPublicacion.TabIndex = 125;
             this.dataGridPublicacion.VirtualMode = true;
             // 
@@ -144,11 +146,34 @@
             this.btn_buscar.UseVisualStyleBackColor = true;
             this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
             // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(43, 507);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 41);
+            this.button1.TabIndex = 127;
+            this.button1.Text = "Comprar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(162, 507);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(96, 41);
+            this.button2.TabIndex = 128;
+            this.button2.Text = "Ofertar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 478);
+            this.ClientSize = new System.Drawing.Size(964, 560);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_buscar);
             this.Controls.Add(this.dataGridPublicacion);
             this.Controls.Add(this.txt_desc);
@@ -172,6 +197,8 @@
             this.Controls.SetChildIndex(this.txt_desc, 0);
             this.Controls.SetChildIndex(this.dataGridPublicacion, 0);
             this.Controls.SetChildIndex(this.btn_buscar, 0);
+            this.Controls.SetChildIndex(this.button1, 0);
+            this.Controls.SetChildIndex(this.button2, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPublicacion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -190,5 +217,7 @@
         private System.Windows.Forms.TextBox txt_desc;
         private System.Windows.Forms.DataGridView dataGridPublicacion;
         private System.Windows.Forms.Button btn_buscar;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

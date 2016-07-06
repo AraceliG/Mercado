@@ -265,5 +265,60 @@ namespace MercadoEnvioFRBA.Datos.DAO
             return publis;
 
         }
+
+        internal static List<Publicacion> cumpleConFiltros(string descripcionPubli, string rubro0, string rubro1, string rubro2, string rubro3)
+        {
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            String condicionQuery1 = "";
+            String condicionQuery2 = "";
+
+            if (!String.IsNullOrEmpty(descripcionPubli))
+            {
+                listaParametros.Add(new SqlParameter("@desc_publi", descripcionPubli));
+                condicionQuery1 += " and P.descripcion=@desc_publi ";
+            }
+
+            if (!String.IsNullOrEmpty(rubro0) || !String.IsNullOrEmpty(rubro1) || !String.IsNullOrEmpty(rubro2) || !String.IsNullOrEmpty(rubro3))
+            {
+                condicionQuery2 += ",NOTHING_IS_IMPOSSIBLE.Rubro R,NOTHING_IS_IMPOSSIBLE.RubroPublicacion RP WHERE PO.cod_publicacion=RP.cod_publicacion";
+            }
+
+            if (!String.IsNullOrEmpty(rubro0))
+            {
+                listaParametros.Add(new SqlParameter("@pub_rubro0", rubro0));
+                condicionQuery2 += " and R.descripcion_larga=@pub_rubro0 ";
+            }
+            if (!String.IsNullOrEmpty(rubro1))
+            {
+                listaParametros.Add(new SqlParameter("@pub_rubro1", rubro1));
+                condicionQuery2 += "and R.descripcion_larga=@pub_rubro1 ";
+            }
+
+            if (!String.IsNullOrEmpty(rubro2))
+            {
+                listaParametros.Add(new SqlParameter("@pub_rubro2", rubro2));
+                condicionQuery2 += "and R.descripcion_larga=@pub_rubro2 ";
+            }
+
+            if (!String.IsNullOrEmpty(rubro3))
+            {
+                listaParametros.Add(new SqlParameter("@pub_rubro3", rubro3));
+                condicionQuery2 += "and R.descripcion_larga=@pub_rubro3 ";
+            }
+            
+
+            String base_query = " select PO.cod_publicacion,PO.descripcion,PO.fecha_inicio,PO.fecha_vencimiernto,PO.stock,PO.precio,PO.USERID " +
+            "FROM" +
+ "(SELECT P.cod_publicacion,P.USERID,V.cod_visibilidad,P.descripcion,V.comision_publicar,fecha_inicio,fecha_vencimiernto,stock,precio" +
+ " FROM NOTHING_IS_IMPOSSIBLE.Publicacion P inner join NOTHING_IS_IMPOSSIBLE.Visibilidad V on P.cod_visibilidad=V.cod_visibilidad WHERE (P.COD_ESTADOPUBLI='A' OR P.COD_ESTADOPUBLI='P')" +
+
+           condicionQuery1 + ") PO" + condicionQuery2;
+
+            base_query += " Order by PO.comision_publicar desc ";
+
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader(base_query, "T", listaParametros);
+
+            return createPublicacionListFromQuery(lector);
+        }
     }
 }
