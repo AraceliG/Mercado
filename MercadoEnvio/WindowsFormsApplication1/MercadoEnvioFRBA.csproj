@@ -213,11 +213,11 @@
     <Compile Include="Presentacion\Calificar\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\ComprarOfertar\Form1.cs">
+    <Compile Include="Presentacion\ComprarOfertar\FormCompraOferta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\ComprarOfertar\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Presentacion\ComprarOfertar\FormCompraOferta.Designer.cs">
+      <DependentUpon>FormCompraOferta.cs</DependentUpon>
     </Compile>
     <Compile Include="Datos\AccesoBaseDeDatos.cs" />
     <Compile Include="Presentacion\Facturas\Form1.cs">
@@ -279,8 +279,8 @@
     <EmbeddedResource Include="Presentacion\ABM Visibilidad\FormAltaModifVisibilidad.resx">
       <DependentUpon>FormAltaModifVisibilidad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\ComprarOfertar\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Presentacion\ComprarOfertar\FormCompraOferta.resx">
+      <DependentUpon>FormCompraOferta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ComprarOfertar\FormCompra.resx">
       <DependentUpon>FormCompra.cs</DependentUpon>

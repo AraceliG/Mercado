@@ -11,6 +11,7 @@ using MercadoEnvioFRBA.Presentacion;
 using System.Web;
 using MercadoEnvioFRBA.Datos.DAO;
 using MercadoEnvioFRBA.Modelo;
+using MercadoEnvioFRBA.Presentacion.ComprarOfertar;
 
 namespace MercadoEnvioFRBA.ComprarOfertar
     
@@ -148,7 +149,10 @@ namespace MercadoEnvioFRBA.ComprarOfertar
                 if ( ! publi.laHizoUsuario(usuario)){
                     if (! publi.estaPausada()){
                         if(publi.esCompra()){
-                            
+                            this.Hide();
+                            FormCompra buscarRol = new FormCompra(publi,usuario);
+                            buscarRol.ShowDialog();
+                            this.Show();
                         }
                         else{
                         MessageBox.Show("La publicacion es para realizar OFERTAS a SUBASTAS ", "Publicacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -186,7 +190,10 @@ namespace MercadoEnvioFRBA.ComprarOfertar
                     {
                         if (! publi.esCompra())
                         {
-
+                            this.Hide();
+                            FormOfertaDeSubasta buscarRol = new FormOfertaDeSubasta(publi,usuario);
+                            buscarRol.ShowDialog();
+                            this.Show();
                         }
                         else
                         {

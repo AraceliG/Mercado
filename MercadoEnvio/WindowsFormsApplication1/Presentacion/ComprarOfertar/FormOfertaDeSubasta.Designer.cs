@@ -34,7 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label_ultimaOferta = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txr_valorOferta = new System.Windows.Forms.TextBox();
             this.btn_aceptar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -86,13 +86,13 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Ingresar oferta:";
             // 
-            // textBox1
+            // txr_valorOferta
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(178, 154);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(178, 26);
-            this.textBox1.TabIndex = 6;
+            this.txr_valorOferta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txr_valorOferta.Location = new System.Drawing.Point(178, 154);
+            this.txr_valorOferta.Name = "txr_valorOferta";
+            this.txr_valorOferta.Size = new System.Drawing.Size(178, 26);
+            this.txr_valorOferta.TabIndex = 6;
             // 
             // btn_aceptar
             // 
@@ -111,7 +111,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(426, 311);
             this.Controls.Add(this.btn_aceptar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txr_valorOferta);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label_ultimaOferta);
             this.Controls.Add(this.label2);
@@ -125,7 +125,7 @@
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label_ultimaOferta, 0);
             this.Controls.SetChildIndex(this.label3, 0);
-            this.Controls.SetChildIndex(this.textBox1, 0);
+            this.Controls.SetChildIndex(this.txr_valorOferta, 0);
             this.Controls.SetChildIndex(this.btn_aceptar, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -139,7 +139,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label_ultimaOferta;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txr_valorOferta;
         private System.Windows.Forms.Button btn_aceptar;
     }
 }

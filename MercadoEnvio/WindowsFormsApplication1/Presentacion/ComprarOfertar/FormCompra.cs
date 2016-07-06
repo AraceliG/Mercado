@@ -13,8 +13,19 @@ namespace MercadoEnvioFRBA.Presentacion.ComprarOfertar
 {
     public partial class FormCompra : FormBaseUTN
     {
+        private Publicacion publi;
+        private Usuario usuario;
+
         public FormCompra()
         {
+            InitializeComponent();
+        }
+
+        public FormCompra(Publicacion publi, Usuario usuario)
+        {
+            
+            this.publi = publi;
+            this.usuario = usuario;
             InitializeComponent();
         }
 
