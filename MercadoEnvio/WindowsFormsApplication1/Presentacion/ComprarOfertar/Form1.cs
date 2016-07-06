@@ -104,7 +104,21 @@ namespace MercadoEnvioFRBA.ComprarOfertar
 
         private void btn_buscar_Click(object sender, EventArgs e)
         {
-            
+            if (txt_desc.Text.Length == 0 && comboBox_rubro1.SelectedItem == null && comboBox_rubro0.SelectedItem==null && comboBox_rubro2.SelectedItem == null && comboBox_rubro3.SelectedItem==null)
+            {
+                MessageBox.Show("Debe elegir un criterio de búsqueda", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else 
+            {    List<Publicacion> publis= new List<Publicacion>();
+                List<Publicacion> publicaciones = DAOPublicacion.getPublicacionesOrdenadas();
+                foreach (Publicacion publi in publicaciones) {
+                    if (publi.cumpleConFiltros(txt_desc.Text, comboBox_rubro0.SelectedText, comboBox_rubro1.SelectedText, comboBox_rubro2.SelectedText, comboBox_rubro3.SelectedText)) 
+                    {
+                        publis.Add(publi);
+                    }
+                }
+                dataGridPublicacion.DataSource = publis;
+            }
         }
 
         private void actualizarGrilla()

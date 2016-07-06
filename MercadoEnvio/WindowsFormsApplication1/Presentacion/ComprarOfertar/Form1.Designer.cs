@@ -36,7 +36,7 @@
             this.comboBox_rubro3 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Compralabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_desc = new System.Windows.Forms.TextBox();
             this.dataGridPublicacion = new System.Windows.Forms.DataGridView();
             this.btn_buscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPublicacion)).BeginInit();
@@ -116,13 +116,13 @@
             this.Compralabel.TabIndex = 123;
             this.Compralabel.Text = "Comprar/Ofertar";
             // 
-            // textBox1
+            // txt_desc
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(249, 197);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(198, 29);
-            this.textBox1.TabIndex = 124;
+            this.txt_desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_desc.Location = new System.Drawing.Point(249, 197);
+            this.txt_desc.Name = "txt_desc";
+            this.txt_desc.Size = new System.Drawing.Size(198, 29);
+            this.txt_desc.TabIndex = 124;
             // 
             // dataGridPublicacion
             // 
@@ -151,7 +151,7 @@
             this.ClientSize = new System.Drawing.Size(964, 478);
             this.Controls.Add(this.btn_buscar);
             this.Controls.Add(this.dataGridPublicacion);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_desc);
             this.Controls.Add(this.Compralabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox_rubro3);
@@ -169,7 +169,7 @@
             this.Controls.SetChildIndex(this.comboBox_rubro3, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.Compralabel, 0);
-            this.Controls.SetChildIndex(this.textBox1, 0);
+            this.Controls.SetChildIndex(this.txt_desc, 0);
             this.Controls.SetChildIndex(this.dataGridPublicacion, 0);
             this.Controls.SetChildIndex(this.btn_buscar, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPublicacion)).EndInit();
@@ -187,7 +187,7 @@
         private System.Windows.Forms.ComboBox comboBox_rubro3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label Compralabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_desc;
         private System.Windows.Forms.DataGridView dataGridPublicacion;
         private System.Windows.Forms.Button btn_buscar;
     }

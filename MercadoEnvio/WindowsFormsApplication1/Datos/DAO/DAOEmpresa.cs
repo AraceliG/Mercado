@@ -118,7 +118,7 @@ private static string consulta(String razonSocial,String mail, String cuit)
 
         public static bool existeUsername(string username)
         {
-            List<Empresa> clienteList = new List<Empresa>();
+           
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             listaParametros.Add(new SqlParameter("@cli_username", username));
             SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.EMPRESA E,NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE E.USERID=U.USERID AND U.USERNAME=@cli_username", "T", listaParametros);

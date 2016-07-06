@@ -52,5 +52,10 @@ namespace MercadoEnvioFRBA.Modelo
         }
 
 
+
+        internal bool cumpleConFiltros(string descripcionPubli, string rubro0, string rubro1, string rubro2, string rubro3)
+        {
+            return DAOPublicacion.cumpleFiltros(this, descripcionPubli, rubro0, rubro1, rubro2, rubro3);
+        }
     }
 }
