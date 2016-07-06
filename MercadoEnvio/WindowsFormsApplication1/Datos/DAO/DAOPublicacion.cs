@@ -190,7 +190,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
              List<Publicacion> lista = new List<Publicacion>();
              lista = getPublicacionesOrdenadas();
              return lista;
-                //mañana :el paginado no lo se, no lo voy a tener en cuenta
+                //el paginado no lo voy a tener en cuenta
             // 
            
         }

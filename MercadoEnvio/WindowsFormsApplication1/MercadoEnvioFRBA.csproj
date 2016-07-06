@@ -54,6 +54,7 @@
     <Compile Include="Datos\DAO\DAOPublicacion.cs" />
     <Compile Include="Datos\DAO\DAORol.cs" />
     <Compile Include="Datos\DAO\DAORolFuncionalidad.cs" />
+    <Compile Include="Datos\DAO\DAORubro.cs" />
     <Compile Include="Datos\DAO\DAOTipoComisionEnvio.cs" />
     <Compile Include="Datos\DAO\DAOUsuario.cs" />
     <Compile Include="Datos\DAO\DAOVisibilidad.cs" />
@@ -63,6 +64,8 @@
     <Compile Include="Modelo\Funcionalidad.cs" />
     <Compile Include="Modelo\Publicacion.cs" />
     <Compile Include="Modelo\Rol.cs" />
+    <Compile Include="Modelo\Rubro.cs" />
+    <Compile Include="Modelo\RubroPublicacion.cs" />
     <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Modelo\Visibilidad.cs" />
     <Compile Include="Presentacion\ABM Rol\ABMrol.cs">

@@ -49,8 +49,9 @@
             this.comboBox_rubro0.FormattingEnabled = true;
             this.comboBox_rubro0.Location = new System.Drawing.Point(249, 142);
             this.comboBox_rubro0.Name = "comboBox_rubro0";
-            this.comboBox_rubro0.Size = new System.Drawing.Size(198, 28);
+            this.comboBox_rubro0.Size = new System.Drawing.Size(343, 28);
             this.comboBox_rubro0.TabIndex = 117;
+            this.comboBox_rubro0.SelectedIndexChanged += new System.EventHandler(this.comboBox_rubro0_SelectedIndexChanged);
             // 
             // comboBox_rubro1
             // 
@@ -59,7 +60,7 @@
             this.comboBox_rubro1.FormattingEnabled = true;
             this.comboBox_rubro1.Location = new System.Drawing.Point(249, 94);
             this.comboBox_rubro1.Name = "comboBox_rubro1";
-            this.comboBox_rubro1.Size = new System.Drawing.Size(198, 28);
+            this.comboBox_rubro1.Size = new System.Drawing.Size(343, 28);
             this.comboBox_rubro1.TabIndex = 118;
             this.comboBox_rubro1.SelectedIndexChanged += new System.EventHandler(this.comboBox_rubro1_SelectedIndexChanged);
             // 
@@ -78,19 +79,20 @@
             this.comboBox_rubro2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_rubro2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_rubro2.FormattingEnabled = true;
-            this.comboBox_rubro2.Location = new System.Drawing.Point(472, 94);
+            this.comboBox_rubro2.Location = new System.Drawing.Point(598, 94);
             this.comboBox_rubro2.Name = "comboBox_rubro2";
-            this.comboBox_rubro2.Size = new System.Drawing.Size(198, 28);
+            this.comboBox_rubro2.Size = new System.Drawing.Size(343, 28);
             this.comboBox_rubro2.TabIndex = 120;
+            this.comboBox_rubro2.SelectedIndexChanged += new System.EventHandler(this.comboBox_rubro2_SelectedIndexChanged);
             // 
             // comboBox_rubro3
             // 
             this.comboBox_rubro3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_rubro3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_rubro3.FormattingEnabled = true;
-            this.comboBox_rubro3.Location = new System.Drawing.Point(472, 142);
+            this.comboBox_rubro3.Location = new System.Drawing.Point(598, 142);
             this.comboBox_rubro3.Name = "comboBox_rubro3";
-            this.comboBox_rubro3.Size = new System.Drawing.Size(198, 28);
+            this.comboBox_rubro3.Size = new System.Drawing.Size(343, 28);
             this.comboBox_rubro3.TabIndex = 121;
             // 
             // label2

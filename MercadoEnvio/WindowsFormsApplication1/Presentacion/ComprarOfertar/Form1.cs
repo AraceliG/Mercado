@@ -17,6 +17,11 @@ namespace MercadoEnvioFRBA.ComprarOfertar
 {
     public partial class Form1 : FormBaseUTN
     {
+        private List<Rubro> rubros0;
+        private List<Rubro> rubros1;
+        private List<Rubro> rubros2;
+        private List<Rubro> rubros3;
+        
         public Form1()
         {
             InitializeComponent();
@@ -29,6 +34,26 @@ namespace MercadoEnvioFRBA.ComprarOfertar
         {
             dataGridPublicacion.AutoGenerateColumns = false;
             dataGridPublicacion.MultiSelect = false;
+            rubros0 = DAORubro.devolverTodos();
+            rubros1 = DAORubro.devolverTodos();
+            rubros2 = DAORubro.devolverTodos();
+            rubros3 = DAORubro.devolverTodos();
+            comboBox_rubro0.DataSource = rubros0;
+            comboBox_rubro0.DisplayMember = "descripcion_larga";
+            comboBox_rubro2.DataSource = rubros1;
+            comboBox_rubro2.DisplayMember = "descripcion_larga";
+
+            comboBox_rubro1.DataSource = rubros2;
+            comboBox_rubro1.DisplayMember = "descripcion_larga";
+
+            comboBox_rubro3.DataSource = rubros3;
+            comboBox_rubro3.DisplayMember = "descripcion_larga";
+
+            comboBox_rubro0.SelectedIndex = -1;
+           comboBox_rubro1.SelectedIndex = -1;
+           comboBox_rubro2.SelectedIndex = -1;
+           comboBox_rubro3.SelectedIndex = -1;
+
 
             cargarGrilla();
             actualizarGrilla();
@@ -73,17 +98,29 @@ namespace MercadoEnvioFRBA.ComprarOfertar
         private void comboBox_rubro1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+            
+
         }
 
         private void btn_buscar_Click(object sender, EventArgs e)
         {
-            actualizarGrilla();
+            
         }
 
         private void actualizarGrilla()
         {
             List<Publicacion> publicaciones = DAOPublicacion.devolverPublicaciones();
             dataGridPublicacion.DataSource = publicaciones;
+        }
+
+        private void comboBox_rubro2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void comboBox_rubro0_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
 
