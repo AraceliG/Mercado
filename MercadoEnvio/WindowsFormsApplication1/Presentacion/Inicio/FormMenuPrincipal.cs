@@ -90,7 +90,7 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
         private void func7_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 buscarRol = new Form1();
+            Form1 buscarRol = new Form1(usuario);
             buscarRol.ShowDialog();
             this.Show();
 

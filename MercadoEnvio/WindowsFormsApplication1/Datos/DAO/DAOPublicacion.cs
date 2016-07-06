@@ -266,7 +266,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
         }
 
-        internal static List<Publicacion> cumpleConFiltros(string descripcionPubli, string rubro0, string rubro1, string rubro2, string rubro3)
+        public static List<Publicacion> cumpleConFiltros(string descripcionPubli, string rubro0, string rubro1, string rubro2, string rubro3)
         {
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             String condicionQuery1 = "";
@@ -320,5 +320,33 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
             return createPublicacionListFromQuery(lector);
         }
+
+        public static bool hizoUsuarioPublicacion(Publicacion publicacion, Usuario usuario)
+        {
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(new SqlParameter("@cod_publi", publicacion.cod_publicacion));
+            listaParametros.Add(new SqlParameter("@cod_usuario", usuario.userId));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.PUBLICACION P WHERE P.COD_PUBLICACION=@cod_publi AND P.USERID=@cod_usuario ", "T", listaParametros);
+            return createPublicacionListFromQuery(lector).Count >= 1;
+        }
+
+        public static bool estaPausada(Publicacion publicacion)
+        {
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(new SqlParameter("@cod_publi", publicacion.cod_publicacion));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT  P.cod_publicacion,fecha_inicio,fecha_vencimiernto,stock,precio,userId FROM NOTHING_IS_IMPOSSIBLE.PUBLICACION P WHERE P.COD_PUBLICACION=@cod_publi AND P.COD_ESTADOPUBLI='P' ", "T", listaParametros);
+            return createPublicacionListFromQuery(lector).Count >= 1;
+        }
+
+        public static bool esCompra(Publicacion publicacion)
+        {
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(new SqlParameter("@cod_publi", publicacion.cod_publicacion));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT P.cod_publicacion,fecha_inicio,fecha_vencimiernto,stock,precio,userId FROM NOTHING_IS_IMPOSSIBLE.PUBLICACION P WHERE P.COD_PUBLICACION=@cod_publi AND P.COD_TIPO_PUBLICACION='C' ", "T", listaParametros);
+            return createPublicacionListFromQuery(lector).Count >= 1;
+            
+        }
+
+       
     }
 }

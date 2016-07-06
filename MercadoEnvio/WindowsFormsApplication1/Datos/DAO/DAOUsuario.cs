@@ -177,5 +177,6 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
       AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USUARIO.PASS=@pass WHERE USUARIO.USERNAME=@nombre", "T", paramList);
   }
+
     }
     }

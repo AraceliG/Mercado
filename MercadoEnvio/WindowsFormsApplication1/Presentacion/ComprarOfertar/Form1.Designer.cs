@@ -39,8 +39,8 @@
             this.txt_desc = new System.Windows.Forms.TextBox();
             this.dataGridPublicacion = new System.Windows.Forms.DataGridView();
             this.btn_buscar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_compra = new System.Windows.Forms.Button();
+            this.btn_ofertar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPublicacion)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,34 +146,35 @@
             this.btn_buscar.UseVisualStyleBackColor = true;
             this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
             // 
-            // button1
+            // btn_compra
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(43, 507);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 41);
-            this.button1.TabIndex = 127;
-            this.button1.Text = "Comprar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_compra.Image = ((System.Drawing.Image)(resources.GetObject("btn_compra.Image")));
+            this.btn_compra.Location = new System.Drawing.Point(43, 507);
+            this.btn_compra.Name = "btn_compra";
+            this.btn_compra.Size = new System.Drawing.Size(96, 41);
+            this.btn_compra.TabIndex = 127;
+            this.btn_compra.Text = "Comprar";
+            this.btn_compra.UseVisualStyleBackColor = true;
+            this.btn_compra.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btn_ofertar
             // 
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(162, 507);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 41);
-            this.button2.TabIndex = 128;
-            this.button2.Text = "Ofertar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_ofertar.Image = ((System.Drawing.Image)(resources.GetObject("btn_ofertar.Image")));
+            this.btn_ofertar.Location = new System.Drawing.Point(162, 507);
+            this.btn_ofertar.Name = "btn_ofertar";
+            this.btn_ofertar.Size = new System.Drawing.Size(96, 41);
+            this.btn_ofertar.TabIndex = 128;
+            this.btn_ofertar.Text = "Ofertar";
+            this.btn_ofertar.UseVisualStyleBackColor = true;
+            this.btn_ofertar.Click += new System.EventHandler(this.btn_ofertar_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(964, 560);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_ofertar);
+            this.Controls.Add(this.btn_compra);
             this.Controls.Add(this.btn_buscar);
             this.Controls.Add(this.dataGridPublicacion);
             this.Controls.Add(this.txt_desc);
@@ -197,8 +198,8 @@
             this.Controls.SetChildIndex(this.txt_desc, 0);
             this.Controls.SetChildIndex(this.dataGridPublicacion, 0);
             this.Controls.SetChildIndex(this.btn_buscar, 0);
-            this.Controls.SetChildIndex(this.button1, 0);
-            this.Controls.SetChildIndex(this.button2, 0);
+            this.Controls.SetChildIndex(this.btn_compra, 0);
+            this.Controls.SetChildIndex(this.btn_ofertar, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPublicacion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -217,7 +218,7 @@
         private System.Windows.Forms.TextBox txt_desc;
         private System.Windows.Forms.DataGridView dataGridPublicacion;
         private System.Windows.Forms.Button btn_buscar;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_compra;
+        private System.Windows.Forms.Button btn_ofertar;
     }
 }
