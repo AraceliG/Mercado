@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCompra));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_cantidadCompra = new System.Windows.Forms.TextBox();
             this.label_precioPorUnidad = new System.Windows.Forms.Label();
             this.btn_aceptar = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -56,13 +56,13 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Precio por unidad:";
             // 
-            // textBox1
+            // txt_cantidadCompra
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(229, 84);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(242, 26);
-            this.textBox1.TabIndex = 3;
+            this.txt_cantidadCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_cantidadCompra.Location = new System.Drawing.Point(229, 84);
+            this.txt_cantidadCompra.Name = "txt_cantidadCompra";
+            this.txt_cantidadCompra.Size = new System.Drawing.Size(242, 26);
+            this.txt_cantidadCompra.TabIndex = 3;
             // 
             // label_precioPorUnidad
             // 
@@ -91,7 +91,7 @@
             this.ClientSize = new System.Drawing.Size(524, 259);
             this.Controls.Add(this.btn_aceptar);
             this.Controls.Add(this.label_precioPorUnidad);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_cantidadCompra);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormCompra";
@@ -99,7 +99,7 @@
             this.Load += new System.EventHandler(this.FormCompra_Load);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.textBox1, 0);
+            this.Controls.SetChildIndex(this.txt_cantidadCompra, 0);
             this.Controls.SetChildIndex(this.label_precioPorUnidad, 0);
             this.Controls.SetChildIndex(this.btn_aceptar, 0);
             this.ResumeLayout(false);
@@ -111,7 +111,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_cantidadCompra;
         private System.Windows.Forms.Label label_precioPorUnidad;
         private System.Windows.Forms.Button btn_aceptar;
     }
