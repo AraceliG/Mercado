@@ -18,7 +18,7 @@ namespace MercadoEnvioFRBA.Modelo
 
         public DateTime fecha_vencimiernto { get; set; }
 
-        public decimal stock { get; set; }
+        public Decimal stock { get; set; }
 
         public decimal precio { get; set; }
 
@@ -35,6 +35,9 @@ namespace MercadoEnvioFRBA.Modelo
         public DateTime fecha_inicio { get; set; }
 
         public Decimal userId { get; set; }
+
+        Decimal montoEnvio;
+        Decimal montoVenta;
 
         internal static object buscarPublicaciones(string filtro)
         {
@@ -72,5 +75,61 @@ namespace MercadoEnvioFRBA.Modelo
         {
             return DAOPublicacion.esCompra(this);
         }
+
+
+       internal bool tieneStock(int cantidadComprada)
+       {
+           return DAOPublicacion.tieneStockPublicacion(this,cantidadComprada);
+       }
+
+       internal void facturar(Int32 stock)
+       {
+           DAOPublicacion.generarFactura(this,stock);
+       }
+
+
+       internal Decimal montoDeVenta()
+       {
+           return montoVenta=this.precio * DAOVisibilidad.comosionPorVenta(DAOPublicacion.obtenerVisibilidad(this));
+          
+       }
+
+       internal Decimal montoDeEnvio()
+       {
+
+           return montoEnvio = DAOVisibilidad.comosionPorEnvio(DAOPublicacion.obtenerVisibilidad(this));
+          
+       }
+
+       internal Decimal totalFactura()
+       {
+           return montoEnvio + montoEnvio;
+       }
+
+       internal void documentarCompra(Usuario usuario,int stock)
+       {
+           DAOCompra.documentarCompra(this, stock,usuario);
+       }
+
+         Decimal stockViejo;
+         Decimal nuevoStock;
+
+       internal void actualizarStock(Decimal cantidadComprada)
+       {
+           
+           stockViejo = DAOPublicacion.obtenerStock(this);
+           nuevoStock = stockViejo - cantidadComprada;
+           DAOPublicacion.actualizarStock(this,nuevoStock );
+       }
+
+       internal bool finStock()
+       {
+          return  DAOPublicacion.esFinStock(this);
+       }
+
+       internal void finalizar()
+       {
+           DAOPublicacion.finalizate(this);
+       }
     }
 }

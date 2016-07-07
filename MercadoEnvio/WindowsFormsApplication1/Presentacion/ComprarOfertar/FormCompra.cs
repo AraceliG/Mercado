@@ -33,5 +33,49 @@ namespace MercadoEnvioFRBA.Presentacion.ComprarOfertar
         {
 
         }
+
+        private void btn_aceptar_Click(object sender, EventArgs e)
+        {
+            bool vacio = false;
+            if (txt_cantidadCompra.Text.Length == 0)
+            {
+                error_cant.SetError(txt_cantidadCompra, "debe ingresar una cantidad");
+                vacio = true;
+            }
+            else { error_cant.Clear(); }
+            if (vacio) return;
+
+            int number;
+            if (!(Int32.TryParse(txt_cantidadCompra.Text, out number))) {
+                MessageBox.Show("Se debe ingresar un número entero", "Stock", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Int32 cantidadComprada = Convert.ToInt32(txt_cantidadCompra.Text);
+
+            if (publi.tieneStock(cantidadComprada))
+            {
+                publi.facturar(cantidadComprada);
+                publi.documentarCompra(usuario,cantidadComprada);
+                publi.actualizarStock(cantidadComprada);
+                if (publi.finStock()) {
+                    publi.finalizar();
+                }
+
+                 MessageBox.Show(" la compra se ha realizado con éxito", "Compra", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                 this.Close();
+            }
+            else {   MessageBox.Show("La cantidad ingresada supera al stock disponible, por favor ingrese una cantidad menor", "Stock", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);}
+        }
+
+        private void txt_cantidadCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
     }
 }

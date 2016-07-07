@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MercadoEnvioFRBA.Datos.DAO
 {
@@ -92,6 +93,54 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
             return AccesoBaseDeDatos.WriteInBase(noQuery, "T", ListaParametros);
           
+        }
+
+        
+
+        internal static decimal comosionPorVenta(decimal cod_visibilidad)
+        {
+            List<Visibilidad> visibilidades = new List<Visibilidad>();
+            List<SqlParameter> paramList = new List<SqlParameter>();
+
+            paramList.Add(new SqlParameter("@cod_visibilidad", cod_visibilidad));
+
+            MessageBox.Show("hasta aca llega y el codigo es " + cod_visibilidad + "", "Stock", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT COD_VISIBILIDAD,COMISION_VENDER FROM NOTHING_IS_IMPOSSIBLE.Visibilidad WHERE COD_VISIBILIDAD=@cod_visibilidad", "T", paramList);
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    Visibilidad unVisibilidad = new Visibilidad();
+                    unVisibilidad.cod_visibilidad = (decimal)lector["cod_visibilidad"];
+                    unVisibilidad.comision_vender = (decimal)lector["comision_vender"];
+                    visibilidades.Add(unVisibilidad);
+                }
+            }
+            MessageBox.Show("hasta aca llega y el codigo la comision es " + visibilidades.Count + "", "Stock", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            return visibilidades[0].comision_vender;
+
+
+        }
+
+        internal static Decimal comosionPorEnvio(decimal cod_visibilidad)
+        {
+            List<Visibilidad> visibilidades = new List<Visibilidad>();
+            List<SqlParameter> paramList = new List<SqlParameter>();
+
+            paramList.Add(new SqlParameter("@cod_visibilidad", cod_visibilidad));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT COD_VISIBILIDAD,VALOR_COMISION_ENVIO FROM NOTHING_IS_IMPOSSIBLE.Visibilidad WHERE COD_VISIBILIDAD=@cod_visibilidad", "T", paramList);
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    Visibilidad unVisibilidad = new Visibilidad();
+                    unVisibilidad.cod_visibilidad = (decimal)lector["cod_visibilidad"];
+                    unVisibilidad.valor_comision_envio = (decimal)lector["valor_comision_envio"];
+                    visibilidades.Add(unVisibilidad);
+                }
+            }
+            return visibilidades[0].valor_comision_envio;
         }
     }
 }
