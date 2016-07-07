@@ -442,5 +442,16 @@ internal static void finalizate(Publicacion publi)
     parameterList.Add(new SqlParameter("@cod_publi", publi.cod_publicacion));
     AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.PUBLICACION SET COD_ESTADOPUBLI='F' WHERE COD_PUBLICACION=@cod_publi", "T", parameterList);
 }
+
+
+
+internal static void actualizarOferta(Publicacion publicacion, int oferta)
+{
+    List<SqlParameter> parameterList = new List<SqlParameter>();
+    parameterList.Add(new SqlParameter("@cod_publi", publicacion.cod_publicacion));
+    parameterList.Add(new SqlParameter("@oferta", oferta));
+    AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.PUBLICACION SET PRECIO=@oferta WHERE COD_PUBLICACION=@cod_publi", "T", parameterList);
+
+}
     }
     }

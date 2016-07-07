@@ -131,5 +131,15 @@ namespace MercadoEnvioFRBA.Modelo
        {
            DAOPublicacion.finalizate(this);
        }
+
+       internal void actualizarPrecio(int oferta)
+       {
+           DAOPublicacion.actualizarOferta(this,oferta);
+       }
+
+       internal void ofertate(int oferta, Usuario usuario)
+       {
+           DAOOferta.crearOferta(this, usuario, oferta);
+       }
     }
 }
