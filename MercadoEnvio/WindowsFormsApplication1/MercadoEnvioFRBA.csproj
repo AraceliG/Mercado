@@ -203,6 +203,12 @@
     <Compile Include="Presentacion\Historial Cliente\FormListadoOfertas.Designer.cs">
       <DependentUpon>FormListadoOfertas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Historial Cliente\FormPendientesCalificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Historial Cliente\FormPendientesCalificar.Designer.cs">
+      <DependentUpon>FormPendientesCalificar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Inicio\FormElegirRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -319,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Generar Publicación\FormGenerarPublicacion.resx">
       <DependentUpon>FormGenerarPublicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Historial Cliente\FormPendientesCalificar.resx">
+      <DependentUpon>FormPendientesCalificar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Historial Cliente\HistorialMenu.resx">
       <DependentUpon>HistorialMenu.cs</DependentUpon>

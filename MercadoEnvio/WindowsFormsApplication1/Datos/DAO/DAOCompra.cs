@@ -43,7 +43,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     compra.userId=(int)(decimal)lector["userId"];
                     compra.fecha=(DateTime)lector["fecha"];
                     compra.cantidad=(int)(decimal)lector["cantidad"];
-                    compra.cant_estrellas = (int)(decimal)lector["cantidad"];
+                    compra.cant_estrellas = (int)(decimal)lector["cant_estrellas"];
                     compra.txt_libre_calif = lector["txt_libre_calif"] == DBNull.Value ? null : (string)lector["txt_libre_calif"];
                         //(String)lector["txt_libre_calif"];
 
@@ -54,6 +54,33 @@ namespace MercadoEnvioFRBA.Datos.DAO
             return compraList;
 
             
+        }
+
+        internal static List<Compra> comprasSinCalificar( Usuario user)
+        {
+            List<Compra> compraList = new List<Compra>();
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(new SqlParameter("@userId", user.userId));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.COMPRA C WHERE C.USERID=@userId and (C.CANT_ESTRELLAS IS NULL)", "T", listaParametros);
+
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+
+                    Compra compra = new Compra();
+                    compra.cod_publicacion = (int)(decimal)lector["cod_publicacion"];
+                    compra.userId = (int)(decimal)lector["userId"]; 
+                    compra.cantidad = (int)(decimal)lector["cantidad"];
+                    //problemas con valores en null tomorrowww
+                   // compra.cant_estrellas = lector["cant_estrellas"]== DBNull.Value ? null :  (int)(decimal)lector["cant_estrellas"];
+                    //compra.txt_libre_calif = lector["txt_libre_calif"] == DBNull.Value ? null : (string)lector["txt_libre_calif"];
+
+                    compraList.Add(compra);
+                }
+            }
+
+            return compraList;
         }
     }
 }

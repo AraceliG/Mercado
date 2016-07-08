@@ -50,5 +50,13 @@ namespace MercadoEnvioFRBA.Historial_Cliente
             buscarRol.ShowDialog();
             this.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormPendientesCalificar pendientesCalif = new FormPendientesCalificar(usuario);
+            pendientesCalif.ShowDialog();
+            this.Show();
+        }
     }
 }

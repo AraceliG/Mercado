@@ -67,5 +67,10 @@ namespace MercadoEnvioFRBA.Presentacion.Historial_Cliente
             dataGridOfertas.Columns.Add(colFecha);
             dataGridOfertas.Columns.Add(colEstadoOferta);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

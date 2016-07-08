@@ -124,5 +124,10 @@ namespace MercadoEnvioFRBA.Modelo
         {
             return DAOOferta.lasOfertasDeCliente(this);
         }
+
+        internal List<Compra> tusComprasSinCalificar()
+        {
+            return DAOCompra.comprasSinCalificar(this);
+        }
     }
 }

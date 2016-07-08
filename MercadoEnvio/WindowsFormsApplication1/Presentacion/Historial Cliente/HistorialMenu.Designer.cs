@@ -104,6 +104,7 @@
             this.button2.Text = "PENDIENTE DE CALIFICAR";
             this.button2.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 

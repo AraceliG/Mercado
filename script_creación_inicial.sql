@@ -1001,6 +1001,44 @@ GROUP BY cli.cod_usuario
 END
 GO
 
+CREATE PROCEDURE [NOTHING_IS_IMPOSSIBLE].[sp_facturarItems] 
+    @cod_publicacion numeric(18,0), 
+	@userIdVendedor numeric(18,0),
+	@totalFactura numeric(18, 0),
+	@numeroItemVenta numeric(18,0),
+	@numeroItemEnvio numeric(18,0),
+	@montoItemComisionPorVenta numeric(18,0),
+	@montoItemComisionPorEnvio numeric(18, 0),
+	@conceptoPorVenta numeric(18,0),
+	@conceptoPorEnvio numeric(18,0),
+	@cantidad numeric(18,0)
+AS
+BEGIN
+	DECLARE @ultimoID numeric(18,0);
 
+	-- alta factura
+	INSERT INTO NOTHING_IS_IMPOSSIBLE.Factura
+		(cod_publicacion, userId, total) 
+	VALUES
+		(@cod_publicacion, @userIdVendedor, @totalFactura);
+
+	
+	--SCOPE_IDENTITY: Esta funcion te retorna el último valor de identidad en el ámbito de ejecución actual. Es decir, el último autonumerico que realizó.
+	select @ultimoID = scope_identity();
+	
+	--  item 1
+	INSERT INTO NOTHING_IS_IMPOSSIBLE.ItemFactura 
+		(nro_factura, monto, cantidad,nro_item) 
+	VALUES
+		(@ultimoID, @montoItemComisionPorVenta, @cantidad,@numeroItemVenta);
+
+--  item 1
+	INSERT INTO NOTHING_IS_IMPOSSIBLE.ItemFactura 
+		(nro_factura, monto, cantidad,nro_item) 
+	VALUES
+		(@ultimoID, @montoItemComisionPorVenta, @cantidad,@numeroItemEnvio);
+
+END
+GO
  
 
