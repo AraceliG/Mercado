@@ -12,6 +12,9 @@ using System.Windows.Forms;
 using MercadoEnvioFRBA.Presentacion.ABM_Usuario;
 using MercadoEnvioFRBA.ABM_Rol;
 using MercadoEnvioFRBA.ComprarOfertar;
+using MercadoEnvioFRBA.Historial_Cliente;
+using MercadoEnvioFRBA.Presentacion.ABM_Rol;
+using MercadoEnvioFRBA.Presentacion.Historial_Cliente;
 
 namespace MercadoEnvioFRBA.Presentacion.Inicio
 {
@@ -90,9 +93,19 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
         private void func7_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 buscarRol = new Form1(usuario);
+            ABMrol buscarRol = new ABMrol(usuario);
             buscarRol.ShowDialog();
             this.Show();
+
+        }
+
+        private void func8_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HistorialMenu historial = new HistorialMenu(usuario);
+            historial.ShowDialog();
+            this.Show();
+
 
         }
     }

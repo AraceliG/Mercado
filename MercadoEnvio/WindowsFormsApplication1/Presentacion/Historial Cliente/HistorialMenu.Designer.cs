@@ -1,6 +1,6 @@
 ﻿namespace MercadoEnvioFRBA.Historial_Cliente
 {
-    partial class Form1
+    partial class HistorialMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistorialMenu));
             this.label1 = new System.Windows.Forms.Label();
             this.func2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -64,6 +64,7 @@
             this.func2.Text = "SUS OFERTAS";
             this.func2.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.func2.UseVisualStyleBackColor = false;
+            this.func2.Click += new System.EventHandler(this.func2_Click);
             // 
             // button1
             // 
@@ -123,7 +124,7 @@
             this.button3.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // Form1
+            // HistorialMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -133,7 +134,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.func2);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "HistorialMenu";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Controls.SetChildIndex(this.label1, 0);

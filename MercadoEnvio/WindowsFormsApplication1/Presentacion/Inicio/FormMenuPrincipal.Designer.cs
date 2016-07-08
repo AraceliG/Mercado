@@ -163,6 +163,7 @@
             this.func8.Text = "Historial del cliente";
             this.func8.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.func8.UseVisualStyleBackColor = true;
+            this.func8.Click += new System.EventHandler(this.func8_Click);
             // 
             // func9
             // 
