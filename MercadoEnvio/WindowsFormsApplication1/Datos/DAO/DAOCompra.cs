@@ -83,5 +83,19 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
             return compraList;
         }
+
+        internal static void agregateCalificacion(Compra c, Calificacion calif,Usuario user,String comentario)
+        {
+
+            List<SqlParameter> parametroList = new List<SqlParameter>();
+           
+            parametroList.Add(new SqlParameter("@cod_publi", c.cod_publicacion));
+            parametroList.Add(new SqlParameter("@fecha", c.fecha));
+            parametroList.Add(new SqlParameter("@cantidad ", c.cantidad));
+            parametroList.Add(new SqlParameter("@calif", calif.cant_estrellas));
+            parametroList.Add(new SqlParameter("@user",user.userId ));
+            parametroList.Add(new SqlParameter("@descripcion", comentario));
+            AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.COMPRA SET CANT_ESTRELLAS=@CALIF,TXT_LIBRE_CALIF=@descripcion  WHERE COD_PUBLICACION=@cod_publi and USERID=@user and CANTIDAD=@cantidad and FECHA=@fecha ", "T", parametroList);
+        }
     }
 }

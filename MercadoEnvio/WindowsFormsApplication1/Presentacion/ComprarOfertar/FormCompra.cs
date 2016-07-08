@@ -78,5 +78,10 @@ namespace MercadoEnvioFRBA.Presentacion.ComprarOfertar
                 return;
             }
         }
+
+        private void txt_cantidadCompra_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

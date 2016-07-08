@@ -86,7 +86,7 @@ namespace MercadoEnvioFRBA.Presentacion.Historial_Cliente
             {
                 Compra compra = (Compra)dataGridPendientesCalificacion.CurrentRow.DataBoundItem;
                 this.Hide();
-                FormCalificar buscarRol = new FormCalificar(compra);
+                FormCalificar buscarRol = new FormCalificar(compra,usuario);
                 buscarRol.ShowDialog();
                 this.actualizarGrilla();
             }

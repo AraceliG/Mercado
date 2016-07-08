@@ -56,6 +56,7 @@
             this.txt_cantidadCompra.Name = "txt_cantidadCompra";
             this.txt_cantidadCompra.Size = new System.Drawing.Size(131, 26);
             this.txt_cantidadCompra.TabIndex = 3;
+            this.txt_cantidadCompra.TextChanged += new System.EventHandler(this.txt_cantidadCompra_TextChanged);
             this.txt_cantidadCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cantidadCompra_KeyPress);
             // 
             // btn_aceptar
