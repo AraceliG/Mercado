@@ -359,33 +359,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
             return createPublicacionListFromQuery(lector).Count >= 1;
         }
 
-        internal static void generarFactura(Publicacion publi, int stock)
-        {
-           /*
-            List<SqlParameter> paramList = new List<SqlParameter>();
-            paramList.Add(new SqlParameter("@cod_publicacion", publi.cod_publicacion));
-            paramList.Add(new SqlParameter("@userIdVendedor", publi.userId));
-            paramList.Add(new SqlParameter("@totalFactura", publi.totalFactura()));
-            paramList.Add(new SqlParameter("@montoItemComisionPorVenta", publi.montoDeVenta()));
-            paramList.Add(new SqlParameter("@montoItemComisionPorEnvio", publi.montoDeEnvio()));
-            paramList.Add(new SqlParameter("@conceptoPorVenta",DAOConcepto.conceptoPorVenta() ));
-            paramList.Add(new SqlParameter("@conceptaPorEnvio",DAOConcepto.conceptoPorEnvio() ));
-            paramList.Add(new SqlParameter("@cantidad", stock));
-            * */
-
-            
-//no me crea nada y me llevo todo el día
-           
-           // AccesoBaseDeDatos.ExecStoredProcedure("NOTHING_IS_IMPOSSIBLE.sp_facturarItems ", paramList);
-
-          //esto aca no es solo prueba:  MessageBox.Show("en teoria se crea ok factura y sus items", "Facturas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-         
-
-
-           
-        }
-
-
+     
 
         internal static decimal obtenerVisibilidad(Publicacion publicacion)
         {

@@ -10,6 +10,10 @@ namespace MercadoEnvioFRBA.Datos.DAO
 {
     class DAOCompra
     {
+
+
+
+
         internal static void documentarCompra(Publicacion publicacion, int stock, Usuario user)
         {
             List<SqlParameter> parameterList = new List<SqlParameter>();
