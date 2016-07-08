@@ -49,7 +49,8 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
                     compraList.Add(compra);
                 }
-            }MessageBox.Show("la lista tiene " + compraList. Count + " elementos", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
             return compraList;
 
             

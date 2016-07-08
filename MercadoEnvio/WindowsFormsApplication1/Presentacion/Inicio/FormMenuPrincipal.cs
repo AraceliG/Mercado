@@ -93,8 +93,8 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
         private void func7_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ABMrol buscarRol = new ABMrol(usuario);
-            buscarRol.ShowDialog();
+            Form1 formCompraOferta = new Form1(usuario);
+            formCompraOferta.ShowDialog();
             this.Show();
 
         }

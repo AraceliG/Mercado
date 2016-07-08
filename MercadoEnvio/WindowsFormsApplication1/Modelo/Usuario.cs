@@ -119,5 +119,10 @@ namespace MercadoEnvioFRBA.Modelo
         {
             return DAOCompra.lasComprasDeCliente(this);
         }
+
+        internal List<Oferta> tusOfertas()
+        {
+            return DAOOferta.lasOfertasDeCliente(this);
+        }
     }
 }

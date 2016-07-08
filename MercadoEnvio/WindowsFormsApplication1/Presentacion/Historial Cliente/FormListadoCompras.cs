@@ -37,7 +37,6 @@ namespace MercadoEnvioFRBA.Presentacion.Historial_Cliente
         private void actualizarGrilla()
         {
              List<Compra> compras = usuario.tusCompras();
-             MessageBox.Show("el codigo de id es"+usuario.userId+"", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
              dataGridCompras.DataSource = compras;
             
         }
