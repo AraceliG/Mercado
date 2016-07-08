@@ -7,24 +7,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MercadoEnvioFRBA.Modelo;
 
 namespace MercadoEnvioFRBA.Presentacion.Historial_Cliente
 {
     public partial class FormListadoCompras : FormBaseUTN
     {
-        private Modelo.Usuario usuario;
+        private Usuario usuario;
 
         public FormListadoCompras()
         {
             InitializeComponent();
         }
 
-        public FormListadoCompras(Modelo.Usuario usuario)
+        public FormListadoCompras(Usuario usuario)
         {
             
             this.usuario = usuario;
 
             InitializeComponent();
+
+           dataGridCompras.AutoGenerateColumns = false;
+           dataGridCompras.MultiSelect = false;
+             cargarGrilla();
+            actualizarGrilla();
+
+        }
+
+        private void actualizarGrilla()
+        {
+             List<Compra> compras = usuario.tusCompras();
+             MessageBox.Show("el codigo de id es"+usuario.userId+"", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+             dataGridCompras.DataSource = compras;
+            
         }
 
         private void FormListadoCompras_Load(object sender, EventArgs e)
@@ -37,35 +52,38 @@ namespace MercadoEnvioFRBA.Presentacion.Historial_Cliente
 
         private void cargarGrilla()
         {
+
             DataGridViewTextBoxColumn colCodPublic = new DataGridViewTextBoxColumn();
             colCodPublic.DataPropertyName = "cod_publicacion";
             colCodPublic.HeaderText = "Codigo de Publicacion";
             colCodPublic.Width = 120;
-            DataGridViewTextBoxColumn colMonto = new DataGridViewTextBoxColumn();
-            colMonto.DataPropertyName = "stock";
-            colMonto.HeaderText = "Stock";
-            colMonto.Width = 120;
-            DataGridViewTextBoxColumn colPrecio = new DataGridViewTextBoxColumn();
-            colPrecio.DataPropertyName = "precio";
-            colPrecio.HeaderText = "Precio";
-            colPrecio.Width = 120;
-            DataGridViewTextBoxColumn colVendedor = new DataGridViewTextBoxColumn();
-            colVendedor.DataPropertyName = "userId";
-            colVendedor.HeaderText = "identificador de usuario";
-            colVendedor.Width = 120;
-            DataGridViewTextBoxColumn colFechaInicio = new DataGridViewTextBoxColumn();
-            colFechaInicio.DataPropertyName = "fecha_inicio";
-            colFechaInicio.HeaderText = "Fecha de Inicio";
-            colVendedor.Width = 120;
-            DataGridViewTextBoxColumn colFechaFin = new DataGridViewTextBoxColumn();
-            colFechaFin.DataPropertyName = "fecha_vencimiernto";
-            colFechaFin.HeaderText = "Fecha de Vencimiento";
-            colFechaFin.Width = 120;
+            DataGridViewTextBoxColumn colCantidad = new DataGridViewTextBoxColumn();
+            colCantidad.DataPropertyName = "cantidad";
+            colCantidad.HeaderText = "Cantidad";
+            colCantidad.Width = 100;
+            DataGridViewTextBoxColumn colFecha = new DataGridViewTextBoxColumn();
+            colFecha.DataPropertyName = "fecha";
+            colFecha.HeaderText = "Fecha";
+            colFecha.Width = 150;
+            DataGridViewTextBoxColumn colEstrellas = new DataGridViewTextBoxColumn();
+            colEstrellas.DataPropertyName = "cant_estrellas";
+            colEstrellas.HeaderText = "Calificacion";
+            colEstrellas.Width = 150;
+            DataGridViewTextBoxColumn coltexto = new DataGridViewTextBoxColumn();
+            coltexto.DataPropertyName = "txt_libre_calif";
+            coltexto.HeaderText = "Comentarios";
+            coltexto.Width = 150;
+
+            dataGridCompras.Columns.Add(colCodPublic);
+            dataGridCompras.Columns.Add(colCantidad);
+            dataGridCompras.Columns.Add(colFecha);
+            dataGridCompras.Columns.Add(colEstrellas);
+            dataGridCompras.Columns.Add(coltexto);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

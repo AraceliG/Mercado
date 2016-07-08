@@ -114,5 +114,10 @@ namespace MercadoEnvioFRBA.Modelo
         {
             DAOUsuario.cambiarContraseña(passNuevo, this);
         }
+
+        internal List <Compra> tusCompras()
+        {
+            return DAOCompra.lasComprasDeCliente(this);
+        }
     }
 }
