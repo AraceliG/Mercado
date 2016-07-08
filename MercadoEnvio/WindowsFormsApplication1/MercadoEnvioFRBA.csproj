@@ -64,10 +64,12 @@
     <Compile Include="Datos\DAO\DAOUsuario.cs" />
     <Compile Include="Datos\DAO\DAOVisibilidad.cs" />
     <Compile Include="Modelo\Cliente.cs" />
+    <Compile Include="Modelo\Compra.cs" />
     <Compile Include="Modelo\Concepto.cs" />
     <Compile Include="Modelo\Empresa.cs" />
     <Compile Include="Modelo\Estado.cs" />
     <Compile Include="Modelo\Funcionalidad.cs" />
+    <Compile Include="Modelo\Oferta.cs" />
     <Compile Include="Modelo\Publicacion.cs" />
     <Compile Include="Modelo\Rol.cs" />
     <Compile Include="Modelo\Rubro.cs" />
@@ -189,6 +191,18 @@
     <Compile Include="Presentacion\Generar Publicación\FormAltaModifPublicacion.Designer.cs">
       <DependentUpon>FormAltaModifPublicacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Historial Cliente\FormListadoCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Historial Cliente\FormListadoCompras.Designer.cs">
+      <DependentUpon>FormListadoCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Historial Cliente\FormListadoOfertas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Historial Cliente\FormListadoOfertas.Designer.cs">
+      <DependentUpon>FormListadoOfertas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Inicio\FormElegirRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,11 +246,11 @@
     <Compile Include="Presentacion\Facturas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\Historial Cliente\Form1.cs">
+    <Compile Include="Presentacion\Historial Cliente\HistorialMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\Historial Cliente\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Presentacion\Historial Cliente\HistorialMenu.Designer.cs">
+      <DependentUpon>HistorialMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Listado Estadistico\Form1.cs">
       <SubType>Form</SubType>
@@ -305,6 +319,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Generar Publicación\FormGenerarPublicacion.resx">
       <DependentUpon>FormGenerarPublicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Historial Cliente\HistorialMenu.resx">
+      <DependentUpon>HistorialMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Historial Cliente\FormListadoCompras.resx">
+      <DependentUpon>FormListadoCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Historial Cliente\FormListadoOfertas.resx">
+      <DependentUpon>FormListadoOfertas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Inicio\FormElegirRol.resx">
       <DependentUpon>FormElegirRol.cs</DependentUpon>
