@@ -10,15 +10,16 @@ namespace MercadoEnvioFRBA.Datos.DAO
 {
     class DAOOferta
     {
-        internal static void crearOferta(Publicacion publicacion, Usuario usuario, int oferta)
+        internal static void crearOferta(Publicacion publicacion, Usuario usuario, int oferta, String fecha)
         {
             List<SqlParameter> parameterList = new List<SqlParameter>();
             parameterList.Add(new SqlParameter("@cod_publi", publicacion.cod_publicacion));
             parameterList.Add(new SqlParameter("@userId", usuario.userId));
             parameterList.Add(new SqlParameter("@monto", oferta));
+            parameterList.Add(new SqlParameter("@fecha",Convert.ToDateTime(fecha)));
 
-            AccesoBaseDeDatos.WriteInBase("INSERT INTO NOTHING_IS_IMPOSSIBLE.OFERTA (COD_PUBLICACION, USERID,MONTO) " +
-                                                " VALUES (@cod_publi, @userId, @monto)", "T", parameterList); 
+            AccesoBaseDeDatos.WriteInBase("INSERT INTO NOTHING_IS_IMPOSSIBLE.OFERTA (COD_PUBLICACION, USERID,MONTO,FECHA) " +
+                                                " VALUES (@cod_publi, @userId, @monto,@fecha)", "T", parameterList); 
         }
 
         internal static List<Oferta> lasOfertasDeCliente(Usuario usuario)

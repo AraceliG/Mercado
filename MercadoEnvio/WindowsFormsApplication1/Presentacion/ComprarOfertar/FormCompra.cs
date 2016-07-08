@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MercadoEnvioFRBA.Modelo;
+using System.Configuration;
 
 namespace MercadoEnvioFRBA.Presentacion.ComprarOfertar
 {
@@ -31,7 +32,7 @@ namespace MercadoEnvioFRBA.Presentacion.ComprarOfertar
 
         private void FormCompra_Load(object sender, EventArgs e)
         {
-
+            label_fecha.Text = ConfigurationManager.AppSettings["fecha"];
         }
 
         private void btn_aceptar_Click(object sender, EventArgs e)
@@ -56,7 +57,7 @@ namespace MercadoEnvioFRBA.Presentacion.ComprarOfertar
             if (publi.tieneStock(cantidadComprada))
             {
                 publi.facturar(cantidadComprada);
-                publi.documentarCompra(usuario,cantidadComprada);
+                publi.documentarCompra(usuario,cantidadComprada,label_fecha.Text);
                 publi.actualizarStock(cantidadComprada);
                 if (publi.finStock()) {
                     publi.finalizar();

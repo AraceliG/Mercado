@@ -15,15 +15,16 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
 
 
-        internal static void documentarCompra(Publicacion publicacion, int stock, Usuario user)
+        internal static void documentarCompra(Publicacion publicacion, int stock, Usuario user, String fecha)
         {
             List<SqlParameter> parameterList = new List<SqlParameter>();
             parameterList.Add(new SqlParameter("@cod_publi", publicacion.cod_publicacion));
             parameterList.Add(new SqlParameter("@userId", user.userId));
             parameterList.Add(new SqlParameter("@cantidad", stock));
+            parameterList.Add(new SqlParameter("@fecha",Convert.ToDateTime(fecha)));
 
-            AccesoBaseDeDatos.WriteInBase("INSERT INTO NOTHING_IS_IMPOSSIBLE.COMPRA (COD_PUBLICACION, USERID,CANTIDAD) " +
-                                                " VALUES (@cod_publi, @userId, @cantidad)", "T", parameterList);
+            AccesoBaseDeDatos.WriteInBase("INSERT INTO NOTHING_IS_IMPOSSIBLE.COMPRA (COD_PUBLICACION, USERID,CANTIDAD,FECHA) " +
+                                                " VALUES (@cod_publi, @userId, @cantidad,@fecha)", "T", parameterList);
         }
 
         internal static List<Compra> lasComprasDeCliente(Usuario usuario)
