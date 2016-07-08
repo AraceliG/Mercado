@@ -44,7 +44,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     compra.userId=(int)(decimal)lector["userId"];
                     compra.fecha=(DateTime)lector["fecha"];
                     compra.cantidad=(int)(decimal)lector["cantidad"];
-                    compra.cant_estrellas = (int)(decimal)lector["cant_estrellas"];
+                    compra.cant_estrellas = lector["cant_estrellas"]== DBNull.Value ? 0 : (int)(decimal)lector["cant_estrellas"];
                     compra.txt_libre_calif = lector["txt_libre_calif"] == DBNull.Value ? null : (string)lector["txt_libre_calif"];
                         //(String)lector["txt_libre_calif"];
 
@@ -73,9 +73,9 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     compra.cod_publicacion = (int)(decimal)lector["cod_publicacion"];
                     compra.userId = (int)(decimal)lector["userId"]; 
                     compra.cantidad = (int)(decimal)lector["cantidad"];
-                    //problemas con valores en null tomorrowww
-                   // compra.cant_estrellas = lector["cant_estrellas"]== DBNull.Value ? null :  (int)(decimal)lector["cant_estrellas"];
-                    //compra.txt_libre_calif = lector["txt_libre_calif"] == DBNull.Value ? null : (string)lector["txt_libre_calif"];
+                    compra.fecha = (DateTime)lector["fecha"];
+                    compra.cant_estrellas = lector["cant_estrellas"] == DBNull.Value ? 0 : (int)(decimal)lector["cant_estrellas"];
+                    compra.txt_libre_calif = lector["txt_libre_calif"] == DBNull.Value ? null : (string)lector["txt_libre_calif"];
 
                     compraList.Add(compra);
                 }

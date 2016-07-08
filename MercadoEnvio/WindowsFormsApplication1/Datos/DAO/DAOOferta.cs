@@ -18,8 +18,8 @@ namespace MercadoEnvioFRBA.Datos.DAO
             parameterList.Add(new SqlParameter("@monto", oferta));
             parameterList.Add(new SqlParameter("@fecha",Convert.ToDateTime(fecha)));
 
-            AccesoBaseDeDatos.WriteInBase("INSERT INTO NOTHING_IS_IMPOSSIBLE.OFERTA (COD_PUBLICACION, USERID,MONTO,FECHA) " +
-                                                " VALUES (@cod_publi, @userId, @monto,@fecha)", "T", parameterList); 
+            AccesoBaseDeDatos.WriteInBase("INSERT INTO NOTHING_IS_IMPOSSIBLE.OFERTA (COD_PUBLICACION, USERID,MONTO,FECHA,GANADORA) " +
+                                                " VALUES (@cod_publi, @userId, @monto,@fecha,0)", "T", parameterList); 
         }
 
         internal static List<Oferta> lasOfertasDeCliente(Usuario usuario)
