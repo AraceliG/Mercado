@@ -119,8 +119,8 @@ namespace MercadoEnvioFRBA.ComprarOfertar
             else 
             {  List<Publicacion> publis= new List<Publicacion>();
                  List<Publicacion> publicaciones = DAOPublicacion.cumpleConFiltros(txt_desc.Text, comboBox_rubro0.SelectedText, comboBox_rubro1.SelectedText, comboBox_rubro2.SelectedText, comboBox_rubro3.SelectedText);
-                 MessageBox.Show("Su busqueda ha finalizado con éxito!", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                dataGridPublicacion.DataSource = publicaciones;
+                  dataGridPublicacion.DataSource = publicaciones;
+                MessageBox.Show("Su busqueda ha finalizado con éxito!", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
 
@@ -152,7 +152,7 @@ namespace MercadoEnvioFRBA.ComprarOfertar
                             this.Hide();
                             FormCompra buscarRol = new FormCompra(publi,usuario);
                             buscarRol.ShowDialog();
-                            this.Show();
+                            this.Close();
                         }
                         else{
                         MessageBox.Show("La publicacion es para realizar OFERTAS a SUBASTAS ", "Publicacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -193,7 +193,7 @@ namespace MercadoEnvioFRBA.ComprarOfertar
                             this.Hide();
                             FormOfertaDeSubasta buscarRol = new FormOfertaDeSubasta(publi,usuario);
                             buscarRol.ShowDialog();
-                            this.Show();
+                            this.Close();
                         }
                         else
                         {

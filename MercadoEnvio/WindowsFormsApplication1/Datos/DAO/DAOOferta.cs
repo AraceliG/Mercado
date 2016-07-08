@@ -14,11 +14,11 @@ namespace MercadoEnvioFRBA.Datos.DAO
         {
             List<SqlParameter> parameterList = new List<SqlParameter>();
             parameterList.Add(new SqlParameter("@cod_publi", publicacion.cod_publicacion));
-            parameterList.Add(new SqlParameter("@userId", user.userId));
-            parameterList.Add(new SqlParameter("@cantidad", stock));
+            parameterList.Add(new SqlParameter("@userId", usuario.userId));
+            parameterList.Add(new SqlParameter("@monto", oferta));
 
-            AccesoBaseDeDatos.WriteInBase("INSERT INTO NOTHING_IS_IMPOSSIBLE.COMPRA (COD_PUBLICACION, USERID,CANTIDAD) " +
-                                                " VALUES (@cod_publi, @userId, @cantidad)", "T", parameterList); 
+            AccesoBaseDeDatos.WriteInBase("INSERT INTO NOTHING_IS_IMPOSSIBLE.OFERTA (COD_PUBLICACION, USERID,MONTO) " +
+                                                " VALUES (@cod_publi, @userId, @monto)", "T", parameterList); 
         }
     }
 }

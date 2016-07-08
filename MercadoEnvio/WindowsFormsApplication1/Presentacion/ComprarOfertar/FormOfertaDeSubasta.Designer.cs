@@ -75,6 +75,7 @@
             this.txt_oferta.Name = "txt_oferta";
             this.txt_oferta.Size = new System.Drawing.Size(233, 26);
             this.txt_oferta.TabIndex = 9;
+            this.txt_oferta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_oferta_KeyPress);
             // 
             // label_ultimaOferta
             // 

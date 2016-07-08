@@ -43,6 +43,8 @@ namespace MercadoEnvioFRBA.Presentacion.ComprarOfertar
             if (esMayorOferta(oferta))
             { publi.actualizarPrecio(oferta);
                 publi.ofertate(oferta, usuario);
+                MessageBox.Show("Su oferta se ha realizado con éxito ", "Oferta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                this.Close();
             }
 
             else {
@@ -53,6 +55,16 @@ namespace MercadoEnvioFRBA.Presentacion.ComprarOfertar
         private bool esMayorOferta(int oferta)
         {
             return this.publi.precio < oferta;
+        }
+
+        private void txt_oferta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
         }
     }
 }

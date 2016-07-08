@@ -52,7 +52,9 @@
     <Compile Include="Datos\DAO\DAOCompra.cs" />
     <Compile Include="Datos\DAO\DAOConcepto.cs" />
     <Compile Include="Datos\DAO\DAOEmpresa.cs" />
+    <Compile Include="Datos\DAO\DAOFactura.cs" />
     <Compile Include="Datos\DAO\DAOFuncionalidad.cs" />
+    <Compile Include="Datos\DAO\DAOItemsFactura.cs" />
     <Compile Include="Datos\DAO\DAOOferta.cs" />
     <Compile Include="Datos\DAO\DAOPublicacion.cs" />
     <Compile Include="Datos\DAO\DAORol.cs" />
