@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MercadoEnvioFRBA.Presentacion;
 using MercadoEnvioFRBA.Modelo;
+using MercadoEnvioFRBA.Presentacion.Calificar;
 
 namespace MercadoEnvioFRBA.Presentacion.Historial_Cliente
 {
@@ -77,6 +78,22 @@ namespace MercadoEnvioFRBA.Presentacion.Historial_Cliente
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (dataGridPendientesCalificacion.RowCount != 0) 
+            {
+                Compra compra = (Compra)dataGridPendientesCalificacion.CurrentRow.DataBoundItem;
+                this.Hide();
+                FormCalificar buscarRol = new FormCalificar(compra);
+                buscarRol.ShowDialog();
+                this.actualizarGrilla();
+            }
+            else 
+            {
+                MessageBox.Show("Debe elegir una fila de su tabla de operacones pendientes de calificacion", "Calificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
 
