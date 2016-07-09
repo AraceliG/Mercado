@@ -500,5 +500,26 @@ namespace MercadoEnvioFRBA.Datos.DAO
             return 1 + (decimal)lector["maximo"];
         }
 
+
+        internal static Decimal VendedorDePublicacion(decimal codPubli)
+        {
+            List<SqlParameter> parameterList = new List<SqlParameter>();
+            parameterList.Add(new SqlParameter("@cod_publi", codPubli));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT P.cod_publicacion,P.userId FROM NOTHING_IS_IMPOSSIBLE.PUBLICACION P WHERE P.COD_PUBLICACION=@cod_publi", "T", parameterList);
+            List<Publicacion> publis = new List<Publicacion>();
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    Publicacion unPubli = new Publicacion();
+                    unPubli.cod_publicacion = (Decimal)lector["cod_publicacion"];
+                    unPubli.userId = (Decimal)lector["userId"];
+                    publis.Add(unPubli);
+                }
+            }
+            return publis[0].userId;
+
+
+        }
     }
 }

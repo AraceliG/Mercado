@@ -15,7 +15,6 @@ namespace MercadoEnvioFRBA.Presentacion
     public partial class FormAltaModifPublicacion : FormBaseUTN
     {
         private Publicacion publicacionActual;
-        private decimal p;
 
         public FormAltaModifPublicacion()
         {
