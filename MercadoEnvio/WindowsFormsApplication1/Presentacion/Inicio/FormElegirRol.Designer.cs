@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.roles = new System.Windows.Forms.ComboBox();
             this.buttonAceptar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -56,7 +57,7 @@
             // 
             // buttonAceptar
             // 
-            this.buttonAceptar.Location = new System.Drawing.Point(157, 119);
+            this.buttonAceptar.Location = new System.Drawing.Point(157, 167);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
             this.buttonAceptar.TabIndex = 7;
@@ -64,12 +65,24 @@
             this.buttonAceptar.UseVisualStyleBackColor = true;
             this.buttonAceptar.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(124, 122);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(138, 23);
+            this.button1.TabIndex = 84;
+            this.button1.Text = "Cambiar Contraseña";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // FormElegirRol
             // 
             this.AcceptButton = this.buttonAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(382, 162);
+            this.ClientSize = new System.Drawing.Size(382, 216);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.roles);
             this.Controls.Add(this.label1);
@@ -79,6 +92,7 @@
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.roles, 0);
             this.Controls.SetChildIndex(this.buttonAceptar, 0);
+            this.Controls.SetChildIndex(this.button1, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,5 +103,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox roles;
         private System.Windows.Forms.Button buttonAceptar;
+        private System.Windows.Forms.Button button1;
     }
 }
