@@ -104,7 +104,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
             List<Compra> compraList = new List<Compra>();
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             listaParametros.Add(new SqlParameter("@userId", userIdVendedor));
-            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT C.cant_estrellas FROM NOTHING_IS_IMPOSSIBLE.COMPRA C ,NOTHING_IS_IMPOSSIBLE.Publicacion P WHERE P.userId=@userId AND  P.cod_publicacion=C.cod_publicacion)", "T", listaParametros);
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT C.cant_estrellas FROM NOTHING_IS_IMPOSSIBLE.COMPRA C ,NOTHING_IS_IMPOSSIBLE.Publicacion P WHERE P.userId=@userId AND  P.cod_publicacion=C.cod_publicacion", "T", listaParametros);
 
             if (lector.HasRows)
             {
@@ -112,7 +112,6 @@ namespace MercadoEnvioFRBA.Datos.DAO
                 {
 
                     Compra compra = new Compra();
-                    compra.cod_publicacion = (int)(decimal)lector["cod_publicacion"];
                     compra.cant_estrellas = lector["cant_estrellas"] == DBNull.Value ? 0 : (int)(decimal)lector["cant_estrellas"];
                     compraList.Add(compra);
                 }
@@ -121,6 +120,34 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
             }
             
+            return compraList;
+        }
+
+        internal static List<Compra> getComprasPorCalifcacion(decimal calif)
+        {
+            List<Compra> compraList = new List<Compra>();
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(new SqlParameter("@calif", calif));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.COMPRA C WHERE C.cant_estrellas=@calif", "T", listaParametros);
+
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+
+                    Compra compra = new Compra();
+                    compra.cod_publicacion = (int)(decimal)lector["cod_publicacion"];
+                    compra.userId = (int)(decimal)lector["userId"];
+                    compra.fecha = (DateTime)lector["fecha"];
+                    compra.cantidad = (int)(decimal)lector["cantidad"];
+                    compra.cant_estrellas = lector["cant_estrellas"] == DBNull.Value ? 0 : (int)(decimal)lector["cant_estrellas"];
+                    compra.txt_libre_calif = lector["txt_libre_calif"] == DBNull.Value ? null : (string)lector["txt_libre_calif"];
+                   
+
+                    compraList.Add(compra);
+                }
+            }
+
             return compraList;
         }
     }

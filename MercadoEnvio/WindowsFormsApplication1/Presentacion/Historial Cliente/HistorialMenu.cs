@@ -58,5 +58,14 @@ namespace MercadoEnvioFRBA.Historial_Cliente
             pendientesCalif.ShowDialog();
             this.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormResumenEstrellas formResumen = new FormResumenEstrellas(usuario);
+            formResumen.ShowDialog();
+            this.Show();
+
+        }
     }
 }
