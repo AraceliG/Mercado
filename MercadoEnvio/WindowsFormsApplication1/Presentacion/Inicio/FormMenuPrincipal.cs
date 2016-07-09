@@ -72,6 +72,7 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
             this.Hide();
             FormGenerarPublicacion unForm = new FormGenerarPublicacion(usuario);
             unForm.ShowDialog();
+            this.Show();
 		}
 
         private void func3_Click(object sender, EventArgs e)

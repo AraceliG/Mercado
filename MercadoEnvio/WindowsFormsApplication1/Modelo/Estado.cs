@@ -9,7 +9,7 @@ namespace MercadoEnvioFRBA.Modelo
     
     public abstract class CambioEstado
     {
-          internal static Estado getEstado(string codEstado)
+          public static Estado getEstado(string codEstado)
           {
               Estado unEstado = new Pausada();
 
