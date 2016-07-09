@@ -99,6 +99,11 @@ C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\
 C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Historial_Cliente.FormListadoOfertas.resources
 C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Historial_Cliente.HistorialMenu.resources
 C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Historial_Cliente.FormPendientesCalificar.resources
-C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Calificar.FormCalificar.resources
-C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Historial_Cliente.FormResumenEstrellas.resources
-C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Calificar.FormCalificarDirecto.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.ABM_Rol.NuevoOModificarRol.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.ComprarOfertar.Form1.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.ComprarOfertar.FormCompra.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.ComprarOfertar.FormOfertaDeSubasta.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Historial_Cliente.FormPendientesCalificar.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Historial_Cliente.HistorialMenu.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Historial_Cliente.FormListadoCompras.resources
+C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Historial_Cliente.FormListadoOfertas.resources

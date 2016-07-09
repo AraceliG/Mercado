@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAltaModifPublicacion));
             this.groupBox_ofrece_envios = new System.Windows.Forms.GroupBox();
             this.ofrece_enviosNo = new System.Windows.Forms.RadioButton();
             this.ofrece_enviosSi = new System.Windows.Forms.RadioButton();
@@ -55,6 +56,7 @@
             this.descripcion = new System.Windows.Forms.TextBox();
             this.estado = new System.Windows.Forms.ComboBox();
             this.visibilidad = new System.Windows.Forms.ComboBox();
+            this.button_guardar = new System.Windows.Forms.Button();
             this.groupBox_ofrece_envios.SuspendLayout();
             this.groupBoxTipoPublicacion.SuspendLayout();
             this.groupBox_aceptaPreguntas.SuspendLayout();
@@ -64,7 +66,7 @@
             // 
             this.groupBox_ofrece_envios.Controls.Add(this.ofrece_enviosNo);
             this.groupBox_ofrece_envios.Controls.Add(this.ofrece_enviosSi);
-            this.groupBox_ofrece_envios.Location = new System.Drawing.Point(294, 181);
+            this.groupBox_ofrece_envios.Location = new System.Drawing.Point(294, 198);
             this.groupBox_ofrece_envios.Name = "groupBox_ofrece_envios";
             this.groupBox_ofrece_envios.Size = new System.Drawing.Size(147, 43);
             this.groupBox_ofrece_envios.TabIndex = 37;
@@ -97,7 +99,7 @@
             // 
             this.groupBoxTipoPublicacion.Controls.Add(this.tipo_publicacionSubasta);
             this.groupBoxTipoPublicacion.Controls.Add(this.tipo_publicacionCompra);
-            this.groupBoxTipoPublicacion.Location = new System.Drawing.Point(293, 93);
+            this.groupBoxTipoPublicacion.Location = new System.Drawing.Point(293, 110);
             this.groupBoxTipoPublicacion.Name = "groupBoxTipoPublicacion";
             this.groupBoxTipoPublicacion.Size = new System.Drawing.Size(148, 43);
             this.groupBoxTipoPublicacion.TabIndex = 36;
@@ -215,7 +217,7 @@
             // 
             this.groupBox_aceptaPreguntas.Controls.Add(this.acepta_preguntasNo);
             this.groupBox_aceptaPreguntas.Controls.Add(this.acepta_preguntasSi);
-            this.groupBox_aceptaPreguntas.Location = new System.Drawing.Point(294, 137);
+            this.groupBox_aceptaPreguntas.Location = new System.Drawing.Point(294, 154);
             this.groupBox_aceptaPreguntas.Name = "groupBox_aceptaPreguntas";
             this.groupBox_aceptaPreguntas.Size = new System.Drawing.Size(147, 43);
             this.groupBox_aceptaPreguntas.TabIndex = 32;
@@ -294,8 +296,9 @@
             // descripcion
             // 
             this.descripcion.Location = new System.Drawing.Point(129, 84);
+            this.descripcion.Multiline = true;
             this.descripcion.Name = "descripcion";
-            this.descripcion.Size = new System.Drawing.Size(120, 20);
+            this.descripcion.Size = new System.Drawing.Size(312, 20);
             this.descripcion.TabIndex = 25;
             // 
             // estado
@@ -315,12 +318,26 @@
             this.visibilidad.Name = "visibilidad";
             this.visibilidad.Size = new System.Drawing.Size(121, 21);
             this.visibilidad.TabIndex = 39;
+            this.visibilidad.SelectedValueChanged += new System.EventHandler(this.visibilidad_SelectedValueChanged);
+            // 
+            // button_guardar
+            // 
+            this.button_guardar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_guardar.BackgroundImage")));
+            this.button_guardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_guardar.Location = new System.Drawing.Point(366, 247);
+            this.button_guardar.Name = "button_guardar";
+            this.button_guardar.Size = new System.Drawing.Size(75, 28);
+            this.button_guardar.TabIndex = 40;
+            this.button_guardar.Text = "Guardar";
+            this.button_guardar.UseVisualStyleBackColor = true;
+            this.button_guardar.Click += new System.EventHandler(this.button_guardar_Click);
             // 
             // FormAltaModifPublicacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 352);
+            this.ClientSize = new System.Drawing.Size(463, 298);
+            this.Controls.Add(this.button_guardar);
             this.Controls.Add(this.fecha_vencimiernto);
             this.Controls.Add(this.label_fecha_vencimiernto);
             this.Controls.Add(this.costo);
@@ -344,6 +361,7 @@
             this.Controls.Add(this.label_cod_publicacion);
             this.Name = "FormAltaModifPublicacion";
             this.Text = "FormsAltaModifPublicacion";
+            this.Load += new System.EventHandler(this.FormAltaModifPublicacion_Load);
             this.Controls.SetChildIndex(this.label_cod_publicacion, 0);
             this.Controls.SetChildIndex(this.cod_publicacion, 0);
             this.Controls.SetChildIndex(this.groupBoxTipoPublicacion, 0);
@@ -365,6 +383,7 @@
             this.Controls.SetChildIndex(this.costo, 0);
             this.Controls.SetChildIndex(this.label_fecha_vencimiernto, 0);
             this.Controls.SetChildIndex(this.fecha_vencimiernto, 0);
+            this.Controls.SetChildIndex(this.button_guardar, 0);
             this.groupBox_ofrece_envios.ResumeLayout(false);
             this.groupBox_ofrece_envios.PerformLayout();
             this.groupBoxTipoPublicacion.ResumeLayout(false);
@@ -405,6 +424,7 @@
         private System.Windows.Forms.TextBox descripcion;
         private System.Windows.Forms.ComboBox estado;
         private System.Windows.Forms.ComboBox visibilidad;
+        private System.Windows.Forms.Button button_guardar;
 
     }
 }

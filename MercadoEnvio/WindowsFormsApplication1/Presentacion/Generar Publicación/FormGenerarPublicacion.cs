@@ -161,7 +161,7 @@ namespace MercadoEnvioFRBA.Presentacion
 
         private void buttonNuevo_Click(object sender, EventArgs e)
         {
-            FormAltaModifPublicacion unForm = new FormAltaModifPublicacion();
+            FormAltaModifPublicacion unForm = new FormAltaModifPublicacion(this.usuarioActual.userId);
             unForm.ShowDialog();
             this.button_listar.PerformClick();
         }

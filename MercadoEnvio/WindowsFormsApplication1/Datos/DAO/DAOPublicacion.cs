@@ -24,7 +24,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                 while (lector.Read())
                 {
                     Publicacion unPubli = new Publicacion();
-                    unPubli.cod_publicacion = (Int32)lector["cod_publicacion"];
+                    unPubli.cod_publicacion = (decimal)lector["cod_publicacion"];
                     unPubli.cod_tipo_publicacion = (string)lector["cod_tipo_publicacion"];
                     unPubli.fecha_inicio = Convert.ToDateTime(lector["fecha_inicio"]);
                     unPubli.fecha_vencimiernto = Convert.ToDateTime(lector["fecha_vencimiernto"]);
@@ -56,7 +56,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
             {
                 lector.Read();
 
-                unPubli.cod_publicacion = (Int32)lector["cod_publicacion"];
+                unPubli.cod_publicacion = (decimal)lector["cod_publicacion"];
                 unPubli.cod_tipo_publicacion = (string)lector["cod_tipo_publicacion"];
                 unPubli.fecha_inicio = (DateTime)lector["fecha_inicio"];
                 unPubli.fecha_vencimiernto = Convert.ToDateTime(lector["fecha_vencimiernto"]);
@@ -67,6 +67,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                 unPubli.ofrece_envios = (bool)lector["acepta_preguntas"];
                 unPubli.miEstado = CambioEstado.getEstado((string)lector["cod_estadoPubli"]);
                 unPubli.cod_visibilidad = (decimal)lector["cod_visibilidad"];
+                unPubli.userId = (Decimal) lector["userId"];
 
                 if (DBNull.Value != lector["costo"])
                     unPubli.costo = (decimal)lector["costo"];
@@ -198,8 +199,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
             // 
 
         }
-
-
+        
         internal static bool cumpleFiltros(Publicacion publicacion, string descripcionPubli, string rubro0, string rubro1, string rubro2, string rubro3)
         {
 
@@ -347,9 +347,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
             return createPublicacionListFromQuery(lector).Count >= 1;
             
         }
-
-
-
+                
         internal static bool tieneStockPublicacion(Publicacion publicacion, int cantidadComprada)
         {
             List<SqlParameter> listaParametros = new List<SqlParameter>();
@@ -358,9 +356,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
             SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT P.cod_publicacion,fecha_inicio,fecha_vencimiernto,stock,precio,userId FROM NOTHING_IS_IMPOSSIBLE.PUBLICACION P WHERE P.COD_PUBLICACION=@cod_publi AND P.STOCK>=@cantComprada ", "T", listaParametros);
             return createPublicacionListFromQuery(lector).Count >= 1;
         }
-
-     
-
+        
         internal static decimal obtenerVisibilidad(Publicacion publicacion)
         {
 
@@ -401,52 +397,108 @@ namespace MercadoEnvioFRBA.Datos.DAO
             return createPublicacionListFromQuery(lector)[0].stock;
         }
         
-internal static bool esFinStock(Publicacion publicacion)
-{
-    List<SqlParameter> listaParametros = new List<SqlParameter>();
-    listaParametros.Add(new SqlParameter("@cod_publi", publicacion.cod_publicacion));
-    SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT P.cod_publicacion,fecha_inicio,fecha_vencimiernto,stock,precio,userId FROM NOTHING_IS_IMPOSSIBLE.PUBLICACION P WHERE P.COD_PUBLICACION=@cod_publi AND stock=0", "T", listaParametros);
-    return createPublicacionListFromQuery(lector).Count>=1;
-}
-
-
-internal static void finalizate(Publicacion publi)
-{
-    List<SqlParameter> parameterList = new List<SqlParameter>();
-    parameterList.Add(new SqlParameter("@cod_publi", publi.cod_publicacion));
-    AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.PUBLICACION SET COD_ESTADOPUBLI='F' WHERE COD_PUBLICACION=@cod_publi", "T", parameterList);
-}
-
-
-
-internal static void actualizarOferta(Publicacion publicacion, int oferta)
-{
-    List<SqlParameter> parameterList = new List<SqlParameter>();
-    parameterList.Add(new SqlParameter("@cod_publi", publicacion.cod_publicacion));
-    parameterList.Add(new SqlParameter("@oferta", oferta));
-    AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.PUBLICACION SET PRECIO=@oferta WHERE COD_PUBLICACION=@cod_publi", "T", parameterList);
-
-}
-
-internal static Decimal VendedorDePublicacion(decimal codPubli)
-{
-    List<SqlParameter> parameterList = new List<SqlParameter>();
-    parameterList.Add(new SqlParameter("@cod_publi",codPubli));
-    SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT P.cod_publicacion,P.userId FROM NOTHING_IS_IMPOSSIBLE.PUBLICACION P WHERE P.COD_PUBLICACION=@cod_publi", "T", parameterList);
-    List<Publicacion> publis = new List<Publicacion>();
-    if (lector.HasRows)
-    {
-        while (lector.Read())
+        internal static bool esFinStock(Publicacion publicacion)
         {
-            Publicacion unPubli = new Publicacion();
-            unPubli.cod_publicacion = (Decimal)lector["cod_publicacion"];
-            unPubli.userId = (Decimal)lector["userId"];
-            publis.Add(unPubli);
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(new SqlParameter("@cod_publi", publicacion.cod_publicacion));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT P.cod_publicacion,fecha_inicio,fecha_vencimiernto,stock,precio,userId FROM NOTHING_IS_IMPOSSIBLE.PUBLICACION P WHERE P.COD_PUBLICACION=@cod_publi AND stock=0", "T", listaParametros);
+            return createPublicacionListFromQuery(lector).Count>=1;
         }
-    }
-    return publis[0].userId;
+        
+        internal static void finalizate(Publicacion publi)
+        {
+            List<SqlParameter> parameterList = new List<SqlParameter>();
+            parameterList.Add(new SqlParameter("@cod_publi", publi.cod_publicacion));
+            AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.PUBLICACION SET COD_ESTADOPUBLI='F' WHERE COD_PUBLICACION=@cod_publi", "T", parameterList);
+        }
+        
+        internal static void actualizarOferta(Publicacion publicacion, int oferta)
+        {
+            List<SqlParameter> parameterList = new List<SqlParameter>();
+            parameterList.Add(new SqlParameter("@cod_publi", publicacion.cod_publicacion));
+            parameterList.Add(new SqlParameter("@oferta", oferta));
+            AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.PUBLICACION SET PRECIO=@oferta WHERE COD_PUBLICACION=@cod_publi", "T", parameterList);
 
-    
+        }
+
+        internal static int guardar(Publicacion publicacion)
+        {
+            string noQuery = "";
+            List<SqlParameter> ListaParametros = new List<SqlParameter>();
+            ListaParametros.Add(new SqlParameter("@userId", publicacion.userId));
+            ListaParametros.Add(new SqlParameter("@cod_tipo_publicacion", publicacion.cod_tipo_publicacion));
+            ListaParametros.Add(new SqlParameter("@fecha_inicio", publicacion.fecha_inicio));
+            ListaParametros.Add(new SqlParameter("@fecha_vencimiernto", publicacion.fecha_vencimiernto));
+            ListaParametros.Add(new SqlParameter("@stock", publicacion.stock));
+            ListaParametros.Add(new SqlParameter("@precio", publicacion.precio));
+            ListaParametros.Add(new SqlParameter("@costo", publicacion.costo));
+            ListaParametros.Add(new SqlParameter("@cod_visibilidad", publicacion.cod_visibilidad));
+            ListaParametros.Add(new SqlParameter("@cod_estadoPubli", publicacion.miEstado.cod_estadoPubli));
+            ListaParametros.Add(new SqlParameter("@descripcion", publicacion.descripcion));
+            ListaParametros.Add(new SqlParameter("@acepta_preguntas", publicacion.acepta_preguntas));
+            ListaParametros.Add(new SqlParameter("@ofrece_envios", publicacion.ofrece_envios));
+
+            if (publicacion.cod_publicacion == 0)
+            {
+                ListaParametros.Add(new SqlParameter("@cod_publicacion", proximoCod_publicacion()));
+                noQuery = @"INSERT INTO NOTHING_IS_IMPOSSIBLE.Publicacion
+                                   (cod_publicacion
+                                   ,cod_tipo_publicacion
+                                   ,userId
+                                   ,fecha_inicio
+                                   ,fecha_vencimiernto
+                                   ,stock
+                                   ,precio
+                                   ,costo
+                                   ,cod_visibilidad
+                                   ,cod_estadoPubli
+                                   ,descripcion
+                                   ,acepta_preguntas
+                                   ,ofrece_envios)
+                             VALUES
+                                   (@cod_publicacion
+                                   ,@cod_tipo_publicacion
+                                   ,@userId
+                                   ,@fecha_inicio
+                                   ,@fecha_vencimiernto
+                                   ,@stock
+                                   ,@precio
+                                   ,@costo
+                                   ,@cod_visibilidad
+                                   ,@cod_estadoPubli
+                                   ,@descripcion
+                                   ,@acepta_preguntas
+                                   ,@ofrece_envios)";
+            }
+            else
+            {
+                ListaParametros.Add(new SqlParameter("@cod_publicacion", publicacion.cod_publicacion));
+                noQuery = @"UPDATE NOTHING_IS_IMPOSSIBLE.Publicacion
+                               SET cod_tipo_publicacion = @cod_tipo_publicacion
+                                  ,userId = @userId
+                                  ,fecha_inicio = @fecha_inicio
+                                  ,fecha_vencimiernto = @fecha_vencimiernto
+                                  ,stock = @stock
+                                  ,precio = @precio
+                                  ,costo = @costo
+                                  ,cod_visibilidad = @cod_visibilidad
+                                  ,cod_estadoPubli = @cod_estadoPubli
+                                  ,descripcion = @descripcion
+                                  ,acepta_preguntas = @acepta_preguntas
+                                  ,ofrece_envios = @ofrece_envios
+                             WHERE cod_publicacion = @cod_publicacion ";
+            }
+
+
+            return AccesoBaseDeDatos.WriteInBase(noQuery, "T", ListaParametros);
+        }
+
+        private static decimal proximoCod_publicacion()
+        {
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("select max(cod_publicacion) as maximo from NOTHING_IS_IMPOSSIBLE.Publicacion", "T", new List<SqlParameter>());
+            lector.Read();
+            return 1 + (decimal)lector["maximo"];
+        }
+
+    }
 }
-    }
-    }

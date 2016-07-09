@@ -14,7 +14,8 @@ namespace MercadoEnvioFRBA.Presentacion
 {
     public partial class FormAltaModifPublicacion : FormBaseUTN
     {
-        private Publicacion unaPublicacion;
+        private Publicacion publicacionActual;
+        private decimal p;
 
         public FormAltaModifPublicacion()
         {
@@ -34,9 +35,52 @@ namespace MercadoEnvioFRBA.Presentacion
         public FormAltaModifPublicacion(Publicacion unaPublicacion) : this () 
         {
             // TODO: Complete member initialization
-            this.unaPublicacion = unaPublicacion;
-            this.estado.DataSource = unaPublicacion.miEstado.nuevosEstadosPermitidos();
+            this.publicacionActual = unaPublicacion;
 
+            if (this.publicacionActual.cod_tipo_publicacion.Equals("C"))
+            {
+                this.tipo_publicacionCompra.Checked = true;
+            }
+            else
+            {
+                this.tipo_publicacionSubasta.Checked = true;
+            }
+
+            if (this.publicacionActual.acepta_preguntas)
+            {
+                this.acepta_preguntasSi.Checked = true;
+            }
+            else
+            {
+                this.acepta_preguntasNo.Checked = true;
+            }
+
+            if (this.publicacionActual.ofrece_envios)
+            {
+                this.ofrece_enviosSi.Checked = true;
+            }
+            else
+            {
+                this.ofrece_enviosNo.Checked = true;
+            }
+
+            this.estado.DataSource = this.publicacionActual.miEstado.nuevosEstadosPermitidos();
+            this.cod_publicacion.Text = this.publicacionActual.cod_publicacion.ToString();
+            this.descripcion.Text = this.publicacionActual.descripcion;
+            this.precio.Text = this.publicacionActual.precio.ToString();
+            this.stock.Text = this.publicacionActual.stock.ToString();
+            this.costo.Text = this.publicacionActual.costo.ToString();
+            this.visibilidad.SelectedValue = this.publicacionActual.cod_visibilidad;
+            this.fecha_inicio.Value = this.publicacionActual.fecha_inicio;
+            this.fecha_vencimiernto.Value = this.publicacionActual.fecha_vencimiernto;
+
+        }
+
+        public FormAltaModifPublicacion(decimal userId) : this ()
+        {
+            // TODO: Complete member initialization
+            this.publicacionActual = new Publicacion();
+            this.publicacionActual.userId = userId;
         }
 
         private void label_visibilidad_Click(object sender, EventArgs e)
@@ -57,6 +101,76 @@ namespace MercadoEnvioFRBA.Presentacion
             {
                 MessageBox.Show("El dato: '" + tb.Text + e.KeyChar + " 'no es un numero valido", "Error!", MessageBoxButtons.OK);
                 e.Handled = true;
+            }
+        }
+
+        private void FormAltaModifPublicacion_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void visibilidad_SelectedValueChanged(object sender, EventArgs e)
+        {
+            Visibilidad unaVisibilidad = (Visibilidad) this.visibilidad.SelectedItem;
+
+            if (unaVisibilidad.permite_envios)
+            {
+                this.ofrece_enviosNo.Enabled = true;
+                this.ofrece_enviosSi.Enabled = true;
+            }
+            else
+            {
+                this.ofrece_enviosNo.Enabled = true;
+                this.ofrece_enviosSi.Enabled = false;
+                this.ofrece_enviosNo.Checked = true;
+            }
+        }
+
+        private void button_guardar_Click(object sender, EventArgs e)
+        {
+            
+            decimal unDecimal;
+
+            if (Decimal.TryParse(this.cod_publicacion.Text, out unDecimal))
+                this.publicacionActual.cod_publicacion = unDecimal;
+
+            if (Decimal.TryParse(this.precio.Text, out unDecimal))
+                this.publicacionActual.precio = unDecimal;
+
+            if (Decimal.TryParse(this.stock.Text, out unDecimal))
+                this.publicacionActual.stock = unDecimal;
+
+            if (Decimal.TryParse(this.costo.Text, out unDecimal))
+                this.publicacionActual.costo = unDecimal;
+
+            this.publicacionActual.descripcion = this.descripcion.Text;
+
+            this.publicacionActual.cod_visibilidad = (decimal) this.visibilidad.SelectedValue;
+
+            this.publicacionActual.fecha_inicio = this.fecha_inicio.Value;
+            this.publicacionActual.fecha_vencimiernto = this.fecha_vencimiernto.Value;
+
+            this.publicacionActual.miEstado = (Estado) this.estado.SelectedItem;
+
+            if(this.tipo_publicacionCompra.Checked){
+                this.publicacionActual.cod_tipo_publicacion = "C";
+            }
+            else
+            {
+                this.publicacionActual.cod_tipo_publicacion = "S";
+            }
+
+            this.publicacionActual.acepta_preguntas = this.acepta_preguntasSi.Checked;
+
+            this.publicacionActual.ofrece_envios = this.ofrece_enviosSi.Checked;
+
+            if (publicacionActual.guardar() > 0)
+            {
+                MessageBox.Show("Se han guardado los cambios.", ":o)", MessageBoxButtons.OK);
+            }
+            else
+            {
+                MessageBox.Show("No se han guardado los cambios!", ":o(", MessageBoxButtons.OK);
             }
         }
     }

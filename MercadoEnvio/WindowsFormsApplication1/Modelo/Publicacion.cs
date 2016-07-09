@@ -141,5 +141,10 @@ namespace MercadoEnvioFRBA.Modelo
        {
            DAOOferta.crearOferta(this, usuario, oferta,fecha);
        }
+
+       internal int guardar()
+       {
+           return DAOPublicacion.guardar(this);
+       }
     }
 }
