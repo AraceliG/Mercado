@@ -97,5 +97,31 @@ namespace MercadoEnvioFRBA.Datos.DAO
             parametroList.Add(new SqlParameter("@descripcion", comentario));
             AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.COMPRA SET CANT_ESTRELLAS=@CALIF,TXT_LIBRE_CALIF=@descripcion  WHERE COD_PUBLICACION=@cod_publi and USERID=@user and CANTIDAD=@cantidad and FECHA=@fecha ", "T", parametroList);
         }
+
+        internal static List<Compra> getVentasDeUsuario(Decimal userIdVendedor)
+        {
+
+            List<Compra> compraList = new List<Compra>();
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(new SqlParameter("@userId", userIdVendedor));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT C.cant_estrellas FROM NOTHING_IS_IMPOSSIBLE.COMPRA C ,NOTHING_IS_IMPOSSIBLE.Publicacion P WHERE P.userId=@userId AND  P.cod_publicacion=C.cod_publicacion)", "T", listaParametros);
+
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+
+                    Compra compra = new Compra();
+                    compra.cod_publicacion = (int)(decimal)lector["cod_publicacion"];
+                    compra.cant_estrellas = lector["cant_estrellas"] == DBNull.Value ? 0 : (int)(decimal)lector["cant_estrellas"];
+                    compraList.Add(compra);
+                }
+
+                
+
+            }
+            
+            return compraList;
+        }
     }
 }

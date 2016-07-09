@@ -76,6 +76,7 @@ namespace MercadoEnvioFRBA.Presentacion.Calificar
             {
                 Calificacion calif = (Calificacion)dataGridCalif.CurrentRow.DataBoundItem;
                 compra.agregaCalificacion(calif,user,txt_comentario.Text);
+                compra.CambiaReputacionDe(compra.tuVendedor());
                 MessageBox.Show("Su califiación ha sido registrada", "Calificar", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 this.Close();
 

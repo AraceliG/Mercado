@@ -21,5 +21,39 @@ namespace MercadoEnvioFRBA.Modelo
        {
            DAOCompra.agregateCalificacion(this,calif,user,comentario);
        }
+
+
+       internal Decimal tuVendedor()
+       {
+           return DAOPublicacion.VendedorDePublicacion(this.cod_publicacion);
+       }
+
+       internal void CambiaReputacionDe(decimal userIdVendedor)
+       {
+           DAOUsuario.cambiarReputacionDe(userIdVendedor, this.nuevaReputacion(userIdVendedor));
+       }
+
+       private Decimal nuevaReputacion(decimal userIdVendedor)
+       {
+           return getCantEstrellas(userIdVendedor) / totalVentas(userIdVendedor);
+       }
+
+       Decimal totalEstrellas = 0;
+
+        internal Decimal getCantEstrellas(Decimal userIdVendedor){
+
+            foreach (Compra compra in DAOCompra.getVentasDeUsuario(userIdVendedor)) {
+
+                totalEstrellas = compra.cant_estrellas + totalEstrellas;
+            }
+
+            return totalEstrellas;
+        
+        }
+
+        internal Decimal totalVentas(Decimal userIdVendedor) { 
+        // las compras de un user son las ventas de otro user
+            return DAOCompra.getVentasDeUsuario(userIdVendedor).Count;
+        }
     }
 }

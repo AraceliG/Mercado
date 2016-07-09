@@ -178,5 +178,15 @@ namespace MercadoEnvioFRBA.Datos.DAO
       AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USUARIO.PASS=@pass WHERE USUARIO.USERNAME=@nombre", "T", paramList);
   }
 
+
+  internal static void cambiarReputacionDe(decimal userIdVendedor, decimal nuevaReputacion)
+  {
+
+      List<SqlParameter> paramList = new List<SqlParameter>();
+      paramList.Add(new SqlParameter("@userVendedor", userIdVendedor));
+      paramList.Add(new SqlParameter("@nuevaReputacion", nuevaReputacion));
+
+      AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USUARIO.REPUTACION=@nuevaReputacion WHERE USUARIO.USERID=@userVendedor", "T", paramList);
+  }
     }
     }
