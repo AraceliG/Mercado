@@ -84,7 +84,7 @@ namespace MercadoEnvioFRBA.Modelo
 
        internal void facturar(Int32 stock)
        {
-           DAOFactura.generarFactura(this,stock);
+            //DAOFactura.generarFactura(this,stock);
        }
 
 
