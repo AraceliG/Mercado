@@ -49,5 +49,25 @@ namespace MercadoEnvioFRBA.Datos.DAO
             return conceptos[0].cod_concepto;
            
         }
+
+        internal static Decimal conceptoPorPublicar()
+        {
+            List<Concepto> conceptos = new List<Concepto>();
+            List<SqlParameter> paramList = new List<SqlParameter>();
+
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT C.COD_CONCEPTO,C.DESCRIPCION FROM NOTHING_IS_IMPOSSIBLE.CONCEPTO C WHERE C.DESCRIPCION='Comision publicar'", "T", paramList);
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    Concepto concepto = new Concepto();
+                    concepto.cod_concepto = (Decimal)lector["cod_concepto"];
+                    concepto.descripcion = (String)lector["descripcion"];
+                    conceptos.Add(concepto);
+                }
+            }
+            return conceptos[0].cod_concepto;
+
+        }
     }
 }

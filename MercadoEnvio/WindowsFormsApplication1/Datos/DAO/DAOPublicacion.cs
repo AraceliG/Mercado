@@ -440,7 +440,9 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
             if (publicacion.cod_publicacion == 0)
             {
-                ListaParametros.Add(new SqlParameter("@cod_publicacion", proximoCod_publicacion()));
+                publicacion.cod_publicacion =  proximoCod_publicacion();
+                ListaParametros.Add(new SqlParameter("@cod_publicacion", publicacion.cod_publicacion));
+
                 noQuery = @"INSERT INTO NOTHING_IS_IMPOSSIBLE.Publicacion
                                    (cod_publicacion
                                    ,cod_tipo_publicacion

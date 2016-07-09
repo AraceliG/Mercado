@@ -15,6 +15,7 @@ namespace MercadoEnvioFRBA.Presentacion
     public partial class FormAltaModifPublicacion : FormBaseUTN
     {
         private Publicacion publicacionActual;
+        private bool generarFactura = false;
 
         public FormAltaModifPublicacion()
         {
@@ -78,6 +79,7 @@ namespace MercadoEnvioFRBA.Presentacion
         public FormAltaModifPublicacion(decimal userId) : this ()
         {
             // TODO: Complete member initialization
+            this.generarFactura = true;
             this.publicacionActual = new Publicacion();
             this.publicacionActual.userId = userId;
         }
@@ -165,12 +167,41 @@ namespace MercadoEnvioFRBA.Presentacion
 
             if (publicacionActual.guardar() > 0)
             {
+                if(this.generarFactura)
+                {
+                    this.generarFacturaPorPublicar();
+                }
+
                 MessageBox.Show("Se han guardado los cambios.", ":o)", MessageBoxButtons.OK);
             }
             else
             {
                 MessageBox.Show("No se han guardado los cambios!", ":o(", MessageBoxButtons.OK);
             }
+        }
+
+        private void generarFacturaPorPublicar()
+        {
+            this.generarFactura = false;
+            Visibilidad unaVisi = (Visibilidad) this.visibilidad.SelectedItem;
+            string entrada = Microsoft.VisualBasic.Interaction.InputBox("Forma de pago","Por favor ingrese forma de pago");
+            if (entrada.Equals(""))
+            {
+                entrada = "Efectivo";
+            }
+            Factura unFactura = new Factura();
+            unFactura.cod_publicacion = this.publicacionActual.cod_publicacion;
+            unFactura.userId = this.publicacionActual.userId;
+            unFactura.fecha = Convert.ToDateTime(ConfigurationManager.AppSettings["fecha"]);
+            unFactura.total = unaVisi.comision_publicar;
+            unFactura.forma_pago_desc = entrada;            
+            unFactura.insertarFactura();
+
+            ItemFactura unItem = new ItemFactura();
+            unItem.cantidad = 1;
+            unItem.monto = unaVisi.comision_publicar;
+            unItem.cod_concepto = Concepto.cod_por_publicar();
+            unFactura.insertarItem(unItem);       
         }
     }
 }

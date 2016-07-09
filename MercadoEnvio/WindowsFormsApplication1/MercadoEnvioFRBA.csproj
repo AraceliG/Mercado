@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
@@ -182,6 +183,12 @@
     <Compile Include="Presentacion\FormBaseUTN.Designer.cs">
       <DependentUpon>FormBaseUTN.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Facturas\FormPedirFormaPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Facturas\FormPedirFormaPago.Designer.cs">
+      <DependentUpon>FormPedirFormaPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Generar Publicación\FormGenerarPublicacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -314,6 +321,9 @@
     <EmbeddedResource Include="Presentacion\ComprarOfertar\FormOfertaDeSubasta.resx">
       <DependentUpon>FormOfertaDeSubasta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Facturas\FormPedirFormaPago.resx">
+      <DependentUpon>FormPedirFormaPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FormBaseUTN.resx">
       <DependentUpon>FormBaseUTN.cs</DependentUpon>
     </EmbeddedResource>
@@ -386,7 +396,6 @@
     <None Include="Resources\fondoBoton1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Presentacion\Facturas\" />
     <Folder Include="Presentacion\Listado Estadistico\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
