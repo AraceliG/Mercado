@@ -7,46 +7,56 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MercadoEnvioFRBA.Presentacion;
 using MercadoEnvioFRBA.Modelo;
-using MercadoEnvioFRBA.Presentacion.Calificar;
 
 namespace MercadoEnvioFRBA.Presentacion.Historial_Cliente
 {
-    public partial class FormPendientesCalificar : FormBaseUTN
+    public partial class FormResumenEstrellas : FormBaseUTN
     {
-        private Usuario usuario;
+        private Modelo.Usuario usuario;
 
-        public FormPendientesCalificar()
+        public FormResumenEstrellas()
         {
             InitializeComponent();
         }
 
-        public FormPendientesCalificar(Usuario usuario)
+        public FormResumenEstrellas(Usuario usuario)
         {
-            
             this.usuario = usuario;
             InitializeComponent();
         }
 
-        private void FormPendientesCalificar_Load(object sender, EventArgs e)
+        private void FormResumenEstrellas_Load(object sender, EventArgs e)
         {
-            dataGridPendientesCalificacion.AutoGenerateColumns = false;
-            dataGridPendientesCalificacion.MultiSelect = false;
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dataGridCompras.DataSource = null;
+
             cargarGrilla();
+            
             actualizarGrilla();
         }
 
         private void actualizarGrilla()
         {
-
-            List<Compra> comprasSinCalificar = usuario.tusComprasSinCalificar();
-            dataGridPendientesCalificacion.DataSource = comprasSinCalificar;
+            
+            List<Compra> compras = usuario.tusComprasPorCalificacion(numericUpDownCalif.Value);
+            dataGridCompras.DataSource = compras;
             
         }
 
+
         private void cargarGrilla()
         {
+
             DataGridViewTextBoxColumn colCodPublic = new DataGridViewTextBoxColumn();
             colCodPublic.DataPropertyName = "cod_publicacion";
             colCodPublic.HeaderText = "Codigo de Publicacion";
@@ -68,34 +78,12 @@ namespace MercadoEnvioFRBA.Presentacion.Historial_Cliente
             coltexto.HeaderText = "Comentarios";
             coltexto.Width = 150;
 
-            dataGridPendientesCalificacion.Columns.Add(colCodPublic);
-            dataGridPendientesCalificacion.Columns.Add(colCantidad);
-            dataGridPendientesCalificacion.Columns.Add(colFecha);
-            dataGridPendientesCalificacion.Columns.Add(colEstrellas);
-            dataGridPendientesCalificacion.Columns.Add(coltexto);
+            dataGridCompras.Columns.Add(colCodPublic);
+            dataGridCompras.Columns.Add(colCantidad);
+            dataGridCompras.Columns.Add(colFecha);
+            dataGridCompras.Columns.Add(colEstrellas);
+            dataGridCompras.Columns.Add(coltexto);
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (dataGridPendientesCalificacion.RowCount != 0) 
-            {
-                Compra compra = (Compra)dataGridPendientesCalificacion.CurrentRow.DataBoundItem;
-                this.Hide();
-                FormCalificar buscarRol = new FormCalificar(compra,usuario);
-                buscarRol.ShowDialog();
-                this.actualizarGrilla();
-            }
-            else 
-            {
-                MessageBox.Show("Debe elegir una fila de su tabla de operacones pendientes de calificacion", "Calificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
-
 
     }
 }

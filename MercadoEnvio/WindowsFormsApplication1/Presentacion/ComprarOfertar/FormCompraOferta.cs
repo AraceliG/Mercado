@@ -142,81 +142,99 @@ namespace MercadoEnvioFRBA.ComprarOfertar
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (dataGridPublicacion.RowCount != 0)
+         
+            if (usuario.tusComprasSinCalificar().Count <= 3)
             {
-                Publicacion publi = (Publicacion)dataGridPublicacion.CurrentRow.DataBoundItem;
-                
-                if ( ! publi.laHizoUsuario(usuario)){
-                    if (! publi.estaPausada()){
-                        if(publi.esCompra()){
-                            this.Hide();
-                            FormCompra buscarRol = new FormCompra(publi,usuario);
-                            buscarRol.ShowDialog();
-                            this.Close();
-                        }
-                        else{
-                        MessageBox.Show("La publicacion es para realizar OFERTAS a SUBASTAS ", "Publicacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        }
-                    
-                    }
-                    else
-                    {
-                         MessageBox.Show("La publicacion se encuentra pausada no puede comprar/ofertar", "Publicacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                
-                }
-                else
+
+                if (dataGridPublicacion.RowCount != 0)
                 {
-                 MessageBox.Show("Usted no puede auto comprarse/ ofertarse", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-             
-            }
-            else
-            {
-                MessageBox.Show("Debe elegir una fila de su tabla resultado de su búsqueda", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    Publicacion publi = (Publicacion)dataGridPublicacion.CurrentRow.DataBoundItem;
 
-            }
-        }
-
-        private void btn_ofertar_Click(object sender, EventArgs e)
-        {
-            if (dataGridPublicacion.RowCount != 0)
-            {
-                Publicacion publi = (Publicacion)dataGridPublicacion.CurrentRow.DataBoundItem;
-
-                if (!publi.laHizoUsuario(usuario))
-                {
-                    if (!publi.estaPausada())
+                    if (!publi.laHizoUsuario(usuario))
                     {
-                        if (! publi.esCompra())
+                        if (!publi.estaPausada())
                         {
-                            this.Hide();
-                            FormOfertaDeSubasta buscarRol = new FormOfertaDeSubasta(publi,usuario);
-                            buscarRol.ShowDialog();
-                            this.Close();
+                            if (publi.esCompra())
+                            {
+                                this.Hide();
+                                FormCompra buscarRol = new FormCompra(publi, usuario);
+                                buscarRol.ShowDialog();
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("La publicacion es para realizar OFERTAS a SUBASTAS ", "Publicacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+
                         }
                         else
                         {
-                            MessageBox.Show("La publicacion es para realizar COMPRAS", "Publicacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("La publicacion se encuentra pausada no puede comprar/ofertar", "Publicacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
 
                     }
                     else
                     {
-                        MessageBox.Show("La publicacion se encuentra pausada no puede comprar/ofertar", "Publicacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Usted no puede auto comprarse/ ofertarse", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
 
                 }
                 else
                 {
-                    MessageBox.Show("Usted no puede auto comprarse/ ofertarse", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Debe elegir una fila de su tabla resultado de su búsqueda", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-
             }
             else
-            {
-                MessageBox.Show("Debe elegir una fila de su tabla resultado de su búsqueda", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            { MessageBox.Show("No podrá comprar ni ofertar hasta que no califique sus pendientes ", "Calificaciones Pendientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+        }
 
+
+        private void btn_ofertar_Click(object sender, EventArgs e)
+        {
+            if (usuario.tusComprasSinCalificar().Count <= 3)
+            {
+
+                if (dataGridPublicacion.RowCount != 0)
+                {
+                    Publicacion publi = (Publicacion)dataGridPublicacion.CurrentRow.DataBoundItem;
+
+                    if (!publi.laHizoUsuario(usuario))
+                    {
+                        if (!publi.estaPausada())
+                        {
+                            if (!publi.esCompra())
+                            {
+                                this.Hide();
+                                FormOfertaDeSubasta buscarRol = new FormOfertaDeSubasta(publi, usuario);
+                                buscarRol.ShowDialog();
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("La publicacion es para realizar COMPRAS", "Publicacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("La publicacion se encuentra pausada no puede comprar/ofertar", "Publicacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usted no puede auto comprarse/ ofertarse", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Debe elegir una fila de su tabla resultado de su búsqueda", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                }
+            }
+            else {
+                MessageBox.Show("No podrá comprar ni ofertar hasta que no califique sus pendientes ", "Calificaciones Pendientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); 
             }
         }
 

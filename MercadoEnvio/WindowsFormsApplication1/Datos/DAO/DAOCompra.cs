@@ -15,15 +15,16 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
 
 
-        internal static void documentarCompra(Publicacion publicacion, int stock, Usuario user)
+        internal static void documentarCompra(Publicacion publicacion, int stock, Usuario user, String fecha)
         {
             List<SqlParameter> parameterList = new List<SqlParameter>();
             parameterList.Add(new SqlParameter("@cod_publi", publicacion.cod_publicacion));
             parameterList.Add(new SqlParameter("@userId", user.userId));
             parameterList.Add(new SqlParameter("@cantidad", stock));
+            parameterList.Add(new SqlParameter("@fecha",Convert.ToDateTime(fecha)));
 
-            AccesoBaseDeDatos.WriteInBase("INSERT INTO NOTHING_IS_IMPOSSIBLE.COMPRA (COD_PUBLICACION, USERID,CANTIDAD) " +
-                                                " VALUES (@cod_publi, @userId, @cantidad)", "T", parameterList);
+            AccesoBaseDeDatos.WriteInBase("INSERT INTO NOTHING_IS_IMPOSSIBLE.COMPRA (COD_PUBLICACION, USERID,CANTIDAD,FECHA) " +
+                                                " VALUES (@cod_publi, @userId, @cantidad,@fecha)", "T", parameterList);
         }
 
         internal static List<Compra> lasComprasDeCliente(Usuario usuario)
@@ -43,7 +44,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     compra.userId=(int)(decimal)lector["userId"];
                     compra.fecha=(DateTime)lector["fecha"];
                     compra.cantidad=(int)(decimal)lector["cantidad"];
-                    compra.cant_estrellas = (int)(decimal)lector["cant_estrellas"];
+                    compra.cant_estrellas = lector["cant_estrellas"]== DBNull.Value ? 0 : (int)(decimal)lector["cant_estrellas"];
                     compra.txt_libre_calif = lector["txt_libre_calif"] == DBNull.Value ? null : (string)lector["txt_libre_calif"];
                         //(String)lector["txt_libre_calif"];
 
@@ -72,9 +73,76 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     compra.cod_publicacion = (int)(decimal)lector["cod_publicacion"];
                     compra.userId = (int)(decimal)lector["userId"]; 
                     compra.cantidad = (int)(decimal)lector["cantidad"];
-                    //problemas con valores en null tomorrowww
-                   // compra.cant_estrellas = lector["cant_estrellas"]== DBNull.Value ? null :  (int)(decimal)lector["cant_estrellas"];
-                    //compra.txt_libre_calif = lector["txt_libre_calif"] == DBNull.Value ? null : (string)lector["txt_libre_calif"];
+                    compra.fecha = (DateTime)lector["fecha"];
+                    compra.cant_estrellas = lector["cant_estrellas"] == DBNull.Value ? 0 : (int)(decimal)lector["cant_estrellas"];
+                    compra.txt_libre_calif = lector["txt_libre_calif"] == DBNull.Value ? null : (string)lector["txt_libre_calif"];
+
+                    compraList.Add(compra);
+                }
+            }
+
+            return compraList;
+        }
+
+        internal static void agregateCalificacion(Compra c, Calificacion calif,Usuario user,String comentario)
+        {
+
+            List<SqlParameter> parametroList = new List<SqlParameter>();
+           
+            parametroList.Add(new SqlParameter("@cod_publi", c.cod_publicacion));
+            parametroList.Add(new SqlParameter("@fecha", c.fecha));
+            parametroList.Add(new SqlParameter("@cantidad ", c.cantidad));
+            parametroList.Add(new SqlParameter("@calif", calif.cant_estrellas));
+            parametroList.Add(new SqlParameter("@user",user.userId ));
+            parametroList.Add(new SqlParameter("@descripcion", comentario));
+            AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.COMPRA SET CANT_ESTRELLAS=@CALIF,TXT_LIBRE_CALIF=@descripcion  WHERE COD_PUBLICACION=@cod_publi and USERID=@user and CANTIDAD=@cantidad and FECHA=@fecha ", "T", parametroList);
+        }
+
+        internal static List<Compra> getVentasDeUsuario(Decimal userIdVendedor)
+        {
+
+            List<Compra> compraList = new List<Compra>();
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(new SqlParameter("@userId", userIdVendedor));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT C.cant_estrellas FROM NOTHING_IS_IMPOSSIBLE.COMPRA C ,NOTHING_IS_IMPOSSIBLE.Publicacion P WHERE P.userId=@userId AND  P.cod_publicacion=C.cod_publicacion", "T", listaParametros);
+
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+
+                    Compra compra = new Compra();
+                    compra.cant_estrellas = lector["cant_estrellas"] == DBNull.Value ? 0 : (int)(decimal)lector["cant_estrellas"];
+                    compraList.Add(compra);
+                }
+
+                
+
+            }
+            
+            return compraList;
+        }
+
+        internal static List<Compra> getComprasPorCalifcacion(decimal calif)
+        {
+            List<Compra> compraList = new List<Compra>();
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(new SqlParameter("@calif", calif));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.COMPRA C WHERE C.cant_estrellas=@calif", "T", listaParametros);
+
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+
+                    Compra compra = new Compra();
+                    compra.cod_publicacion = (int)(decimal)lector["cod_publicacion"];
+                    compra.userId = (int)(decimal)lector["userId"];
+                    compra.fecha = (DateTime)lector["fecha"];
+                    compra.cantidad = (int)(decimal)lector["cantidad"];
+                    compra.cant_estrellas = lector["cant_estrellas"] == DBNull.Value ? 0 : (int)(decimal)lector["cant_estrellas"];
+                    compra.txt_libre_calif = lector["txt_libre_calif"] == DBNull.Value ? null : (string)lector["txt_libre_calif"];
+                   
 
                     compraList.Add(compra);
                 }

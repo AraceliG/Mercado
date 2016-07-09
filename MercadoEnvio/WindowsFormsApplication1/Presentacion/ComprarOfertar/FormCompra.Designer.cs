@@ -34,6 +34,8 @@
             this.txt_cantidadCompra = new System.Windows.Forms.TextBox();
             this.btn_aceptar = new System.Windows.Forms.Button();
             this.error_cant = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.label_fecha = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.error_cant)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,13 +56,14 @@
             this.txt_cantidadCompra.Name = "txt_cantidadCompra";
             this.txt_cantidadCompra.Size = new System.Drawing.Size(131, 26);
             this.txt_cantidadCompra.TabIndex = 3;
+            this.txt_cantidadCompra.TextChanged += new System.EventHandler(this.txt_cantidadCompra_TextChanged);
             this.txt_cantidadCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cantidadCompra_KeyPress);
             // 
             // btn_aceptar
             // 
             this.btn_aceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_aceptar.Image = ((System.Drawing.Image)(resources.GetObject("btn_aceptar.Image")));
-            this.btn_aceptar.Location = new System.Drawing.Point(152, 138);
+            this.btn_aceptar.Location = new System.Drawing.Point(139, 179);
             this.btn_aceptar.Name = "btn_aceptar";
             this.btn_aceptar.Size = new System.Drawing.Size(99, 42);
             this.btn_aceptar.TabIndex = 8;
@@ -72,11 +75,32 @@
             // 
             this.error_cant.ContainerControl = this;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(83, 124);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 20);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Fecha De hoy:";
+            // 
+            // label_fecha
+            // 
+            this.label_fecha.AutoSize = true;
+            this.label_fecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_fecha.Location = new System.Drawing.Point(227, 124);
+            this.label_fecha.Name = "label_fecha";
+            this.label_fecha.Size = new System.Drawing.Size(0, 20);
+            this.label_fecha.TabIndex = 14;
+            // 
             // FormCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(403, 233);
+            this.Controls.Add(this.label_fecha);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_aceptar);
             this.Controls.Add(this.txt_cantidadCompra);
             this.Controls.Add(this.label1);
@@ -86,6 +110,8 @@
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.txt_cantidadCompra, 0);
             this.Controls.SetChildIndex(this.btn_aceptar, 0);
+            this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.label_fecha, 0);
             ((System.ComponentModel.ISupportInitialize)(this.error_cant)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -98,5 +124,7 @@
         private System.Windows.Forms.TextBox txt_cantidadCompra;
         private System.Windows.Forms.Button btn_aceptar;
         private System.Windows.Forms.ErrorProvider error_cant;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label_fecha;
     }
 }

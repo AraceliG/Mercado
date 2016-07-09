@@ -40,7 +40,6 @@
             this.errorUser = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorPass = new System.Windows.Forms.ErrorProvider(this.components);
             this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorPass)).BeginInit();
@@ -103,7 +102,7 @@
             this.buttonLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLogin.Location = new System.Drawing.Point(263, 197);
+            this.buttonLogin.Location = new System.Drawing.Point(183, 222);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(114, 49);
             this.buttonLogin.TabIndex = 6;
@@ -140,18 +139,6 @@
             this.textBoxPassword.UseSystemPasswordChar = true;
             this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged_1);
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(145, 197);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 49);
-            this.button1.TabIndex = 83;
-            this.button1.Text = "Cambiar Contraseña";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FormularioLogin
             // 
             this.AcceptButton = this.buttonLogin;
@@ -159,7 +146,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(418, 384);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonLogin);
@@ -192,6 +178,5 @@
         private System.Windows.Forms.ErrorProvider errorUser;
         private System.Windows.Forms.ErrorProvider errorPass;
         public System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.Button button1;
     }
 }

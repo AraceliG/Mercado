@@ -68,6 +68,7 @@
     <Compile Include="Modelo\Concepto.cs" />
     <Compile Include="Modelo\Empresa.cs" />
     <Compile Include="Modelo\Estado.cs" />
+    <Compile Include="Modelo\Factura.cs" />
     <Compile Include="Modelo\Funcionalidad.cs" />
     <Compile Include="Modelo\Oferta.cs" />
     <Compile Include="Modelo\Publicacion.cs" />

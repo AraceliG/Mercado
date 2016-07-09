@@ -58,5 +58,18 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
 
             }           
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            FormModificarPass formUser = new FormModificarPass(user);
+            formUser.ShowDialog();
+            formUser.Close();
+            this.Show();
+            this.Close();
+
+
+        }
     }
 }

@@ -106,9 +106,9 @@ namespace MercadoEnvioFRBA.Modelo
            return montoEnvio + montoEnvio;
        }
 
-       internal void documentarCompra(Usuario usuario,int stock)
+       internal void documentarCompra(Usuario usuario,int stock,String fecha)
        {
-           DAOCompra.documentarCompra(this, stock,usuario);
+           DAOCompra.documentarCompra(this, stock,usuario,fecha);
        }
 
          Decimal stockViejo;
@@ -137,9 +137,9 @@ namespace MercadoEnvioFRBA.Modelo
            DAOPublicacion.actualizarOferta(this,oferta);
        }
 
-       internal void ofertate(int oferta, Usuario usuario)
+       internal void ofertate(int oferta, Usuario usuario,String fecha)
        {
-           DAOOferta.crearOferta(this, usuario, oferta);
+           DAOOferta.crearOferta(this, usuario, oferta,fecha);
        }
 
        internal int guardar()

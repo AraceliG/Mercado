@@ -180,6 +180,7 @@
             this.func9.Text = "Calificar al Vendedor";
             this.func9.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.func9.UseVisualStyleBackColor = true;
+            this.func9.Click += new System.EventHandler(this.func9_Click);
             // 
             // func10
             // 

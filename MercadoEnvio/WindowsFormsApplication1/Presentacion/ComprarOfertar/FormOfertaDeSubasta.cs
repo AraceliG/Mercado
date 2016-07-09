@@ -8,18 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MercadoEnvioFRBA.Modelo;
+using System.Configuration;
 
 namespace MercadoEnvioFRBA.Presentacion.ComprarOfertar
 {
     public partial class FormOfertaDeSubasta : FormBaseUTN
     {
-        private Modelo.Publicacion publi;
-        private Modelo.Usuario usuario;
+        private Publicacion publi;
+        private Usuario usuario;
 
         public FormOfertaDeSubasta()
         {
             InitializeComponent();
         }
+
+        // DateTime time = Convert.ToDateTime(ConfigurationManager.AppSettings["fecha"])
 
         public FormOfertaDeSubasta(Publicacion publi, Usuario usuario)
         {
@@ -28,6 +31,7 @@ namespace MercadoEnvioFRBA.Presentacion.ComprarOfertar
             this.usuario = usuario;
             InitializeComponent();
             label_ultimaOferta.Text= publi.precio.ToString();
+            label_fecha.Text = ConfigurationManager.AppSettings["fecha"];
         }
 
         private void FormOfertaDeSubasta_Load(object sender, EventArgs e)
@@ -42,7 +46,7 @@ namespace MercadoEnvioFRBA.Presentacion.ComprarOfertar
             oferta = Convert.ToInt32(txt_oferta.Text);
             if (esMayorOferta(oferta))
             { publi.actualizarPrecio(oferta);
-                publi.ofertate(oferta, usuario);
+                publi.ofertate(oferta, usuario,label_fecha.Text);
                 MessageBox.Show("Su oferta se ha realizado con éxito ", "Oferta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 this.Close();
             }
