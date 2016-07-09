@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using MercadoEnvioFRBA.Modelo;
+using System.Data;
 
 namespace MercadoEnvioFRBA.Datos.DAO
 {
@@ -12,29 +13,25 @@ namespace MercadoEnvioFRBA.Datos.DAO
     {
 
 
-        internal static void generarFactura(Publicacion publi, int stock)
+        internal static void generarFactura(Factura unaFactura)
         {
 
             List<SqlParameter> paramList = new List<SqlParameter>();
-            paramList.Add(new SqlParameter("@cod_publicacion", publi.cod_publicacion));
-            paramList.Add(new SqlParameter("@userIdVendedor", publi.userId));
-            paramList.Add(new SqlParameter("@totalFactura", publi.totalFactura()));
-            paramList.Add(new SqlParameter("@numeroItemVenta", 1));
-            paramList.Add(new SqlParameter("@numeroItemEnvio", 2));
-            paramList.Add(new SqlParameter("@montoItemComisionPorVenta", publi.montoDeVenta()));
-            paramList.Add(new SqlParameter("@montoItemComisionPorEnvio", publi.montoDeEnvio()));
-            paramList.Add(new SqlParameter("@conceptoPorVenta", DAOConcepto.conceptoPorVenta()));
-            paramList.Add(new SqlParameter("@conceptaPorEnvio", DAOConcepto.conceptoPorEnvio()));
-            paramList.Add(new SqlParameter("@cantidad", stock));
+            paramList.Add(new SqlParameter("@cod_publicacion", unaFactura.cod_publicacion));
+            paramList.Add(new SqlParameter("@userId", unaFactura.userId));
+            paramList.Add(new SqlParameter("@fecha", unaFactura.fecha));
+            paramList.Add(new SqlParameter("@total", unaFactura.total));
+            paramList.Add(new SqlParameter("@forma_pago_desc", unaFactura.forma_pago_desc));
 
+            SqlParameter nro_factura = new SqlParameter();
+            nro_factura.ParameterName = "@nro_factura";
+            nro_factura.DbType = DbType.Decimal;
+            nro_factura.Direction = ParameterDirection.Output;
+            paramList.Add(nro_factura);
 
-            //no me crea nada y no tengo idea cuál es problema
-
-            AccesoBaseDeDatos.ExecStoredProcedure("NOTHING_IS_IMPOSSIBLE.sp_facturarItems ", paramList);
-
-
-
-
+            AccesoBaseDeDatos.WriteInBase("NOTHING_IS_IMPOSSIBLE.insertarFactura", "SP", paramList);
+            ;
+            
         }
     }
 }

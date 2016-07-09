@@ -111,8 +111,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
             }
             return usuarios;
         }
-
-
+        
         public static bool contraseñaCorrecta(string user, string pass)
         {
             
@@ -123,7 +122,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
             return createUsuarioListFromQuery(lector).Count >= 1;
         }
 
-  public  static bool estaHabilitado(Usuario u)
+        public  static bool estaHabilitado(Usuario u)
         {
             
             List<SqlParameter> listaParametros = new List<SqlParameter>();
@@ -134,49 +133,50 @@ namespace MercadoEnvioFRBA.Datos.DAO
             
         }
 
-  public  static void reiniciarFallidos(Usuario usuario)
-  {
-       List<SqlParameter> paramList = new List<SqlParameter>();
-            paramList.Add(new SqlParameter("@nombre", usuario.username));
-            AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USUARIO.USER_NRO_INTENTOS=0 WHERE USUARIO.USERNAME=@nombre", "T", paramList);
-  }
+        public  static void reiniciarFallidos(Usuario usuario)
 
-  internal static void actualizarFallidos(Usuario usuario)
-  {    Int32 cant=DAOUsuario.cantidadDefallidos(usuario);
-      List<SqlParameter> paramList = new List<SqlParameter>();
-      paramList.Add(new SqlParameter("@us_intentos", cant+1));
-      paramList.Add(new SqlParameter("@nombre", usuario.username));
+          {
+               List<SqlParameter> paramList = new List<SqlParameter>();
+                    paramList.Add(new SqlParameter("@nombre", usuario.username));
+                    AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USUARIO.USER_NRO_INTENTOS=0 WHERE USUARIO.USERNAME=@nombre", "T", paramList);
+          }
 
-      AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USUARIO.USER_NRO_INTENTOS=@us_intentos WHERE USUARIO.USERNAME=@nombre", "T", paramList);
-  }
+        internal static void actualizarFallidos(Usuario usuario)
+          {    Int32 cant=DAOUsuario.cantidadDefallidos(usuario);
+              List<SqlParameter> paramList = new List<SqlParameter>();
+              paramList.Add(new SqlParameter("@us_intentos", cant+1));
+              paramList.Add(new SqlParameter("@nombre", usuario.username));
 
-  public static bool intentosFallidosCompletos(Usuario u)
-  {   
-      List<SqlParameter> listaParametros = new List<SqlParameter>();
-      ;
-      listaParametros.Add(new SqlParameter("@username", u.username));
-      SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE U.USERNAME=@username AND U.USER_NRO_INTENTOS > 3 ", "T", listaParametros);
-      return createUsuarioListFromQuery(lector).Count >= 1;
-  }
+              AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USUARIO.USER_NRO_INTENTOS=@us_intentos WHERE USUARIO.USERNAME=@nombre", "T", paramList);
+          }
 
-  public static Int32 cantidadDefallidos(Usuario u) {
-      List<Usuario> usuarios = new List<Usuario>();
-      List<SqlParameter> listaParametros = new List<SqlParameter>();
-      listaParametros.Add(new SqlParameter("@username", u.username));
-      SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE U.USERNAME=@username", "T", listaParametros);
-      usuarios = createUsuarioListFromQuery(lector);
-      return usuarios[0].user_nro_intentos;
+        public static bool intentosFallidosCompletos(Usuario u)
+          {   
+              List<SqlParameter> listaParametros = new List<SqlParameter>();
+              listaParametros.Add(new SqlParameter("@username", u.username));
+              SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE U.USERNAME=@username AND U.USER_NRO_INTENTOS > 3 ", "T", listaParametros);
+              return createUsuarioListFromQuery(lector).Count >= 1;
+          }
+
+        public static Int32 cantidadDefallidos(Usuario u) 
+        {
+          List<Usuario> usuarios = new List<Usuario>();
+          List<SqlParameter> listaParametros = new List<SqlParameter>();
+          listaParametros.Add(new SqlParameter("@username", u.username));
+          SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE U.USERNAME=@username", "T", listaParametros);
+          usuarios = createUsuarioListFromQuery(lector);
+          return usuarios[0].user_nro_intentos;
   
-  }
+        }
 
-  public static void cambiarContraseña(string passNuevo, Usuario user)
-  {
-      List<SqlParameter> paramList = new List<SqlParameter>();
-      paramList.Add(new SqlParameter("@pass", passNuevo));
-      paramList.Add(new SqlParameter("@nombre", user.username));
+        public static void cambiarContraseña(string passNuevo, Usuario user)
+        {
+          List<SqlParameter> paramList = new List<SqlParameter>();
+          paramList.Add(new SqlParameter("@pass", passNuevo));
+          paramList.Add(new SqlParameter("@nombre", user.username));
 
-      AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USUARIO.PASS=@pass WHERE USUARIO.USERNAME=@nombre", "T", paramList);
-  }
+          AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USUARIO.PASS=@pass WHERE USUARIO.USERNAME=@nombre", "T", paramList);
+        }
 
     }
-    }
+}
