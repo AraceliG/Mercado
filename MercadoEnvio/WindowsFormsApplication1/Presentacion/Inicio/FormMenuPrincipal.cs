@@ -108,5 +108,13 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
 
 
         }
+
+        private void func9_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormPendientesCalificar pendientesCalif = new FormPendientesCalificar(usuario);
+            pendientesCalif.ShowDialog();
+            this.Show();
+        }
     }
 }
