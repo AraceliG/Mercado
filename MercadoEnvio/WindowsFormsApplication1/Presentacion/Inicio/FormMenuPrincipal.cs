@@ -117,5 +117,13 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
             pendientesCalif.ShowDialog();
             this.Show();
         }
+
+        private void func10_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FacturasVendedor fact = new FacturasVendedor();
+            fact.ShowDialog();
+            this.Show();
+        }
     }
 }
