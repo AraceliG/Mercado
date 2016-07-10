@@ -84,7 +84,7 @@ namespace MercadoEnvioFRBA.ComprarOfertar
             colPrecio.Width = 120;
             DataGridViewTextBoxColumn colVendedor = new DataGridViewTextBoxColumn();
             colVendedor.DataPropertyName = "userId";
-            colVendedor.HeaderText = "identificador de usuario";
+            colVendedor.HeaderText = "identificador del vendedor";
             colVendedor.Width = 120;
             DataGridViewTextBoxColumn colFechaInicio = new DataGridViewTextBoxColumn();
             colFechaInicio.DataPropertyName = "fecha_inicio";
@@ -236,6 +236,11 @@ namespace MercadoEnvioFRBA.ComprarOfertar
             else {
                 MessageBox.Show("No podrá comprar ni ofertar hasta que no califique sus pendientes ", "Calificaciones Pendientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); 
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
         }
 
 
