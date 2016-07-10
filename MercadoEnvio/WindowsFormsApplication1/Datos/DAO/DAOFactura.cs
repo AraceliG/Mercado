@@ -137,6 +137,39 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
         }
 
+
+
+            internal static List<Factura> getFacturas()
+        {
+
+            List<Factura> facturas = new List<Factura>();
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.FACTURA", "T", listaParametros);
+   
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+
+                    Factura factura = new Factura();
+                    factura.nro_factura = (decimal)lector["nro_factura"];
+                    factura.cod_publicacion = (decimal)lector["cod_publicacion"];
+                    factura.userId = (int)(decimal)lector["userId"];
+                    factura.total = (int)(decimal)lector["total"];
+                    factura.forma_pago_desc = (String)lector["forma_pago_desc"];
+                    factura.fecha = (DateTime)lector["fecha"];
+
+                    facturas.Add(factura);
+                }
+            }
+            return facturas;
+        }
+
+
+
+       
+            
+        }
     }
 
-}
+

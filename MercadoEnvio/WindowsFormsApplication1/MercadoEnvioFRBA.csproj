@@ -177,6 +177,12 @@
     <Compile Include="Presentacion\ComprarOfertar\FormOfertaDeSubasta.Designer.cs">
       <DependentUpon>FormOfertaDeSubasta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Facturas\FacturasVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Facturas\FacturasVendedor.Designer.cs">
+      <DependentUpon>FacturasVendedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\FormBaseUTN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -320,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ComprarOfertar\FormOfertaDeSubasta.resx">
       <DependentUpon>FormOfertaDeSubasta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Facturas\FacturasVendedor.resx">
+      <DependentUpon>FacturasVendedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Facturas\FormPedirFormaPago.resx">
       <DependentUpon>FormPedirFormaPago.cs</DependentUpon>
