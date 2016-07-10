@@ -67,6 +67,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     unPubli.acepta_preguntas = (bool)lector["acepta_preguntas"];
                     unPubli.ofrece_envios = (bool)lector["acepta_preguntas"];
                     unPubli.miEstado = CambioEstado.getEstado((string)lector["cod_estadoPubli"]);
+                    unPubli.userId = (decimal)lector["userId"];
 
                     if (DBNull.Value != lector["costo"])
                         unPubli.costo = (decimal)lector["costo"];

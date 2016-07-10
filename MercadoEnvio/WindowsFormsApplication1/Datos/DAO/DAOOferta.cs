@@ -47,5 +47,48 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
             return ofertaList;
         }
+
+        internal static Oferta buscarGanadora(decimal cod_publicacion)
+        {
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(new SqlParameter("@cod_publicacion", cod_publicacion));
+
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader( 
+                                                @"	SELECT * FROM [NOTHING_IS_IMPOSSIBLE].[Oferta]
+	                                                where [cod_publicacion] = @cod_publicacion and 
+		                                                monto = (select max(monto) FROM [NOTHING_IS_IMPOSSIBLE].[Oferta]
+				                                                where [cod_publicacion] = @cod_publicacion)", "T", listaParametros);
+            Oferta oferta = new Oferta();
+            if (lector.HasRows)
+            {
+                lector.Read();
+                oferta.cod_publicacion = (decimal)lector["cod_publicacion"];
+                oferta.userId = (decimal)lector["userId"];
+                oferta.fecha = (DateTime)lector["fecha"];
+                oferta.monto = (decimal)lector["monto"];
+                oferta.ganadora = (bool)lector["ganadora"];
+            }
+            else
+            {
+                oferta = null;
+            }
+
+            return oferta;
+        }
+
+        internal static void ponerGanadora(Oferta oferta)
+        {
+            List<SqlParameter> parameterList = new List<SqlParameter>();
+            parameterList.Add(new SqlParameter("@cod_publicacion", oferta.cod_publicacion));
+            parameterList.Add(new SqlParameter("@userId", oferta.userId));
+            parameterList.Add(new SqlParameter("@fecha", oferta.fecha));
+            parameterList.Add(new SqlParameter("@monto", oferta.monto));
+
+
+
+            AccesoBaseDeDatos.WriteInBase(@"UPDATE NOTHING_IS_IMPOSSIBLE.Oferta SET ganadora= 1 
+                                        WHERE COD_PUBLICACION=@cod_publicacion and userId = @userId and fecha = @fecha and monto = @monto", "T", parameterList);
+
+        }
     }
 }

@@ -150,5 +150,17 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
             return compraList;
         }
+
+        internal static void insertar(Compra compra)
+        {
+            List<SqlParameter> parameterList = new List<SqlParameter>();
+            parameterList.Add(new SqlParameter("@cod_publi", compra.cod_publicacion));
+            parameterList.Add(new SqlParameter("@userId", compra.userId));
+            parameterList.Add(new SqlParameter("@cantidad", compra.cantidad));
+            parameterList.Add(new SqlParameter("@fecha", compra.fecha));
+
+            AccesoBaseDeDatos.WriteInBase("INSERT INTO NOTHING_IS_IMPOSSIBLE.COMPRA (COD_PUBLICACION, USERID,CANTIDAD,FECHA) " +
+                                                " VALUES (@cod_publi, @userId, @cantidad,@fecha)", "T", parameterList);
+        }
     }
 }

@@ -16,5 +16,15 @@ namespace MercadoEnvioFRBA.Modelo
        {
            return DAOConcepto.conceptoPorPublicar();
        }
+
+       internal static decimal cod_por_venta()
+       {
+           return DAOConcepto.conceptoPorVenta();
+       }
+
+       internal static decimal cod_por_envio()
+       {
+           return DAOConcepto.conceptoPorEnvio();
+       }
     }
 }

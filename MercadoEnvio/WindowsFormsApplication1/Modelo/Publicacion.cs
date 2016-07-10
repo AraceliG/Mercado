@@ -156,24 +156,89 @@ namespace MercadoEnvioFRBA.Modelo
        internal static void actualizarVencidas(DateTime dateTime, System.Windows.Forms.ProgressBar progressBar)
        {
            List<Publicacion> vencidas = DAOPublicacion.getPublicaciones().
-               FindAll(p => !p.miEstado.cod_estadoPubli.Equals('F') && p.fecha_vencimiernto.CompareTo(dateTime) < 0 );
+               FindAll(p => !p.miEstado.cod_estadoPubli.Equals("F") && p.fecha_vencimiernto.CompareTo(dateTime) < 0 );
 
            progressBar.Visible = true;
-           progressBar.Minimum = 1;
+           progressBar.Minimum = 0;
            progressBar.Maximum = vencidas.Count;
-           progressBar.Value = 1;
+           progressBar.Value = 0;
            progressBar.Step = 1;
 
-           for (int x = 1; x <= vencidas.Count; x++)
+           foreach (Publicacion publi in vencidas)
            {
-               // Copy the file and increment the ProgressBar if successful.
-               //if (CopyFile(filenames[x - 1]) == true)
-               //{
-                   // Perform the increment on the ProgressBar.
-                   progressBar.PerformStep();
-               //}
+               publi.finalizar();
+               if (!publi.esCompra()) // es subasta
+               {
+
+                   Oferta ganadora = Oferta.buscarGanadora(publi.cod_publicacion);
+                   if( ganadora != null){
+                       ganadora.ganadora = true;
+                       ganadora.ponerGanadora();
+
+                       Compra compraDeOfera = new Compra(ganadora.cod_publicacion,ganadora.userId,dateTime,1);
+                       compraDeOfera.insertarCompra();
+
+                       decimal comisionVenta = publi.comisionXventa(ganadora.monto);
+                       decimal comisionEnvio = publi.comisionXenvio(ganadora.monto);
+
+                       Factura unFactura = new Factura();
+                       unFactura.cod_publicacion = publi.cod_publicacion;
+                       unFactura.userId = publi.userId;
+                       unFactura.fecha = dateTime;
+                       unFactura.total = comisionEnvio + comisionVenta;
+                       unFactura.forma_pago_desc = "Efectivo";
+                       unFactura.insertarFactura();
+
+                       ItemFactura unItem = new ItemFactura();
+                       unItem.cantidad = 1;
+                       unItem.monto = comisionVenta;
+                       unItem.cod_concepto = Concepto.cod_por_venta();
+                       unFactura.insertarItem(unItem);
+
+                       if (comisionEnvio > 0 )
+                       {
+                           ItemFactura otroItem = new ItemFactura();
+                           otroItem.cantidad = 1;
+                           otroItem.monto = comisionEnvio;
+                           otroItem.cod_concepto = Concepto.cod_por_envio();
+                           unFactura.insertarItem(otroItem);
+                       }
+                    }   
+                        
+               }
+               progressBar.PerformStep();
            }
            progressBar.Visible = false;
+       }
+
+       private decimal comisionXventa(decimal montoVenta)
+       {
+           decimal calculo = 0;
+           Visibilidad unVisi = DAOVisibilidad.getVisibilidad(this.cod_visibilidad);
+           if (unVisi != null)
+           {
+               calculo = montoVenta * unVisi.comision_vender;
+           }
+           return calculo;
+       }
+
+       private decimal comisionXenvio(decimal montoVenta)
+       {
+           decimal calculo = 0;
+           Visibilidad unVisi = DAOVisibilidad.getVisibilidad(this.cod_visibilidad);
+           if (unVisi != null)
+           {
+               if (unVisi.cod_tipo_comision_envio.Equals("F")) // F de fijo
+               {
+                   calculo = unVisi.valor_comision_envio;
+               }
+               else
+               {
+                   calculo = (unVisi.valor_comision_envio) * montoVenta;
+               }
+           }
+           return calculo;
+
        }
     }
 }

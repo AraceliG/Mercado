@@ -142,6 +142,34 @@ namespace MercadoEnvioFRBA.Datos.DAO
             }
             return visibilidades[0].valor_comision_envio;
         }
+
+        internal static Visibilidad getVisibilidad(decimal cod_visibilidad)
+        {
+            List<SqlParameter> paramList = new List<SqlParameter>();
+            paramList.Add(new SqlParameter("@cod_visibilidad", cod_visibilidad));
+
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.Visibilidad WHERE cod_visibilidad =@cod_visibilidad", "T", paramList);
+            
+            Visibilidad unVisibilidad = new Visibilidad();
+            if (lector.HasRows)
+            {
+                lector.Read();
+                unVisibilidad.cod_visibilidad = (decimal)lector["cod_visibilidad"];
+                unVisibilidad.descripcion = (string)lector["descripcion"];
+                unVisibilidad.comision_publicar = (decimal)lector["comision_publicar"];
+                unVisibilidad.comision_vender = (decimal)lector["comision_vender"];
+                unVisibilidad.permite_envios = (bool)lector["permite_envios"];
+                unVisibilidad.cod_tipo_comision_envio = (string)lector["cod_tipo_comision_envio"];
+                unVisibilidad.valor_comision_envio = (decimal)lector["valor_comision_envio"];
+                unVisibilidad.baja = (bool)lector["baja"];
+            }
+            else
+            {
+                unVisibilidad = null;
+            }
+
+            return unVisibilidad;
+        }
     }
 }
 

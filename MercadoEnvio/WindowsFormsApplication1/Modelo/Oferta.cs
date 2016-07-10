@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MercadoEnvioFRBA.Datos.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,14 +15,14 @@ namespace MercadoEnvioFRBA.Modelo
        public Decimal monto {get;set;}
        public Boolean ganadora { get; set; }
 
-       internal static Oferta buscarGanadora(decimal p)
+       internal static Oferta buscarGanadora(decimal cod_publicacion)
        {
-           throw new NotImplementedException();
+           return DAOOferta.buscarGanadora(cod_publicacion);
        }
 
-       internal void guardar()
+       internal void ponerGanadora()
        {
-           throw new NotImplementedException();
+           DAOOferta.ponerGanadora(this);
        }
     }
 }
