@@ -270,5 +270,15 @@ namespace MercadoEnvioFRBA.Modelo
            return calculo;
 
        }
+
+       internal bool esDeCliente()
+       {
+           return DAOCliente.tenesCliente(this.userId);
+       }
+
+       internal bool esDeEmpresa()
+       {
+           return DAOEmpresa.tenesEmpresa(this.userId);
+       }
     }
 }

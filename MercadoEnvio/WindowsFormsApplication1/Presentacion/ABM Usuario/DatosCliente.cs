@@ -12,8 +12,18 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
 {
     public partial class DatosCliente : DatosVendedor
     {
+        private decimal p;
+
         public DatosCliente()
         {
+            InitializeComponent();
+        }
+
+        public DatosCliente(decimal p)
+        {
+           
+            this.p = p;
+
             InitializeComponent();
         }
 

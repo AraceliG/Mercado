@@ -215,9 +215,24 @@ private static string consulta(String razonSocial,String mail, String cuit)
             AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USUARIO.HABILITADO=1,USUARIO.USER_NRO_INTENTOS=0 FROM NOTHING_IS_IMPOSSIBLE.USUARIO INNER JOIN NOTHING_IS_IMPOSSIBLE.EMPRESA ON EMPRESA.USERID=USUARIO.USERID WHERE REPLACE(UPPER(EMPRESA.CUIT),'-','') LIKE UPPER('" + emp.cuit.Replace("-", "") + "')", "T", paramList);
         }
 
-        internal static void cargarRubros()
+        internal static bool tenesEmpresa(decimal empId)
         {
-            throw new NotImplementedException();
+            List<Empresa> empresaList = new List<Empresa>();
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(new SqlParameter("@userId", empId));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT cuit,razon_social FROM NOTHING_IS_IMPOSSIBLE.Empresa E WHERE E.USERID=@userId", "T", listaParametros);
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+
+                    Empresa empresa = new Empresa();
+                    empresa.cuit = (string)lector["cuit"];
+                    empresa.razon_social = (string)lector["razon_social"];
+                    empresaList.Add(empresa);
+                }
+            }
+            return (empresaList.Count() >= 1);
         }
     }
 }

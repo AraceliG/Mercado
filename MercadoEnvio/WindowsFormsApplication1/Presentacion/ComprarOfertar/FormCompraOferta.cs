@@ -12,6 +12,7 @@ using System.Web;
 using MercadoEnvioFRBA.Datos.DAO;
 using MercadoEnvioFRBA.Modelo;
 using MercadoEnvioFRBA.Presentacion.ComprarOfertar;
+using MercadoEnvioFRBA.Presentacion.ABM_Usuario;
 
 namespace MercadoEnvioFRBA.ComprarOfertar
     
@@ -240,6 +241,25 @@ namespace MercadoEnvioFRBA.ComprarOfertar
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+
+            Publicacion publi = (Publicacion)dataGridPublicacion.CurrentRow.DataBoundItem;
+
+            if (publi.esDeCliente())
+            {
+                this.Hide();
+                DatosCliente datos = new DatosCliente(publi.userId);
+                datos.ShowDialog();
+                this.Show();
+            }
+
+            if (publi.esDeEmpresa()) 
+            {
+                this.Hide();
+                DatosEmpres datos = new DatosEmpres(publi.userId);
+                datos.ShowDialog();
+                this.Show();
+            }
+
 
         }
 

@@ -12,9 +12,19 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
 {
     public partial class DatosVendedor : FormBaseUTN
     {
+        private decimal userId;
+
         public DatosVendedor()
         {
             InitializeComponent();
+        }
+
+        public DatosVendedor(decimal user)
+        {
+            // TODO: Complete member initialization
+            this.userId = user;
+            InitializeComponent();
+
         }
 
         private void DatosVendedor_Load(object sender, EventArgs e)

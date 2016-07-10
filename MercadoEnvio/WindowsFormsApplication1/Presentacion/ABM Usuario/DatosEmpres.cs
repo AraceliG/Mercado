@@ -13,8 +13,18 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Usuario
 {
     public partial class DatosEmpres : DatosVendedor
     {
+        private decimal p;
+
         public DatosEmpres()
         {
+            InitializeComponent();
+        }
+
+        public DatosEmpres(decimal p)
+        {
+            
+            this.p = p;
+
             InitializeComponent();
         }
 

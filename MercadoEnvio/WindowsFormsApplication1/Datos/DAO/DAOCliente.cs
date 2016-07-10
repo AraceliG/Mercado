@@ -208,6 +208,28 @@ public static void crearCliente(Cliente c) {
             paramList.Add(new SqlParameter("@dni", c.dni));
             AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USUARIO.HABILITADO=1,USUARIO.USER_NRO_INTENTOS=0 FROM NOTHING_IS_IMPOSSIBLE.USUARIO INNER JOIN NOTHING_IS_IMPOSSIBLE.CLIENTE  ON CLIENTE.USERID=USUARIO.USERID WHERE DNI=@dni", "T", paramList);
         }
+
+        internal static bool tenesCliente(decimal userId)
+        {
+            List<Cliente> clienteList = new List<Cliente>();
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(new SqlParameter("@userId", userId));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT nombre, apellido,dni FROM NOTHING_IS_IMPOSSIBLE.CLIENTE C WHERE C.USERID=@userId", "T", listaParametros);
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+
+                    Cliente cliente = new Cliente();
+                    cliente.dni = (int)(decimal)lector["dni"];
+                    cliente.nombre = (string)lector["nombre"];
+                    cliente.apellido=(string)lector["apellido"];
+                    clienteList.Add(cliente);
+                }
+            }
+            return (clienteList.Count() >= 1);
+
+        }
     }
 
 
