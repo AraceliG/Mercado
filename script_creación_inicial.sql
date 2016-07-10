@@ -940,6 +940,250 @@ BEGIN
 END
 GO
 
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.insertarFactura') IS NOT NULL
+	DROP PROCEDURE NOTHING_IS_IMPOSSIBLE.insertarFactura;
+GO
+CREATE PROCEDURE NOTHING_IS_IMPOSSIBLE.insertarFactura 
+(@cod_publicacion numeric(18,0),
+ @userId numeric(18,0), 
+ @fecha datetime, 
+ @total numeric(18,2), 
+ @forma_pago_desc nvarchar(255),
+ @nro_factura numeric(18,0) output)
+AS
+BEGIN
+	SET  @nro_factura = (select isNull( max(nro_factura), 0) from NOTHING_IS_IMPOSSIBLE.Factura)
+	SET @nro_factura = @nro_factura + 1
+
+	INSERT INTO NOTHING_IS_IMPOSSIBLE.Factura
+			   (nro_factura
+			   ,cod_publicacion
+			   ,userId
+			   ,fecha
+			   ,total
+			   ,forma_pago_desc)
+		 VALUES
+			   (@nro_factura
+			   ,@cod_publicacion
+			   ,@userId
+			   ,@fecha
+			   ,@total
+			   ,@forma_pago_desc
+			   )
+
+END
+GO
+
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.insertarItemFactura') IS NOT NULL
+	DROP PROCEDURE NOTHING_IS_IMPOSSIBLE.insertarItemFactura;
+GO
+CREATE PROCEDURE NOTHING_IS_IMPOSSIBLE.insertarItemFactura 
+(@nro_factura numeric(18,0),
+@cod_concepto numeric(18,0),
+@monto numeric(18,2),
+@cantidad numeric(18,0),
+@nro_item numeric(18,0) output)
+AS
+BEGIN
+	SET  @nro_item = (select isNull( max(nro_item), 0) from NOTHING_IS_IMPOSSIBLE.ItemFactura where nro_factura = @nro_factura)
+	SET @nro_item = @nro_item + 1
+
+	INSERT INTO NOTHING_IS_IMPOSSIBLE.ItemFactura
+			   (nro_factura
+			   ,nro_item
+			   ,cod_concepto
+			   ,monto
+			   ,cantidad)
+		 VALUES
+			   (@nro_factura
+			   ,@nro_item
+			   ,@cod_concepto
+			   ,@monto
+			   ,@cantidad)
+
+END
+GO
+
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.sp_buscarOfertaGanadora') IS NOT NULL
+	DROP PROCEDURE NOTHING_IS_IMPOSSIBLE.sp_buscarOfertaGanadora;
+GO
+
+CREATE PROCEDURE NOTHING_IS_IMPOSSIBLE.sp_buscarOfertaGanadora 
+(@cod_publicacion numeric(18,0),@userIdGanador numeric(18,0) output,@monto numeric(18,2) output)
+AS 
+BEGIN
+
+	SELECT @userIdGanador = [userId], @monto = [monto]
+			FROM [NOTHING_IS_IMPOSSIBLE].[Oferta]
+			where [cod_publicacion] = @cod_publicacion and 
+				monto = (select max(monto) FROM [NOTHING_IS_IMPOSSIBLE].[Oferta]
+					where [cod_publicacion] = @cod_publicacion)
+
+END
+GO
+
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.sp_buscarComisionVenta') IS NOT NULL
+	DROP PROCEDURE NOTHING_IS_IMPOSSIBLE.sp_buscarComisionVenta;
+GO
+
+CREATE PROCEDURE NOTHING_IS_IMPOSSIBLE.sp_buscarComisionVenta 
+(@cod_publicacion numeric(18,0),@comisionVenta numeric(18,2) output)
+AS 
+BEGIN
+
+	select @comisionVenta = v.[comision_vender] from 
+	[NOTHING_IS_IMPOSSIBLE].[Visibilidad] v
+	inner join 
+	[NOTHING_IS_IMPOSSIBLE].[Publicacion] p
+	on v.cod_visibilidad = @cod_publicacion
+
+END
+GO
+
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.sp_buscarComisionEnvio') IS NOT NULL
+	DROP PROCEDURE NOTHING_IS_IMPOSSIBLE.sp_buscarComisionEnvio;
+GO
+
+CREATE PROCEDURE NOTHING_IS_IMPOSSIBLE.sp_buscarComisionEnvio 
+(@cod_publicacion numeric(18,0),@monto numeric(18,2), @comisionEnvio numeric(18,2) output)
+AS 
+BEGIN
+	DECLARE @permiteEnvios bit,
+		@tipoComisionEnvio char(1);
+
+	set @comisionEnvio = 0 ;
+	
+	select @permiteEnvios = p.[ofrece_envios] 
+		from [NOTHING_IS_IMPOSSIBLE].[Publicacion] p
+		where p.cod_publicacion = @cod_publicacion;
+
+	if(@permiteEnvios = 1)
+	BEGIN
+		select @comisionEnvio = v.[valor_comision_envio], @tipoComisionEnvio = v.[cod_tipo_comision_envio]
+			from [NOTHING_IS_IMPOSSIBLE].[Visibilidad] v
+			inner join 
+			[NOTHING_IS_IMPOSSIBLE].[Publicacion] p
+			on v.cod_visibilidad = @cod_publicacion
+		
+		if(@tipoComisionEnvio = 'P')
+		BEGIN
+			Set @comisionEnvio = @comisionEnvio * @monto / 100
+		END
+	END
+END
+GO
+
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.sp_publicacionesVencidas') IS NOT NULL
+	DROP PROCEDURE NOTHING_IS_IMPOSSIBLE.sp_publicacionesVencidas;
+GO
+
+CREATE PROCEDURE NOTHING_IS_IMPOSSIBLE.sp_publicacionesVencidas 
+(@hoy datetime)
+AS 
+BEGIN
+	DECLARE
+		@cod_publicacion numeric(18,0),
+		@cod_tipo_publicacion char(1),
+		@userId numeric(18,0),
+		@cod_visibilidad numeric(18,0);
+ 
+	DECLARE publicacion_cursor CURSOR FOR 
+		Select 
+			cod_publicacion,
+			cod_tipo_publicacion,
+			userId,
+			cod_visibilidad
+		From NOTHING_IS_IMPOSSIBLE.Publicacion
+		where fecha_vencimiernto < CONVERT(datetime,@hoy)
+			and cod_estadoPubli != 'F';
+
+	OPEN publicacion_cursor
+	-- recorrer publicaciones
+
+	FETCH NEXT FROM publicacion_cursor 
+	INTO @cod_publicacion, @cod_tipo_publicacion, @userId, @cod_visibilidad
+
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		--las vencidas ponerlas en finalizadas
+		UPDATE NOTHING_IS_IMPOSSIBLE.Publicacion
+		   SET cod_estadoPubli = 'F'
+		 WHERE cod_publicacion = @cod_publicacion
+	
+		--las que son subastas
+		if(@cod_tipo_publicacion = 'S')
+		BEGIN
+			--buscar oferta gandora
+			DECLARE @monto numeric(18 ,2),
+				@userIdGanador numeric (18, 2),
+				@comisionEnvio numeric (18, 2),
+				@comisionVenta numeric (18, 2),
+				@totalFactura numeric (18,2),
+				@nro_factura numeric (18, 0),
+				@nro_item numeric (18, 0);
+				
+			EXEC NOTHING_IS_IMPOSSIBLE.sp_buscarOfertaGanadora @cod_publicacion, @userIdGanador output ,@monto output
+			
+			--set como ganadora
+			UPDATE NOTHING_IS_IMPOSSIBLE.Oferta
+				SET ganadora = 1
+			WHERE cod_publicacion = @cod_publicacion
+					and monto = @monto
+
+			--generar compra asociada a la oferta ganadora
+			INSERT INTO NOTHING_IS_IMPOSSIBLE.Compra
+					   (cod_publicacion
+					   ,userId
+					   ,fecha
+					   ,cantidad)
+				 VALUES
+					   (@cod_publicacion
+					   ,@userIdGanador
+					   ,@hoy
+					   ,1)
+
+			--generar factura por comision venta
+			EXEC NOTHING_IS_IMPOSSIBLE.sp_buscarComisionVenta @cod_publicacion, @comisionVenta	output		
+			EXEC NOTHING_IS_IMPOSSIBLE.sp_buscarComisionEnvio @cod_publicacion, @monto, @comisionEnvio output	
+			
+			set @totalFactura = @comisionEnvio + @comisionEnvio
+
+			EXEC NOTHING_IS_IMPOSSIBLE.insertarFactura 
+				@cod_publicacion, 
+				@userId, 
+				@hoy, 
+				@totalFactura,
+				'Efectivo', 
+				@nro_factura output
+			
+			EXEC NOTHING_IS_IMPOSSIBLE.insertarItemFactura 
+				@nro_factura,
+				2,
+				@comisionVenta,
+				1,
+				@nro_item
+			
+			--Si corresponde item factura por envio	
+			IF (@comisionEnvio > 0)
+			BEGIN			
+				EXEC NOTHING_IS_IMPOSSIBLE.insertarItemFactura 
+					@nro_factura,
+					3,
+					@comisionVenta,
+					1,
+					@nro_item				
+			END
+		END
+		
+		FETCH NEXT FROM publicacion_cursor 
+		INTO @cod_publicacion, @cod_tipo_publicacion, @userId, @cod_visibilidad
+		
+	END 
+	CLOSE publicacion_cursor;
+	DEALLOCATE publicacion_cursor;
+END
+GO
+
 --Le quita rol a aquellos usuarios que tengan asignado un rol que esté inhabilitado. Se activa cada vez que la columna habilitado de Rol es modificada
 CREATE TRIGGER tr_quitar_roles_deshabilitados
 ON Rol

@@ -311,7 +311,7 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
 
         private void FormularioLogin_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void textBoxPassword_TextChanged_1(object sender, EventArgs e)
@@ -361,6 +361,11 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
              MessageBox.Show("El usuario " + textBoxUsuario.Text + " no existe.", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             }
+
+        private void FormularioLogin_Shown(object sender, EventArgs e)
+        {
+            Publicacion.actualizarVencidas(Convert.ToDateTime(ConfigurationManager.AppSettings["fecha"]), this.progressBar_publiVencidas);
+        }
 
 
         }

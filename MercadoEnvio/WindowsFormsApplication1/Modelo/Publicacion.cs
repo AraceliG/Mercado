@@ -146,5 +146,34 @@ namespace MercadoEnvioFRBA.Modelo
        {
            return DAOPublicacion.guardar(this);
        }
+
+
+       internal static void actualizarVencidas(DateTime dateTime)
+       {
+           DAOPublicacion.publicacionesVencidas(dateTime);
+       }
+
+       internal static void actualizarVencidas(DateTime dateTime, System.Windows.Forms.ProgressBar progressBar)
+       {
+           List<Publicacion> vencidas = DAOPublicacion.getPublicaciones().
+               FindAll(p => !p.miEstado.cod_estadoPubli.Equals('F') && p.fecha_vencimiernto.CompareTo(dateTime) < 0 );
+
+           progressBar.Visible = true;
+           progressBar.Minimum = 1;
+           progressBar.Maximum = vencidas.Count;
+           progressBar.Value = 1;
+           progressBar.Step = 1;
+
+           for (int x = 1; x <= vencidas.Count; x++)
+           {
+               // Copy the file and increment the ProgressBar if successful.
+               //if (CopyFile(filenames[x - 1]) == true)
+               //{
+                   // Perform the increment on the ProgressBar.
+                   progressBar.PerformStep();
+               //}
+           }
+           progressBar.Visible = false;
+       }
     }
 }

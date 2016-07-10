@@ -14,11 +14,44 @@ namespace MercadoEnvioFRBA.Datos.DAO
     {
         internal static List<Publicacion> getPublicacionesDe(decimal userId)
         {
-            List<Publicacion> publicaciones = new List<Publicacion>();
+           /* List<Publicacion> publicaciones = new List<Publicacion>();
             List<SqlParameter> paramList = new List<SqlParameter>();
             paramList.Add(new SqlParameter("@userId", userId));
 
             SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.Publicacion WHERE userId = @userId", "T", paramList);
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    Publicacion unPubli = new Publicacion();
+                    unPubli.cod_publicacion = (decimal)lector["cod_publicacion"];
+                    unPubli.cod_tipo_publicacion = (string)lector["cod_tipo_publicacion"];
+                    unPubli.fecha_inicio = Convert.ToDateTime(lector["fecha_inicio"]);
+                    unPubli.fecha_vencimiernto = Convert.ToDateTime(lector["fecha_vencimiernto"]);
+                    unPubli.stock = (Decimal)lector["stock"];
+                    unPubli.precio = (decimal)lector["precio"];
+                    unPubli.descripcion = (string)lector["descripcion"];
+                    unPubli.acepta_preguntas = (bool)lector["acepta_preguntas"];
+                    unPubli.ofrece_envios = (bool)lector["acepta_preguntas"];
+                    unPubli.miEstado = CambioEstado.getEstado((string)lector["cod_estadoPubli"]);
+
+                    if (DBNull.Value != lector["costo"])
+                        unPubli.costo = (decimal)lector["costo"];
+                    //unPubli.cod_visibilidad =
+
+                    publicaciones.Add(unPubli);
+                }
+            }*/
+            return getPublicaciones().FindAll(p => p.userId.Equals(userId));
+//return publicaciones;
+        }
+
+        internal static List<Publicacion> getPublicaciones()
+        {
+            List<Publicacion> publicaciones = new List<Publicacion>();
+            List<SqlParameter> paramList = new List<SqlParameter>();
+
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.Publicacion", "T", paramList);
             if (lector.HasRows)
             {
                 while (lector.Read())
@@ -522,6 +555,13 @@ namespace MercadoEnvioFRBA.Datos.DAO
             return publis[0].userId;
 
 
+        }
+
+        internal static void publicacionesVencidas(DateTime dateTime)
+        {
+            List<SqlParameter> paramList = new List<SqlParameter>();
+            paramList.Add(new SqlParameter("@hoy", dateTime));
+            AccesoBaseDeDatos.WriteInBase("NOTHING_IS_IMPOSSIBLE.sp_publicacionesVencidas", "SP", paramList);
         }
     }
 }

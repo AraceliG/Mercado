@@ -39,6 +39,19 @@ namespace MercadoEnvioFRBA.Modelo
        }
 
        Decimal totalEstrellas = 0;
+       private decimal p1;
+       private decimal p2;
+       private DateTime dateTime;
+       private int p3;
+
+       public Compra(decimal p1, decimal p2, DateTime dateTime, int p3)
+       {
+           // TODO: Complete member initialization
+           this.p1 = p1;
+           this.p2 = p2;
+           this.dateTime = dateTime;
+           this.p3 = p3;
+       }
 
         internal Decimal getCantEstrellas(Decimal userIdVendedor){
 
@@ -54,6 +67,11 @@ namespace MercadoEnvioFRBA.Modelo
         internal Decimal totalVentas(Decimal userIdVendedor) { 
         // las compras de un user son las ventas de otro user
             return DAOCompra.getVentasDeUsuario(userIdVendedor).Count;
+        }
+
+        internal void insertarCompra()
+        {
+            throw new NotImplementedException();
         }
     }
 }

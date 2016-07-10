@@ -15,6 +15,7 @@ using MercadoEnvioFRBA.ComprarOfertar;
 using MercadoEnvioFRBA.Historial_Cliente;
 using MercadoEnvioFRBA.Presentacion.ABM_Rol;
 using MercadoEnvioFRBA.Presentacion.Historial_Cliente;
+using System.Configuration;
 
 namespace MercadoEnvioFRBA.Presentacion.Inicio
 {
@@ -25,11 +26,12 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
         public FormMenuPrincipal()
         {
             InitializeComponent();
+            
         }
 
-        public FormMenuPrincipal(Usuario usuario)
+        public FormMenuPrincipal(Usuario usuario) : this ()
         {
-            InitializeComponent();
+
             this.usuario = usuario;
             foreach (Control boton in this.Controls)
             {

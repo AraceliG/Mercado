@@ -184,17 +184,12 @@ namespace MercadoEnvioFRBA.Presentacion
         {
             this.generarFactura = false;
             Visibilidad unaVisi = (Visibilidad) this.visibilidad.SelectedItem;
-            string entrada = Microsoft.VisualBasic.Interaction.InputBox("Forma de pago","Por favor ingrese forma de pago");
-            if (entrada.Equals(""))
-            {
-                entrada = "Efectivo";
-            }
             Factura unFactura = new Factura();
             unFactura.cod_publicacion = this.publicacionActual.cod_publicacion;
             unFactura.userId = this.publicacionActual.userId;
             unFactura.fecha = Convert.ToDateTime(ConfigurationManager.AppSettings["fecha"]);
             unFactura.total = unaVisi.comision_publicar;
-            unFactura.forma_pago_desc = entrada;            
+            unFactura.forma_pago_desc = "Efectivo";            
             unFactura.insertarFactura();
 
             ItemFactura unItem = new ItemFactura();

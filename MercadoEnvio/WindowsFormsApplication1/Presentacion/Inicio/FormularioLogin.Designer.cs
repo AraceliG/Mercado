@@ -40,6 +40,7 @@
             this.errorUser = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorPass = new System.Windows.Forms.ErrorProvider(this.components);
             this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.progressBar_publiVencidas = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorPass)).BeginInit();
@@ -139,6 +140,14 @@
             this.textBoxPassword.UseSystemPasswordChar = true;
             this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged_1);
             // 
+            // progressBar_publiVencidas
+            // 
+            this.progressBar_publiVencidas.Location = new System.Drawing.Point(29, 291);
+            this.progressBar_publiVencidas.Name = "progressBar_publiVencidas";
+            this.progressBar_publiVencidas.Size = new System.Drawing.Size(370, 23);
+            this.progressBar_publiVencidas.TabIndex = 83;
+            this.progressBar_publiVencidas.Visible = false;
+            // 
             // FormularioLogin
             // 
             this.AcceptButton = this.buttonLogin;
@@ -146,6 +155,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(418, 384);
+            this.Controls.Add(this.progressBar_publiVencidas);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonLogin);
@@ -157,6 +167,7 @@
             this.Name = "FormularioLogin";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.FormularioLogin_Load);
+            this.Shown += new System.EventHandler(this.FormularioLogin_Shown);
             this.Enter += new System.EventHandler(this.buttonLogin_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorUser)).EndInit();
@@ -178,5 +189,6 @@
         private System.Windows.Forms.ErrorProvider errorUser;
         private System.Windows.Forms.ErrorProvider errorPass;
         public System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.ProgressBar progressBar_publiVencidas;
     }
 }
