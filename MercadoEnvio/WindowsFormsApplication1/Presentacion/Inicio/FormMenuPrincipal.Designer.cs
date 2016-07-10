@@ -197,6 +197,7 @@
             this.func10.Text = "Consulta de facturas realizadas al vendedor";
             this.func10.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.func10.UseVisualStyleBackColor = true;
+            this.func10.Click += new System.EventHandler(this.func10_Click);
             // 
             // func11
             // 

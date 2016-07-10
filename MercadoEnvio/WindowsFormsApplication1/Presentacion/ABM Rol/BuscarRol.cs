@@ -66,7 +66,7 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Rol
         {
             Rol rol = (Rol)dataGridRol.CurrentRow.DataBoundItem;
             this.Hide();
-            NuevoOModificarRol rolNew = new NuevoOModificarRol(rol);
+            CrearOModificarRol rolNew = new CrearOModificarRol(rol);
             rolNew.ShowDialog();
             this.Show();
         }

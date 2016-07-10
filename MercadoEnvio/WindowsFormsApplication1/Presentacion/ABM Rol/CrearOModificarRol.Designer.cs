@@ -1,6 +1,6 @@
 ﻿namespace MercadoEnvioFRBA.Presentacion.ABM_Rol
 {
-    partial class NuevoOModificarRol
+    partial class CrearOModificarRol
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NuevoOModificarRol));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CrearOModificarRol));
             this.label1 = new System.Windows.Forms.Label();
             this.textBox_nombreRol = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();

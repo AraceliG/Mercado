@@ -16,6 +16,7 @@ using MercadoEnvioFRBA.Historial_Cliente;
 using MercadoEnvioFRBA.Presentacion.ABM_Rol;
 using MercadoEnvioFRBA.Presentacion.Historial_Cliente;
 using System.Configuration;
+using MercadoEnvioFRBA.Presentacion.Facturas;
 
 namespace MercadoEnvioFRBA.Presentacion.Inicio
 {
@@ -117,6 +118,14 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
             this.Hide();
             FormPendientesCalificar pendientesCalif = new FormPendientesCalificar(usuario);
             pendientesCalif.ShowDialog();
+            this.Show();
+        }
+
+        private void func10_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FacturasVendedor fact = new FacturasVendedor();
+            fact.ShowDialog();
             this.Show();
         }
     }
