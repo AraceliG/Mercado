@@ -79,12 +79,42 @@ namespace MercadoEnvioFRBA.Modelo
 
        internal bool tieneStock(int cantidadComprada)
        {
-           return DAOPublicacion.tieneStockPublicacion(this,cantidadComprada);
+           return stock >= cantidadComprada;
+               
+               //DAOPublicacion.tieneStockPublicacion(this,cantidadComprada);
        }
 
-       internal void facturar(Int32 stock)
+       internal void facturar(Int32 stock,DateTime fechaCompra)
        {
-            //DAOFactura.generarFactura(this,stock);
+           Factura unFactura = new Factura();
+           unFactura.cod_publicacion = this.cod_publicacion;
+           unFactura.userId = this.userId;
+           unFactura.fecha = fechaCompra;
+           unFactura.total = this.totalFactura();
+           unFactura.forma_pago_desc = "Efectivo";
+           unFactura.insertarFactura();
+
+
+           ItemFactura unItem = new ItemFactura();
+           unItem.cantidad = 1;
+           unItem.monto = this.montoDeVenta();
+           unItem.cod_concepto = DAOConcepto.conceptoPorVenta();
+           unFactura.insertarItem(unItem);
+
+           if (this.correspondeEnvio()) 
+           {
+               ItemFactura otroItem = new ItemFactura();
+               otroItem.cantidad = 2;
+               otroItem.monto = this.montoDeEnvio();
+               otroItem.cod_concepto = DAOConcepto.conceptoPorEnvio();
+               unFactura.insertarItem(unItem);
+
+           }
+       }
+
+       private bool correspondeEnvio()
+       {
+           return DAOVisibilidad.comisionPorEnvio(DAOPublicacion.obtenerVisibilidad(this)) != 0;
        }
 
 
@@ -97,7 +127,7 @@ namespace MercadoEnvioFRBA.Modelo
        internal Decimal montoDeEnvio()
        {
 
-           return montoEnvio = DAOVisibilidad.comosionPorEnvio(DAOPublicacion.obtenerVisibilidad(this));
+           return montoEnvio = DAOVisibilidad.comisionPorEnvio(DAOPublicacion.obtenerVisibilidad(this));
           
        }
 

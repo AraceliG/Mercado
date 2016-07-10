@@ -56,13 +56,13 @@ namespace MercadoEnvioFRBA.Presentacion.ComprarOfertar
 
             if (publi.tieneStock(cantidadComprada))
             {
-                publi.facturar(cantidadComprada);
+                publi.facturar(cantidadComprada,Convert.ToDateTime(label_fecha.Text));
                 publi.documentarCompra(usuario,cantidadComprada,label_fecha.Text);
                 publi.actualizarStock(cantidadComprada);
                 if (publi.finStock()) {
                     publi.finalizar();
                 }
-
+                
                  MessageBox.Show(" la compra se ha realizado con éxito", "Compra", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                  this.Close();
             }

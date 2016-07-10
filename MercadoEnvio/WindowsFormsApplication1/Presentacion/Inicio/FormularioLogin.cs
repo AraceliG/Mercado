@@ -364,7 +364,7 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
 
         private void FormularioLogin_Shown(object sender, EventArgs e)
         {
-            Publicacion.actualizarVencidas(Convert.ToDateTime(ConfigurationManager.AppSettings["fecha"]), this.progressBar_publiVencidas);
+            //Publicacion.actualizarVencidas(Convert.ToDateTime(ConfigurationManager.AppSettings["fecha"]), this.progressBar_publiVencidas);
         }
 
 
