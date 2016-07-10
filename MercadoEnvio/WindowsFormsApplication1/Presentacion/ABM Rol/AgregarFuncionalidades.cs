@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 
 namespace MercadoEnvioFRBA.Presentacion.ABM_Rol
 {
-    public partial class CrearRol : FormBaseUTN
+    public partial class AgregarFuncionalidades : FormBaseUTN
     {
 
         private List<Funcionalidad> func;
@@ -23,7 +23,7 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Rol
         public List<Funcionalidad> funcAnt;
 
 
-        public CrearRol()
+        public AgregarFuncionalidades()
         {    
             this.create = true;
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Rol
            
         }
 
-        public CrearRol(Rol r)
+        public AgregarFuncionalidades(Rol r)
         {
             create = false;
             this.rol = r;

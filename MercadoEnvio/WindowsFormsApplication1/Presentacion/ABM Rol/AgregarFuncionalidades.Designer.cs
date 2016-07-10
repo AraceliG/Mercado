@@ -1,6 +1,6 @@
 ﻿namespace MercadoEnvioFRBA.Presentacion.ABM_Rol
 {
-    partial class CrearRol
+    partial class AgregarFuncionalidades
     {
         /// <summary>
         /// Required designer variable.

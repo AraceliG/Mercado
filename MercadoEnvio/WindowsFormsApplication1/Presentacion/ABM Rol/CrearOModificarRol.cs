@@ -12,20 +12,20 @@ using MercadoEnvioFRBA.Modelo;
 
 namespace MercadoEnvioFRBA.Presentacion.ABM_Rol
 {
-    public partial class NuevoOModificarRol : FormBaseUTN
+    public partial class CrearOModificarRol : FormBaseUTN
     {
         private bool create;
         private string nombreAnteriorRol;
         private Rol rol;
 
-        public NuevoOModificarRol()
+        public CrearOModificarRol()
         {
             this.create = false;
             InitializeComponent();
 
         }
 
-        public NuevoOModificarRol(Rol rol)
+        public CrearOModificarRol(Rol rol)
         {
             this.create = true;
             InitializeComponent();
@@ -91,7 +91,7 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Rol
                 else
                 {
                     this.Hide();
-                    CrearRol form = new CrearRol(rol);
+                    AgregarFuncionalidades form = new AgregarFuncionalidades(rol);
                     form.ShowDialog();
                     this.Show();
                 }
@@ -108,7 +108,7 @@ namespace MercadoEnvioFRBA.Presentacion.ABM_Rol
                 else
                 {
                     this.Hide();
-                    CrearRol form = new CrearRol(r.create());
+                    AgregarFuncionalidades form = new AgregarFuncionalidades(r.create());
                     form.ShowDialog();
                     this.Show();
 

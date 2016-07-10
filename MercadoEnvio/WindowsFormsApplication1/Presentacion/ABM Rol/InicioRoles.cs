@@ -22,7 +22,7 @@ namespace MercadoEnvioFRBA.ABM_Rol
             InitializeComponent();
         }
 
-        public ABMrol(Modelo.Usuario usuario)
+        public ABMrol(Usuario usuario)
         {
             
             this.usuario = usuario;
@@ -52,7 +52,7 @@ namespace MercadoEnvioFRBA.ABM_Rol
         private void btn_CrearRol_Click(object sender, EventArgs e)
         {
             this.Hide();
-            NuevoOModificarRol rolNew = new NuevoOModificarRol();
+            CrearOModificarRol rolNew = new CrearOModificarRol();
             rolNew.ShowDialog();
             this.Show();
         }
