@@ -222,7 +222,7 @@
             this.Controls.Add(this.dataGridEmpresa);
             this.Controls.Add(this.groupBox1);
             this.Name = "BuscadorEmpresa";
-            this.Text = ",,,,,,,,,,,,,,..";
+            this.Text = "Buscador";
             this.Load += new System.EventHandler(this.BuscadorEmpresa_Load);
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.dataGridEmpresa, 0);

@@ -126,6 +126,7 @@
             this.buttonBorrar.TabIndex = 9;
             this.buttonBorrar.Text = "Borrar";
             this.buttonBorrar.UseVisualStyleBackColor = true;
+            this.buttonBorrar.Click += new System.EventHandler(this.buttonBorrar_Click);
             // 
             // dataGridViewPublicacionesFiltradas
             // 
