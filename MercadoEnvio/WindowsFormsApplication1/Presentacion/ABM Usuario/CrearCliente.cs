@@ -43,7 +43,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             text_telefono.Text = cliente.telefono;
             textBox_nro.Text = cliente.num_calle.ToString();
             textBox_piso.Text = cliente.piso.ToString();
-            comboBox_tipoDoc.SelectedItem = cliente.tipo_doc;
+            comboBox_tipoDoc.SelectedItem = cliente.descripcion;
             textBox_depto.Text = cliente.depto;
             textBox_cod_postal.Text = cliente.cod_postal;
             textBox_nombre.Text = cliente.nombre;
@@ -282,12 +282,22 @@ namespace MercadoEnvioFRBA.ABM_Usuario
                 }
             cliente.reputacion = 0;
             cliente.user_nro_intentos = 0;
-            cliente.tipo_doc = comboBox_tipoDoc.SelectedItem.ToString();
+            cliente.descripcion = comboBox_tipoDoc.SelectedItem.ToString();
             DAOCliente.crearCliente(cliente);
             
         }
 
         private void textBox_psw_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_nroDoc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_nroDoc_KeyPress(object sender, KeyPressEventArgs e)
         {
 
         }

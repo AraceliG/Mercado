@@ -128,6 +128,24 @@
     <Compile Include="Presentacion\ABM Usuario\Calendario.Designer.cs">
       <DependentUpon>Calendario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\ABM Usuario\DatosCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\ABM Usuario\DatosCliente.Designer.cs">
+      <DependentUpon>DatosCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\ABM Usuario\DatosEmpres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\ABM Usuario\DatosEmpres.Designer.cs">
+      <DependentUpon>DatosEmpres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\ABM Usuario\DatosVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\ABM Usuario\DatosVendedor.Designer.cs">
+      <DependentUpon>DatosVendedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\ABM Usuario\FormABMUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -299,6 +317,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Usuario\Calendario.resx">
       <DependentUpon>Calendario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\ABM Usuario\DatosCliente.resx">
+      <DependentUpon>DatosCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\ABM Usuario\DatosEmpres.resx">
+      <DependentUpon>DatosEmpres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\ABM Usuario\DatosVendedor.resx">
+      <DependentUpon>DatosVendedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ABM Usuario\FormABMUsuario.resx">
       <DependentUpon>FormABMUsuario.cs</DependentUpon>

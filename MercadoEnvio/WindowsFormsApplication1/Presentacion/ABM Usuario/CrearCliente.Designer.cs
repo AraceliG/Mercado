@@ -211,6 +211,8 @@
             this.textBox_nroDoc.Name = "textBox_nroDoc";
             this.textBox_nroDoc.Size = new System.Drawing.Size(165, 24);
             this.textBox_nroDoc.TabIndex = 126;
+            this.textBox_nroDoc.TextChanged += new System.EventHandler(this.textBox_nroDoc_TextChanged);
+            this.textBox_nroDoc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_nroDoc_KeyPress);
             // 
             // errorProvider_fechaNac
             // 

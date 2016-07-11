@@ -49,7 +49,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
         public static List<Empresa> devolverUsuariosEmpresas(){
 
            
-            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT U.USERNAME,U.PASS,U.USERID,U.HABILITADO,U.BAJA,U.REPUTACION,U.USER_NRO_INTENTOS,E.CUIT,E.RAZON_SOCIAL,E.NOMBRE_CONTACO,E.CIUDAD,U.EMAIL, U.TELEFONO,U.CALLE,U.NUM_CALLE, U.PISO,U.DEPTO,U.COD_POSTAL FROM NOTHING_IS_IMPOSSIBLE.EMPRESA E,NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE E.USERID=U.USERID", "T", new List<SqlParameter>());
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT R.COD_RUBRO,R.DESCRIPCION_LARGA,U.USERNAME,U.PASS,U.USERID,U.HABILITADO,U.BAJA,U.REPUTACION,U.USER_NRO_INTENTOS,E.CUIT,E.RAZON_SOCIAL,E.NOMBRE_CONTACO,E.CIUDAD,U.EMAIL, U.TELEFONO,U.CALLE,U.NUM_CALLE, U.PISO,U.DEPTO,U.COD_POSTAL,E.COD_RUBRO_PRINCIPAL FROM NOTHING_IS_IMPOSSIBLE.EMPRESA E,NOTHING_IS_IMPOSSIBLE.USUARIO U,NOTHING_IS_IMPOSSIBLE.RUBRO R  WHERE E.USERID=U.USERID", "T", new List<SqlParameter>());
             return createEmpresaListFromQuery(lector);
             
         
@@ -94,11 +94,11 @@ private static string consulta(String razonSocial,String mail, String cuit)
                 {
                     Empresa empresa = new Empresa();
                     empresa.razon_social = (string)lector["razon_social"];
-                    empresa.ciudad = lector["ciudad"] != DBNull.Value ? (String)lector["telefono"] : "";
+                    empresa.ciudad = lector["ciudad"] != DBNull.Value ? (String)lector["ciudad"]:null;
                     empresa.password = (string)lector["pass"];
                     empresa.username = (String)lector["username"];
                     empresa.habilitado = (Boolean)lector["habilitado"];
-                    empresa.cantFallidos = (int)(decimal)lector["user_nro_intentos"];
+                    empresa.user_nro_intentos=(int)(decimal)lector["user_nro_intentos"];
                     empresa.calle = (string)lector["calle"];
                     empresa.num_calle = (int)(decimal)lector["num_calle"];
                     empresa.depto = (string)lector["depto"];
@@ -110,6 +110,7 @@ private static string consulta(String razonSocial,String mail, String cuit)
                     empresa.mail=(String)lector["email"];
                     empresa.telefono = (string)lector["telefono"];
                     empresa.cuit = (String)lector["cuit"];
+                    empresa.nombre_contaco = lector["nombre_contaco"] != DBNull.Value ? (String)lector["nombre_contaco"] : null;
                     empresaList.Add(empresa);
                 }
                 lector.Close();
@@ -163,7 +164,7 @@ private static string consulta(String razonSocial,String mail, String cuit)
             paramList.Add(new SqlParameter("@user_nro_intentos",e.user_nro_intentos));
             paramList.Add(new SqlParameter("@cuit", e.cuit));
             paramList.Add(new SqlParameter("@razon_social ", e.razon_social));
-            paramList.Add(new SqlParameter("@nombre_contaco", e.nombre_contacto));
+            paramList.Add(new SqlParameter("@nombre_contaco", e.nombre_contaco));
             paramList.Add(new SqlParameter("@cod_rubro_principal",1));
             paramList.Add(new SqlParameter("@ciudad", e.ciudad));
 
@@ -194,7 +195,7 @@ private static string consulta(String razonSocial,String mail, String cuit)
             paramList.Add(new SqlParameter("@cuit", e.cuit));
             parametroList.Add(new SqlParameter("@cuit", e.cuit));
             parametroList.Add(new SqlParameter("@razon_social",e.razon_social ));
-            parametroList.Add(new SqlParameter("@nombre_contacto ", e.nombre_contacto));
+            parametroList.Add(new SqlParameter("@nombre_contacto ", e.nombre_contaco));
             parametroList.Add(new SqlParameter("@ciudad", e.ciudad));
             AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.EMPRESA SET CUIT=@cuit,RAZON_SOCIAL=@razon_social,NOMBRE_CONTACO=@nombre_contacto,CIUDAD=@ciudad FROM NOTHING_IS_IMPOSSIBLE.EMPRESA INNER JOIN NOTHING_IS_IMPOSSIBLE.USUARIO ON EMPRESA.USERID=USUARIO.USERID WHERE REPLACE(UPPER(E.CUIT),'-','') LIKE UPPER('%" + e.cuit + "%') ", "T", parametroList);
             AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USERNAME=@username,PASS=@pass,EMAIL=@email,TELEFONO=@telefono,CALLE=@calle,NUM_CALLE=@num_calle,PISO=@piso,DEPTO=@depto,COD_POSTAL=@cod_postal FROM NOTHING_IS_IMPOSSIBLE.USUARIO INNER JOIN NOTHING_IS_IMPOSSIBLE.EMPRESA  ON EMPRESA.USERID=USUARIO.USERID WHERE REPLACE(UPPER(E.CUIT),'-','') LIKE UPPER('%" + e.cuit + "%')  ", "T", paramList);
@@ -216,9 +217,55 @@ private static string consulta(String razonSocial,String mail, String cuit)
             AccesoBaseDeDatos.WriteInBase("UPDATE NOTHING_IS_IMPOSSIBLE.USUARIO SET USUARIO.HABILITADO=1,USUARIO.USER_NRO_INTENTOS=0 FROM NOTHING_IS_IMPOSSIBLE.USUARIO INNER JOIN NOTHING_IS_IMPOSSIBLE.EMPRESA ON EMPRESA.USERID=USUARIO.USERID WHERE REPLACE(UPPER(EMPRESA.CUIT),'-','') LIKE UPPER('" + emp.cuit.Replace("-", "") + "')", "T", paramList);
         }
 
-        internal static void cargarRubros()
+        public static  bool tenesEmpresa(decimal empId){
+
+            List<Empresa> empresaList = new List<Empresa>();
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(new SqlParameter("@userId", empId));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT cuit,razon_social FROM NOTHING_IS_IMPOSSIBLE.Empresa E WHERE E.USERID=@userId", "T", listaParametros);
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+
+                    Empresa empresa = new Empresa();
+                    empresa.cuit = (string)lector["cuit"];
+                    empresa.razon_social = (string)lector["razon_social"];
+                    empresaList.Add(empresa);
+                }
+            }
+            return empresaList.Count>=1;
+        }
+
+        internal static Empresa getEmpresaPorId(Decimal id)
         {
-            throw new NotImplementedException();
+            List<Empresa> empresas = new List<Empresa>();
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(new SqlParameter("@userId", id));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT USERNAME,REPUTACION,EMAIL, TELEFONO,CALLE,DEPTO,NUM_CALLE, PISO,DEPTO,COD_POSTAL,cuit,razon_social FROM NOTHING_IS_IMPOSSIBLE.Empresa E,NOTHING_IS_IMPOSSIBLE.USUARIO U WHERE E.USERID=@userId AND E.USERID=U.USERID", "T", listaParametros);
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+
+                    Empresa empresa = new Empresa();
+                    empresa.cuit = (string)lector["cuit"];
+                    empresa.razon_social = (string)lector["razon_social"];
+                    empresa.username = (String)lector["username"];
+                    empresa.calle = (string)lector["calle"];
+                    empresa.num_calle = (int)(decimal)lector["num_calle"];
+                    empresa.depto = (string)lector["depto"];
+                    empresa.cod_postal = (string)lector["cod_postal"];
+                    empresa.piso = (int)(decimal)lector["piso"];
+                    empresa.reputacion = (int)(decimal)lector["reputacion"];
+                    empresa.mail = (String)lector["email"];
+                    empresa.telefono = (string)lector["telefono"];
+                    empresa.cuit = (String)lector["cuit"];
+                    empresas.Add(empresa);
+
+                }
+            }
+             return empresas[0];
         }
     }
 }

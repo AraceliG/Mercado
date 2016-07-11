@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MercadoEnvioFRBA.Modelo;
+using MercadoEnvioFRBA.Datos.DAO;
+using MercadoEnvioFRBA.Presentacion.ABM_Usuario;
 
 namespace MercadoEnvioFRBA.Presentacion.Historial_Cliente
 {
@@ -71,6 +73,30 @@ namespace MercadoEnvioFRBA.Presentacion.Historial_Cliente
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (dataGridOfertas.RowCount != 0)
+            {
+                Oferta o = (Oferta)dataGridOfertas.CurrentRow.DataBoundItem;
+            Publicacion pub = new Publicacion();
+            pub.cod_publicacion = o.cod_publicacion;
+            decimal userVendedorId = DAOPublicacion.getUsuarioVendedor(pub);
+            if (DAOEmpresa.tenesEmpresa(userVendedorId))
+            {
+                DatosEmpres datos = new DatosEmpres(userVendedorId);
+                datos.ShowDialog();
+                this.Show();
+            }
+            if (DAOCliente.tenesCliente(userVendedorId))
+            {
+                DatosCliente datos = new DatosCliente(userVendedorId);
+                datos.ShowDialog();
+                this.Show();
+            }
+        }
+            else { MessageBox.Show("Debe elegir una fila de su tabla resultado de su ofertas", "Ofertas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
         }
     }
 }

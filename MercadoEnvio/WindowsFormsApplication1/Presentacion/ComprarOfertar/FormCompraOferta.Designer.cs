@@ -41,6 +41,7 @@
             this.btn_buscar = new System.Windows.Forms.Button();
             this.btn_compra = new System.Windows.Forms.Button();
             this.btn_ofertar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPublicacion)).BeginInit();
             this.SuspendLayout();
             // 
@@ -168,11 +169,23 @@
             this.btn_ofertar.UseVisualStyleBackColor = true;
             this.btn_ofertar.Click += new System.EventHandler(this.btn_ofertar_Click);
             // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(285, 507);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 41);
+            this.button1.TabIndex = 129;
+            this.button1.Text = "Datos vendedor";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(964, 560);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_ofertar);
             this.Controls.Add(this.btn_compra);
             this.Controls.Add(this.btn_buscar);
@@ -200,6 +213,7 @@
             this.Controls.SetChildIndex(this.btn_buscar, 0);
             this.Controls.SetChildIndex(this.btn_compra, 0);
             this.Controls.SetChildIndex(this.btn_ofertar, 0);
+            this.Controls.SetChildIndex(this.button1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPublicacion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -220,5 +234,6 @@
         private System.Windows.Forms.Button btn_buscar;
         private System.Windows.Forms.Button btn_compra;
         private System.Windows.Forms.Button btn_ofertar;
+        private System.Windows.Forms.Button button1;
     }
 }

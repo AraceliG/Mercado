@@ -123,7 +123,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
         }
 
-        internal static Decimal comosionPorEnvio(decimal cod_visibilidad)
+        internal static Decimal comisionPorEnvio(decimal cod_visibilidad)
         {
             List<Visibilidad> visibilidades = new List<Visibilidad>();
             List<SqlParameter> paramList = new List<SqlParameter>();
@@ -172,6 +172,9 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
             return unVisibilidad;
         }
+
+
+       
     }
 }
 

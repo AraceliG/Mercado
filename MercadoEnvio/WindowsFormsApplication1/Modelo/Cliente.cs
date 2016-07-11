@@ -15,11 +15,10 @@ namespace MercadoEnvioFRBA.Modelo
         public DateTime fechaNacimiento { get; set; }
         public String telefono { get; set; }
         public Int32 dni { get; set; }
-        public String tipo_doc { get; set; }
+        public String descripcion { get; set; }
         public DateTime fechaCreacion { get; set; }
         public String username { get; set; }
         public String password { get; set; }
-        public Int32 cantFallidos { get; set; }
         public String calle { get; set; }
         public Int32 num_calle { get; set; }
         public Int32 piso { get; set; }
@@ -27,10 +26,9 @@ namespace MercadoEnvioFRBA.Modelo
         public String cod_postal { get; set; }
         public Boolean habilitado { get; set; }
         public Boolean baja { set; get; }
-        public Int32 reputacion { set; get; }
+        public Decimal reputacion { set; get; }
         public Int32 user_nro_intentos { set; get; }
-        public Int32 cod_tipo_doc { set; get; }
-
+        public Int32 cod_tipo_doc { get; set; }
     }
 
    

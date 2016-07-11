@@ -186,5 +186,10 @@ namespace MercadoEnvioFRBA.Presentacion
         {
             return this.dataGridViewPublicacionesFiltradas.SelectedRows.Count != 0;
         }
+
+        private void buttonBorrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

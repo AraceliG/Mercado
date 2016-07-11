@@ -49,7 +49,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             textBox_rubro.Text = empresa.rubroPrincipal;
             text_cuit.ReadOnly = true;
             textBox_razon_social.ReadOnly = true;
-            textBox_contacto.Text = empresa.nombre_contacto;
+            textBox_contacto.Text = empresa.nombre_contaco;
             textBox_ciudad.Text = empresa.ciudad;
 
         }
@@ -193,7 +193,7 @@ namespace MercadoEnvioFRBA.ABM_Usuario
             empresa.reputacion = 0;
             empresa.user_nro_intentos = 0;
             empresa.cuit = text_cuit.Text;
-            empresa.nombre_contacto = textBox_contacto.Text;
+            empresa.nombre_contaco = textBox_contacto.Text;
             DAOEmpresa.crearEmpresa(empresa);
             this.Close();
 

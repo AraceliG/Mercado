@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MercadoEnvioFRBA.Modelo;
+using MercadoEnvioFRBA.Presentacion.ABM_Usuario;
+using MercadoEnvioFRBA.Datos.DAO;
 
 namespace MercadoEnvioFRBA.Presentacion.Historial_Cliente
 {
@@ -85,5 +87,31 @@ namespace MercadoEnvioFRBA.Presentacion.Historial_Cliente
             dataGridCompras.Columns.Add(coltexto);
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+             if (dataGridCompras.RowCount != 0)
+            {
+                Compra c = (Compra)dataGridCompras.CurrentRow.DataBoundItem;
+                Publicacion pub = new Publicacion();
+                pub.cod_publicacion = c.cod_publicacion;
+                decimal userVendedorId = DAOPublicacion.getUsuarioVendedor(pub);
+                if (DAOEmpresa.tenesEmpresa(userVendedorId))
+                {
+                    DatosEmpres datos = new DatosEmpres(userVendedorId);
+                    datos.ShowDialog();
+                    this.Show();
+                }
+                if (DAOCliente.tenesCliente(userVendedorId))
+                {
+                    DatosCliente datos = new DatosCliente(userVendedorId);
+                    datos.ShowDialog();
+                    this.Show();
+                }
+
+            }
+            else { MessageBox.Show("Debe elegir una fila de la tabla de sus compras", "Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+        }
+        }
+
     }
-}
+
