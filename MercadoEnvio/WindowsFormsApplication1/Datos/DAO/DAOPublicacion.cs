@@ -564,5 +564,27 @@ namespace MercadoEnvioFRBA.Datos.DAO
             paramList.Add(new SqlParameter("@hoy", dateTime));
             AccesoBaseDeDatos.WriteInBase("NOTHING_IS_IMPOSSIBLE.sp_publicacionesVencidas", "SP", paramList);
         }
+
+        internal static decimal getUsuarioVendedor(Publicacion publi)
+        {
+
+            List<SqlParameter> paramList = new List<SqlParameter>();
+            paramList.Add(new SqlParameter("@cod_publi", publi.cod_publicacion));
+            List<Publicacion> publis = new List<Publicacion>();
+
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT USERID FROM NOTHING_IS_IMPOSSIBLE.Publicacion WHERE COD_PUBLICACION = @cod_publi", "T", paramList);
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    Publicacion unPubli = new Publicacion();
+                    unPubli.userId = (decimal)lector["userId"];
+
+                    publis.Add(unPubli);
+                }
+            }
+
+            return publis[0].userId;
+        }
     }
 }

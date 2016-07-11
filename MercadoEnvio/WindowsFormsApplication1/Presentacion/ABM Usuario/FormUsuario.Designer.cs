@@ -170,6 +170,7 @@
             this.text_telefono.Size = new System.Drawing.Size(165, 20);
             this.text_telefono.TabIndex = 91;
             this.text_telefono.TextChanged += new System.EventHandler(this.text_telefono_TextChanged);
+            this.text_telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_telefono_KeyPress);
             // 
             // label8
             // 
@@ -208,6 +209,7 @@
             this.textBox_nro.Size = new System.Drawing.Size(165, 24);
             this.textBox_nro.TabIndex = 95;
             this.textBox_nro.TextChanged += new System.EventHandler(this.textBox_nro_TextChanged);
+            this.textBox_nro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_nro_KeyPress);
             // 
             // label10
             // 
@@ -227,6 +229,7 @@
             this.textBox_piso.Size = new System.Drawing.Size(165, 24);
             this.textBox_piso.TabIndex = 97;
             this.textBox_piso.TextChanged += new System.EventHandler(this.textBox_piso_TextChanged);
+            this.textBox_piso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_piso_KeyPress);
             // 
             // label11
             // 
@@ -265,6 +268,7 @@
             this.textBox_cod_postal.Size = new System.Drawing.Size(165, 24);
             this.textBox_cod_postal.TabIndex = 101;
             this.textBox_cod_postal.TextChanged += new System.EventHandler(this.textBox_cod_postal_TextChanged);
+            this.textBox_cod_postal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_cod_postal_KeyPress);
             // 
             // errorProvider_usuario
             // 

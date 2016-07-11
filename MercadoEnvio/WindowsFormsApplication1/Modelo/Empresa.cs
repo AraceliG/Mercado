@@ -16,7 +16,6 @@ namespace MercadoEnvioFRBA.Modelo
         public String rubroPrincipal { get; set; }
         public String username { get; set; }
         public String password { get; set; }
-        public Int32 cantFallidos { get; set; }
         public String calle { get; set; }
         public Int32 num_calle { get; set; }
         public Int32 piso { get; set; }
@@ -26,7 +25,7 @@ namespace MercadoEnvioFRBA.Modelo
         public Boolean baja { set; get; }
         public Int32 reputacion { set; get; }
         public Int32 user_nro_intentos { set; get; }
-        public String nombre_contacto{set;get;}
+        public String nombre_contaco{set;get;}
         public String ciudad { set; get; }
 
 

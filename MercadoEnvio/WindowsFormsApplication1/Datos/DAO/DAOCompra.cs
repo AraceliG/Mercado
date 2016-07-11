@@ -123,12 +123,13 @@ namespace MercadoEnvioFRBA.Datos.DAO
             return compraList;
         }
 
-        internal static List<Compra> getComprasPorCalifcacion(decimal calif)
+        internal static List<Compra> getComprasPorCalifcacion(decimal idUser, decimal calif)
         {
             List<Compra> compraList = new List<Compra>();
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             listaParametros.Add(new SqlParameter("@calif", calif));
-            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.COMPRA C WHERE C.cant_estrellas=@calif", "T", listaParametros);
+            listaParametros.Add(new SqlParameter("@userId", idUser));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT * FROM NOTHING_IS_IMPOSSIBLE.COMPRA C WHERE C.cant_estrellas=@calif and C.USERID=@userId", "T", listaParametros);
 
             if (lector.HasRows)
             {

@@ -242,25 +242,31 @@ namespace MercadoEnvioFRBA.ComprarOfertar
         private void button1_Click_1(object sender, EventArgs e)
         {
 
-            Publicacion publi = (Publicacion)dataGridPublicacion.CurrentRow.DataBoundItem;
-
-            if (publi.esDeCliente())
+            if (dataGridPublicacion.RowCount != 0)
             {
-                this.Hide();
-                DatosCliente datos = new DatosCliente(publi.userId);
-                datos.ShowDialog();
-                this.Show();
+                Publicacion publi = (Publicacion)dataGridPublicacion.CurrentRow.DataBoundItem;
+
+                if (publi.esDeCliente())
+                {
+                    this.Hide();
+                    DatosCliente datos = new DatosCliente(publi.userId);
+                    datos.ShowDialog();
+                    this.Show();
+                }
+
+                if (publi.esDeEmpresa())
+                {
+                    this.Hide();
+                    DatosEmpres datos = new DatosEmpres(publi.userId);
+                    datos.ShowDialog();
+                    this.Show();
+                }
+
+
             }
-
-            if (publi.esDeEmpresa()) 
-            {
-                this.Hide();
-                DatosEmpres datos = new DatosEmpres(publi.userId);
-                datos.ShowDialog();
-                this.Show();
+            else {
+                MessageBox.Show("Debe elegir una fila de su tabla resultado de su búsqueda", "Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
-
         }
 
 

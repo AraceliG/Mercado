@@ -32,6 +32,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label_nombre = new System.Windows.Forms.Label();
+            this.label_ape = new System.Windows.Forms.Label();
+            this.label_dni = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label4
@@ -73,11 +76,42 @@
             this.button1.Text = "Aceptar";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // label_nombre
+            // 
+            this.label_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nombre.Location = new System.Drawing.Point(171, 391);
+            this.label_nombre.Name = "label_nombre";
+            this.label_nombre.Size = new System.Drawing.Size(152, 18);
+            this.label_nombre.TabIndex = 124;
+            this.label_nombre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_ape
+            // 
+            this.label_ape.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_ape.Location = new System.Drawing.Point(168, 420);
+            this.label_ape.Name = "label_ape";
+            this.label_ape.Size = new System.Drawing.Size(152, 18);
+            this.label_ape.TabIndex = 125;
+            this.label_ape.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_dni
+            // 
+            this.label_dni.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_dni.Location = new System.Drawing.Point(168, 455);
+            this.label_dni.Name = "label_dni";
+            this.label_dni.Size = new System.Drawing.Size(152, 18);
+            this.label_dni.TabIndex = 126;
+            this.label_dni.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_dni.Click += new System.EventHandler(this.label16_Click);
+            // 
             // DatosCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(568, 547);
+            this.Controls.Add(this.label_dni);
+            this.Controls.Add(this.label_ape);
+            this.Controls.Add(this.label_nombre);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label7);
@@ -85,10 +119,23 @@
             this.Name = "DatosCliente";
             this.Text = "DatosCliente";
             this.Load += new System.EventHandler(this.DatosCliente_Load);
+            this.Controls.SetChildIndex(this.label_reputacion, 0);
+            this.Controls.SetChildIndex(this.label_postal, 0);
+            this.Controls.SetChildIndex(this.label_depto, 0);
+            this.Controls.SetChildIndex(this.label_piso, 0);
+            this.Controls.SetChildIndex(this.label_nro, 0);
+            this.Controls.SetChildIndex(this.label_calle, 0);
+            this.Controls.SetChildIndex(this.label_tel, 0);
+            this.Controls.SetChildIndex(this.label_mail, 0);
+            this.Controls.SetChildIndex(this.label22, 0);
+            this.Controls.SetChildIndex(this.label_nomUser, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.label7, 0);
             this.Controls.SetChildIndex(this.label12, 0);
             this.Controls.SetChildIndex(this.button1, 0);
+            this.Controls.SetChildIndex(this.label_nombre, 0);
+            this.Controls.SetChildIndex(this.label_ape, 0);
+            this.Controls.SetChildIndex(this.label_dni, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -100,5 +147,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label_nombre;
+        private System.Windows.Forms.Label label_ape;
+        private System.Windows.Forms.Label label_dni;
     }
 }

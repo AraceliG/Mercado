@@ -119,3 +119,6 @@ C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\Mercad
 C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.ABM_Rol.AgregarFuncionalidades.resources
 C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.ABM_Rol.CrearOModificarRol.resources
 C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Facturas.FacturasVendedor.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.ABM_Usuario.DatosCliente.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.ABM_Usuario.DatosEmpres.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.ABM_Usuario.DatosVendedor.resources
