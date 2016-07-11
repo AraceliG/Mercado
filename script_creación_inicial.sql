@@ -157,7 +157,7 @@ CREATE TABLE NOTHING_IS_IMPOSSIBLE.RolFuncionalidad
 ) 
 
 INSERT INTO NOTHING_IS_IMPOSSIBLE.RolFuncionalidad (cod_funcionalidad, cod_rol)
-VALUES (1,1),(1,2),(1,3),(2,3),(3,3),(4,3),(5,3),(6,1),(6,2),(7,2),(8,2),(9,2),(10,1),(10,2),(11,3)
+VALUES (1,1),(1,2),(1,3),(2,3),(3,3),(4,3),(5,3),(6,1),(6,2),(7,2),(8,2),(9,2),(10,3),(11,3)
 GO
 
 -- --> Rubro <-- --
@@ -1185,104 +1185,24 @@ END
 GO
 
 --Le quita rol a aquellos usuarios que tengan asignado un rol que esté inhabilitado. Se activa cada vez que la columna habilitado de Rol es modificada
-CREATE TRIGGER tr_quitar_roles_deshabilitados
-ON Rol
-AFTER UPDATE 
-AS
-BEGIN
-IF UPDATE(habilitado)
-UPDATE RolUsuario 
-SET cod_rol = NULL
-WHERE cod_rol IN (SELECT cod_rol FROM Rol
-					WHERE habilitado = 0)
-END
+IF OBJECT_ID('NOTHING_IS_IMPOSSIBLE.tr_quitar_roles_deshabilitados') IS NOT NULL
+	DROP TRIGGER NOTHING_IS_IMPOSSIBLE.tr_quitar_roles_deshabilitados;
 GO
 
-CREATE PROCEDURE NOTHING_IS_IMPOSSIBLE.sp_buscar_cliente(@nombre nvarchar(255), @apellido nvarchar(255), @dni numeric(18,0), @email nvarchar(255))
+CREATE TRIGGER [NOTHING_IS_IMPOSSIBLE].tr_quitar_roles_deshabilitados
+ON [NOTHING_IS_IMPOSSIBLE].Rol AFTER UPDATE 
 AS
 BEGIN
-SELECT u.*, c.* FROM Usuario u, Cliente c
-WHERE u.userId = c.cod_usuario
-AND c.nombre LIKE COALESCE('%' + @nombre + '%', '%%')
-AND c.apellido LIKE COALESCE('%' + @apellido + '%', '%%')
-AND c.dni = @dni
-AND u.email LIKE COALESCE('%' + @email + '%', '%%')
-END
+	DECLARE @habilitado bit, @cod_rol numeric(18, 2);
+	Select @habilitado = habilitado, @cod_rol = cod_rol from inserted
 
-CREATE PROCEDURE NOTHING_IS_IMPOSSIBLE.sp_buscar_empresa(@nombre varchar, @apellido varchar, @dni decimal, @email varchar)
-AS
-BEGIN
-SELECT * FROM Usuario u, Empresa e
-WHERE u.userId = e.cod_usuario
-AND razon_social LIKE COALESCE('%' + @razon_social + '%', '%%')
-AND cuit = @cuit
-AND email LIKE COALESCE('%' + @email + '%', '%%')
-END
-
---Devuelve TRUE si el usuario es dueño de la publicación (por lo que se mostraría una ventana) y FALSE si no lo es (otra ventana)
---Check sintaxis comparación
-CREATE PROCEDURE NOTHING_IS_IMPOSSIBLE.sp_publicacion_propia(@usuario nvarchar(255), @publicacion numeric(18,0))
-AS
-BEGIN
-RETURN ((SELECT COUNT(*) FROM Publicacion
-WHERE cod_publicacion = @publicacion
-AND userId = @usuario) > 0)
+	IF (@habilitado = 0)
+	BEGIN
+		DELETE FROM [NOTHING_IS_IMPOSSIBLE].[RolUsuario]
+			WHERE [cod_rol]=@cod_rol
+	END
 END
 GO
 
 
---Clientes con mayor cantidad de productos comprados por mes y por año dentro de un rubro particular
-CREATE PROCEDURE NOTHING_IS_IMPOSSIBLE.sp_listado_top_clientes_productos_rubro (@rubro nvarchar(100))
-AS
-BEGIN
-SELECT cli.cod_usuario, COUNT(pub.*)
-FROM Clientes cli, Publicaciones pub, Compras com, RubroPublicacion rub
-WHERE rub.descripcion_corta = @rubro
-AND rub.cod_publicacion = pub.cod_publicacion
-AND pub.cod_publicacion = com.cod_publicacion
-AND com.cod_usuario = cli.cod_usuario
-GROUP BY cli.cod_usuario
-END
-GO
-
-CREATE PROCEDURE [NOTHING_IS_IMPOSSIBLE].[sp_facturarItems] 
-    @cod_publicacion numeric(18,0), 
-	@userIdVendedor numeric(18,0),
-	@totalFactura numeric(18, 0),
-	@numeroItemVenta numeric(18,0),
-	@numeroItemEnvio numeric(18,0),
-	@montoItemComisionPorVenta numeric(18,0),
-	@montoItemComisionPorEnvio numeric(18, 0),
-	@conceptoPorVenta numeric(18,0),
-	@conceptoPorEnvio numeric(18,0),
-	@cantidad numeric(18,0)
-AS
-BEGIN
-	DECLARE @ultimoID numeric(18,0);
-
-	-- alta factura
-	INSERT INTO NOTHING_IS_IMPOSSIBLE.Factura
-		(cod_publicacion, userId, total) 
-	VALUES
-		(@cod_publicacion, @userIdVendedor, @totalFactura);
-
-	
-	--SCOPE_IDENTITY: Esta funcion te retorna el último valor de identidad en el ámbito de ejecución actual. Es decir, el último autonumerico que realizó.
-	select @ultimoID = scope_identity();
-	
-	--  item 1
-	INSERT INTO NOTHING_IS_IMPOSSIBLE.ItemFactura 
-		(nro_factura, monto, cantidad,nro_item) 
-	VALUES
-		(@ultimoID, @montoItemComisionPorVenta, @cantidad,@numeroItemVenta);
-
---  item 1
-	INSERT INTO NOTHING_IS_IMPOSSIBLE.ItemFactura 
-		(nro_factura, monto, cantidad,nro_item) 
-	VALUES
-		(@ultimoID, @montoItemComisionPorVenta, @cantidad,@numeroItemEnvio);
-
-END
-GO
- 
 

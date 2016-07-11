@@ -68,8 +68,6 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
             formUser.Close();
             this.Show();
             this.Close();
-
-
         }
     }
 }
