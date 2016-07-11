@@ -32,6 +32,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     unVisibilidad.baja = (bool)lector["baja"];
                     visibilidades.Add(unVisibilidad);
                 }
+                lector.Close();
             }
             return visibilidades;
         }
@@ -94,9 +95,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
             return AccesoBaseDeDatos.WriteInBase(noQuery, "T", ListaParametros);
           
         }
-
-        
-
+     
         internal static decimal comosionPorVenta(decimal cod_visibilidad)
         {
             List<Visibilidad> visibilidades = new List<Visibilidad>();
@@ -116,6 +115,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     unVisibilidad.comision_vender = (decimal)lector["comision_vender"];
                     visibilidades.Add(unVisibilidad);
                 }
+                lector.Close();
             }
             MessageBox.Show("hasta aca llega y el codigo la comision es " + visibilidades.Count + "", "Stock", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             return visibilidades[0].comision_vender;
@@ -139,6 +139,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     unVisibilidad.valor_comision_envio = (decimal)lector["valor_comision_envio"];
                     visibilidades.Add(unVisibilidad);
                 }
+                lector.Close();
             }
             return visibilidades[0].valor_comision_envio;
         }
@@ -162,6 +163,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                 unVisibilidad.cod_tipo_comision_envio = (string)lector["cod_tipo_comision_envio"];
                 unVisibilidad.valor_comision_envio = (decimal)lector["valor_comision_envio"];
                 unVisibilidad.baja = (bool)lector["baja"];
+                lector.Close();
             }
             else
             {

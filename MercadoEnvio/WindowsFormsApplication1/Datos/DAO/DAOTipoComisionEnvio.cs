@@ -23,6 +23,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                 {
                     tipos.Add( new TipoComisionEnvio( (string)lector["cod_tipo_comision"] , (string)lector["descripcion"]) );
                 }
+                lector.Close();
             }
             return tipos;
         }

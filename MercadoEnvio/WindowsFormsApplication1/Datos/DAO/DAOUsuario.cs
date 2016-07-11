@@ -25,6 +25,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                 us.username = user;
                 us.userId = (decimal)lector["userId"];
                 us.pass = pass;
+                lector.Close();
             }
     
     }
@@ -77,6 +78,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                 lector.Read();
                 usuario.username = userName;
                 usuario.userId = (decimal)lector["userId"];
+                lector.Close();
             }
         }
 
@@ -108,6 +110,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
                     usuarios.Add(user);
                 }
+                lector.Close();
             }
             return usuarios;
         }

@@ -26,6 +26,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     unaFuncion.cod_funcionalidad = (decimal)lector["cod_funcionalidad"];
                     funcionesDe.Add(unaFuncion);
                 }
+                lector.Close();
             }
             return funcionesDe;
         }
@@ -43,6 +44,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     func.nombre = (string)lector["nombre"];
                     funcionalidades.Add(func);
                 }
+                lector.Close();
             }
             return funcionalidades;
         }

@@ -132,6 +132,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
                     facturas.Add(factura);
                 }
+                lector.Close();
             }
             return facturas;
 
@@ -139,7 +140,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
 
 
-            internal static List<Factura> getFacturas()
+        internal static List<Factura> getFacturas()
         {
 
             List<Factura> facturas = new List<Factura>();
@@ -161,15 +162,13 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
                     facturas.Add(factura);
                 }
+                lector.Close();
             }
             return facturas;
         }
-
-
-
-       
+             
             
-        }
     }
+}
 
 

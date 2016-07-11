@@ -24,6 +24,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
                     rubros.Add(rubro);
                 }
+                lector.Close();
             }
             return rubros;
 

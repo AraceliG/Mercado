@@ -27,6 +27,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     unRol.cod_rol = (decimal)lector["cod_rol"];
                     rolesDe.Add(unRol);
                 }
+                lector.Close();
             }
             return rolesDe;
         }
@@ -67,6 +68,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     unRol.baja = (bool)lector["baja"];
                     roles.Add(unRol);
                 }
+                lector.Close();
             }
             return roles;
         }
@@ -109,6 +111,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     unRol.baja = (bool)lector["baja"];
                     roles.Add(unRol);
                 }
+                lector.Close();
             }
             return roles[0];
         }
@@ -139,6 +142,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     unRol.baja = (bool)lector["baja"];
                     roles.Add(unRol);
                 }
+                lector.Close();
             }
             return roles.Count>=1;
         }
@@ -186,6 +190,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     funcionalidad.nombre = (string)lector["nombre"];
                     func.Add(funcionalidad);
                 }
+                lector.Close();
             }
             return func;
         }

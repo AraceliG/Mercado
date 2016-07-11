@@ -25,6 +25,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     calif.descripcion = (string)lector["descripcion"];
                     califList.Add(calif);
                 }
+                lector.Close();
             }
             return califList;
 

@@ -55,6 +55,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
                     clienteList.Add(cliente);
                 }
+                lector.Close();
             }
             return clienteList;
         }
@@ -101,6 +102,7 @@ public static void crearCliente(Cliente c) {
                     cliente.username = (String)lector["username"];
                     clienteList.Add(cliente);
                 }
+                lector.Close();
             }
             return (clienteList.Count() >=1);
 
@@ -123,6 +125,7 @@ public static void crearCliente(Cliente c) {
                     cliente.tipo_doc = (string)lector["descripcion"];
                     clienteList.Add(cliente);
                 }
+                lector.Close();
             }
             return (clienteList.Count() >= 1);
 

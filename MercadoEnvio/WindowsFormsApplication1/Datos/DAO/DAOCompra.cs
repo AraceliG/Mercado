@@ -50,6 +50,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
                     compraList.Add(compra);
                 }
+                lector.Close();
             }
 
             return compraList;
@@ -79,6 +80,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
                     compraList.Add(compra);
                 }
+                lector.Close();
             }
 
             return compraList;
@@ -115,8 +117,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     compra.cant_estrellas = lector["cant_estrellas"] == DBNull.Value ? 0 : (int)(decimal)lector["cant_estrellas"];
                     compraList.Add(compra);
                 }
-
-                
+                lector.Close();               
 
             }
             
@@ -146,6 +147,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
                     compraList.Add(compra);
                 }
+                lector.Close();
             }
 
             return compraList;

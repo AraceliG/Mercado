@@ -364,6 +364,8 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
 
         private void FormularioLogin_Shown(object sender, EventArgs e)
         {
+            MessageBox.Show("Se inicia el proceso de publicaciones vencidas, puede tardar algunos minutos.", "Publicaciones vencidas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             Publicacion.actualizarVencidas(Convert.ToDateTime(ConfigurationManager.AppSettings["fecha"]), this.progressBar_publiVencidas);
         }
 

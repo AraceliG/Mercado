@@ -112,6 +112,7 @@ private static string consulta(String razonSocial,String mail, String cuit)
                     empresa.cuit = (String)lector["cuit"];
                     empresaList.Add(empresa);
                 }
+                lector.Close();
             }
             return empresaList;
         }

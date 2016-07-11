@@ -26,6 +26,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     concepto.descripcion = (String)lector["descripcion"];
                     conceptos.Add(concepto);
                 }
+                lector.Close();
             }
             return conceptos[0].cod_concepto;
         }
@@ -45,6 +46,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     concepto.descripcion = (String)lector["descripcion"];
                     conceptos.Add(concepto);
                 }
+                lector.Close();
             }
             return conceptos[0].cod_concepto;
            
@@ -65,6 +67,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     concepto.descripcion = (String)lector["descripcion"];
                     conceptos.Add(concepto);
                 }
+                lector.Close();
             }
             return conceptos[0].cod_concepto;
 

@@ -75,6 +75,8 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
                     publicaciones.Add(unPubli);
                 }
+
+                lector.Close();
             }
             return publicaciones;
         }
@@ -105,6 +107,8 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
                 if (DBNull.Value != lector["costo"])
                     unPubli.costo = (decimal)lector["costo"];
+
+                lector.Close();
 
             }
             return unPubli;
@@ -142,6 +146,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
             if (lector.HasRows)
                 dt.Load(lector);
 
+            lector.Close();
             return dt;
         }
 
@@ -166,6 +171,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
                     publis.Add(unPubli);
                 }
+                lector.Close();
             }
             return publis;
 
@@ -192,6 +198,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
                     publis.Add(unPubli);
                 }
+                lector.Close();
             }
             return publis;
 
@@ -220,6 +227,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
                     publis.Add(unPubli);
                 }
+                lector.Close();
             }
             return publis;
         }
@@ -296,6 +304,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
                     publis.Add(unPubli);
                 }
+                lector.Close();
             }
             return publis;
 
@@ -407,6 +416,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     unPubli.cod_visibilidad = (decimal)lector["cod_visibilidad"];
                     publis.Add(unPubli);
                 }
+                lector.Close();
             }
 
             return publis[0].cod_visibilidad;
@@ -531,9 +541,12 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
         private static decimal proximoCod_publicacion()
         {
+            decimal rdo;
             SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("select max(cod_publicacion) as maximo from NOTHING_IS_IMPOSSIBLE.Publicacion", "T", new List<SqlParameter>());
             lector.Read();
-            return 1 + (decimal)lector["maximo"];
+            rdo = 1 + (decimal)lector["maximo"];
+            lector.Close();
+            return rdo;
         }
 
 
@@ -552,6 +565,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     unPubli.userId = (Decimal)lector["userId"];
                     publis.Add(unPubli);
                 }
+                lector.Close();
             }
             return publis[0].userId;
 

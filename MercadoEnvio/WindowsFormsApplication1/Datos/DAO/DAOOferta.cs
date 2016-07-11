@@ -43,6 +43,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
                     ofertaList.Add(oferta);
                 }
+                lector.Close();
             }
 
             return ofertaList;
@@ -67,6 +68,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                 oferta.fecha = (DateTime)lector["fecha"];
                 oferta.monto = (decimal)lector["monto"];
                 oferta.ganadora = (bool)lector["ganadora"];
+                lector.Close();
             }
             else
             {
