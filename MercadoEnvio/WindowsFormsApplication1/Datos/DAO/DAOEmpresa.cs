@@ -233,6 +233,7 @@ private static string consulta(String razonSocial,String mail, String cuit)
                     empresa.razon_social = (string)lector["razon_social"];
                     empresaList.Add(empresa);
                 }
+                lector.Close();
             }
             return empresaList.Count>=1;
         }
@@ -264,6 +265,7 @@ private static string consulta(String razonSocial,String mail, String cuit)
                     empresas.Add(empresa);
 
                 }
+                lector.Close();
             }
              return empresas[0];
         }

@@ -31,7 +31,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     item.descripcion = (String)lector["descripcion"];
 
                     items.Add(item);
-                }
+                } lector.Close();
             }
             return items;
         }

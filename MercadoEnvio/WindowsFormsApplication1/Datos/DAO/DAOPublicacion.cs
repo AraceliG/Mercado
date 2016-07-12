@@ -595,7 +595,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     unPubli.userId = (decimal)lector["userId"];
 
                     publis.Add(unPubli);
-                }
+                } lector.Close();
             }
 
             return publis[0].userId;

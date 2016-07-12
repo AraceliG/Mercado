@@ -187,7 +187,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     unVisibilidad.descripcion = (String)lector["descripcion"];
                     visibilidades.Add(unVisibilidad);
                 }
-            }
+            } lector.Close();
             return visibilidades;
         }
        
@@ -205,7 +205,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     unVisibilidad.cod_visibilidad = (decimal)lector["cod_visibilidad"];
                     unVisibilidad.descripcion = (String)lector["descripcion"];
                     visibilidades.Add(unVisibilidad);
-                }
+                } lector.Close();
             }
             return visibilidades[0].comision_publicar;
         }

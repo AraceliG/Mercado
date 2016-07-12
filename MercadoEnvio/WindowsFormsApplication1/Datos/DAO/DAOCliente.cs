@@ -233,6 +233,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     cliente.apellido = (string)lector["apellido"];
                     clienteList.Add(cliente);
                 }
+                lector.Close();
             }
             return (clienteList.Count() >= 1);
 
@@ -266,6 +267,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     clienteList.Add(cliente);
                    
                 }
+                lector.Close();
             }
             return clienteList[0];
 
