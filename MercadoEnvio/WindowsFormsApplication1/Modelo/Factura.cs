@@ -16,6 +16,7 @@ namespace MercadoEnvioFRBA.Modelo
         public decimal total { set; get; }
         public String forma_pago_desc { set; get; }
         public List<ItemFactura> items { set; get; }
+       
 
         public Factura() 
         {
@@ -41,6 +42,7 @@ namespace MercadoEnvioFRBA.Modelo
         public decimal nro_item { set; get; }
         public decimal cod_concepto { set; get; }
         public decimal monto { set; get; }
-        public decimal cantidad { set; get; }
+        public decimal cantidad { set; get; } 
+        public string descripcion { get; set; }
     }
 }
