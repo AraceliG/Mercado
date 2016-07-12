@@ -214,6 +214,7 @@
             this.func11.Text = "Listado Estadistico";
             this.func11.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.func11.UseVisualStyleBackColor = true;
+            this.func11.Click += new System.EventHandler(this.func11_Click);
             // 
             // pictureBox1
             // 

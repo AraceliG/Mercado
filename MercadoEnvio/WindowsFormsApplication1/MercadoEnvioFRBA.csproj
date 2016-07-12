@@ -57,6 +57,7 @@
     <Compile Include="Datos\DAO\DAOFactura.cs" />
     <Compile Include="Datos\DAO\DAOFuncionalidad.cs" />
     <Compile Include="Datos\DAO\DAOItemsFactura.cs" />
+    <Compile Include="Datos\DAO\DAOListadoEstadistico.cs" />
     <Compile Include="Datos\DAO\DAOOferta.cs" />
     <Compile Include="Datos\DAO\DAOPublicacion.cs" />
     <Compile Include="Datos\DAO\DAORol.cs" />
@@ -298,6 +299,24 @@
     <Compile Include="Presentacion\Historial Cliente\HistorialMenu.Designer.cs">
       <DependentUpon>HistorialMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Listado Estadistico\ClieMayorCantFacturasPorRubro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Listado Estadistico\ClieMayorCantFacturasPorRubro.Designer.cs">
+      <DependentUpon>ClieMayorCantFacturasPorRubro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Listado Estadistico\ListadoEstadistico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Listado Estadistico\ListadoEstadistico.Designer.cs">
+      <DependentUpon>ListadoEstadistico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Listado Estadistico\VendMayorCantProdNoVendidiosPorFechaVisibilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Listado Estadistico\VendMayorCantProdNoVendidiosPorFechaVisibilidad.Designer.cs">
+      <DependentUpon>VendMayorCantProdNoVendidiosPorFechaVisibilidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presentacion\ABM Rol\InicioRoles.resx">
@@ -408,6 +427,15 @@
     <EmbeddedResource Include="Presentacion\Inicio\FormularioLogin.resx">
       <DependentUpon>FormularioLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Listado Estadistico\ClieMayorCantFacturasPorRubro.resx">
+      <DependentUpon>ClieMayorCantFacturasPorRubro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Listado Estadistico\ListadoEstadistico.resx">
+      <DependentUpon>ListadoEstadistico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Listado Estadistico\VendMayorCantProdNoVendidiosPorFechaVisibilidad.resx">
+      <DependentUpon>VendMayorCantProdNoVendidiosPorFechaVisibilidad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -440,9 +468,7 @@
   <ItemGroup>
     <None Include="Resources\fondoBoton1.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Presentacion\Listado Estadistico\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

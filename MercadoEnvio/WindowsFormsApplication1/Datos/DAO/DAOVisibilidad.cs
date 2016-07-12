@@ -173,8 +173,43 @@ namespace MercadoEnvioFRBA.Datos.DAO
             return unVisibilidad;
         }
 
-
+          public static List<Visibilidad> getVisibilidades() 
+        { 
+        List<Visibilidad> visibilidades = new List<Visibilidad>();
+            List<SqlParameter> paramList = new List<SqlParameter>();
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT COD_VISIBILIDAD,descripcion FROM NOTHING_IS_IMPOSSIBLE.Visibilidad", "T", paramList);
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    Visibilidad unVisibilidad = new Visibilidad();
+                    unVisibilidad.cod_visibilidad = (decimal)lector["cod_visibilidad"];
+                    unVisibilidad.descripcion = (String)lector["descripcion"];
+                    visibilidades.Add(unVisibilidad);
+                }
+            }
+            return visibilidades;
+        }
        
+         internal static Decimal getComisionVisibilidadPorDescripcion(string visibilidad)
+        {
+            List<Visibilidad> visibilidades = new List<Visibilidad>();
+            List<SqlParameter> paramList = new List<SqlParameter>();
+            paramList.Add(new SqlParameter("@descrip",visibilidad));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT COD_VISIBILIDAD,descripcion FROM NOTHING_IS_IMPOSSIBLE.Visibilidad where descripcion=@descrip", "T", paramList);
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    Visibilidad unVisibilidad = new Visibilidad();
+                    unVisibilidad.cod_visibilidad = (decimal)lector["cod_visibilidad"];
+                    unVisibilidad.descripcion = (String)lector["descripcion"];
+                    visibilidades.Add(unVisibilidad);
+                }
+            }
+            return visibilidades[0].comision_publicar;
+        }
     }
-}
+
+    }
 

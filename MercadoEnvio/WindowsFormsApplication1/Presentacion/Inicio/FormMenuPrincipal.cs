@@ -17,6 +17,7 @@ using MercadoEnvioFRBA.Presentacion.ABM_Rol;
 using MercadoEnvioFRBA.Presentacion.Historial_Cliente;
 using System.Configuration;
 using MercadoEnvioFRBA.Presentacion.Facturas;
+using MercadoEnvioFRBA.Presentacion.Listado_Estadistico;
 
 namespace MercadoEnvioFRBA.Presentacion.Inicio
 {
@@ -127,6 +128,15 @@ namespace MercadoEnvioFRBA.Presentacion.Inicio
             FacturasVendedor fact = new FacturasVendedor();
             fact.ShowDialog();
             this.Show();
+        }
+
+        private void func11_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ListadoEstadistico fact = new ListadoEstadistico();
+            fact.ShowDialog();
+            this.Show();
+       
         }
     }
 }
