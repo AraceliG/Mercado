@@ -193,10 +193,12 @@ namespace MercadoEnvioFRBA.Datos.DAO
        
          internal static Decimal getComisionVisibilidadPorDescripcion(string visibilidad)
         {
+
+           
             List<Visibilidad> visibilidades = new List<Visibilidad>();
             List<SqlParameter> paramList = new List<SqlParameter>();
             paramList.Add(new SqlParameter("@descrip",visibilidad));
-            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT COD_VISIBILIDAD,descripcion FROM NOTHING_IS_IMPOSSIBLE.Visibilidad where descripcion=@descrip", "T", paramList);
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT COD_VISIBILIDAD,descripcion,comision_publicar FROM NOTHING_IS_IMPOSSIBLE.Visibilidad where descripcion=@descrip", "T", paramList);
             if (lector.HasRows)
             {
                 while (lector.Read())
@@ -204,10 +206,11 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     Visibilidad unVisibilidad = new Visibilidad();
                     unVisibilidad.cod_visibilidad = (decimal)lector["cod_visibilidad"];
                     unVisibilidad.descripcion = (String)lector["descripcion"];
+                    unVisibilidad.comision_publicar = (Decimal)lector["comision_publicar"];
                     visibilidades.Add(unVisibilidad);
                 } lector.Close();
-            }
-            return visibilidades[0].comision_publicar;
+            } 
+             return visibilidades[0].comision_publicar;
         }
     }
 

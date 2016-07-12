@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace MercadoEnvioFRBA.Datos.DAO
 {
@@ -69,10 +70,12 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
         public DataTable vendMayorCantProdNoVendidos(string fechaIni, string fechaFin, string visibilidad)
         {
+            List<SqlParameter> parametrosList=new List<SqlParameter>();
+            parametrosList.Add(new SqlParameter("@comision_publicar",DAOVisibilidad.getComisionVisibilidadPorDescripcion(visibilidad)));
             string query = " SELECT * FROM " +
 " (SELECT TOP 5 * FROM (select p.userId,sum(STOCK) AS Total_STOCK from NOTHING_IS_IMPOSSIBLE.pUBLICACION P " +
 " inner join NOTHING_IS_IMPOSSIBLE.VISIBILIDAD V  on  V.COD_VISIBILIDAD=P.COD_VISIBILIDAD " +
- " WHERE STOCK>0 and comision_publicar= " + DAOVisibilidad.getComisionVisibilidadPorDescripcion(visibilidad) + "" +
+ " WHERE STOCK>0 and comision_publicar=@comision_publicar " +
 " and p.fecha_inicio BETWEEN CONVERT(datetime, '" + fechaIni + "', 120) and CONVERT(datetime,'" + fechaFin + "', 120) " +
 " GROUP BY p.userId) pV ORDER BY PV.TOTAL_STOCK DESC) L " +
 "inner join ( select  y.userId,username ,email, telefono,calle,num_calle,piso,depto,cod_postal, dni,nombre,apellido,cuit,razon_social from " +
@@ -81,7 +84,7 @@ namespace MercadoEnvioFRBA.Datos.DAO
             " x on x.userId=l.userId order by Total_STOCK desc ";
 
 
-            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader(query, "T", new List<SqlParameter>());
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader(query, "T", parametrosList);
             DataTable dt = new DataTable("listado");
             dt.Load(lector);
             return dt;
