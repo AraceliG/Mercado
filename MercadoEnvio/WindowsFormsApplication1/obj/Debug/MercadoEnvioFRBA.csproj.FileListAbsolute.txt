@@ -124,3 +124,7 @@ C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\
 C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.ABM_Usuario.DatosVendedor.resources
 C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.ABM_Usuario.DatosCliente.resources
 C:\Users\fari2\Documents\UTN\1_GDD\TP Frba MercadoEnvio - 1C 2016\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.ABM_Usuario.DatosEmpres.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Facturas.Itemfactura.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Listado_Estadistico.ClieMayorCantFacturasPorRubro.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Listado_Estadistico.ListadoEstadistico.resources
+C:\Users\Antonio\Source\Repos\Mercado\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvioFRBA.Presentacion.Listado_Estadistico.VendMayorCantProdNoVendidiosPorFechaVisibilidad.resources

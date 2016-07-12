@@ -16,7 +16,8 @@ namespace MercadoEnvioFRBA.Datos.DAO
 
             List<ItemFactura> items = new List<ItemFactura>();
             List<SqlParameter> listaParametros = new List<SqlParameter>();
-            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT descripcion, nro_factura,nro_item,monto,cantidad FROM NOTHING_IS_IMPOSSIBLE.Concepto C,NOTHING_IS_IMPOSSIBLE.ItemFactura ITF where C.cod_concepto=ITF.cod_concepto ", "T", listaParametros);
+            listaParametros.Add(new SqlParameter("@numFact", factura.nro_factura));
+            SqlDataReader lector = AccesoBaseDeDatos.GetDataReader("SELECT descripcion,ITF.cod_concepto,nro_factura,nro_item,monto,cantidad FROM NOTHING_IS_IMPOSSIBLE.Concepto C,NOTHING_IS_IMPOSSIBLE.ItemFactura ITF where C.cod_concepto=ITF.cod_concepto and ITF.nro_factura=@numFact", "T", listaParametros);
 
             if (lector.HasRows)
             {
@@ -29,12 +30,15 @@ namespace MercadoEnvioFRBA.Datos.DAO
                     item.nro_item = (decimal)lector["nro_item"];
                     item.monto = (decimal)lector["monto"];
                     item.descripcion = (String)lector["descripcion"];
+                    item.cod_concepto = (decimal)lector["cod_concepto"];
 
                     items.Add(item);
-                } lector.Close();
+                }
+                lector.Close();
             }
             return items;
         }
+
 
     }
 }

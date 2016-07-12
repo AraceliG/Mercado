@@ -34,6 +34,11 @@ namespace MercadoEnvioFRBA.Presentacion.Facturas
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 
