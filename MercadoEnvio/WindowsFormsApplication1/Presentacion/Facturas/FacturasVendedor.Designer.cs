@@ -51,6 +51,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridFacturas = new System.Windows.Forms.DataGridView();
             this.button_guardar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBoxDeFechas.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -263,7 +265,6 @@
             // 
             // button_guardar
             // 
-            this.button_guardar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_guardar.BackgroundImage")));
             this.button_guardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button_guardar.Location = new System.Drawing.Point(622, 209);
             this.button_guardar.Name = "button_guardar";
@@ -273,11 +274,35 @@
             this.button_guardar.UseVisualStyleBackColor = true;
             this.button_guardar.Click += new System.EventHandler(this.button_guardar_Click);
             // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(379, 528);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 41);
+            this.button1.TabIndex = 130;
+            this.button1.Text = "Datos vendedor";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(248, 528);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(110, 41);
+            this.button2.TabIndex = 131;
+            this.button2.Text = "Detalle de factura";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FacturasVendedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(830, 569);
+            this.ClientSize = new System.Drawing.Size(830, 581);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button_guardar);
             this.Controls.Add(this.dataGridFacturas);
             this.Controls.Add(this.groupBox3);
@@ -293,6 +318,8 @@
             this.Controls.SetChildIndex(this.groupBox3, 0);
             this.Controls.SetChildIndex(this.dataGridFacturas, 0);
             this.Controls.SetChildIndex(this.button_guardar, 0);
+            this.Controls.SetChildIndex(this.button1, 0);
+            this.Controls.SetChildIndex(this.button2, 0);
             this.groupBoxDeFechas.ResumeLayout(false);
             this.groupBoxDeFechas.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -330,5 +357,7 @@
         private System.Windows.Forms.CheckBox check_formaPago;
         private System.Windows.Forms.DataGridView dataGridFacturas;
         private System.Windows.Forms.Button button_guardar;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MercadoEnvioFRBA.Presentacion;
 using MercadoEnvioFRBA.Modelo;
 using MercadoEnvioFRBA.Datos.DAO;
+using MercadoEnvioFRBA.Presentacion.ABM_Usuario;
 
 namespace MercadoEnvioFRBA.Presentacion.Facturas
 {
@@ -182,6 +183,45 @@ namespace MercadoEnvioFRBA.Presentacion.Facturas
         private void txt_cant_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            if (dataGridFacturas.RowCount != 0)
+            {
+                Factura factura = (Factura)dataGridFacturas.CurrentRow.DataBoundItem;
+                Publicacion pub = new Publicacion();
+                pub.cod_publicacion = factura.cod_publicacion;
+                decimal userVendedorId = DAOPublicacion.getUsuarioVendedor(pub);
+                if (DAOEmpresa.tenesEmpresa(userVendedorId))
+                {
+                    DatosEmpres datos = new DatosEmpres(userVendedorId);
+                    datos.ShowDialog();
+                    this.Show();
+                }
+                if (DAOCliente.tenesCliente(userVendedorId))
+                {
+                    DatosCliente datos = new DatosCliente(userVendedorId);
+                    datos.ShowDialog();
+                    this.Show();
+                }
+
+            }
+            else { MessageBox.Show("Debe elegir una fila de la tabla de facturas", "Facturas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (dataGridFacturas.RowCount != 0)
+            {
+                Factura factura = (Factura)dataGridFacturas.CurrentRow.DataBoundItem;
+                Itemfactura items = new Itemfactura(factura);
+                items.ShowDialog();
+                this.Show();
+
+            }
+            else { MessageBox.Show("Debe elegir una fila de la tabla de facturas", "Facturas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
         }
     }
 }

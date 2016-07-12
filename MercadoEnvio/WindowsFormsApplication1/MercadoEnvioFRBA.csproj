@@ -201,6 +201,12 @@
     <Compile Include="Presentacion\Facturas\FacturasVendedor.Designer.cs">
       <DependentUpon>FacturasVendedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Facturas\Itemfactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Facturas\Itemfactura.Designer.cs">
+      <DependentUpon>Itemfactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\FormBaseUTN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -359,6 +365,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Facturas\FormPedirFormaPago.resx">
       <DependentUpon>FormPedirFormaPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Facturas\Itemfactura.resx">
+      <DependentUpon>Itemfactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FormBaseUTN.resx">
       <DependentUpon>FormBaseUTN.cs</DependentUpon>
