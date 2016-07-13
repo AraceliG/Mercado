@@ -20,16 +20,18 @@ namespace MercadoEnvioFRBA.Presentacion
         public FormAltaModifPublicacion()
         {
             InitializeComponent();
+
+            List<Visibilidad> visibilidades = Visibilidad.buscarVisibilidades("1=1");
+            this.visibilidad.DataSource = visibilidades;
+            this.visibilidad.ValueMember = "cod_visibilidad";
+            this.visibilidad.DisplayMember = "descripcion";
+            
             List<Estado> estados = Estado.getEstados();
             this.estado.DataSource = estados;
             this.estado.ValueMember = "cod_estadoPubli";
             this.estado.DisplayMember = "descripcion";
 
-            List<Visibilidad> visibilidades = Visibilidad.buscarVisibilidades( "1=1");
-            this.visibilidad.DataSource = visibilidades;
-            this.visibilidad.ValueMember = "cod_visibilidad";
-            this.visibilidad.DisplayMember = "descripcion";
-            
+
         }
 
         public FormAltaModifPublicacion(Publicacion unaPublicacion) : this () 
@@ -64,13 +66,14 @@ namespace MercadoEnvioFRBA.Presentacion
                 this.ofrece_enviosNo.Checked = true;
             }
 
+            this.visibilidad.SelectedValue = this.publicacionActual.cod_visibilidad;
             this.estado.DataSource = this.publicacionActual.miEstado.nuevosEstadosPermitidos();
             this.cod_publicacion.Text = this.publicacionActual.cod_publicacion.ToString();
             this.descripcion.Text = this.publicacionActual.descripcion;
             this.precio.Text = this.publicacionActual.precio.ToString();
             this.stock.Text = this.publicacionActual.stock.ToString();
             this.costo.Text = this.publicacionActual.costo.ToString();
-            this.visibilidad.SelectedValue = this.publicacionActual.cod_visibilidad;
+
             this.fecha_inicio.Value = this.publicacionActual.fecha_inicio;
             this.fecha_vencimiernto.Value = this.publicacionActual.fecha_vencimiernto;
 
@@ -131,39 +134,44 @@ namespace MercadoEnvioFRBA.Presentacion
         {
             
             decimal unDecimal;
+            this.publicacionActual.miEstado = (Estado)this.estado.SelectedItem;
 
-            if (Decimal.TryParse(this.cod_publicacion.Text, out unDecimal))
-                this.publicacionActual.cod_publicacion = unDecimal;
-
-            if (Decimal.TryParse(this.precio.Text, out unDecimal))
-                this.publicacionActual.precio = unDecimal;
-
-            if (Decimal.TryParse(this.stock.Text, out unDecimal))
-                this.publicacionActual.stock = unDecimal;
-
-            if (Decimal.TryParse(this.costo.Text, out unDecimal))
-                this.publicacionActual.costo = unDecimal;
-
-            this.publicacionActual.descripcion = this.descripcion.Text;
-
-            this.publicacionActual.cod_visibilidad = (decimal) this.visibilidad.SelectedValue;
-
-            this.publicacionActual.fecha_inicio = this.fecha_inicio.Value;
-            this.publicacionActual.fecha_vencimiernto = this.fecha_vencimiernto.Value;
-
-            this.publicacionActual.miEstado = (Estado) this.estado.SelectedItem;
-
-            if(this.tipo_publicacionCompra.Checked){
-                this.publicacionActual.cod_tipo_publicacion = "C";
-            }
-            else
+            if (!this.publicacionActual.miEstado.cod_estadoPubli.Equals("P") && !this.publicacionActual.miEstado.cod_estadoPubli.Equals("F"))
             {
-                this.publicacionActual.cod_tipo_publicacion = "S";
+                if (Decimal.TryParse(this.cod_publicacion.Text, out unDecimal))
+                    this.publicacionActual.cod_publicacion = unDecimal;
+
+                if (Decimal.TryParse(this.precio.Text, out unDecimal))
+                    this.publicacionActual.precio = unDecimal;
+
+                if (Decimal.TryParse(this.stock.Text, out unDecimal))
+                    this.publicacionActual.stock = unDecimal;
+
+                if (Decimal.TryParse(this.costo.Text, out unDecimal))
+                    this.publicacionActual.costo = unDecimal;
+
+                this.publicacionActual.descripcion = this.descripcion.Text;
+
+                this.publicacionActual.cod_visibilidad = (decimal)this.visibilidad.SelectedValue;
+
+                this.publicacionActual.fecha_inicio = this.fecha_inicio.Value;
+                this.publicacionActual.fecha_vencimiernto = this.fecha_vencimiernto.Value;
+
+                this.publicacionActual.miEstado = (Estado)this.estado.SelectedItem;
+
+                if (this.tipo_publicacionCompra.Checked)
+                {
+                    this.publicacionActual.cod_tipo_publicacion = "C";
+                }
+                else
+                {
+                    this.publicacionActual.cod_tipo_publicacion = "S";
+                }
+
+                this.publicacionActual.acepta_preguntas = this.acepta_preguntasSi.Checked;
+
+                this.publicacionActual.ofrece_envios = this.ofrece_enviosSi.Checked;
             }
-
-            this.publicacionActual.acepta_preguntas = this.acepta_preguntasSi.Checked;
-
-            this.publicacionActual.ofrece_envios = this.ofrece_enviosSi.Checked;
 
             if (publicacionActual.guardar() > 0)
             {
@@ -198,5 +206,7 @@ namespace MercadoEnvioFRBA.Presentacion
             unItem.cod_concepto = Concepto.cod_por_publicar();
             unFactura.insertarItem(unItem);       
         }
+
+
     }
 }
